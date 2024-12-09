@@ -1,6 +1,6 @@
 ---
 title: Svelte i18n and Localization Made Easy
-date: 2024-12-09T05:43:32.864Z
+date: 2024-12-09T14:13:23.134Z
 author: Alex Tray
 authorURL: https://www.freecodecamp.org/news/author/trayalex812/
 originalURL: https://www.freecodecamp.org/news/svelte-i18n-and-localization-made-easy/
