@@ -36,7 +36,7 @@ jobs:
           githubToken: '${{ github.token }}'
 
       - name: Articles auto translate
-        uses: miyaliu666/articles-auto-translate-action@feat/add-trailing-spaces
+        uses: miyaliu666/articles-auto-translate-action@2201f41e53e3e824b6ba2df134d4460656d15648
         with:
           with_issue_title: '${{ github.event.issue.title }}'
           with_issue_body: '${{ github.event.issue.Body }}'
