@@ -5,7 +5,7 @@ date: 2024-12-09T14:24:20.109Z
 author: Manish Shivanandhan 
 authorURL: https://www.freecodecamp.org/news/author/manishshivanandhan/ 
 originalURL: https://www.freecodecamp.org/news/how-hackers-use-command-execution-to-break-into-systems/ 
-posteditor: "" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
@@ -13,7 +13,7 @@ proofreader: ""
  
 <!-- more --> 
  
-黑客利用它在系统上运行有害命令，获取敏感数据，控制服务器，甚至关闭整个网络。 
+黑客利用它在系统上运行有害命令，获取敏感数据，控制服务器，甚至关闭整个网络。
  
 但它究竟是如何工作的？为何它是如此大的问题？让我们简单地分析一下。 
  
@@ -40,7 +40,7 @@ def ping_host(domain):
  
 - 你输入一个像 "[example.com][1]" 这样的域名。 
    
-- 程序在系统上运行 `ping` 命令，向 "[example.com][2]" 发送测试消息以检查它是否可达。 
+- 程序在系统上运行 `ping` 命令，向 "[example.com][2]" 发送测试消息以检查它是否可达。
    
  
 问题在于程序没有限制你可以输入的内容。如果一个恶意用户输入了类似 [`example.com`][3] `&& rm -rf /` 的内容，它可能会执行 ping 命令和 `rm -rf /` 命令，这将清除计算机上的所有文件。 
@@ -101,10 +101,10 @@ Shellshock 允许攻击者接管服务器、窃取数据并发起大规模攻击
    
 6. **监控日志**——日志就像服务器的安全摄像头。如果你看到一些异常，比如大量的登录失败尝试或未经授权的命令，这是一个警告信号。设置警报以尽早发现这些迹象。 
    
-``` 
+
  
  
-## 摘要 
+## 小结
  
 命令执行漏洞是黑客可以利用的最强大工具之一。通过利用这些漏洞，攻击者可以完全控制系统、窃取敏感信息或造成巨大损害。了解这种漏洞是学习如何防御系统的关键步骤。 
  
