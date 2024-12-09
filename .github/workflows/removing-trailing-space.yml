@@ -12,12 +12,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Remove trailing whitespaces from Markdown files
         run: |
           # 获取当前 PR 中的修改文件
           echo "Checking changes in PR..."
-          files=$(git diff --name-only HEAD)
+          files=$(git diff --name-only HEAD^ HEAD)
           echo "Changed files: $files"
 
           # 过滤出 .md 文件
