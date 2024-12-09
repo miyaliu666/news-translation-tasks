@@ -4,11 +4,11 @@ date: 2024-12-09T08:13:52.525Z
 author: Nitheesh Poojary 
 authorURL: https://www.freecodecamp.org/news/author/nitheeshp/ 
 originalURL: https://www.freecodecamp.org/news/simplify-aws-multi-account-management-with-terraform-and-gitops/ 
-posteditor: "" 
-proofreader: "" 
+posteditor: "miyaliu666" 
+proofreader: "miyaliu666" 
 --- 
  
-过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。 
+过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。
  
 <!-- more --> 
  
@@ -22,7 +22,7 @@ AWS Organizations 是一项旨在简化 AWS 账户管理的服务。这个强大
  
 通过支付的集中处理以及为每个账户生成详尽的费用报告，AWS Organizations 的计费流程也得到了优化。这种改进的财务管理清晰度使公司能够更高效地分配资源，并为未来的扩展制定战略。 
  
-AWS Organizations 可以帮助您的团队持续执行安全策略，在所有账户中实现日志记录，并简化管理任务。云基础设施现在已成为一个井然有序、安全高效的机器，准备支持公司未来多年的雄心壮志。 
+AWS Organizations 可以帮助您的团队持续执行安全策略，在所有账户中实现日志记录，并简化管理任务。云基础设施现在已成为一个井然有序、安全高效的机器，准备支持公司未来多年的雄心壮志。
  
 在本文中，我们将讨论多账户设置的意义及其工作原理。我将带您了解从部署架构到创建组织单元等所有方面。 
  
@@ -137,7 +137,7 @@ AWS IAM 身份中心为管理多个 AWS 账户和业务应用程序的访问提�
  
 为了统一的认证体验，用户可以使用 AWS 命令行界面、AWS SDK 或 AWS 控制台移动应用通过他们的目录凭据登录。 
  
-您还可以在 IAM 身份中心的身份存储中设置和管理用户 ID，或者连接到您现有的身份提供商，如 Microsoft Active Directory、Okta 等。 
+你还可以在 IAM 身份中心的身份存储中设置和管理用户 ID，或者连接到您现有的身份提供商，如 Microsoft Active Directory、Okta 等。 
  
 ### **控制塔控制（护栏）** 
  
