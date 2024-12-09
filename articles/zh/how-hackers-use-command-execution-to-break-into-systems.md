@@ -5,7 +5,7 @@ date: 2024-12-09T14:24:20.109Z
 author: Manish Shivanandhan 
 authorURL: https://www.freecodecamp.org/news/author/manishshivanandhan/ 
 originalURL: https://www.freecodecamp.org/news/how-hackers-use-command-execution-to-break-into-systems/ 
-posteditor: "" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
@@ -93,7 +93,7 @@ Shellshock 允许攻击者接管服务器、窃取数据并发起大规模攻击
    
 2. **避免运行系统命令**——直接从应用程序运行命令可能有风险。与其在 Python 中使用 `os.system('ls')`，不如使用 [`subprocess.run`][6] `()` 并设置 `shell=False`。这样，即使有人试图注入有害命令，它们也不会运行，因为没有涉及到 shell。 
    
-3. **限制程序的权限**——确保程序仅拥有它们真正需要的权限。例如，如果应用程序不需要修改系统文件，请不要让它具有写入权限。 
+3. **限制程序的权限**——确保程序仅拥有它们真正需要的权限。例如，如果应用程序不需要修改系统文件，请不要让它具有写入权限。
    
 4. **保持所有内容更新**——黑客喜欢旧软件，因为它就像一个损坏的锁。通过定期更新操作系统和库，可以修补已知漏洞。例如，Bash 中臭名昭著的 Shellshock 漏洞影响了过时的系统，但在后续版本中得到了修复。 
    
@@ -101,10 +101,10 @@ Shellshock 允许攻击者接管服务器、窃取数据并发起大规模攻击
    
 6. **监控日志**——日志就像服务器的安全摄像头。如果你看到一些异常，比如大量的登录失败尝试或未经授权的命令，这是一个警告信号。设置警报以尽早发现这些迹象。 
    
-``` 
+
  
  
-## 摘要 
+## 小结
  
 命令执行漏洞是黑客可以利用的最强大工具之一。通过利用这些漏洞，攻击者可以完全控制系统、窃取敏感信息或造成巨大损害。了解这种漏洞是学习如何防御系统的关键步骤。 
  
