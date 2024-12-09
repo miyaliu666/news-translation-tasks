@@ -4,11 +4,11 @@ date: 2024-12-09T08:13:52.525Z
 author: Nitheesh Poojary 
 authorURL: https://www.freecodecamp.org/news/author/nitheeshp/ 
 originalURL: https://www.freecodecamp.org/news/simplify-aws-multi-account-management-with-terraform-and-gitops/ 
-posteditor: "" 
+posteditor: "miya" 
 proofreader: "" 
 --- 
  
-过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。 
+过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。
  
 <!-- more --> 
  
