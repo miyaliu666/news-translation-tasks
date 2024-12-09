@@ -4,7 +4,7 @@ date: 2024-12-09T08:13:52.525Z
 author: Nitheesh Poojary 
 authorURL: https://www.freecodecamp.org/news/author/nitheeshp/ 
 originalURL: https://www.freecodecamp.org/news/simplify-aws-multi-account-management-with-terraform-and-gitops/ 
-posteditor: "miya" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
