@@ -1,6 +1,6 @@
 ---
 title: How to Set Up Google Authentication in Laravel Applications
-date: 2024-12-09T07:04:24.268Z
+date: 2024-12-09T07:16:44.820Z
 author: Abhijeet Dave
 authorURL: https://www.freecodecamp.org/news/author/Abhidave/
 originalURL: https://www.freecodecamp.org/news/how-to-set-up-google-auth-in-laravel-apps/
