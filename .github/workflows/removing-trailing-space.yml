@@ -3,7 +3,7 @@ name: Format PR Files
 on:
   pull_request:
     paths:
-      - '**/*.md'
+      - '**/*.md'  # 仅当 PR 中修改了 .md 文件时触发工作流
 
 jobs:
   whitespace:
@@ -14,14 +14,28 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Fetch latest changes
-        run: git fetch origin
+        run: |
+          git fetch origin
+          git merge origin/main  # 合并远程的 main 分支到当前分支
 
       - name: Remove trailing whitespaces from Markdown files
         run: |
-          file=$(git diff --name-only HEAD | grep '\.md$')
+          # 获取当前 PR 中的修改文件
+          echo "Checking changes in PR..."
+          files=$(git diff --name-only HEAD)
+          echo "Changed files: $files"
+
+          # 过滤出 .md 文件
+          file=$(echo "$files" | grep '\.md$')
+          echo "Filtered .md file: $file"
+
           if [ -n "$file" ]; then
+            echo "Processing file: $file"
+            # 删除文件中每一行的末尾空格
             sed -i 's/ $//g' "$file"
             git add "$file"
             git commit -m "Remove trailing spaces from $file"
-            git push origin HEAD
+            git push origin HEAD  # 推送更改到当前 PR 分支
+          else
+            echo "No .md files found or no changes to commit."
           fi
