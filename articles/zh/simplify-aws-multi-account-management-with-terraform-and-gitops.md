@@ -4,17 +4,17 @@ date: 2024-12-09T08:13:52.525Z
 author: Nitheesh Poojary 
 authorURL: https://www.freecodecamp.org/news/author/nitheeshp/ 
 originalURL: https://www.freecodecamp.org/news/simplify-aws-multi-account-management-with-terraform-and-gitops/ 
-posteditor: "" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
-过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。 
+过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。
  
 <!-- more --> 
  
 这种安排在早期可能运作良好，但随着公司成长及需求变得更加专业化，单个账户的简单性可能开始暴露其局限性。对专用环境的需求将开始增加，不久后，该公司可能需要为诸如安全、DevOps 和计费等特定功能创建新的 AWS 账户。 
  
-每增加一个新账户，整个基础设施的安全策略和日志管理的复杂性就会呈指数级增长。公司的云架构师们会意识到他们需要一种更加集中和精简的方法来管理这一扩展的数字存在。 
+每增加一个新账户，整个基础设施的安全策略和日志管理的复杂性就会呈指数级增长。公司的云架构师们会意识到他们需要一种更加集中和精简的方法来管理这一扩展的数字存在。
  
 ### 引入 AWS Organizations 
  
