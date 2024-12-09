@@ -15,4 +15,4 @@ jobs:
 
       - name: Remove trailing whitespaces from Markdown files
         run: |
-          find . -name "*.md" -exec sed -i 's/ $//' {} \;
+          find . -name "*.md" -exec sed -i 's/ $//g' {} \;
