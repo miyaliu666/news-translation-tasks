@@ -12,12 +12,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Fetch latest changes
-        run: |
-          git fetch origin
-          git merge origin/main  # 合并远程的 main 分支到当前分支
-
+        
       - name: Remove trailing whitespaces from Markdown files
         run: |
           # 获取当前 PR 中的修改文件
