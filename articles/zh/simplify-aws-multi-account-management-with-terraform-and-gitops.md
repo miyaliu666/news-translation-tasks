@@ -4,7 +4,7 @@ date: 2024-12-09T08:13:52.525Z
 author: Nitheesh Poojary 
 authorURL: https://www.freecodecamp.org/news/author/nitheeshp/ 
 originalURL: https://www.freecodecamp.org/news/simplify-aws-multi-account-management-with-terraform-and-gitops/ 
-posteditor: "" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
@@ -12,7 +12,7 @@ proofreader: ""
  
 <!-- more --> 
  
-这种安排在早期可能运作良好，但随着公司成长及需求变得更加专业化，单个账户的简单性可能开始暴露其局限性。对专用环境的需求将开始增加，不久后，该公司可能需要为诸如安全、DevOps 和计费等特定功能创建新的 AWS 账户。 
+这种安排在早期可能运作良好，但随着公司成长及需求变得更加专业化，单个账户的简单性可能开始暴露其局限性。对专用环境的需求将开始增加，不久后，该公司可能需要为诸如安全、DevOps 和计费等特定功能创建新的 AWS 账户。
  
 每增加一个新账户，整个基础设施的安全策略和日志管理的复杂性就会呈指数级增长。公司的云架构师们会意识到他们需要一种更加集中和精简的方法来管理这一扩展的数字存在。 
  
@@ -22,7 +22,7 @@ AWS Organizations 是一项旨在简化 AWS 账户管理的服务。这个强大
  
 通过支付的集中处理以及为每个账户生成详尽的费用报告，AWS Organizations 的计费流程也得到了优化。这种改进的财务管理清晰度使公司能够更高效地分配资源，并为未来的扩展制定战略。 
  
-AWS Organizations 可以帮助您的团队持续执行安全策略，在所有账户中实现日志记录，并简化管理任务。云基础设施现在已成为一个井然有序、安全高效的机器，准备支持公司未来多年的雄心壮志。 
+AWS Organizations 可以帮助你的团队持续执行安全策略，在所有账户中实现日志记录，并简化管理任务。云基础设施现在已成为一个井然有序、安全高效的机器，准备支持公司未来多年的雄心壮志。 
  
 在本文中，我们将讨论多账户设置的意义及其工作原理。我将带您了解从部署架构到创建组织单元等所有方面。 
  
