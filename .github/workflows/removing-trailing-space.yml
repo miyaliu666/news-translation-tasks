@@ -46,10 +46,10 @@ jobs:
             echo "Processing file: $file"
             # Remove trailing spaces from each line in the file
             sed -i 's/ $//g' "$file"
+            # Switch to the source branch and push the changes
+            git checkout $head_branch
             git add "$file"
             git commit -m "Remove trailing spaces from $file"
-            # Switch to the target branch (source branch)
-            git checkout $head_branch
             git push origin $head_branch
           else
             echo "No .md files found or no changes to commit."
