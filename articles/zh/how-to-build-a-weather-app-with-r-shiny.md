@@ -1,11 +1,11 @@
-```markdown 
+markdown 
 --- 
 title: 如何使用 R Shiny 构建一个天气应用 
 date: 2024-12-10T05:26:01.983Z 
 author: Elabonga Atuo 
 authorURL: https://www.freecodecamp.org/news/author/Ellabee/ 
 originalURL: https://www.freecodecamp.org/news/how-to-build-a-weather-app-with-r-shiny/ 
-posteditor: "" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
@@ -212,7 +212,7 @@ openstreetmap_error_body <- function(location, api_key) {
  
 ## 如何构建 Shiny 应用 
  
-现在您已经找到如何从 API 获取数据的方法，接下来就是以可解释和交互的格式呈现结果。为此，您将使用 Shiny。Shiny 是一个允许您创建交互式 Web 应用程序的框架。 
+现在你已经找到如何从 API 获取数据的方法，接下来就是以可解释和交互的格式呈现结果。为此，您将使用 Shiny。Shiny 是一个允许您创建交互式 Web 应用程序的框架。
  
 一个 Shiny 应用程序由两个组件组成： 
  
