@@ -23,17 +23,17 @@ proofreader: ""
 ## 目录
 
 1.  [项目概述][1]
-    
+   
 2.  [项目设置][2]
-    
+   
 3.  [API 密钥：存储和检索][3]
-    
+   
 4.  [如何进行第一次 API 调用][4]
-    
+   
 5.  [如何构建 Shiny 应用][5]
-    
+   
 6.  [总结][6]
-    
+   
 
 ## 项目概述
 
@@ -50,11 +50,11 @@ proofreader: ""
 要跟随本教程，你需要：
 
 -   R 编程知识
-    
+   
 -   HTML 和一点 JavaScript 知识
-    
+   
 -   已安装 R Studio
-    
+   
 
 ![天气更新 API 流程](https://cdn.hashnode.com/res/hashnode/image/upload/v1733172415724/c4f884f6-b583-4f13-b0f8-eb564ab6531f.png)
 
@@ -141,7 +141,7 @@ api_key = Sys.getenv("OPENWEATHERAPIKEY")
 
 ```
 coordinates <- function(body) {
-  if(length(body) != 0) { 
+  if(length(body) != 0) {
     lat <- body$coord$lat
     lng <- body$coord$lon
     town <- body$name
@@ -159,16 +159,16 @@ coordinates <- function(body) {
 如地理编码函数中实现的那样，首先创建一个请求，并使用 `req_url_query()` 函数添加必要的查询参数。`openweather_json()` 函数接受两个主要参数：
 
 -   `api_key`: 这是一个必需参数，用于与 OpenWeather API 的认证，通过位置匹配。
-    
+   
 -   `...`: 这表示可选的关键字参数，您可以用来定制查询。只要它们被指定为具名参数，您可以传递任意多的额外参数。
-    
+   
 
 ```
-openweather_json <- function(api_key, ...) { 
-  request(current_weather_url) |> 
-    req_url_query(..., `appid` = api_key, `units` = "metric") |> 
+openweather_json <- function(api_key, ...) {
+  request(current_weather_url) |>
+    req_url_query(..., `appid` = api_key, `units` = "metric") |>
     req_error(body = openweather_error_body) |>
-    req_perform() |> 
+    req_perform() |>
     resp_body_json()
 }
 ```
@@ -187,7 +187,7 @@ openweather_json <- function(api_key, ...) {
 
 ```
 openweather_error_body <- function(resp) {
-  resp |> resp_body_json() |> _$message 
+  resp |> resp_body_json() |> _$message
 }
 ```
 
@@ -201,8 +201,8 @@ openweather_error_body <- function(resp) {
 
 ```
 openstreetmap_error_body <- function(location, api_key) {
-  resp <- request(geocoding_url) |> 
-    req_url_query(`q` = location, `appid` = api_key) |> 
+  resp <- request(geocoding_url) |>
+    req_url_query(`q` = location, `appid` = api_key) |>
     req_error(is_error = \(resp) FALSE) |>
     req_perform() |>  resp_status()
   resp
@@ -216,9 +216,9 @@ openstreetmap_error_body <- function(location, api_key) {
 一个 Shiny 应用程序由两个组件组成：
 
 -   UI：用户交互的界面。它定义了应用程序的布局和外观。
-    
+   
 -   服务器：包含应用程序的逻辑和行为。
-    
+   
 
 ### 构建 Shiny UI
 
@@ -525,17 +525,17 @@ weather reactive 结合使用从 `location()` 获取和提取的坐标进行地�
 首先，将时间戳元素转换为 datetime 对象。将时间项格式化为 12 小时制，并将日期项格式化为包含星期几、日期和月份。
 
 -   `%I`：以 12 小时制格式显示小时（01-12）。
-    
+   
 -   `%M`：显示分钟（00-59）。
-    
+   
 -   `%p`：添加上午/下午指示符。
-    
+   
 
 paste 函数连接这些值。该函数返回一个包含日期和时间值的向量，可以通过子集化来提取。
 
 ```
 parse_date <- function(timestamp) {
-  datetime <- as_datetime(timestamp) 
+  datetime <- as_datetime(timestamp)
   date <- paste(weekdays(datetime), ",", day(datetime), months(datetime))
   time <- format(as.POSIXct(datetime), format = "%I:%M %p")
   c(date, time)
@@ -602,13 +602,13 @@ observeEvent(input$closeBadRequest, {
 为此，您使用了以下库：
 
 -   `httr2` 用于发送 API 请求并处理响应
-    
+   
 -   `shiny.semantic` 用于应用程序的样式
-    
+   
 -   `lubridate` 用于处理和格式化时间数据
-    
+   
 -   `shinyjs` 用于将 JavaScript 功能集成到应用程序中
-    
+   
 
 您可以在[这里][8]找到项目的完整代码。
 
