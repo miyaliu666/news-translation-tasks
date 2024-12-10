@@ -13,6 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Git config
+        run: |
+        git config --global user.name "miyaliu"
+        git config --global user.email "miyaliu66666@gmail.com"
+
       - name: Remove trailing whitespaces from Markdown files
         run: |
           echo "Target branch: ${{ github.event.pull_request.base.ref }}"
