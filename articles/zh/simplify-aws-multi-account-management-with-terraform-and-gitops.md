@@ -4,11 +4,11 @@ date: 2024-12-09T08:13:52.525Z
 author: Nitheesh Poojary 
 authorURL: https://www.freecodecamp.org/news/author/nitheeshp/ 
 originalURL: https://www.freecodecamp.org/news/simplify-aws-multi-account-management-with-terraform-and-gitops/ 
-posteditor: "miya" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
-过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。 
+过去，在云计算的世界里，一家公司的旅程通常从一个 AWS 账户开始。在这个统一的空间里，开发和测试环境共存，而生产环境则存在于一个独立的账户中。
  
 <!-- more --> 
  
@@ -108,7 +108,7 @@ AWS 控制塔是一项全面的服务，使您能够高效地设置和管理多�
  
 使用多个账户可以更好地支持您的安全目标和公司运营。 
  
-AWS 组织允许基于策略管理多个 AWS 账户。当您创建新账户时，可以将它们安排在组织单位（OU）中，这些组织单位是提供相同应用程序或服务的账户组合。 
+AWS 组织允许基于策略管理多个 AWS 账户。当你创建新账户时，可以将它们安排在组织单位（OU）中，这些组织单位是提供相同应用程序或服务的账户组合。 
  
 ![AWS 组织单位](https://cdn.hashnode.com/res/hashnode/image/upload/v1732137833615/6eebb3ab-94d0-4286-8dc4-9d3ae297e186.png) 
  
