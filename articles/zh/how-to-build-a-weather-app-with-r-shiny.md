@@ -1,11 +1,10 @@
-```markdown 
 --- 
 title: 如何使用 R Shiny 构建一个天气应用 
 date: 2024-12-10T05:26:01.983Z 
 author: Elabonga Atuo 
 authorURL: https://www.freecodecamp.org/news/author/Ellabee/ 
 originalURL: https://www.freecodecamp.org/news/how-to-build-a-weather-app-with-r-shiny/ 
-posteditor: "" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
@@ -48,7 +47,7 @@ proofreader: ""
  
 ### 前提条件： 
  
-要跟随本教程，你需要： 
+要学习本教程，你需要： 
  
 -   R 编程知识 
      
