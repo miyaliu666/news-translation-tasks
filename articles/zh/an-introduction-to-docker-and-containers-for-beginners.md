@@ -1,11 +1,10 @@
-```markdown 
 --- 
 title: Docker 和容器初学者入门 
 date: 2024-12-10T07:50:04.070Z 
 author: Kedar Makode 
 authorURL: https://www.freecodecamp.org/news/author/Kedar98/ 
 originalURL: https://www.freecodecamp.org/news/an-introduction-to-docker-and-containers-for-beginners/ 
-posteditor: "" 
+posteditor: "miyaliu" 
 proofreader: "" 
 --- 
  
@@ -36,7 +35,7 @@ proofreader: ""
  
 ## 什么是容器？ 
  
-在深入了解 Docker 之前，让我们先了解一下容器。想象一下你正在做一个项目，并且你的应用程序在你的笔记本电脑上运行得非常好。但是当你试图在另一台机器上运行相同的应用程序时，却失败了。这通常是由于环境的不同造成的：不同的操作系统、安装的不同软件版本或配置。 
+在深入了解 Docker 之前，让我们先了解一下容器。想象一下你正在做一个项目，并且你的应用程序在你的笔记本电脑上运行得非常好。但是当你试图在另一台机器上运行相同的应用程序时，却失败了。这通常是由于环境的不同造成的：不同的操作系统、安装的不同软件版本或配置。
  
 容器通过将应用程序及其所有依赖项（如库、框架和配置文件）打包成一个单一的标准化单元来解决这个问题。这确保了无论应用程序部署在哪里（你的笔记本电脑、服务器或云端），它都能以相同的方式运行。 
  
