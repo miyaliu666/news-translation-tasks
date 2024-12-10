@@ -48,7 +48,7 @@ jobs:
             sed -i 's/ $//g' "$file"
             git add "$file"
             git commit -m "Remove trailing spaces from $file"
-            git push origin HEAD  # 推送更改到当前 PR 分支
+            git push origin $head_branch  # 推送更改到源分支
           else
             echo "No .md files found or no changes to commit."
           fi
