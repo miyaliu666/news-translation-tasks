@@ -3,7 +3,7 @@ name: Format PR Files
 on:
   pull_request:
     paths:
-      - '**/*.md'  # 仅当 PR 中修改了 .md 文件时触发工作流
+      - '**/*.md'  # Trigger workflow only when .md files are modified in the PR
 
 jobs:
   whitespace:
@@ -23,7 +23,7 @@ jobs:
           echo "Target branch: ${{ github.event.pull_request.base.ref }}"
           echo "Head branch: ${{ github.event.pull_request.head.ref }}"
           
-          # 获取目标分支（main）与源分支（HEAD）之间的基准提交
+          # Get the base commit between the target branch (main) and the source branch (HEAD)
           base_branch="${{ github.event.pull_request.base.ref }}"
           head_branch="${{ github.event.pull_request.head.ref }}"
           
@@ -33,22 +33,24 @@ jobs:
           base_commit=$(git merge-base origin/$base_branch origin/$head_branch)
           echo "Base commit: $base_commit"
           
-          # 获取当前 PR 中的修改文件
+           # Get the changed files in the current PR
           echo "Checking changes in PR..."
           files=$(git diff --name-only $base_commit origin/$head_branch)
           echo "Changed files: $files"
 
-          # 过滤出 .md 文件
+          # Filter out .md files
           file=$(echo "$files" | grep '\.md$')
           echo "Filtered .md file: $file"
 
           if [ -n "$file" ]; then
             echo "Processing file: $file"
-            # 删除文件中每一行的末尾空格
+            # Remove trailing spaces from each line in the file
             sed -i 's/ $//g' "$file"
             git add "$file"
             git commit -m "Remove trailing spaces from $file"
-            git push origin $head_branch  # 推送更改到源分支
+            # Switch to the target branch (source branch)
+            git checkout $head_branch
+            git push origin $head_branch
           else
             echo "No .md files found or no changes to commit."
           fi
