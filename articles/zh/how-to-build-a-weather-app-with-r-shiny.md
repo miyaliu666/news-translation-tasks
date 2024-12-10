@@ -95,7 +95,7 @@ library(shiny.semantic)
 
 将你的凭据存储在与脚本和全局环境分开的地方是个好习惯。这确保了安全性、可扩展性和灵活性，尤其是在共享或生产环境中工作时。`.Renviron` 文件最好用于此目的。
 
-以以下方式打开并编辑你的 `.Renviron` 文件：
+通过以下方式打开并编辑你的 `.Renviron` 文件：
 
 ```
 #open and edit .Renviron
