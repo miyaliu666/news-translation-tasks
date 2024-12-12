@@ -1,6 +1,6 @@
 ```markdown 
 --- 
-title: Docker 和容器初学者入门 
+title: Docker 和容器初学者入门课程
 date: 2024-12-10T07:50:04.070Z 
 author: Kedar Makode 
 authorURL: https://www.freecodecamp.org/news/author/Kedar98/ 
@@ -88,7 +88,7 @@ Docker 的流行源于它解决了开发人员当前面临的多种挑战：
 Docker 的架构旨在确保效率、灵活性和可扩展性。它由几个组件组成，这些组件协同工作来创建、管理和运行容器。让我们更详细地看看这些组件中的每一个。 
 ``` 
  
-Docker 的架构围绕客户端-服务器模型构建，包括以下组件 
+Docker 的架构围绕客户端-服务器模型构建，包括以下组件：
  
 - **Docker 客户端** 
  
