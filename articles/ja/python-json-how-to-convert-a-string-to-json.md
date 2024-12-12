@@ -54,7 +54,7 @@ JSON では、データは次のようにキーと値のペアで記述します
 
 ```
 {
-    "first_name": "Katie",  
+    "first_name": "Katie", 
     "last_name": "Rodgers"
 }
 ```
@@ -63,12 +63,12 @@ JSON では、データは次のようにキーと値のペアで記述します
 
 ```
 [
-  { 
-    "first_name": "Katie",  
+  {
+    "first_name": "Katie", 
     "last_name": "Rodgers"
   },
-  { 
-    "first_name": "Naomi",  
+  {
+    "first_name": "Naomi", 
     "last_name": "Green"
   }
 ]
@@ -77,12 +77,12 @@ JSON では、データは次のようにキーと値のペアで記述します
 
 {
  "employee": [
-     { 
-    "first_name": "Katie",  
+     {
+    "first_name": "Katie", 
     "last_name": "Rodgers"
   },
-  { 
-    "first_name": "Naomi",  
+  {
+    "first_name": "Naomi", 
     "last_name": "Green"
   }
  ]
@@ -188,13 +188,13 @@ employees_string = '''
 {
     "employees": [
        {
-           "first_name": "Michael", 
-           "last_name": "Rodgers", 
+           "first_name": "Michael",
+           "last_name": "Rodgers",
            "department": "Marketing"
         },
        {
-           "first_name": "Michelle", 
-           "last_name": "Williams", 
+           "first_name": "Michelle",
+           "last_name": "Williams",
            "department": "Engineering"
         }
     ]
@@ -217,13 +217,13 @@ emoloyees_string = '''
 {
     "employees" : [
        {
-           "first_name": "Michael", 
-           "last_name": "Rodgers", 
+           "first_name": "Michael",
+           "last_name": "Rodgers",
            "department": "Marketing"
         },
        {
-           "first_name": "Michelle", 
-           "last_name": "Williams", 
+           "first_name": "Michelle",
+           "last_name": "Williams",
            "department": "Engineering"
         }
     ]
@@ -249,14 +249,14 @@ employees_string = '''
 {
     "employees" : [
        {
-           "first_name": "Michael", 
-           "last_name": "Rodgers", 
+           "first_name": "Michael",
+           "last_name": "Rodgers",
            "department": "Marketing"
 
         },
        {
-           "first_name": "Michelle", 
-           "last_name": "Williams", 
+           "first_name": "Michelle",
+           "last_name": "Williams",
            "department": "Engineering"
         }
     ]
@@ -270,7 +270,7 @@ print(type(data))
 #<class 'dict'>
 
 # first_name にアクセス
-for employee in data["employees"]: 
+for employee in data["employees"]:
     print(employee["first_name"])
 
 #出力

@@ -40,8 +40,8 @@ Vamos criar nosso primeiro arquivo TypeScript e escrever algum código nele. Abr
 Por enquanto, vamos apenas escrever algumas linhas de JavaScript puro, pois todo código JavaScript também é válido no TypeScript:
 
 ```
-let a = 5;  
-let b = 5;  
+let a = 5; 
+let b = 5; 
 let c = a + b;
 
 console.log(c);
@@ -84,8 +84,8 @@ let myVariable: any = 'This is a string'
 Estes são os tipos que são nativos do TypeScript. Eles incluem `number`, `string`, `boolean`, `void`, `null` e `undefined`.
 
 ```
-let num: number = 5;  
-let name: string = 'Alex';  
+let num: number = 5; 
+let name: string = 'Alex'; 
 let isPresent: boolean = true;
 ```
 
@@ -106,19 +106,19 @@ TypeScript tem suporte embutido para classes, que não eram suportadas pelo ES5 
 ```
 class Car {
 
-// campos  
-  model: String;  
-  doors: Number;  
+// campos 
+  model: String; 
+  doors: Number; 
   isElectric: Boolean;
 
-constructor(model: String, doors: Number, isElectric: Boolean) {  
-    this.model = model;  
-    this.doors = doors;  
-    this.isElectric = isElectric;  
+constructor(model: String, doors: Number, isElectric: Boolean) { 
+    this.model = model; 
+    this.doors = doors; 
+    this.isElectric = isElectric; 
   }
 
-displayMake(): void {  
-    console.log(`This car is ${this.model}`);  
+displayMake(): void { 
+    console.log(`This car is ${this.model}`); 
   }
 
 }
@@ -139,36 +139,36 @@ O conceito de interfaces é outro recurso poderoso do TypeScript, que permite de
 Interfaces são melhor descritas através de um exemplo real. Suponha que tenhamos um objeto `Car`:
 
 ```
-const Car = {  
-  model: 'Prius',  
-  make: 'Toyota',  
-  display() => { console.log('oi'); }  
+const Car = { 
+  model: 'Prius', 
+  make: 'Toyota', 
+  display() => { console.log('oi'); } 
 }
 ```
 
 Se olharmos para o objeto acima e tentarmos extrair sua assinatura, seria:
 
 ```
-{  
-  model: String,  
-  make: String,  
-  display(): void  
+{ 
+  model: String, 
+  make: String, 
+  display(): void 
 }
 ```
 
 Se quisermos reutilizar esta assinatura, podemos declará-la na forma de uma interface. Para criar uma interface, usamos a palavra-chave `interface`.
 
 ```
-interface ICar {  
-  model: String,  
-  make: String,  
-  display(): void  
+interface ICar { 
+  model: String, 
+  make: String, 
+  display(): void 
 }
 
-const Car: ICar = {  
-  model: 'Prius',  
-  make: 'Toyota',  
-  display() => { console.log('oi'); }  
+const Car: ICar = { 
+  model: 'Prius', 
+  make: 'Toyota', 
+  display() => { console.log('oi'); } 
 }
 ```
 

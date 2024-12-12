@@ -20,25 +20,25 @@ Este cambio de paradigma no solo mejora la precisión y la interpretabilidad de 
 
 ### Aquí está lo que cubriremos:
 
-1.  **[Capítulo 1. Introducción a RAG][1]**  
-    – [**1.1** ¿Qué es RAG? Una Visión General][2]  
+1.  **[Capítulo 1. Introducción a RAG][1]** 
+    – [**1.1** ¿Qué es RAG? Una Visión General][2] 
     – [**1.2** Cómo RAG Resuelve Problemas Complejos][3]
-2.  **[Capítulo 2. Fundamentos Técnicos][4]**  
-    – [**2.1** La Transición de Modelos de Lenguaje Neurales a RAG][5]  
-    – [**2.2** Entendiendo la Memoria de RAG: Paramétrica vs. No Paramétrica][6]  
+2.  **[Capítulo 2. Fundamentos Técnicos][4]** 
+    – [**2.1** La Transición de Modelos de Lenguaje Neurales a RAG][5] 
+    – [**2.2** Entendiendo la Memoria de RAG: Paramétrica vs. No Paramétrica][6] 
     – [**2.3** RAG Multimodal: Integración de Múltiples Tipos de Datos][7]
-3.  **[Capítulo 3. Mecanismos Fundamentales][8]**  
-    – [**3.1** El Poder de Combinar Recuperación de Información y Generación en RAG][9]  
+3.  **[Capítulo 3. Mecanismos Fundamentales][8]** 
+    – [**3.1** El Poder de Combinar Recuperación de Información y Generación en RAG][9] 
     – [**3.2** Estrategias de Integración para Recuperadores y Generadores][10]
-4.  **[Capítulo 4. Aplicaciones y Casos de Uso][11]**  
-    – [**4.1** RAG en Acción: Desde Preguntas y Respuestas hasta Escritura Creativa][12]  
+4.  **[Capítulo 4. Aplicaciones y Casos de Uso][11]** 
+    – [**4.1** RAG en Acción: Desde Preguntas y Respuestas hasta Escritura Creativa][12] 
     – [**4.2** RAG para Idiomas con Bajos Recursos: Ampliando el Alcance y las Capacidades][13]
-5.  **[Capítulo 5. Técnicas de Optimización][14]**  
+5.  **[Capítulo 5. Técnicas de Optimización][14]** 
     – [**5.1** Técnicas de Recuperación Avanzadas para Optimizar Sistemas RAG][15]
-6.  **[Capítulo 6. Desafíos e Innovaciones][16]**  
-    – [**6.1** Desafíos Actuales y Direcciones Futuras de RAG][17]  
+6.  **[Capítulo 6. Desafíos e Innovaciones][16]** 
+    – [**6.1** Desafíos Actuales y Direcciones Futuras de RAG][17] 
     – [**6.2** Aceleración de Hardware y Despliegue Eficiente de Sistemas RAG][18]
-7.  **[Capítulo 7. Reflexiones Conclusivas][19]**  
+7.  **[Capítulo 7. Reflexiones Conclusivas][19]** 
     – [**7.1** El Futuro de RAG: Conclusiones y Reflexiones][20]
 
 ## Requisitos Previos
@@ -83,7 +83,7 @@ A continuación, un ejemplo básico de código en Python que demuestra una confi
 ```python
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
-from langchain.document_loaders import TextLoader  
+from langchain.document_loaders import TextLoader 
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 
@@ -115,12 +115,12 @@ query = "¿Cuándo fue fundada la Empresa X y quiénes fueron los fundadores?"
 answer = get_answer(query)
 print(answer)
 
-# Ejemplo de Uso Desempeño Financiero 
+# Ejemplo de Uso Desempeño Financiero
 query = "¿Cuáles fueron las cifras de ingresos y ganancias de la Empresa X para el último trimestre?"
 answer = get_answer(query)
 print(answer)
 
-# Ejemplo de Uso Perspectiva Futura 
+# Ejemplo de Uso Perspectiva Futura
 query = "¿Cuáles son los planes de expansión o desarrollo de nuevos productos de la Empresa X?"
 answer = get_answer(query)
 print(answer)
@@ -253,10 +253,10 @@ chain = RetrievalQAWithSourcesChain.from_chain_type(llm=llm, chain_type="stuff",
 
 query = "¿Qué se descubrió en el LHC en 2012?"
 answer = chain.run(query)
-print("Paramétrica (con Recuperación): ", answer["answer"])  
+print("Paramétrica (con Recuperación): ", answer["answer"]) 
 
 query = "¿Dónde está ubicado el LHC?"
-docs = vectorstore.similarity_search(query)  
+docs = vectorstore.similarity_search(query) 
 print("No Paramétrica: ", docs[0].page_content)
 ```
 

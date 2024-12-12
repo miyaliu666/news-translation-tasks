@@ -20,43 +20,43 @@ Now, there are going to be times when you should build your own component librar
 ### Table of Contents:
 
 -   [An Analogy: What if Pre-Recorded Music Albums Didn't Exist][1]
-    
+   
 -   [Why I'm Writing this Guide][2]
-    
+   
 -   [What is a Component?][3]
-    
+   
 -   [What is a Component Library?][4]
-    
+   
 -   [What’s the Difference Between a Component Library and a Design System][5]
-    
+   
     -   [Design Systems][6]
-        
+       
     -   [Component Libraries][7]
-        
+       
 -   [A Brief History of Component Libraries][8]
-    
+   
 -   [What Makes a Good Component Library?][9]
-    
+   
 -   [What Are the Benefits of Using a Component Library?][10]
-    
+   
 -   [What Are the Drawbacks of Using a Third-Party Component Library?][11]
-    
+   
 -   [The Different Shapes a Component Library Can Take][12]
-    
+   
     -   [Utility Classes Libraries / CSS Style Guides][13]
-        
+       
     -   [Off-the-Shelf Component Libraries][14]
-        
+       
     -   [Un-styled Components][15]
-        
+       
     -   [Copy Pastable Component Libraries][16]
-        
+       
 -   [Why Isn’t There One Component Library to Rule Them All?][17]
-    
+   
 -   [Should You Build Your Own Component Library?][18]
-    
+   
 -   [When (and Why) It's Useful to Build Your Own Component Library][19]
-    
+   
 
 ## An Analogy: What if Pre-Recorded Music Albums Didn't Exist
 
@@ -130,11 +130,11 @@ Not all components are standalone. It makes sense for many components to be grou
 If you want your site to have a specific look or feel, you can use a _component library_. There are component libraries that:
 
 -   offer components that adhere to a design specification.
-    
+   
 -   offer multiple solutions for a specific UI pattern.
-    
+   
 -   work with a specific toolchain
-    
+   
 
 But they come in different shapes and sizes. The definition I’ve come to use when defining a component library is the following:
 
@@ -151,11 +151,11 @@ I see a design system as a specification for how things should look, feel, and b
 A few of the most well-known design systems include:
 
 -   [Material Design][22] (Google)
-    
+   
 -   [Base Design][23] (Uber)
-    
+   
 -   [Lightning Design System][24] (Salesforce)
-    
+   
 
 While many design systems are specific to companies, there are design systems, like Material Design, that teams across the globe use to shortcut their way to building familiar feeling products. You’ve probably used a handful of products that use Material Design principles, but they’re [certainly not free from basic usability issues][25].
 
@@ -196,13 +196,13 @@ The challenge with building a component library is that they’re not a _one-and
 I’ve found that a good component library often has the following traits:
 
 -   It understands the problems of its target developers and solves those problems well
-    
+   
 -   It has great documentation
-    
+   
 -   It ensures a good experience for the end-user
-    
+   
 -   It’s robust and caters to appropriate input modes and devices.
-    
+   
 
 On the flip side, a way to discern if a component library _isn’t good_ is if it doesn’t consider accessibility, has an inconsistent API, has little to no project stewardship, or has no clear and consistent documentation.
 
@@ -221,13 +221,13 @@ We’re not motivated by repetitive work. We enjoy technical challenges, and wri
 If you wanted to implement a dialog component from scratch, you’d need to:
 
 -   Handle focus trapping correctly
-    
+   
 -   Make the rest of the page inert
-    
+   
 -   Position the dialog correctly
-    
+   
 -   Ensure that it works with assistive technologies
-    
+   
 
 It takes work to remember and implement the above, but the consequence of getting it wrong can render your interface literally unusable. Such is the case if you [incorrectly handle focus][36].
 
@@ -286,11 +286,11 @@ There are hundreds of different solutions out there, some general purpose, other
 This isn’t a comprehensive list of ALL use cases or component library types, but it illustrates how component libraries differ in terms of:
 
 -   the technologies involved.
-    
+   
 -   the levels of abstraction they offer.
-    
+   
 -   the problems they solve.
-    
+   
 
 Let’s take a look at some of the most common component library types.
 
@@ -373,41 +373,41 @@ My first thought is: _I don’t think you should build your own library._
 I generally favour picking a battle-tested library. Particularly one that has:
 
 -   Been used across thousands of projects
-    
+   
 -   A strong community, in Discord or GitHub
-    
+   
 -   Great documentation
-    
+   
 -   A strong focus on accessibility
-    
+   
 -   Worked with the strengths of the chosen framework
-    
+   
 
 Most importantly out of all of these is to use a component library that puts care into building accessible components.
 
 Take a combobox, for instance. It’s a search input and a select menu mixed into one. If you’ve built your own, you may get it looking good, and working with your mouse. But you’ll also need to consider:
 
 -   Cross browser support
-    
+   
 -   Tab and focus behaviour
-    
+   
 -   Screen reader support
-    
+   
 -   Handling states for async loading of search results
-    
+   
 
 Konnor Rogers, who does excellent work in the web + web component space, has shared countless frustrations with his experiences building an accessible combobox. Here’s one such [tweet he shared][55].
 
 Screen reader support is particularly complex, and is worth of its own bullet-point list. To support screen readers, you’ll also need to handle:
 
 -   live regions
-    
+   
 -   interactive controls
-    
+   
 -   selected items
-    
+   
 -   support between different screen readers
-    
+   
 
 As a side note, I only have access to Voiceover, meaning it’s difficult for me to test these complex UI patterns using different screen readers. Like browsers, there are differences between screen readers. In this article, [Are We Live?][56], Scott O’Hara describes how there’s variance among the difference with how they treat the live regions.
 
@@ -416,20 +416,20 @@ This means it’s also up to you, as the developer, to pick a component library 
 You should be able to:
 
 -   See the bugs and issues others have flagged for a given library
-    
+   
 -   Suggest (or even contribute) improvements and changes to the library
-    
+   
 -   Discuss ideas with members of the community and build working relationships with active members of the community or even maintainers themselves
-    
+   
 
 Finally, and not least, a great component library will consider much more than the aesthetics of its components. For a component library designed for the web, it should try it’s best to:
 
 -   adhere to the [Web Content Accessibility Guidelines (WCAG)][57]
-    
+   
 -   ensure that the components work across different input modalities (touch, keyboard, screen reader)
-    
+   
 -   ensure that the components are usable for folks with additional requirements, like those living with vestibular disorders, vision impairments, or a broken hand.
-    
+   
 
 ## When (and Why) It's Useful to Build Your Own Component Library
 
@@ -444,11 +444,11 @@ For starters, you can build something tailored to your needs, and avoid some of 
 You also have the opportunity to experiment with novel approaches. If you have a hyper-niche problem, there might not be a component library out there to solves that need. It could be a component library that:
 
 -   Visualises data in specific way
-    
+   
 -   Has a distinct and unique visual identity
-    
+   
 -   Is built on a new framework
-    
+   
 
 That gives you the opportunity to build something tailored to your needs. You then have the opportunity to change and fix things as your needs change, or as you understand the problem space better.
 
@@ -457,13 +457,13 @@ Importantly, you’ll learn more about the web by doing so. If it’s your first
 So whether you should build a component library depends on your end goals. Consider questions like:
 
 -   Do I want to better understand the browser?
-    
+   
 -   Do I want to build something quickly?
-    
+   
 -   Do I want to make it usable for as many users as possible?
-    
+   
 -   Do libraries exist that solve my current problem?
-    
+   
 
 Depending on what your answers are, you can make the right call for your project.
 

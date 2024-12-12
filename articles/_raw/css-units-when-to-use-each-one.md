@@ -276,12 +276,12 @@ Here, the `box` is specified as `50vw` of the overall viewport width. As the bro
 
 ```
 body {
-  font-family: 'Courier New', monospace; 
+  font-family: 'Courier New', monospace;
   margin: 0;
 }
 p {
-    font-size: 2ch; 
-    line-height: 1.5; 
+    font-size: 2ch;
+    line-height: 1.5;
   }
 ```
 
@@ -301,7 +301,7 @@ The font size of the text inside the `<p>` element is set to be twice the width 
 
 ```
 .container {
-    width: 300px; 
+    width: 300px;
     padding: 20px;
     background-color: #f0f0f0;
   }

@@ -21,25 +21,25 @@ This paradigm shift not only improves the accuracy and interpretability of LLM o
 
 ### Here is what we will cover:
 
-1.  **[Chapter 1. Introduction to RAG][1]**  
-    – [**1.1** What is RAG? An Overview][2]  
+1.  **[Chapter 1. Introduction to RAG][1]** 
+    – [**1.1** What is RAG? An Overview][2] 
     – [**1.2** How RAG Solves Complex Problems][3]
-2.  **[Chapter 2. Technical Foundations][4]**  
-    – [**2.1** Transitioning from Neural LM's to RAG][5]  
-    – [**2.2** Understanding RAG's Memory: Parametric vs. Non-Parametric][6]  
+2.  **[Chapter 2. Technical Foundations][4]** 
+    – [**2.1** Transitioning from Neural LM's to RAG][5] 
+    – [**2.2** Understanding RAG's Memory: Parametric vs. Non-Parametric][6] 
     – [**2.3** Multi-modal RAG: Integrating Multiple Data Types][7]
-3.  **[Chapter 3. Core Mechanisms][8]**  
-    – [**3.1** The Power of Combining Information Retrieval and Generation in RAG][9]  
+3.  **[Chapter 3. Core Mechanisms][8]** 
+    – [**3.1** The Power of Combining Information Retrieval and Generation in RAG][9] 
     – [**3.2** Integration Strategies for Retrievers and Generators][10]
-4.  **[Chapter 4. Applications and Use Cases][11]**  
-    – [**4.1** RAG at Work: From QA to Creative Writing][12]  
+4.  **[Chapter 4. Applications and Use Cases][11]** 
+    – [**4.1** RAG at Work: From QA to Creative Writing][12] 
     – [**4.2** RAG for Low-Resource Languages: Extending Reach and Capabilities][13]
-5.  **[Chapter 5. Optimization Techniques][14]**  
+5.  **[Chapter 5. Optimization Techniques][14]** 
     – [**5.1** Advanced Retrieval Techniques for Optimizing RAG Systems][15]
-6.  **[Chapter 6. Challenges and Innovations][16]**  
-    – [**6.1** Current Challenges and Future Directions for RAG][17]  
+6.  **[Chapter 6. Challenges and Innovations][16]** 
+    – [**6.1** Current Challenges and Future Directions for RAG][17] 
     – [**6.2** Hardware Acceleration and Efficient Deployment of RAG Systems][18]
-7.  **[Chapter 7. Concluding Thoughts][19]**  
+7.  **[Chapter 7. Concluding Thoughts][19]** 
     – [**7.1** The Future of RAG: Conclusions and Reflections][20]
 
 ## Pre-requisites
@@ -86,7 +86,7 @@ Here's a basic Python code example demonstrating a Retrieval Augmented Generatio
 ```
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
-from langchain.document_loaders import TextLoader  
+from langchain.document_loaders import TextLoader 
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 
@@ -118,12 +118,12 @@ query = "When was Company X founded and who were the founders?"
 answer = get_answer(query)
 print(answer)
 
-#Example Usage Financial Performance 
+#Example Usage Financial Performance
 query = "What were Company X's revenue and profit figures for the last quarter?"
 answer = get_answer(query)
 print(answer)
 
-#Example Usage Future Outlook 
+#Example Usage Future Outlook
 query = "What are Company X's plans for expansion or new product development?"
 answer = get_answer(query)
 print(answer)
@@ -258,10 +258,10 @@ chain = RetrievalQAWithSourcesChain.from_chain_type(llm=llm, chain_type="stuff",
 
 query = "What was discovered at the LHC in 2012?"
 answer = chain.run(query)
-print("Parametric (w/ Retrieval): ", answer["answer"])  
+print("Parametric (w/ Retrieval): ", answer["answer"]) 
 
 query = "Where is the LHC located?"
-docs = vectorstore.similarity_search(query)  
+docs = vectorstore.similarity_search(query) 
 print("Non-Parametric: ", docs[0].page_content)
 ```
 

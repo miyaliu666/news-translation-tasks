@@ -93,9 +93,9 @@ console.log(arr); // [ 1, 4, 3 ]
 El elevamiento se refiere al comportamiento predeterminado de JavaScript que mueve todas las declaraciones de variables y funciones a la parte superior. Esto significa que puedes usarlas antes de que se declaren.
 
 ```javascript
-x=5 
-console.log(x) // imprime 5 
-var x               
+x=5
+console.log(x) // imprime 5
+var x              
 ```
 
 En el código anterior, JavaScript ha movido la declaración de la variable a la parte superior del bloque de código. Es decir: es similar a declarar `x` en la primera línea.
@@ -555,9 +555,9 @@ Tomemos un ejemplo simple:
 function operacionAsincronica() {
     return new Promise((resolver, rechazar) => {
         const x = 1 + Math.random() * 10;
-        if (x < 5) 
+        if (x < 5)
             resolver("Exitosa");
-        else 
+        else
             rechazar("Error");
     });
 }

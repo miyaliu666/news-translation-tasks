@@ -17,53 +17,53 @@ Whether you’re new to web development or have some experience, this post will 
 ## Table of Contents
 
 -   [Finding a Resource: URLs][1]
-    
+   
 -   [Matching IPs and URLs: DNS Resolution][2]
-    
+   
     -   [What is the DNS Resolver?][3]
-        
+       
     -   [What is the Root DNS Server?][4]
-        
+       
     -   [What is the Top Level Domain Server?][5]
-        
+       
     -   [Authoritative Nameserver][6]
-        
+       
 -   [Establishing a Connection: TCP/IP Model][7]
-    
+   
     -   [How Does TCP Connection Work?][8]
-        
+       
     -   [TCP Three-way Handshake][9]
-        
+       
 -   [Starting the Exchange: Client-Server Communication][10]
-    
+   
     -   [What is the HTTP Protocol?][11]
-        
+       
     -   [HTTP Request/Response][12]
-        
+       
     -   [HTTPS][13]
-        
+       
     -   [Time to First Byte][14]
-        
+       
 -   [From Data to Pixels: The Critical Rendering Path][15]
-    
+   
     -   [Building the DOM tree][16]
-        
+       
     -   [Building the CSSOM Tree][17]
-        
+       
     -   [Javascript Compilation and Execution][18]
-        
+       
     -   [Building the Accessibility Tree][19]
-        
+       
     -   [Render tree][20]
-        
+       
     -   [Layout][21]
-        
+       
     -   [Painting][22]
-        
+       
     -   [A Note About JavaScript Hydration][23]
-        
+       
 -   [Conclusion][24]
-    
+   
 
 Before going into the details of every step included in the process, let's review some of the basic concepts we’ll be covering.
 
@@ -72,9 +72,9 @@ The internet is a huge network of interconnected computers. The World Wide Web (
 Computers connected to the internet are either:
 
 -   **Clients**, the web user's devices and the software that those devices use to access the web.
-    
+   
 -   **Servers**, computers that store web pages, sites, or apps and the files they need to be displayed in the user's web browser or devices.
-    
+   
 
 ## Finding a Resource: URLs
 
@@ -85,15 +85,15 @@ Each resource stored in a server can be located by clients using its valid assoc
 You may already know what a URL is, but let’s see in detail each one of its parts:
 
 -   **Scheme**: The first part of an URL indicates the protocol that should be used to retrieve the resource. Websites use the HTTP and the HTTPS protocol, but we’ll see more details about this later. The `:` after the scheme is what separates it from the next part of the URL.
-    
+   
 -   **Authority**: this part is composed by the domain name and the port number separated by a colon. The port is only mandatory when the standard ports of the HTTP protocol (80 for HTTP and 443 for HTTPS) are not being used by the web server. The `//` before the domain name indicates the beginning of the authority.
-    
+   
 -   **Path to resource**: this is the abstract or physical path to the resource in the web server.
-    
+   
 -   **Parameters**: a set of key/value pairs that add extra options to apply to the returning the requested resource. They are separated by a `&` and each web server has its own way to handle parameters. This section starts with `?`.
-    
+   
 -   **Anchor**: This section, if present, starts by a `#` and is handled by the browser to display a specific part of the returned document. For example, it can point to a specific section in a HTML document.
-    
+   
 
 There are a few things that happen when you type a URL into your browser’s address bar that allow you to navigate to a site and interact with its content. Let’s see each one in detail.
 
@@ -164,11 +164,11 @@ The handshake is a way for the client and the server to establish a secure conne
 The three steps of the TCP handshake include:
 
 1.  The client informs the server that it wants to establish a connection by sending a SYN (synchronize) packet. This packet specifies a sequence number that subsequent segments will start with.
-    
+   
 2.  The server receives the SYN and responds with a SYN-ACK (synchronize-acknowledgment) segment. It includes the server’s sequence number and an acknowledgment of the client’s sequence number, incremented by one.
-    
+   
 3.  The client responds with an ACK message, acknowledging the server’s sequence number. At this point, the connection has been established.
-    
+   
 
 ## Starting the Exchange: Client-Server Communication
 
@@ -185,46 +185,46 @@ The browser will start by sending an HTTP request message to the server, asking 
 There are two types of HTTP messages:
 
 -   **Requests**, sent by the client to the server to trigger an action.
-    
+   
 -   **Responses**, sent from the server to the client as an answer to the previous request.
-    
+   
 
 Messages are plain text documents, structured in a precise way determined by the communication protocol, in this case, HTTP.
 
 The three parts included in a **HTTP request** are:
 
 1.  **Request line**: Includes the request method, which is a verb defining the action to perform. In the case we are covering in this blogpost, the browser will make a GET request to fetch a page from the server. The request line will also include the resource location, in this case an URL, and the protocol version being used.
-    
+   
 2.  **Request header**: A set of key value pairs. Two of them are mandatory. `Host` indicates the domain name to target, and `Connection` which is always set to close unless it must be kept open. The request header always ends with a blank line.
-    
+   
 3.  **Request body**: Is an optional field that allows sending data over the server.
-    
+   
 
 The server will reply to the request with an HTTP response. Responses include information about the request status and may include the requested resource or data.
 
 HTTP responses are structured in the following parts:
 
 1.  **Status line**: Includes the used protocol version, a status code and a status text, with a human readable description of the status code.
-    
+   
 2.  **Headers**: A set of key-value pairs that can either be general headers, applying to the whole message; response headers, giving additional information about the server status; or representation headers, describing the format and encoding for the message data if present.
-    
+   
 3.  **Body**: Contains the requested data or resource. If no data or resource is expected by the client, the response usually won’t include a body.
-    
+   
 
 When the request for a web page is approved by the server, the response will include a `200 OK` message. Other existing HTTP response codes are:
 
 -   404 Not Found
-    
+   
 -   403 Forbidden
-    
+   
 -   301 Moved Permanently
-    
+   
 -   500 Internal Server Error
-    
+   
 -   304 Not Modified
-    
+   
 -   401 Unauthorized
-    
+   
 
 The response will also contain a list of HTTP headers and the response body, including the corresponding HTML code for the requested page.
 
@@ -245,19 +245,19 @@ To establish an encrypted communication, the client and the server have to initi
 This handshake or TLS negotiation starts once a TCP connection has been established, and includes the following steps:
 
 -   **Client hello**: The browser sends a hello message that includes all supported TLS versions and cipher suites.
-    
+   
 -   **Server Hello**: The server responds with the chosen cipher suite and TLS version, along with its SSL certificate containing the server's public key.
-    
+   
 -   **Authentication and Pre-Master Key**: The client verifies the server’s SSL certificate with the corresponding trusted authority, then creates a pre-master key using the server's public key (previously shared in the certificate) and shares this pre-master key with the server.
-    
+   
 -   **Pre-master key decryption**: The pre-mastered key can only be decrypted using the server’s private key. If the server is able to decrypt it, the client and server can then agree on a shared master secret to use for the session.
-    
+   
 -   **Client ChangeCipherSpec**: The client creates a session key using the shared master secret and sends the server all previously exchanged records, this time encrypted with the session key.
-    
+   
 -   **Server ChangeCipherSpec**: If the server generates the correct session key, it will be able to decrypt the message and verify the received record. The server then sends a record to confirm that the client also has the correct keys.
-    
+   
 -   **Secured connection established**: The handshake is complete.
-    
+   
 
 Once the handshake is completed, all the communication between the client and server is protected by symmetric encryption using the session key, and the browser can make the first HTTP GET request for the site.
 
@@ -417,13 +417,13 @@ The accessibility tree is another representation of the site’s content, specif
 In the accessibility tree, each DOM element is represented as an accessible object, containing the following information:
 
 -   **Name**: An identifier used to refer to the element.
-    
+   
 -   **Description**: Additional information about the element.
-    
+   
 -   **Role**: The type of element it is, related to its intended use.
-    
+   
 -   **State** and other properties: If the element is subject to change, it may include its current state. It can also include other properties specifying other functionality.
-    
+   
 
 In major web browsers, you can access the accessible objects and their information by selecting a node in the DOM tree viewer and the navigating to the “Accessibility” tab.
 

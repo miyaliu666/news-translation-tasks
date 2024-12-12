@@ -24,13 +24,13 @@ All you need to bring to the table is a curious and eager-to-learn mindset. This
 
 ## **Table of Contents:**
 
-1.  [What is Git?][1]  
-    – [Difference from other version control systems][2]  
+1.  [What is Git?][1] 
+    – [Difference from other version control systems][2] 
     – [The Three States and Basic Git Workflow][3]
 2.  [First-Time Git Setup][4]
 3.  [Get Help in Git][5]
-4.  [How to Get a Git Repository][6]  
-    – [Initialize a Repository in an Existing Directory][7]  
+4.  [How to Get a Git Repository][6] 
+    – [Initialize a Repository in an Existing Directory][7] 
     – [Clone an Existing Repository in Git][8]
 5.  [How to Record Changes to the Repository][9]
 6.  [View Commit History in Git][10]
@@ -38,14 +38,14 @@ All you need to bring to the table is a curious and eager-to-learn mindset. This
 8.  [Remote Repositories in Git][12]
 9.  [Tagging in Git][13]
 10.  [Git Aliases][14]
-11.  [Git Branching][15]  
-    – [Create a New Branch in Git][16]  
-    – [Understanding Branches][17]  
-    – [Switch to Another Branch in Git][18]  
+11.  [Git Branching][15] 
+    – [Create a New Branch in Git][16] 
+    – [Understanding Branches][17] 
+    – [Switch to Another Branch in Git][18] 
     – [Visualise Branches in Git][19]
-12.  [How to Manage Branches in Git][20]  
-    – [Managing Merged Branches][21]  
-    – [Renaming Branches][22]  
+12.  [How to Manage Branches in Git][20] 
+    – [Managing Merged Branches][21] 
+    – [Renaming Branches][22] 
     – [Changing the Default Branch Name][23]
 13.  [Branching Workflow][24]
 14.  [Rebasing in Git][25]
@@ -97,11 +97,11 @@ Setting up Git for the first time involves customizing your Git environment to s
 
 We use the `git config` tool to customize our Git environment. This tool allows us to both retrieve and set configuration variables that dictate how Git operates. These variables can be stored in three different locations:
 
-1.  **System-wide Configuration:**  
+1.  **System-wide Configuration:** 
     Stored in the `/etc/gitconfig` file, these settings apply to all users on the system and all repositories. We can interact with this file using the `--system` option with `git config`.
-2.  **User-specific Configuration:**  
+2.  **User-specific Configuration:** 
     Stored in `~/.gitconfig` or `~/.config/git/config`, these values are specific to you as a user. We can interact with this file using the `--global` option with `git config`, affecting all repositories you work with on your system.
-3.  **Repository-specific Configuration:**  
+3.  **Repository-specific Configuration:** 
     Stored in the `.git/config` file within a specific repository, these settings override global configurations and apply only to that repository.
 
 Each level of configuration overrides values from the previous level. For instance, values in `.git/config` will override those in `~/.gitconfig`.
@@ -324,7 +324,7 @@ If you want to see the exact changes you've made to your files before committing
 To see unstaged changes:
 
 ```bash
-$ git diff 
+$ git diff
 ```
 
 And to see staged changes:
@@ -377,7 +377,7 @@ These commands form the basic workflow for making changes, staging them, and com
 
 After creating multiple commits or cloning a repository, the `git log` command allows you to examine the commit history.
 
-By default, it lists commits in reverse chronological order, displaying each commit with its SHA-1 checksum, author's name and email, date, and commit message.  
+By default, it lists commits in reverse chronological order, displaying each commit with its SHA-1 checksum, author's name and email, date, and commit message. 
 Now let's see how can we enhance this output:
 
 ### How to View Commit Differences in Git:
@@ -467,7 +467,7 @@ This opens the commit message editor allowing you to modify the message. If no c
 To unstage a file that was accidentally included, you can use the `git reset HEAD <file>` command. For example:
 
 ```bash
-$ git reset HEAD CONTRIBUTING.md 
+$ git reset HEAD CONTRIBUTING.md
 ```
 
 The file is unstaged, allowing you to make further changes without committing the unintended ones.
@@ -491,7 +491,7 @@ Let's explore the alternatives introduced by Git version 2.23.0, `git restore`, 
 If you accidentally stage a file that you didn't intend to commit, you can use `git restore --staged <file>` to unstage it.
 
 ```bash
-$ git restore --staged CONTRIBUTING.md   
+$ git restore --staged CONTRIBUTING.md  
 ```
 
 The file is unstaged, similar to `git reset HEAD <file>`, allowing you to make further changes without committing the unintended ones.
@@ -978,7 +978,7 @@ Not only master branch, you can also rebase a topic branch onto another topic br
 
 Suppose you're working on a project with two feature branches: "frontend" and "backend". You made some commits on the "frontend" branch and now want to integrate these changes into the "backend" branch.
 
-Let's use a different approach this time -  
+Let's use a different approach this time - 
 use `--onto` option of `git rebase` to rebase the "frontend" branch onto the "backend" branch:
 
 ```bash

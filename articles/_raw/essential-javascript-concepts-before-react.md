@@ -22,21 +22,21 @@ Are you ready to improve your JavaScript skills? Let's dive right in 😉
 ## Table of Contents
 
 -   [How to Use Template Literals][1]
-    
+   
 -   [How to Destructure Objects and Arrays][2]
-    
+   
 -   [Ternaries Instead of if/else Statements][3]
-    
+   
 -   [How to Use Arrow Functions][4]
-    
+   
 -   [Short-Circuiting with && , ||, and ??][5]
-    
+   
 -   [How to Use Array Methods][6]
-    
+   
 -   [How to Fetch Data][7]
-    
+   
 -   [You Can Start React Now][8]
-    
+   
 
 ## How to Use Template Literals
 
@@ -65,11 +65,11 @@ Template literals give you the power to perform string interpolation easily in t
 **The Benefits of Template Literals include:**
 
 -   **Readability:** Your code becomes clearer and easier to understand.
-    
+   
 -   **Maintainability:** Updates are simpler since changes are localized within the template literal.
-    
+   
 -   **Expressiveness:** You can create multi-line strings and even use functions within them!
-    
+   
 
 Not only do template literals make your life easier, but they're also instrumental in building dynamic components with React. You can, for instance, create dynamic list items, conditionally render components, or format output based on data.
 
@@ -98,7 +98,7 @@ const person = {
     firstName: 'Olalekan',
     lastName: ‘Akande',
     middleName: ‘Toheeb’,
-    age: 30 
+    age: 30
 };
 
 const {  lastName , firstName} = person;
@@ -151,7 +151,7 @@ const person = {
     firstName: 'Olalekan',
     lastName: ‘Akande',
     middleName: ‘Toheeb’,
-    age: 30 
+    age: 30
 };
 
 const { firstName: givenName, lastName: familyName } = person;
@@ -277,11 +277,11 @@ In this React component, the ternary operator renders different content based on
 **Benefits of Ternary Operators:**
 
 -   **Concise syntax:** Ternary operators provide a more compact way to express conditional logic.
-    
+   
 -   **Readability:** They can improve code readability by making conditional expressions more concise and easier to understand.
-    
+   
 -   **Efficiency:** Sometimes, ternary operators are more efficient than `if/else` statements.
-    
+   
 
 By incorporating ternary operators into your JavaScript code, you can write more elegant and efficient programs.
 
@@ -304,11 +304,11 @@ const myFunction = (arg1, arg2) => {
 **Key Features:**
 
 -   **Implicit** **this** **binding:** [Arrow functions do not create their own `this` context][9]. Instead, they inherit the `this` value from the enclosing scope, which can be helpful in callback functions and event handlers.
-    
+   
 -   **Concise syntax:** The arrow function syntax is often shorter and more readable than traditional declarations.
-    
+   
 -   **Implicit return:** For single-line arrow functions with a `return` statement, the `return` keyword can be omitted.
-    
+   
 
 **Example:**
 
@@ -417,7 +417,7 @@ The above example can now be written as
 
 ```
 let numberOfBooksRead = 0;
-const hasRead = numberOfBooksRead ?? ‘No data’;  
+const hasRead = numberOfBooksRead ?? ‘No data’; 
 
 // hasRead = 0;
 ```
@@ -442,22 +442,22 @@ Arrays are fundamental data structures in JavaScript that store collections of e
 ### Essential Array Methods
 
 -   **map():** Creates a new array by applying a function to each original array element. Use `map()` to update existing elements.
-    
+   
 -   **filter():** Creates a new array containing only elements that pass a test implemented by a provided function. Use `filter()` to delete elements.
-    
+   
 -   **reduce():** Applies a function to an accumulator and each array element to reduce it to a single value.
-    
+   
 -   **sort():** Sorts the elements of an array in place.
-    
+   
 
 ### Advanced Array Methods
 
 -   **flatMap():** Flattens an array and applies a mapping function to each element.
-    
+   
 -   **reduceRight():** Similar to `reduce()`, but starts from the end of the array.
-    
+   
 -   **find():** Returns the first element in an array that satisfies a test implemented by a provided function.
-    
+   
 
 ### Relating Array Methods to React
 
@@ -622,13 +622,13 @@ By mastering template literals, destructuring, ternaries, arrow functions, short
 To deepen your understanding of React, consider checking out the following:
 
 -   [**Official React Documentation**][17]
-    
+   
 -   [**Create React App**][18]: A popular tool for setting up React projects quickly
-    
+   
 -   **Online Courses**: Platforms like [**freeCodeCamp**][19], **Udemy**, and **Coursera** offer comprehensive React courses.
-    
+   
 -   **React Community**: Engage with the React community on forums, social media, and meetups to learn from others and stay updated on the latest trends.
-    
+   
 
 ### Call to Action
 

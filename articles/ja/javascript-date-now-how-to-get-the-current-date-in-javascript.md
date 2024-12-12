@@ -43,7 +43,7 @@ console.log(currentYear); //2020
 
 ```js
 const today = date.getDate();
-const currentMonth = date.getMonth() + 1; 
+const currentMonth = date.getMonth() + 1;
 ```
 
 `getDate()` メソッドは月の日付（1-31）を返します。

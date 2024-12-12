@@ -87,7 +87,7 @@ const person = {
     firstName: 'Olalekan',
     lastName: 'Akande',
     middleName: 'Toheeb',
-    age: 30 
+    age: 30
 };
 
 const { lastName, firstName } = person;
@@ -138,7 +138,7 @@ const person = {
     firstName: 'Olalekan',
     lastName: 'Akande',
     middleName: 'Toheeb',
-    age: 30 
+    age: 30
 };
 ```
 ```
@@ -262,11 +262,11 @@ const MyComponent = ({ isLoggedIn }) => {
 **三元操作符的优点：**
 
 -   **简洁的语法：** 三元操作符提供了一种更紧凑的表达条件逻辑的方法。
-    
+   
 -   **可读性：** 它们可以通过使条件表达式更简洁和易于理解来提高代码的可读性。
-    
+   
 -   **效率：** 有时，三元操作符比 `if/else` 语句更高效。
-    
+   
 
 通过将三元操作符合并到 JavaScript 代码中，你可以编写更优雅和高效的程序。
 
@@ -289,11 +289,11 @@ const myFunction = (arg1, arg2) => {
 **关键特性：**
 
 -   **隐式的** **this** **绑定：** [箭头函数不创建自己的 `this` 上下文][9]。相反，它们继承外部作用域的 `this` 值，这在回调函数和事件处理程序中非常有用。
-    
+   
 -   **简洁的语法：** 箭头函数语法常常比传统的声明更短且更可读。
-    
+   
 -   **隐式返回：** 对于带有 `return` 语句的单行箭头函数，可以省略 `return` 关键字。
-    
+   
 
 **示例：**
 
@@ -400,7 +400,7 @@ const hasRead = numberOfBooksRead || 'No data';
 
 ```
 let numberOfBooksRead = 0;
-const hasRead = numberOfBooksRead ?? 'No data';  
+const hasRead = numberOfBooksRead ?? 'No data'; 
 
 // hasRead = 0;
 ```
@@ -425,20 +425,20 @@ const street = user?.address?.street;
 ### 基本数组方法
 
 -   **map():** 通过对每个原始数组元素应用函数来创建一个新数组。使用 `map()` 更新现有元素。
-    
+   
 -   **filter():** 创建一个新数组，其中只包含通过所提供函数实现的测试的元素。使用 `filter()` 删除元素。
-    
+   
 -   **reduce():** 将函数应用于累加器和每个数组元素，以将其减少为单个值。
-    
+   
 -   **sort():** 就地对数组的元素进行排序。
-    
+   
 
 -   **flatMap():** 扁平化数组并对每个元素应用映射函数。
-    
+   
 -   **reduceRight():** 类似于 `reduce()`，但从数组的最后一个元素开始。
-    
+   
 -   **find():** 返回数组中第一个满足提供的测试函数的元素。
-    
+   
 
 ### 将数组方法与 React 关联
 
@@ -601,13 +601,13 @@ useEffect(() => {
 要加深对 React 的理解，可以查看以下内容：
 
 -   [**官方 React 文档**][17]
-    
+   
 -   [**创建 React 应用程序**][18]：一个快速设置 React 项目的流行工具
-    
+   
 -   **在线课程**：像 [**freeCodeCamp**][19]、**Udemy** 和 **Coursera** 这样的平台提供全面的 React 课程。
-    
+   
 -   **React 社区**：通过论坛、社交媒体和见面会与 React 社区互动，向他人学习并保持对最新趋势的更新。
-    
+   
 
 ### 呼吁行动
 

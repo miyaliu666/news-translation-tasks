@@ -132,13 +132,13 @@ On top of the debugger tab are some greyed-out icons. When active, they let you 
 Also in the debugger tab are:
 
 -   Watch: where you can add and see the watch expressions
-    
+   
 -   Breakpoints: where you can see the code of the line you add a breakpoint to
-    
+   
 -   Scope: contains the local and global variables
-    
+   
 -   Callstack: shows the function calls that lead to the current point of code execution
-    
+   
 
 To see the contents of any file, you can click on it. After doing that, some of the icons in the debugger tab won’t be greyed out anymore.
 

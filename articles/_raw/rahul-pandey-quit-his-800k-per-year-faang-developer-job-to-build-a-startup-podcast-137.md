@@ -16,13 +16,13 @@ On this week's episode of the podcast, freeCodeCamp founder Quincy Larson interv
 We talk about:
 
 -   The post-layoff developer job landscape
-    
+   
 -   Developer interviews and how to differentiate yourself
-    
+   
 -   Why salary negotiation still makes sense
-    
+   
 -   His belief that 10x engineers exist – and even 100x and 1000x
-    
+   
 
 Can you guess what song I'm playing on my bass during the intro? It's from a 1969 Motown classic.
 
@@ -37,17 +37,17 @@ Also, I want to thank the 10,443 kind people who support our charity each month,
 Links we talk about during our conversation:
 
 -   Rahul's Android app tutorial on freeCodeCamp (4 hour watch): [https://www.freecodecamp.org/news/learn-how-to-build-and-publish-an-android-app-from-scratch/][2]
-    
+   
 -   Rahul's video about post-college job offers: [https://www.youtube.com/watch?v=rceUVaiXQgU][3]
-    
+   
 -   Taro, Rahul's company: [https://www.jointaro.com/][4]
-    
+   
 -   The story of a software engineer who moves back to India to run his father's chemical business after his death: [https://anandsanwal.me/2018/06/19/dad-company-sale/][5]
-    
+   
 -   Conference talk about the correlation between interest rates and developer hiring, by Pragmatic Engineer: [https://www.youtube.com/watch?v=VpPPHDxR9aM][6]
-    
+   
 -   Rahul on LinkedIn: [https://www.linkedin.com/in/rpandey1234/][7]
-    
+   
 
 [1]: https://www.freecodecamp.org/donate
 [2]: https://www.freecodecamp.org/news/learn-how-to-build-and-publish-an-android-app-from-scratch/

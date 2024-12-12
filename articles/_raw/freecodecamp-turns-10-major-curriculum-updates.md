@@ -23,13 +23,13 @@ Many of these campers – as we now call ourselves – have gotten jobs as softw
 Over the past 10 years, we've built:
 
 1.  An interactive 3,000-hour core curriculum that teaches Math, Programming, and Computer Science
-    
+   
 2.  A library of more than 12,000 programming tutorials – and dozens of full-length books – on our publication, [freecodecamp.org/news][1]
-    
+   
 3.  A YouTube channel with more than 1,000 free full-length courses. We just hit 10 million subscribers a few days ago.
-    
+   
 4.  The kindest, most supportive programming forum on the planet. And we have a similarly kind Discord server, too.
-    
+   
 
 The team has grown from just me to a staff of 35 teachers and engineers. And this is just the tip of the iceberg. A huge chunk of the work is done by the open source community itself. Every day, volunteers step forward to improve our codebase, create new open learning resources, and help one another on the forum.
 
@@ -50,82 +50,82 @@ We've sought inspiration from established developer certification nonprofits lik
 Our new certifications will:
 
 -   Be even more comprehensive
-    
+   
 -   Involve a final exam
-    
+   
 -   Involve a capstone project
-    
+   
 -   And be valid for 3 years, with a path to renewal
-    
+   
 
 And as with everything freeCodeCamp creates, these certifications will remain **completely free**.
 
 The Certified Full Stack Developer certification prep curriculum will cover:
 
 -   Semantic HTML
-    
+   
 -   Accessibility
-    
+   
 -   CSS Fundamentals
-    
+   
 -   CSS Flexbox
-    
+   
 -   Design for Developers
-    
+   
 -   Typography
-    
+   
 -   Code Editors
-    
+   
 -   JavaScript Fundamentals
-    
+   
 -   Functional Programming
-    
+   
 -   Higher Order Functions and Callbacks
-    
+   
 -   DOM Manipulation and events
-    
+   
 -   Web Standards
-    
+   
 -   React Fundamentals
-    
+   
 -   TypeScript Fundamentals
-    
+   
 -   Testing Concepts
-    
+   
 -   Bash Scripting
-    
+   
 -   SQL and Relational Databases
-    
+   
 -   Git & GitHub
-    
+   
 -   Security and Privacy
-    
+   
 -   Node.js
-    
+   
 -   Express.js
-    
+   
 -   Python Fundamentals
-    
+   
 -   Algorithmic Thinking
-    
+   
 -   Data Structures
-    
+   
 -   Object Oriented Programming
-    
+   
 -   Dynamic Programming
-    
+   
 -   Security for Web Developers
-    
+   
 -   Tooling and Deployment
-    
+   
 -   Working with APIs
-    
+   
 -   AI Engineering Fundamentals
-    
+   
 -   How to Get a Developer Job
-    
+   
 -   and more
-    
+   
 
 And by popular request, we're going to cover a **lot** more theory – right in the core curriculum.
 
@@ -142,19 +142,19 @@ And we'll drop you into the "blank canvas" style coding labs much earlier into t
 Here's the full contents of the new Certified Full Stack Developer path. It's a doozy:
 
 -   **64 Workshops** – Interactive step-by-step coding courses on tools ranging from HTML to SQL to Python
-    
+   
 -   **513 Lectures** – Short videos covering computer science concepts, with multiple choice questions to check your comprehension
-    
+   
 -   **83 Labs** – Projects where you start with a blank editor and a test suite, and have to build your project so that all the tests pass
-    
+   
 -   **62 Review Pages** – Comprehensive lists of topics from each module that you can review to help you prepare for quizzes and exams
-    
+   
 -   **66 Quizzes** and **6 Prep Exams** – To affirm your grasp of full stack development concepts and tools
-    
+   
 -   **1 Capstone Project** – a large, unique project that you'll build for your portfolio, reviewed by teachers within the freeCodeCamp community
-    
+   
 -   **1 Final Exam** – a comprehensive proctored 90-question certification exam taken within freeCodeCamp's exam environment
-    
+   
 
 After you've completed all this course work, you'll qualify to sit for a final exam. We've built our own open source Exam Environment where you can take an in-depth exam on everything you've learned throughout all our prep work.
 
@@ -273,13 +273,13 @@ freeCodeCamp has a small team of instructional designers, and right now we're mo
 It’s amazing how much we’ve accomplished as a community in just 10 years.
 
 -   A free curriculum of 3,000 hours of interactive learning resources
-    
+   
 -   1,000s of extra-curricular video courses, books, and tutorials
-    
+   
 -   10,000s of campers who’ve gotten jobs as developers
-    
+   
 -   10,000s of contributors who are getting experience by volunteering their time and talents through open source and through helping fellow campers
-    
+   
 
 And we’re just getting started.
 

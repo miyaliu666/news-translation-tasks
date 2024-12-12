@@ -80,7 +80,7 @@ Notice that the `class="button"` is used with the `.button` selector. This is a 
 ```
 * {
     box-sizing: border-box;
-} 
+}
 
 body {
     display:flex;
@@ -203,10 +203,10 @@ I also set a minimum height and width, with the `min-height` and `min-width` pro
     top:50%;
     background-color:#0a0a23;
     color: #fff;
-    border:none; 
-    border-radius:10px; 
+    border:none;
+    border-radius:10px;
     padding:15px;
-    min-height:30px; 
+    min-height:30px;
     min-width: 120px;
   }
 ```

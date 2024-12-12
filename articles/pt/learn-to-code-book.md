@@ -1940,7 +1940,7 @@ Mas como saber se eles não estão exagerando em suas afirmações?
 Afinal, um homem ardiloso uma vez disse:
 
 > "Se você só pode ser bom em uma coisa, seja bom em mentir.
-> 
+>
 > Aí você é bom em tudo."
 
 (A verdadeira procedência dessa citação é desconhecida. Mas gosto de imaginar que foi dita por um vigarista dos anos 1920 usando uma cartola e um monóculo.)
@@ -2246,7 +2246,7 @@ Primeiro, lembre-se de que você é o herói em sua própria jornada de codifica
 O Truque do Narrador é narrar suas ações mentalmente enquanto você as executa.
 
 > Quincy caminha pelo espaço dos hackers, seu laptop enfiado sob o braço. Ele coloca sua caneca sob o dispensador de água quente e joga um sachê de chá fresco. Ele puxa a alavanca. E enquanto a água fumegante enche sua caneca, ele diz em voz alta com seu melhor sotaque britânico: "Chá. Earl Grey. Quente."
-> 
+>
 > Com sua bebida energizante em mãos, ele desliza para dentro de um cubículo, alinha seu laptop na superfície, e encontra o olhar de outro desenvolvedor. Eles se encaram por um segundo. Quincy abaixa a cabeça suavemente, reconhecendo a presença do desenvolvedor. O desenvolvedor retribui com um pequeno movimento de cabeça, quase telepaticamente compartilhando este sentimento: "Eu te vejo, amigo. Eu vejo você aparecendo. Vejo você realizando as coisas."
 
 Narrar até os momentos mais mundanos da sua vida na sua cabeça pode te ajudar a se energizar. Cristalizar o momento que está diante de você e te dar clareza de propósito.

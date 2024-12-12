@@ -700,8 +700,8 @@ So let's go back into our `models/User.js` file and add it:
 
 ```
 userSchema.statics.createUser = async function (
-	firstName, 
-    	lastName, 
+	firstName,
+    	lastName,
     	type
 ) {
   try {
@@ -866,9 +866,9 @@ Let's create our final route to delete a user by their ID. For the route `.delet
 onDeleteUserById: async (req, res) => {
   try {
     const user = await UserModel.deleteByUserById(req.params.id);
-    return res.status(200).json({ 
-      success: true, 
-      message: `Deleted a count of ${user.deletedCount} user.` 
+    return res.status(200).json({
+      success: true,
+      message: `Deleted a count of ${user.deletedCount} user.`
     });
   } catch (error) {
     return res.status(500).json({ success: false, error: error })
@@ -974,8 +974,8 @@ export const encode = async (req, res, next) => {
     req.authToken = authToken;
     next();
   } catch (error) {
-    return res.status(400).json({ 
-    	success: false, message: error.error 
+    return res.status(400).json({
+    	success: false, message: error.error
     });
   }
 }
@@ -1035,9 +1035,9 @@ Let's break this down:
 
 ```
 if (!req.headers['authorization']) {
-  return res.status(400).json({ 
-  	success: false, 
-    	message: 'No access token provided' 
+  return res.status(400).json({
+  	success: false,
+    	message: 'No access token provided'
   });
 }
 ```
@@ -1061,8 +1061,8 @@ try {
   req.userType = decoded.type;
   return next();
 } catch (error) {
-  return res.status(401).json({ 
-  	success: false, message: error.message 
+  return res.status(401).json({
+  	success: false, message: error.message
   });
 }
 ```
@@ -1540,9 +1540,9 @@ initiate: async (req, res) => {
     const validation = makeValidation(types => ({
       payload: req.body,
       checks: {
-        userIds: { 
-          type: types.array, 
-          options: { unique: true, empty: false, stringOnly: true } 
+        userIds: {
+          type: types.array,
+          options: { unique: true, empty: false, stringOnly: true }
         },
         type: { type: types.enum, options: { enum: CHAT_ROOM_TYPES } },
       }
@@ -1642,7 +1642,7 @@ chatMessageSchema.statics.createPostInChatRoom = async function (chatRoomId, mes
     const aggregate = await this.aggregate([
       // get post where _id = post._id
       { $match: { _id: post._id } },
-      // do a join on another table called users, and 
+      // do a join on another table called users, and
       // get me a user whose _id = postedByUser
       {
         $lookup: {
@@ -1653,7 +1653,7 @@ chatMessageSchema.statics.createPostInChatRoom = async function (chatRoomId, mes
         }
       },
       { $unwind: '$postedByUser' },
-      // do a join on another table called chatrooms, and 
+      // do a join on another table called chatrooms, and
       // get me a chatroom whose _id = chatRoomId
       {
         $lookup: {
@@ -1665,7 +1665,7 @@ chatMessageSchema.statics.createPostInChatRoom = async function (chatRoomId, mes
       },
       { $unwind: '$chatRoomInfo' },
       { $unwind: '$chatRoomInfo.userIds' },
-      // do a join on another table called users, and 
+      // do a join on another table called users, and
       // get me a user whose _id = userIds
       {
         $lookup: {
@@ -1826,7 +1826,7 @@ chatMessageSchema.statics.getConversationByRoomId = async function (chatRoomId, 
     return this.aggregate([
       { $match: { chatRoomId } },
       { $sort: { createdAt: -1 } },
-      // do a join on another table called users, and 
+      // do a join on another table called users, and
       // get me a user whose _id = postedByUser
       {
         $lookup: {

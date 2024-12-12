@@ -344,7 +344,7 @@ A veces necesitas manipular directamente los arreglos en PHP, añadiendo, elimin
 ```
 $myFruitsArr = ["Apple", "Banana", "Cashew", "Mango"];
 array_pop($myFruitsArr);
-var_dump($myFruitsArr); 
+var_dump($myFruitsArr);
 
 /*
 Mango ha desaparecido:

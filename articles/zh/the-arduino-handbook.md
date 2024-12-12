@@ -500,7 +500,7 @@ d %= 5; // 相当于 d = d % 3 (d 变成 0)
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x == y)
 // 返回 0
@@ -516,7 +516,7 @@ Serial.print(x == y)
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x != y)
 // 返回 1
@@ -528,7 +528,7 @@ Serial.print(x != y)
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x > y)
 // 返回 1
@@ -540,7 +540,7 @@ Serial.print(x > y)
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x < y)
 // 返回 0
@@ -554,7 +554,7 @@ Serial.print(x < y)
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x >= y)
 // 返回 1
@@ -566,7 +566,7 @@ Serial.print(x >= y)
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x <= y)
 // 返回 0
@@ -1508,13 +1508,13 @@ int ldrValue;
 
 void setup() {
   pinMode(ldrPin, INPUT);
-  Serial.begin(9600); 
+  Serial.begin(9600);
 }
 
 void loop() {
   ldrValue = analogRead(ldrPin);
   Serial.println(ldrValue);
-  delay(1000); 
+  delay(1000);
 }
 ```
 
@@ -1561,8 +1561,8 @@ Trig 引脚用于“触发”超声波传感器，而 Echo 引脚用于根据超
 以下是一个代码示例：
 
 ```
-int trigPin = 9; 
-int echoPin = 10;  
+int trigPin = 9;
+int echoPin = 10; 
 
 long duration, distance;
 
@@ -1746,7 +1746,7 @@ int ldrValue;
 void setup() {
   pinMode(ldrPin, INPUT);
   pinMode(redLED, OUTPUT);
-  Serial.begin(9600); 
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -1759,7 +1759,7 @@ void loop() {
   }
 
   Serial.println(ldrValue);
-  delay(1000); 
+  delay(1000);
 }
 ```
 
@@ -1833,7 +1833,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Hello"); 
+  Serial.print("Hello");
   delay(1000);
 }
 ```
@@ -1992,7 +1992,7 @@ void loop(){
       digitalWrite(redLED, HIGH);
       digitalWrite(blueLED, LOW);
       digitalWrite(yellowLED, LOW);
-    } 
+    }
 
     if (userInput == "blue") {
       digitalWrite(redLED, LOW);
@@ -2065,7 +2065,7 @@ if (userInput == "red") {
   digitalWrite(redLED, HIGH);
   digitalWrite(blueLED, LOW);
   digitalWrite(yellowLED, LOW);
-} 
+}
 
 if (userInput == "blue") {
   digitalWrite(redLED, LOW);

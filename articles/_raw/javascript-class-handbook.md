@@ -288,7 +288,7 @@ Here’s an example:
 ```
 // Define a JavaScript class:
 class Time {
-  // Create two shorthand class field methods: 
+  // Create two shorthand class field methods:
   hourNow() {
     return new Date().getHours();
   }

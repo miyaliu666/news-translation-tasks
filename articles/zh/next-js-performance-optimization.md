@@ -286,7 +286,7 @@ Suspense 在等待数据加载时会使用 fallback。如果你想深入了解 R
 在这里，由于我们的 `LazyJerry` 组件是懒加载的，我们提供了一个 fallback 信息，在组件代码成功下载并渲染到浏览器之前显示一个加载信息。
 
 ```
-{shown && 
+{shown &&
     <Suspense fallback={<h1>加载 Jerry 的故事</h1>}>
                 <LazyJerry />
     </Suspense>
@@ -301,7 +301,7 @@ Suspense 在等待数据加载时会使用 fallback。如果你想深入了解 R
 // page.js
 
 import TomStory from "./components/tom/tom-story";
-import JerryStory from "./components/jerry/jerry-story"; 
+import JerryStory from "./components/jerry/jerry-story";
 
 export default function Home() {
   return (
@@ -409,7 +409,7 @@ const LazySpike = dynamic(() => import("./spike").then((mod) => mod.LazySpike), 
 
 import TomStory from "./components/tom/tom-story";
 import JerryStory from "./components/jerry/jerry-story";
-import SpikeStory from "./components/spike/spike-story"; 
+import SpikeStory from "./components/spike/spike-story";
 ```
 
 那里 – 你应该会在浏览器上看到新组件，并带有一个按钮，从尚未加载的 `spike.jsx` 文件中加载 Spike 的故事。

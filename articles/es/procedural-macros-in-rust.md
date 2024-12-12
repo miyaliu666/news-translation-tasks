@@ -348,7 +348,7 @@ Puedes usar tu macro como cualquier otra macro de derivación, usando el identif
 Si intentas compilar tu código en esta etapa, deberías ver el siguiente error de compilación:
 
 ```
-   Compiling my-app v0.1.0 
+   Compiling my-app v0.1.0
 
 error: proc-macro derive panicked
  --> src/main.rs:3:10
@@ -1008,7 +1008,7 @@ fn main() {
         username: "username".to_string(),
         age: 27,
     };
-    
+   
     dbg!(user_info);
 }
 ```
@@ -1442,9 +1442,9 @@ let variable = "Some variable";
 
 hash_mapify!(
     &str,
-    key = "value", 
-    key2 = "value2", 
-    key3 = "value3", 
+    key = "value",
+    key2 = "value2",
+    key3 = "value3",
     key4 = variable
 );
 ```

@@ -61,11 +61,11 @@ In my case, I’m currently using react-scripts 3.4.3:
 To upgrade react-scripts to 5+, you can do it in two ways:
 
 -   Uninstall and reinstall react-scripts
-    
+   
     -   open the terminal and run `npm uninstall react-scripts`
     -   run `npm install react-scripts`
 -   Manually change the react script version
-    
+   
     -   go to your `package.json` and change the react-script version to 5.0.2
     -   delete the node\_modules folder by running `rm –rf node_modules`
     -   delete the package.lock.json file by running `rm –rf package.lock.json`

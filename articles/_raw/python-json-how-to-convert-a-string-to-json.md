@@ -54,7 +54,7 @@ Objects are inside curly braces:
 
 ```
 {
-    "first_name": "Katie",  
+    "first_name": "Katie", 
     "last_name": "Rodgers"
 }
 ```
@@ -63,15 +63,15 @@ You can also create arrays, an ordered list of values, with JSON. In that case, 
 
 ```
 [
-  { 
+  {
 
-    "first_name": "Katie",  
+    "first_name": "Katie", 
     "last_name": "Rodgers"
   },
 
-  { 
+  {
 
-    "first_name": "Naomi",  
+    "first_name": "Naomi", 
     "last_name": "Green"
   },
 ]
@@ -81,13 +81,13 @@ You can also create arrays, an ordered list of values, with JSON. In that case, 
 
 {
  "employee": [
-     { 
-    "first_name": "Katie",  
+     {
+    "first_name": "Katie", 
     "last_name": "Rodgers"
   },
 
-  { 
-    "first_name": "Naomi",  
+  {
+    "first_name": "Naomi", 
     "last_name": "Green"
   },
  ]
@@ -193,13 +193,13 @@ employees_string = '''
 {
     "employees": [
        {
-           "first_name": "Michael", 
-           "last_name": "Rodgers", 
+           "first_name": "Michael",
+           "last_name": "Rodgers",
            "department": "Marketing"
         },
        {
-           "first_name": "Michelle", 
-           "last_name": "Williams", 
+           "first_name": "Michelle",
+           "last_name": "Williams",
            "department": "Engineering"
         }
     ]
@@ -222,13 +222,13 @@ emoloyees_string = '''
 {
     "employees" : [
        {
-           "first_name": "Michael", 
-           "last_name": "Rodgers", 
+           "first_name": "Michael",
+           "last_name": "Rodgers",
            "department": "Marketing"
         },
        {
-           "first_name": "Michelle", 
-           "last_name": "Williams", 
+           "first_name": "Michelle",
+           "last_name": "Williams",
            "department": "Engineering"
         }
     ]
@@ -251,14 +251,14 @@ employees_string = '''
 {
     "employees" : [
        {
-           "first_name": "Michael", 
-           "last_name": "Rodgers", 
+           "first_name": "Michael",
+           "last_name": "Rodgers",
            "department": "Marketing"
 
         },
        {
-           "first_name": "Michelle", 
-           "last_name": "Williams", 
+           "first_name": "Michelle",
+           "last_name": "Williams",
            "department": "Engineering"
         }
     ]
@@ -272,7 +272,7 @@ print(type(data))
 #<class 'dict'>
 
 #access first_name
-for employee in data["employees"]: 
+for employee in data["employees"]:
     print(employee["first_name"])
 
 #output

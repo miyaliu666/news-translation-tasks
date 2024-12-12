@@ -21,79 +21,79 @@ Important Note: All examples in this book are demonstrated in Ubuntu 22.04.2 LTS
 ## Table of Contents
 
 -   [Part 1: Introduction to Linux][1]
-    
+   
     -   [1.1. Getting Started with Linux][2]
 -   [Part 2: Introduction to Bash Shell and System Commands][3]
-    
+   
     -   [2.1. Getting Started with the Bash shell][4]
-        
+       
     -   [2.2. Command Structure][5]
-        
+       
     -   [2.3. Bash Commands and Keyboard Shortcuts][6]
-        
+       
     -   [2.4. Identifying Yourself: The `whoami` Command][7]
-        
+       
 -   [Part 3: Understanding Your Linux System][8]
-    
+   
     -   [3.1. Discovering Your OS and Specs][9]
 -   [Part 4: Managing Files From the Command line][10]
-    
+   
     -   [4.1. The Linux File-system Hierarchy][11]
-        
+       
     -   [4.2. Navigating the Linux File-system][12]
-        
+       
     -   [4.3. Managing Files and Directories][13]
-        
+       
     -   [4.5. Basic Commands for Viewing Files][14]
-        
+       
 -   [Part 5: The Essentials of Text Editing in Linux][15]
-    
+   
     -   [5.1. Mastering Vim: The Complete Guide][16]
-        
+       
     -   [5.2. Mastering Nano][17]
-        
+       
 -   [Part 6: Bash Scripting][18]
-    
+   
     -   [6.1. Definition of Bash scripting][19]
-        
+       
     -   [6.2. Advantages of Bash Scripting][20]
-        
+       
     -   [6.3. Overview of Bash Shell and Command Line Interface][21]
-        
+       
     -   [6.4. How to Create and Execute Bash scripts][22]
-        
+       
     -   [6.5. Bash Scripting Basics][23]
-        
+       
 -   [Part 7: Managing Software Packages in Linux][24]
-    
+   
     -   [7.1. Packages and Package Management][25]
-        
+       
     -   [7.2. Installing a Package via Command Line][26]
-        
+       
     -   [7.3. Installing a Package via an Advanced Graphical Method – Synaptic][27]
-        
+       
     -   [7.4. Installing downloaded packages from a website][28]
-        
+       
 -   [Part 8: Advanced Linux Topics][29]
-    
+   
     -   [8.1. User Management][30]
-        
+       
     -   [8.2 Connecting to Remote Servers via SSH][31]
-        
+       
     -   [8.3. Advanced Log Parsing and Analysis][32]
-        
+       
     -   [8.4. Managing Linux Processes via Command Line][33]
-        
+       
     -   [8.5. Standard Input and Output Streams in Linux][34]
-        
+       
     -   [8.6 Automation in Linux – Automate Tasks with Cron Jobs][35]
-        
+       
     -   [8.7. Linux Networking Basics][36]
-        
+       
     -   [8.8. Linux Troubleshooting: Tools and Techniques][37][8.9. General Troubleshooting Strategy for Servers][38]
-        
+       
 -   [Conclusion][39]
-    
+   
 
 ## Part 1: Introduction to Linux
 
@@ -112,13 +112,13 @@ In today's data center landscape, Linux and Microsoft Windows stand out as the p
 Here are several compelling reasons to learn Linux:
 
 -   Given the prevalence of Linux hosting, there is a high chance that your application will be hosted on Linux. So learning Linux as a developer becomes increasingly valuable.
-    
+   
 -   With cloud computing becoming the norm, chances are high that your cloud instances will rely on Linux.
-    
+   
 -   Linux serves as the foundation for many operating systems for the Internet of Things (IoT) and mobile applications.
-    
+   
 -   In IT, there are many opportunities for those skilled in Linux.
-    
+   
 
 #### What does it mean that Linux is an open-source operating system?
 
@@ -161,13 +161,13 @@ Today, there are thousands of Linux distributions to choose from, offering diffe
 Distributions vary from one to the other, but they generally have several common characteristics:
 
 -   A distribution consists of a Linux kernel.
-    
+   
 -   It supports user space programs.
-    
+   
 -   A distribution may be small and single-purpose or include thousands of open-source programs.
-    
+   
 -   Some means of installing and updating the distribution and its components should be provided.
-    
+   
 
 If you view the [Linux Distributions Timeline][41], you'll see two major distros: Slackware and Debian. Several distributions are derived from them. For example, Ubuntu and Kali are derived from Debian.
 
@@ -178,15 +178,15 @@ When building on an existing foundation, developers can drive their focus and ef
 Some popular Linux distributions are:
 
 1.  **Ubuntu**: One of the most widely used and popular Linux distributions. It is user-friendly and recommended for beginners. [Learn more about Ubuntu here][42].
-    
+   
 2.  **Linux Mint**: Based on Ubuntu, Linux Mint provides a user-friendly experience with a focus on multimedia support. [Learn more about Linux Mint here][43].
-    
+   
 3.  **Arch Linux**: Popular among experienced users, Arch is a lightweight and flexible distribution aimed at users who prefer a DIY approach. [Learn more about Arch Linux here][44].
-    
+   
 4.  **Manjaro**: Based on Arch Linux, Manjaro provides a user-friendly experience with pre-installed software and easy system management tools. [Learn more about Manjaro here][45].
-    
+   
 5.  **Kali Linux**: Kali Linux provides a comprehensive suite of security tools and is mostly focused on cybersecurity and hacking. [Learn more about Kali Linux here][46].
-    
+   
 
 #### How to install and access Linux
 
@@ -201,21 +201,21 @@ Installing Linux as the primary OS is the most efficient way to use Linux, as yo
 In this section, you will learn how to install Ubuntu, which is one of the most popular Linux distributions. I have left out other distributions for now, as I want to keep things simple. You can always explore other distributions once you are comfortable with Ubuntu.
 
 -   **Step 1 – Download the Ubuntu iso:** Go to the official [website][47] and download the iso file. Make sure to select a stable release that is labeled "LTS". LTS stands for Long Term Support which means you can get free security and maintenance updates for a long time (usually 5 years).
-    
+   
 -   **Step 2 – Create a bootable pendrive:** There are a number of softwares that can create a bootable pendrive. I recommend using Rufus, as it is quite easy to use. You can download it from [here][48].
-    
+   
 -   **Step 3 – Boot from the pendrive:** Once your bootable pendrive is ready, insert it and boot from the pendrive. The boot menu depends on your laptop. You can google the boot menu for your laptop model.
-    
+   
 -   **Step 4 – Follow the prompts.** Once, the boot process starts, select `try or install ubuntu`.
-    
+   
     ![Screen prompt to either try or install Ubuntu](https://cdn.hashnode.com/res/hashnode/image/upload/v1719304227675/5b706f94-7368-47ca-a4d6-d55a0d92eff9.png)
-    
+   
     The process will take some time. Once the GUI appears, you can select the language, and keyboard layout and continue. Enter your login and name. Remember the credentials as you will need them to log in to your system and access full privileges. Wait for the installation to complete.
-    
+   
 -   **Step 5 – Restart:** Click on restart now and remove the pen drive.
-    
+   
 -   **Step 6 – Login:** Login with the credentials you entered earlier.
-    
+   
 
 And there you go! Now you can install apps and customize your desktop.
 
@@ -224,9 +224,9 @@ And there you go! Now you can install apps and customize your desktop.
 For advanced installation, you can explore the following topics:
 
 -   Disk partitioning.
-    
+   
 -   Setting swap memory for enabling hibernation.
-    
+   
 
 **Accessing the terminal**
 
@@ -259,19 +259,19 @@ Using WSL has some advantages. The setup for WSL is simple and not time-consumin
 First, enable the Windows Subsystem for Linux option in settings.
 
 -   Go to Start. Search for "Turn Windows features on or off."
-    
+   
 -   Check the option "Windows Subsystem for Linux" if it isn't already.
-    
+   
     ![Checking the option "Windows Subsystem for Linux" in Windows features](https://cdn.hashnode.com/res/hashnode/image/upload/v1719306102095/84f23bae-faa5-4ece-a9b6-e40f8789a061.png)
-    
+   
 -   Next, open your command prompt and provide the installation commands.
-    
+   
 -   Open Command Prompt as an administrator:
-    
+   
     ![Running command prompt as an admin by right clicking the app and choosing "run as admin£](https://cdn.hashnode.com/res/hashnode/image/upload/v1720451480640/6052c9b4-cf07-47e0-ae89-18c3a2d3e385.png)
-    
+   
 -   Run the command below:
-    
+   
 
 ```
 wsl --install
@@ -316,11 +316,11 @@ VM software provides options to allocate and manage hardware resources for each 
 Here are some of the common options available for virtualization:
 
 -   [Oracle virtual box][49]
-    
+   
 -   [Multipass][50]
-    
+   
 -   [VMware workstation player][51]
-    
+   
 
 **Option 4: Use a Browser-based Solution**
 
@@ -369,9 +369,9 @@ echo $SHELL
 Command breakdown:
 
 -   The `echo` command is used to print on the terminal.
-    
+   
 -   The `$SHELL` is a special variable that holds the name of the current shell.
-    
+   
 
 In my setup, the output is `/bin/bash`. This means that I am using the bash shell.
 
@@ -412,11 +412,11 @@ command [options] [arguments]
 Here is the breakdown of the above syntax:
 
 -   `command`: This is the name of the command you want to execute. `ls` (list), `cp` (copy), and `rm` (remove) are common Linux commands.
-    
+   
 -   `[options]`: Options, or flags, often preceded by a hyphen (-) or double hyphen (--), modify the behavior of the command. They can change how the command operates. For example, `ls -a` uses the `-a` option to display hidden files in the current directory.
-    
+   
 -   `[arguments]`: Arguments are the inputs for the commands that require one. These could be filenames, user names, or other data that the command will act upon. For example, in the command `cat access.log`, `cat` is the command and `access.log` is the input. As a result, the `cat` command displays the contents of the `access.log` file.
-    
+   
 
 Options and arguments are not required for all commands. Some commands can be run without any options or arguments, while others might require one or both to function correctly. You can always refer to the command's manual to check the options and arguments it supports.
 
@@ -479,30 +479,30 @@ Linux zaira 6.5.0-21-generic #21~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Feb  9 1
 In the output above,
 
 -   `Linux`: Indicates the operating system.
-    
+   
 -   `zaira`: Represents the hostname of the machine.
-    
+   
 -   `6.5.0-21-generic #21~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Feb 9 13:32:52 UTC 2`: Provides information about the kernel version, build date, and some additional details.
-    
+   
 -   `x86_64 x86_64 x86_64`: Indicates the architecture of the system.
-    
+   
 -   `GNU/Linux`: Represents the operating system type.
-    
+   
 
 #### Find details of the CPU architecture using the `lscpu` Command
 
 The `lscpu` command in Linux is used to display information about the CPU architecture. When you run `lscpu` in the terminal, it provides details such as:
 
 -   The architecture of the CPU (for example, x86\_64)
-    
+   
 -   CPU op-mode(s) (for example, 32-bit, 64-bit)
-    
+   
 -   Byte Order (for example, Little Endian)
-    
+   
 -   CPU(s) (number of CPUs), and so on
-    
+   
     Let's try it out:
-    
+   
 
 ```
 lscpu
@@ -766,16 +766,16 @@ find /path/ -type f -name file-to-search
 Where,
 
 -   `/path` is the path where the file is expected to be found. This is the starting point for searching files. The path can also be`/`or `.` which represents the root and current directory, respectively.
-    
--   `-type` represents the file descriptors. They can be any of the below:  
-    `f` – **Regular file** such as text files, images, and hidden files.  
-    `d` – **Directory**. These are the folders under consideration.  
-    `l` – **Symbolic link**. Symbolic links point to files and are similar to shortcuts.  
-    `c` – **Character devices**. Files that are used to access character devices are called character device files. Drivers communicate with character devices by sending and receiving single characters (bytes, octets). Examples include keyboards, sound cards, and the mouse.  
+   
+-   `-type` represents the file descriptors. They can be any of the below: 
+    `f` – **Regular file** such as text files, images, and hidden files. 
+    `d` – **Directory**. These are the folders under consideration. 
+    `l` – **Symbolic link**. Symbolic links point to files and are similar to shortcuts. 
+    `c` – **Character devices**. Files that are used to access character devices are called character device files. Drivers communicate with character devices by sending and receiving single characters (bytes, octets). Examples include keyboards, sound cards, and the mouse. 
     `b` – **Block devices**. Files that are used to access block devices are called block device files. Drivers communicate with block devices by sending and receiving entire blocks of data. Examples include USB and CD-ROM
-    
+   
 -   `-name` is the name of the file type that you want to search.
-    
+   
 
 #### How to search files by name or extension
 
@@ -868,9 +868,9 @@ drwxrwxr-x 2 zaira zaira 4096 Mar 26 14:22 hosts
 -rw-rw-r-- 1 zaira zaira    0 Mar 26 14:23 hosts.txt
 drwxrwxr-x 2 zaira zaira 4096 Mar 26 14:22 images
 drwxrwxr-x 2 zaira zaira 4096 Mar 26 14:23 style
-drwxrwxr-x 2 zaira zaira 4096 Mar 26 14:22 webp 
+drwxrwxr-x 2 zaira zaira 4096 Mar 26 14:22 webp
 
-find . -type d 
+find . -type d
 # find directory output
 .
 ./webp
@@ -892,13 +892,13 @@ Here, we are listing files whose size exceeds `250MB`.
 Other units include:
 
 -   `G`: GigaBytes.
-    
+   
 -   `M`: MegaBytes.
-    
+   
 -   `K`: KiloBytes
-    
+   
 -   `c` : bytes.
-    
+   
 
 Just replace with the relevant unit.
 
@@ -917,11 +917,11 @@ find /path -name "*.txt" -mtime -10
 For example,
 
 -   **\-mtime +10** means you are looking for a file modified 10 days ago.
-    
+   
 -   **\-mtime -10** means less than 10 days.
-    
+   
 -   **\-mtime 10** If you skip + or – it means exactly 10 days.
-    
+   
 
 ### 4.5. Basic Commands for Viewing Files
 
@@ -1003,11 +1003,11 @@ For example, running `wc syslog.log` gave me the following output:
 In the output above,
 
 -   `1669` represents the number of lines in the file `syslog.log`.
-    
+   
 -   `9623` represents the number of words in the file `syslog.log`.
-    
+   
 -   `64367` represents the number of characters in the file `syslog.log`.
-    
+   
 
 So, the command `wc syslog.log` counted `1669` lines, `9623` words, and `64367` characters in the file `syslog.log`.
 
@@ -1069,17 +1069,17 @@ diff -u hello.py also-hello.py
 In the above output:
 
 -   `--- hello.py 2024-05-24 18:31:29.891690478 +0500` indicates the file being compared and its timestamp.
-    
+   
 -   `+++ also-hello.py 2024-05-24 18:32:17.207921795 +0500` indicates the other file being compared and its timestamp.
-    
+   
 -   `@@ -3,4 +3,5 @@` shows the line numbers where the changes occur. In this case, it indicates that lines 3 to 4 in the original file have changed to lines 3 to 5 in the modified file.
-    
+   
 -   `user = input(Enter your name: )` is a line from the original file.
-    
+   
 -   `print(greet(user))` is another line from the original file.
-    
+   
 -   `+print("Nice to meet you")` is the additional line in the modified file.
-    
+   
 
 3.  To see the diff in a side-by-side format, you can use the `-y` flag:
 
@@ -1097,9 +1097,9 @@ print(greet(user))                        print(greet(user))
 In the output:
 
 -   The lines that are the same in both files are displayed side by side.
-    
+   
 -   Lines that are different are shown with a `>` symbol indicating the line is only present in one of the files.
-    
+   
 
 ## Part 5: The Essentials of Text Editing in Linux
 
@@ -1114,13 +1114,13 @@ I suggest that you master any one text editor of your choice and stick to it. It
 Vim is a popular text editing tool for the command line. Vim comes with its advantages: it is powerful, customizable, and fast. Here are some reasons why you should consider learning Vim:
 
 -   Most servers are accessed via a CLI, so in system administration, you don't necessarily have the luxury of a GUI. But Vim has got your back – it'll always be there.
-    
+   
 -   Vim uses a keyboard-centric approach, as it is designed to be used without a mouse, which can significantly speed up editing tasks once you have learned the keyboard shortcuts. This also makes it faster than GUI tools.
-    
+   
 -   Some Linux utilities, for example editing cron jobs, work in the same editing format as Vim.
-    
+   
 -   Vim is suitable for all – beginners and advanced users. Vim supports complex string searches, highlighting searches, and much more. Through plugins, Vim provides extended capabilities to developers and system admins that includes code completion, syntax highlighting, file management, version control, and more.
-    
+   
 
 Vim has two variations: Vim (`vim`) and Vim tiny (`vi`). Vim tiny is a smaller version of Vim that lacks some features of Vim.
 
@@ -1151,11 +1151,11 @@ Note: Although arrow keys would work totally fine, you can still experiment with
 You need to know the 3 operating modes of Vim and how to switch between them. Keystrokes behave differently in each command mode. The three modes are as follows:
 
 1.  Command mode.
-    
+   
 2.  Edit mode.
-    
+   
 3.  Visual mode.
-    
+   
 
 **Command Mode.** When you start Vim, you land in the command mode by default. This mode allows you to access other modes.
 
@@ -1172,11 +1172,11 @@ This mode allows you to make changes to the file. To enter edit mode, press `I` 
 This mode allows you to work on a single character, a block of text, or lines of text. Let's break it down into simple steps. Remember, use the below combinations when in command mode.
 
 -   `Shift + V` → Select multiple lines.
-    
+   
 -   `Ctrl + V` → Block mode
-    
+   
 -   `V` → Character mode
-    
+   
 
 The visual mode comes in handy when you need to copy and paste or edit lines in bulk.
 
@@ -1195,11 +1195,11 @@ How to stay on track? If you forget your current mode, just press `ESC` twice an
 Copy-paste is known as 'yank' and 'put' in Linux terms. To copy-paste, follow these steps:
 
 -   Select text in visual mode.
-    
+   
 -   Press `'y'` to copy/ yank.
-    
+   
 -   Move your cursor to the required position and press `'p'`.
-    
+   
 
 **2\. How to search for text in Vim**
 
@@ -1216,90 +1216,90 @@ Let's search a few strings:
 First, move to command mode (by pressing escape twice) and then use these flags:
 
 -   Exit without saving → `:q!`
-    
+   
 -   Exit and save → `:wq!`
-    
+   
 
 #### Shortcuts in Vim: Making Editing Faster
 
 Note: All these shortcuts work in the command mode only.
 
 -   **Basic Navigation**
-    
+   
     -   `h`: Move left
-        
+       
     -   `j`: Move down
-        
+       
     -   `k`: Move up
-        
+       
     -   `l`: Move right
-        
+       
     -   `0`: Move to the beginning of the line
-        
+       
     -   `$`: Move to the end of the line
-        
+       
     -   `gg`: Move to the beginning of the file
-        
+       
     -   `G`: Move to the end of the file
-        
+       
     -   `Ctrl+d`: Move half-page down
-        
+       
     -   `Ctrl+u`: Move half-page up
-        
+       
 -   **Editing**
-    
+   
     -   `i`: Enter insert mode before the cursor
-        
+       
     -   `I`: Enter insert mode at the beginning of the line
-        
+       
     -   `a`: Enter insert mode after the cursor
-        
+       
     -   `A`: Enter insert mode at the end of the line
-        
+       
     -   `o`: Open a new line below the current line and enter insert mode
-        
+       
     -   `O`: Open a new line above the current line and enter insert mode
-        
+       
     -   `x`: Delete the character under the cursor
-        
+       
     -   `dd`: Delete the current line
-        
+       
     -   `yy`: Yank (copy) the current line (use this in visual mode)
-        
+       
     -   `p`: Paste below the cursor
-        
+       
     -   `P`: Paste above the cursor
-        
+       
 -   **Searching and Replacing**
-    
+   
     -   `/`: Search for a pattern which will take you to its next occurrence
-        
+       
     -   `?`: Search for a pattern that will take you to its previous occurrence
-        
+       
     -   `n`: Repeat the last search in the same direction
-        
+       
     -   `N`: Repeat the last search in the opposite direction
-        
+       
     -   `:%s/old/new/g`: Replace all occurrences of `old` with `new` in the file
-        
+       
 -   **Exiting**
-    
+   
     -   `:w`: Save the file but don't exit
-        
+       
     -   `:q`: Quit Vim (fails if there are unsaved changes)
-        
+       
     -   `:wq` or `:x`: Save and quit
-        
+       
     -   `:q!`: Quit without saving
-        
+       
 -   **Multiple Windows**
-    
+   
     -   `:split` or `:sp`: Split the window horizontally
-        
+       
     -   `:vsplit` or `:vsp`: Split the window vertically
-        
+       
     -   `Ctrl+w followed by h/j/k/l`: Navigate between split windows
-        
+       
 
 ### 5.2. Mastering Nano
 
@@ -1360,59 +1360,59 @@ You can also initiate search for a string with `CTRL + W` and press Enter. If yo
 #### Summary of keybindings in Nano
 
 -   **General**
-    
+   
     -   `Ctrl+X`: Exit Nano (prompting to save if changes are made)
-        
+       
     -   `Ctrl+O`: Save the file
-        
+       
     -   `Ctrl+R`: Read a file into the current file
-        
+       
     -   `Ctrl+G`: Display the help text
-        
+       
 -   **Editing**
-    
+   
     -   `Ctrl+K`: Cut the current line and store it in the cutbuffer
-        
+       
     -   `Ctrl+U`: Paste the contents of the cutbuffer into the current line
-        
+       
     -   `Alt+6`: Copy the current line and store it in the cutbuffer
-        
+       
     -   `Ctrl+J`: Justify the current paragraph
-        
+       
 -   **Navigation**
-    
+   
     -   `Ctrl+A`: Move to the beginning of the line
-        
+       
     -   `Ctrl+E`: Move to the end of the line
-        
+       
     -   `Ctrl+C`: Display the current line number and file information
-        
+       
     -   `Ctrl+_` (`Ctrl+Shift+-`): Go to a specific line (and optionally, column) number
-        
+       
     -   `Ctrl+Y`: Scroll up one page
-        
+       
     -   `Ctrl+V`: Scroll down one page
-        
+       
 -   **Search and Replace**
-    
+   
     -   `Ctrl+W`: Search for a string (then `Enter` to search again)
-        
+       
     -   `Alt+W`: Repeat the last search but in the opposite direction
-        
+       
     -   `Ctrl+\`: Search and replace
-        
+       
 -   **Miscellaneous**
-    
+   
     -   `Ctrl+T`: Invoke the spell checker, if available
-        
+       
     -   `Ctrl+D`: Delete the character under the cursor (does not cut it)
-        
+       
     -   `Ctrl+L`: Refresh (redraw) the current screen
-        
+       
     -   `Alt+U`: Undo the last operation
-        
+       
     -   `Alt+E`: Redo the last undone operation
-        
+       
 
 ## Part 6: Bash Scripting
 
@@ -1429,17 +1429,17 @@ Bash scripting is a powerful and versatile tool for automating system administra
 Some advantages of shell scripting are:
 
 -   **Automation**: Shell scripts allow you to automate repetitive tasks and processes, saving time and reducing the risk of errors that can occur with manual execution.
-    
+   
 -   **Portability**: Shell scripts can be run on various platforms and operating systems, including Unix, Linux, macOS, and even Windows through the use of emulators or virtual machines.
-    
+   
 -   **Flexibility**: Shell scripts are highly customizable and can be easily modified to suit specific requirements. They can also be combined with other programming languages or utilities to create more powerful scripts.
-    
+   
 -   **Accessibility**: Shell scripts are easy to write and don't require any special tools or software. They can be edited using any text editor, and most operating systems have a built-in shell interpreter.
-    
+   
 -   **Integration**: Shell scripts can be integrated with other tools and applications, such as databases, web servers, and cloud services, allowing for more complex automation and system management tasks.
-    
+   
 -   **Debugging**: Shell scripts are easy to debug, and most shells have built-in debugging and error-reporting tools that can help identify and fix issues quickly.
-    
+   
 
 ### 6.3. Overview of Bash Shell and Command Line Interface
 
@@ -1525,15 +1525,15 @@ Let's take a deeper look at the script line by line. I am displaying the same sc
 ```
 
 -   Line #1: The shebang (`#!/bin/bash`) points toward the bash shell path.
-    
+   
 -   Line #2: The `echo` command displays the current date and time on the terminal. Note that the `date` is in backticks.
-    
+   
 -   Line #4: We want the user to enter a valid path.
-    
+   
 -   Line #5: The `read` command reads the input and stores it in the variable `the_path`.
-    
+   
 -   line #8: The `ls` command takes the variable with the stored path and displays the current files and folders.
-    
+   
 
 **Executing the bash script**
 
@@ -1546,20 +1546,20 @@ chmod u+x run_all.sh
 Here,
 
 -   `chmod` modifies the ownership of a file for the current user :`u`.
-    
+   
 -   `+x` adds the execution rights to the current user. This means that the user who is the owner can now run the script.
-    
+   
 -   `run_all.sh` is the file we wish to run.
-    
+   
 
 You can run the script using any of the mentioned methods:
 
 -   `sh run_all.sh`
-    
+   
 -   `bash run_all.sh`
-    
+   
 -   `./run_all.sh`
-    
+   
 
 Let's see it running in action 🚀
 
@@ -1622,17 +1622,17 @@ Above, you can see an example of assigning and printing variable values.
 In Bash scripting, the following are the variable naming conventions:
 
 1.  Variable names should start with a letter or an underscore (`_`).
-    
+   
 2.  Variable names can contain letters, numbers, and underscores (`_`).
-    
+   
 3.  Variable names are case-sensitive.
-    
+   
 4.  Variable names should not contain spaces or special characters.
-    
+   
 5.  Use descriptive names that reflect the purpose of the variable.
-    
+   
 6.  Avoid using reserved keywords, such as `if`, `then`, `else`, `fi`, and so on as variable names.
-    
+   
 
 Here are some examples of valid variable names in Bash:
 
@@ -1752,7 +1752,7 @@ if [[ condition ]];
 then
     statement
 elif [[ condition ]]; then
-    statement 
+    statement
 else
     do this by default
 fi
@@ -1944,13 +1944,13 @@ The generic process of downloading software from a repo looks something like thi
 If we talk specifically about Ubuntu,
 
 1.  Index is fetched using `apt update.` (`apt` is explained in next section).
-    
+   
 2.  Required files/ dependencies requested according to index using `apt install`
-    
+   
 3.  Packages and dependencies installed locally.
-    
+   
 4.  Update dependencies and packages when required using `apt update` and `apt upgrade`
-    
+   
 
 On Debian-based distros, you can file the list of repos (repositories) in `/etc/apt/sources.list`.
 
@@ -2048,11 +2048,11 @@ User accounts form the foundations of system security. File ownership is also as
 There are three main types of user accounts:
 
 1.  **Superuser**: The superuser has complete access to the system. The name of the superuser is `root`. It has a `UID` of 0.
-    
+   
 2.  **System user**: The system user has user accounts that are used to run system services. These accounts are used to run system services and are not meant for human interaction.
-    
+   
 3.  **Regular user**: Regular users are human users who have access to the system.
-    
+   
 
 The `id` command displays the user ID and group ID of the current user.
 
@@ -2088,19 +2088,19 @@ root:x:0:0:root:/root:/bin/bash
 The `/etc/passwd` file contains the following information about each user:
 
 1.  Username: `root` – The username of the user account.
-    
+   
 2.  Password: `x` – The password in encrypted format for the user account that is stored in the `/etc/shadow` file for security reasons.
-    
+   
 3.  User ID (UID): `0` – The unique numerical identifier for the user account.
-    
+   
 4.  Group ID (GID): `0` – The primary group identifier for the user account.
-    
+   
 5.  User Info: `root` – The real name for the user account.
-    
+   
 6.  Home directory: `/root` – The home directory for the user account.
-    
+   
 7.  Shell: `/bin/bash` – The default shell for the user account. A system user might use `/sbin/nologin` if interactive logins are not allowed for that user.
-    
+   
 
 #### What is a group?
 
@@ -2117,22 +2117,22 @@ adm:x:4:syslog,john
 Here is the breakdown of the fields in the given entry:
 
 1.  Group name: `adm` – The name of the group.
-    
+   
 2.  Password: `x` – The password for the group is stored in the `/etc/gshadow` file for security reasons. The password is optional and appears empty if not set.
-    
+   
 3.  Group ID (GID): `4` – The unique numerical identifier for the group.
-    
+   
 4.  Group members: `syslog,john` – The list of usernames that are members of the group. In this case, the group `adm` has two members: `syslog` and `john`.
-    
+   
 
 In this specific entry, the group name is `adm`, the group ID is `4`, and the group has two members: `syslog` and `john`. The password field is typically set to `x` to indicate that the group password is stored in the `/etc/gshadow` file.
 
 The groups are further divided into '_primary'_ and '_supplementary'_ groups.
 
 -   Primary Group: Each user is assigned one primary group by default. This group usually has the same name as the user and is created when the user account is made. Files and directories created by the user are typically owned by this primary group.
-    
+   
 -   Supplementary Groups: These are extra groups a user can belong to in addition to their primary group. Users can be members of multiple supplementary groups. These groups let a user have permissions for resources shared among those groups. They help provide access to shared resources without affecting the system’s file permissions and keeping the security intact. While a user must belong to one primary group, belonging to supplementary groups is optional.
-    
+   
 
 #### Access control: finding and understanding file permission
 
@@ -2147,12 +2147,12 @@ Let's have a closer look into the `mode` column:
 **Mode** defines two things:
 
 -   **File type:** File type defines the type of the file. For regular files that contain simple data it is blank `-`. For other special file types the symbol is different. For a directory which is a special file, it is `d`. Special files are treated differently by the OS.
-    
--   **Permission classes:** The next set of characters define the permissions for user, group, and others respectively.  
-    – **User**: This is the owner of a file and owner of the file belongs to this class.  
-    – **Group**: The members of the file’s group belong to this class  
+   
+-   **Permission classes:** The next set of characters define the permissions for user, group, and others respectively. 
+    – **User**: This is the owner of a file and owner of the file belongs to this class. 
+    – **Group**: The members of the file’s group belong to this class 
     – **Other**: Any users that are not part of the user or group classes belong to this class.
-    
+   
 
 💡**Tip:** Directory ownership can be viewed using the `ls -ld` command.
 
@@ -2161,11 +2161,11 @@ Let's have a closer look into the `mode` column:
 The `rwx` representation is known as the Symbolic representation of permissions. In the set of permissions,
 
 -   `r` stands for **read**. It is indicated in the first character of the triad.
-    
+   
 -   `w` stands for **write**. It is indicated in the second character of the triad.
-    
+   
 -   `x` stands for **execution**. It is indicated in the third character of the triad.
-    
+   
 
 **Read:**
 
@@ -2184,11 +2184,11 @@ For folders, write permissions enable a user to modify its contents (create, del
 Now that we know how to read permissions, let's see some examples.
 
 -   `-rwx------`: A file that is only accessible and executable by its owner.
-    
+   
     `-rw-rw-r--`: A file that is open to modification by its owner and group but not by others.
-    
+   
 -   `drwxrwx---`: A directory that can be modified by its owner and group.
-    
+   
 
 **Execute:**
 
@@ -2207,16 +2207,16 @@ chmod permissions filename
 Where,
 
 -   `permissions` can be read, write, execute or a combination of them.
-    
+   
 -   `filename` is the name of the file for which the permissions need to change. This parameter can also be a list if files to change permissions in bulk.
-    
+   
 
 We can change permissions using two modes:
 
 1.  **Symbolic mode**: this method uses symbols like `u`, `g`, `o` to represent users, groups, and others. Permissions are represented as `r, w, x` for read, write, and execute, respectively. You can modify permissions using +, - and =.
-    
+   
 2.  **Absolute mode**: this method represents permissions as 3-digit octal numbers ranging from 0-7.
-    
+   
 
 Now, let's see them in detail.
 
@@ -2265,11 +2265,11 @@ Now, we can see that the execution permissions have been added for owner `zaira`
 **Additional examples for changing permissions via symbolic method:**
 
 -   Removing `read` and `write` permission for `group` and `others`: `chmod go-rw`.
-    
+   
 -   Removing `read` permissions for `others`: `chmod o-r`.
-    
+   
 -   Assigning `write` permission to `group` and overriding existing permission: `chmod g=w`.
-    
+   
 
 ##### How to Change Permissions using Absolute Mode
 
@@ -2428,74 +2428,74 @@ The `usermod` command is used to modify existing users. Here are some of the com
 Here are some examples of the `usermod` command in Linux:
 
 1.  **Change a user's login name:**
-    
+   
     ```
      sudo usermod -l newusername oldusername
     ```
-    
+   
 2.  **Change a user's home directory:**
-    
+   
     ```
      sudo usermod -d /new/home/directory -m username
     ```
-    
+   
 3.  **Add a user to a supplementary group:**
-    
+   
     ```
      sudo usermod -aG groupname username
     ```
-    
+   
 4.  **Change a user's shell:**
-    
+   
     ```
      sudo usermod -s /bin/bash username
     ```
-    
+   
 5.  **Lock a user's account:**
-    
+   
     ```
      sudo usermod -L username
     ```
-    
+   
 6.  **Unlock a user's account:**
-    
+   
     ```
      sudo usermod -U username
     ```
-    
+   
 7.  **Set an expiration date for a user account:**
-    
+   
     ```
      sudo usermod -e YYYY-MM-DD username
     ```
-    
+   
 8.  **Change a user's user ID (UID):**
-    
+   
     ```
      sudo usermod -u newUID username
     ```
-    
+   
 9.  **Change a user's primary group:**
-    
+   
     ```
      sudo usermod -g newgroup username
     ```
-    
+   
 10.  **Remove a user from a supplementary group:**
-    
+   
     ```
     sudo gpasswd -d username groupname
     ```
-    
+   
 
 ##### Deleting users
 
 The `userdel` command is used to delete a user account and related files from the system.
 
 -   `sudo userdel username`: removes the user's details from `/etc/passwd` but keeps the user's home directory.
-    
+   
 -   The `sudo userdel -r username` command removes the user's details from `/etc/passwd` and also deletes the user's home directory.
-    
+   
 
 ##### Changing user passwords
 
@@ -2516,22 +2516,22 @@ The default port for SSH is `22`.
 The two participants while communicating via SSH are:
 
 -   The server: the machine that you want access to.
-    
+   
 -   The client: The system that you are accessing the server from.
-    
+   
 
 Connection to a server follows these steps:
 
 1.  Initiate Connection: The client sends a connection request to the server.
-    
+   
 2.  Exchange of Keys: The server sends its public key to the client. Both agree on the encryption methods to use.
-    
+   
 3.  Session Key Generation: The client and server use the Diffie-Hellman key exchange to create a shared session key.
-    
+   
 4.  Client Authentication: The client logs in to the server using a password, private key, or another method.
-    
+   
 5.  Secure Communication: After authentication, the client and server communicate securely with encryption.
-    
+   
 
 **How to connect to a remote server using SSH?**
 
@@ -2542,11 +2542,11 @@ Here, we are talking about how the client would make a connection to the server.
 Prior to connecting to a server, you need to have the following information:
 
 -   The IP address or the domain name of the server.
-    
+   
 -   The username and password of the server.
-    
+   
 -   The port number that you have access to in the server.
-    
+   
 
 The basic syntax of the `ssh` command is:
 
@@ -2563,7 +2563,7 @@ ssh john@192.168.1.10
 After that, you'll be prompted to enter the secret password. Your screen will look similar to this:
 
 ```
-john@192.168.1.10's password: 
+john@192.168.1.10's password:
 Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-70-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -2612,15 +2612,15 @@ Here is an example of a log file:
 A log file usually contains the following columns:
 
 -   Timestamp: The date and time when the event occurred.
-    
+   
 -   Log Level: The severity of the event (INFO, DEBUG, WARN, ERROR).
-    
+   
 -   Component: The component of the system that generated the event (Startup, Config, Database, User, Security, Network, Email, API, Session, Shutdown).
-    
+   
 -   Message: A description of the event that occurred.
-    
+   
 -   Additional Information: Additional information related to the event.
-    
+   
 
 In real-time systems, log files tend to be thousands of lines long and are generated every second. They can be very wordy depending on the configuration. Every column in a log file is a piece of information that can be used to track down issues. This makes log files difficult to read and understand manually.
 
@@ -2637,69 +2637,69 @@ Grep is a built-in bash utility. It stands for "global regular expression print"
 Here are some common uses of `grep`:
 
 1.  **Search for a specific string in a file:**
-    
+   
     ```
      grep "search_string" filename
     ```
-    
+   
     This command searches for "search\_string" in the file named `filename`.
-    
+   
 2.  **Search recursively in directories:**
-    
+   
     ```
      grep -r "search_string" /path/to/directory
     ```
-    
+   
     This command searches for "`search_string"` in all files within the specified directory and its subdirectories.
-    
+   
 3.  **Ignore case while searching:**
-    
+   
     ```
      grep -i "search_string" filename
     ```
-    
+   
     This command performs a case-insensitive search for "search\_string" in the file named `filename`.
-    
+   
 4.  **Display line numbers with matching lines:**
-    
+   
     ```
      grep -n "search_string" filename
     ```
-    
+   
     This command shows the line numbers along with the matching lines in the file named `filename`.
-    
+   
 5.  **Count the number of matching lines:**
-    
+   
     ```
      grep -c "search_string" filename
     ```
-    
+   
     This command counts the number of lines that contain "search\_string" in the file named `filename`.
-    
+   
 6.  **Invert match to display lines that do not match:**
-    
+   
     ```
      grep -v "search_string" filename
     ```
-    
+   
     This command displays all lines that do not contain "search\_string" in the file named `filename`.
-    
+   
 7.  **Search for a whole word:**
-    
+   
     ```
      grep -w "word" filename
     ```
-    
+   
     This command searches for the whole word "word" in the file named `filename`.
-    
+   
 8.  **Use extended regular expressions:**
-    
+   
     ```
      grep -E "pattern" filename
     ```
-    
+   
     This command allows the use of extended regular expressions for more complex pattern matching in the file named `filename`.
-    
+   
 
 **💡 Tip:** If there are multiple files in a folder, you can use the below command to find the list of files containing the desired strings.
 
@@ -2917,11 +2917,11 @@ cut [options] [file]
 Some commonly used options for the cut command:
 
 -   `-d` : Specifies a delimiter used as the field separator.
-    
+   
 -   `-f` : Selects the fields to be displayed.
-    
+   
 -   `-c` : Specifies character positions.
-    
+   
 
 For example, the command below would extract the first field (separated by a space) from each line of the log file:
 
@@ -2987,7 +2987,7 @@ This extracts the third field which contains the log level.
 The output of other commands can be piped to the `cut` command. Let's say you want to filter logs before cutting. You can use `grep` to extract lines containing "ERROR" and then use `cut` to get specific information from those lines:
 
 ```
-grep "ERROR" system.log | cut -d ' ' -f 1,2 
+grep "ERROR" system.log | cut -d ' ' -f 1,2
 
 # Output
 2024-04-25 08:25:02
@@ -3000,7 +3000,7 @@ This command first filters lines that include "ERROR", then extracts the date an
 It is possible to extract multiple fields at once by specifying a range or a comma-separated list of fields:
 
 ```
-cut -d ' ' -f 1,2,3 system.log` 
+cut -d ' ' -f 1,2,3 system.log`
 
 # Output
 2024-04-25 08:23:01 INFO
@@ -3026,13 +3026,13 @@ sort [options] [file]
 Some key options for the sort command:
 
 -   `-n`: Sorts the file assuming the contents are numerical.
-    
+   
 -   `-r`: Reverses the order of sort.
-    
+   
 -   `-k`: Specifies a key or column number to sort on.
-    
+   
 -   `-u`: Sorts and removes duplicate lines.
-    
+   
 
 The `uniq` command is used to filter or count and report repeated lines in a file.
 
@@ -3045,11 +3045,11 @@ uniq [options] [input_file] [output_file]
 Some key options for the `uniq` command are:
 
 -   `-c`: Prefixes lines by the number of occurrences.
-    
+   
 -   `-d`: Only prints duplicate lines.
-    
+   
 -   `-u`: Only prints unique lines.
-    
+   
 
 #### Examples of using `sort` and `uniq` together for log parsing
 
@@ -3142,20 +3142,20 @@ Sorts the entries based on the second field, which is the log level.
 A process is a running instance of a program. A process consists of:
 
 -   An address space of the allocated memory.
-    
+   
 -   Process states.
-    
+   
 -   Properties such as ownership, security attributes, and resource usage.
-    
+   
 
 A process also has an environment that consists of:
 
 -   Local and global variables
-    
+   
 -   The current scheduling context
-    
+   
 -   Allocated system resources, such as network ports or file descriptors.
-    
+   
 
 When you run the `ls -l` command, the operating system creates a new process to execute the command. The process has an ID, a state, and runs until the command completes.
 
@@ -3236,39 +3236,39 @@ root          13  0.0  0.0      0     0 ?        I    May21   0:00 [rcu_tasks_ru
 The output above shows a snapshot of the currently running processes on the system. Each row represents a process with the following columns:
 
 1.  `USER`: The user who owns the process.
-    
+   
 2.  `PID`: The process ID.
-    
+   
 3.  `%CPU`: The CPU usage of the process.
-    
+   
 4.  `%MEM`: The memory usage of the process.
-    
+   
 5.  `VSZ`: The virtual memory size of the process.
-    
+   
 6.  `RSS`: The resident set size, that is the non-swapped physical memory that a task has used.
-    
+   
 7.  `TTY`: The controlling terminal of the process. A `?` indicates no controlling terminal.
-    
+   
 8.  `STAT`: The process state.
-    
+   
     -   `R`: Running
-        
+       
     -   `I` or `S`: Interruptible sleep (waiting for an event to complete)
-        
+       
     -   `D`: Uninterruptible sleep (usually IO)
-        
+       
     -   `T`: Stopped (either by a job control signal or because it is being traced)
-        
+       
     -   `Z`: Zombie (terminated but not reaped by its parent)
-        
+       
     -   `Ss`: Session leader. This is a process that has started a session, and it is a leader of a group of processes and can control terminal signals. The first `S` indicates the sleeping state, and the second `s` indicates it is a session leader.
-        
+       
 9.  `START`: The starting time or date of the process.
-    
+   
 10.  `TIME`: The cumulative CPU time.
-    
+   
 11.  `COMMAND`: The command that started the process.
-    
+   
 
 #### Background and foreground processes
 
@@ -3332,7 +3332,7 @@ sleep 300
 [1]+  Stopped                 sleep 300
 
 zaira@zaira:~$ jobs
-# suspended job 
+# suspended job
 [1]+  Stopped                 sleep 300
 [2]   Running                 sleep 400 &
 [3]-  Running                 sleep 500 &
@@ -3358,15 +3358,15 @@ jobs
 In this exercise, you:
 
 -   Started three background processes using sleep commands.
-    
+   
 -   Used jobs to display the list of background jobs.
-    
+   
 -   Brought a job to the foreground with `fg %job_number`.
-    
+   
 -   Suspended the job with `Ctrl+Z` and moved it back to the background with `bg %job_number`.
-    
+   
 -   Used jobs again to verify the status of the background jobs.
-    
+   
 
 Now you know how to control jobs.
 
@@ -3384,52 +3384,52 @@ kill -l
  6) SIGABRT     7) SIGBUS     8) SIGFPE     9) SIGKILL    10) SIGUSR1
 11) SIGSEGV    12) SIGUSR2    13) SIGPIPE    14) SIGALRM    15) SIGTERM
 16) SIGSTKFLT    17) SIGCHLD    18) SIGCONT    19) SIGSTOP    20) SIGTSTP
-21) SIGTTIN    22) SIGTTOU    23) SIGURG    24) 
+21) SIGTTIN    22) SIGTTOU    23) SIGURG    24)
 ...terminated
 ```
 
 Here are some examples of the `kill` command in Linux:
 
 1.  **Kill a process by PID (Process ID):**
-    
+   
     ```
      kill 1234
     ```
-    
+   
     This command sends the default `SIGTERM` signal to the process with PID 1234, requesting it to terminate.
-    
+   
 2.  **Kill a process by name:**
-    
+   
     ```
      pkill process_name
     ```
-    
+   
     This command sends the default `SIGTERM` signal to all processes with the specified name.
-    
+   
 3.  **Forcefully kill a process:**
-    
+   
     ```
      kill -9 1234
     ```
-    
+   
     This command sends the `SIGKILL` signal to the process with PID 1234, forcefully terminating it.
-    
+   
 4.  **Send a specific signal to a process:**
-    
+   
     ```
      kill -s SIGSTOP 1234
     ```
-    
+   
     This command sends the `SIGSTOP` signal to the process with PID 1234, stopping it.
-    
+   
 5.  **Kill all processes owned by a specific user:**
-    
+   
     ```
      pkill -u username
     ```
-    
+   
     This command sends the default `SIGTERM` signal to all processes owned by the specified user.
-    
+   
 
 These examples demonstrate various ways to use the `kill` command to manage processes in a Linux environment.
 
@@ -3463,13 +3463,13 @@ Here is the information about the `kill` command options and signals in a tabula
 Reading an input and writing an output is an essential part of understanding the command line and shell scripting. In Linux, every process has three default streams:
 
 1.  Standard Input (`stdin`): This stream is used for input, typically from the keyboard. When a program reads from `stdin`, it receives data entered by the user or redirected from a file. A file descriptor is a unique identifier that the operating system assigns to an open file in order to keep track of open files.
-    
+   
     The file descriptor for `stdin` is `0`.
-    
+   
 2.  Standard Output (`stdout`): This is the default output stream where a process writes its output. By default, the standard output is the terminal. The output can also be redirected to a file or another program. The file descriptor for `stdout` is `1`.
-    
+   
 3.  Standard Error (`stderr`): This is the default error stream where a process writes its error messages. By default, the standard error is the terminal, allowing error messages to be seen even if `stdout` is redirected. The file descriptor for `stderr` is `2`.
-    
+   
 
 #### Redirection and Pipelines
 
@@ -3489,11 +3489,11 @@ ls non_existent_directory > all_output.txt 2>&1
 In the last command,
 
 -   `ls non_existent_directory`: lists the contents of a directory named non\_existent\_directory. Since this directory does not exist, `ls` will generate an error message.
-    
+   
 -   `> all_output.txt`: The `>` operator redirects the standard output (`stdout`) of the `ls` command to the file `all_output.txt`. If the file does not exist, it will be created. If it does exist, its contents will be overwritten.
-    
+   
 -   `2>&1:`: Here, `2` represents the file descriptor for standard error (`stderr`). `&1` represents the file descriptor for standard output (`stdout`). The `&` character is used to specify that `1` is not the file name but a file descriptor.
-    
+   
 
 So, `2>&1` means "redirect stderr (2) to wherever stdout (1) is currently going," which in this case is the file `all_output.txt`. Therefore, both the output (if there were any) and the error message from `ls` will be written to `all_output.txt`.
 
@@ -3553,13 +3553,13 @@ sudo systemctl status cron.service
 Crontabs use the following flags for adding and listing cron jobs:
 
 -   `crontab -e`: edits crontab entries to add, delete, or edit cron jobs.
-    
+   
 -   `crontab -l`: list all the cron jobs for the current user.
-    
+   
 -   `crontab -u username -l`: list another user's crons.
-    
+   
 -   `crontab -u username -e`: edit another user's crons.
-    
+   
 
 When you list crons and they exist, you'll see something like this:
 
@@ -3581,16 +3581,16 @@ In the above example,
 | Weekdays | 0-6 | Days of the week where commands will run. Here, 0 is Sunday. |
 
 -   `sh` represents that the script is a bash script and should be run from `/bin/bash`.
-    
+   
 -   `/path/to/script.sh` specifies the path to the script.
-    
+   
 
 Below is a summary of the cron job syntax:
 
 ```
 *   *   *   *   *  sh /path/to/script/script.sh
 |   |   |   |   |              |
-|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |      Command or Script to Execute       
 |   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
@@ -3598,9 +3598,9 @@ Below is a summary of the cron job syntax:
 |   |   |   |
 |   |   | Month of the Year(1-12)
 |   |   |
-|   | Day of the Month(1-31)  
+|   | Day of the Month(1-31) 
 |   |
-| Hour(0-23)  
+| Hour(0-23) 
 |
 Min(0-59)
 ```
@@ -3736,65 +3736,65 @@ The `netstat` command shows network activity and stats by giving the following i
 Here are some examples of using the `netstat` command in the command line:
 
 1.  **Display all listening and non-listening sockets:**
-    
+   
     ```
      netstat -a
     ```
-    
+   
 2.  **Show only listening ports:**
-    
+   
     ```
      netstat -l
     ```
-    
+   
 3.  **Display network statistics:**
-    
+   
     ```
      netstat -s
     ```
-    
+   
 4.  **Show routing table:**
-    
+   
     ```
      netstat -r
     ```
-    
+   
 5.  **Display TCP connections:**
-    
+   
     ```
      netstat -t
     ```
-    
+   
 6.  **Display UDP connections:**
-    
+   
     ```
      netstat -u
     ```
-    
+   
 7.  **Show network interfaces:**
-    
+   
     ```
      netstat -i
     ```
-    
+   
 8.  **Display PID and program names for connections:**
-    
+   
     ```
      netstat -p
     ```
-    
+   
 9.  **Show statistics for a specific protocol (for example, TCP):**
-    
+   
     ```
      netstat -st
     ```
-    
+   
 10.  **Display extended information:**
-    
+   
     ```
     netstat -e
     ```
-    
+   
 
 #### Check network connectivity between two devices using `ping`
 
@@ -3975,50 +3975,50 @@ This displays network statistics every second for three seconds, helping in moni
 Recall that previously we installed the `sysstat` package and ran the service. Follow the steps below to enable and access historical data.
 
 1.  **Enable data collection:** Edit the `sysstat` configuration file to enable data collection.
-    
+   
     ```
      sudo nano /etc/default/sysstat
     ```
-    
+   
     Change `ENABLED="false"` to `ENABLED="true"`.
-    
+   
     ```
      vim /etc/default/sysstat
      #
      # Default settings for /etc/init.d/sysstat, /etc/cron.d/sysstat
      # and /etc/cron.daily/sysstat files
      #
-    
+   
      # Should sadc collect system activity informations? Valid values
      # are "true" and "false". Please do not put other values, they
      # will be overwritten by debconf!
      ENABLED="true"
     ```
-    
+   
 2.  **Configure data collection interval:** Edit the cron job configuration to set the data collection interval.
-    
+   
     ```
      sudo nano /etc/cron.d/sysstat
     ```
-    
+   
     By default, it collects data every 10 minutes. You can adjust the interval by modifying the cron job schedule. The relevant files will go to the `/var/log/sysstat` folder.
-    
+   
 3.  **View historical data:** Use the `sar` command to view historical data. For example, to view CPU usage for the current day:
-    
+   
     ```
      sar -u
     ```
-    
+   
     To view data from a specific date:
-    
+   
     ```
      sar -u -f /var/log/sysstat/sa<DD>
     ```
-    
+   
     Replace `<DD>` with the day of the month for which you want to view the data.
-    
+   
     In the below command, `/var/log/sysstat/sa04` gives stats for the 4th day of the current month.
-    
+   
 
 ```
 sar -u -f /var/log/sysstat/sa04
@@ -4245,13 +4245,13 @@ This book doesn't end here, though. I will continue to improve it and add new ma
 Your journey with Linux doesn't have to end here. Stay connected and take your skills to the next level:
 
 1.  **Follow Me on Social Media**:
-    
+   
     -   [X][57]: I share useful short form content there. My DMs are always open.
-        
+       
     -   [LinkedIn][58]: I share articles and posts on tech there. Leave a recommendation on LinkedIn and endorse me on relevant skills.
-        
+       
 2.  **Get access to exclusive content**: For one-on-one help and exclusive content go [here][59].
-    
+   
 
 My [articles][60] and books, like this one, are part of my mission to increase accessibility to quality content for everyone. This book will also be open to translation in other languages. Each piece takes a lot of time and effort to write. This book will be free, forever. If you've enjoyed my work and want to keep me motivated, consider [buying me a coffee][61].
 

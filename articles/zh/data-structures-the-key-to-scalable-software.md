@@ -357,7 +357,7 @@ public class LinkedListOperations {
         // Iterate Operation
         System.out.print("Iterate Operation: ");
         for(String node : list) {
-            System.out.print(node + " "); // Expected Output: Node1 Node3 
+            System.out.print(node + " "); // Expected Output: Node1 Node3
         }
         System.out.println();
 
@@ -528,7 +528,7 @@ public class DoubleLinkedListOperations {
         list.add("Node2");
         list.add("Node3");
         System.out.println("添加操作后:");
-        list.printForward(); // 预期输出: Node1 Node2 Node3 
+        list.printForward(); // 预期输出: Node1 Node2 Node3
 
         // 删除操作
         list.remove("Node2");

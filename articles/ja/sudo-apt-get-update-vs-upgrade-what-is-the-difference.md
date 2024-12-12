@@ -36,11 +36,11 @@ Debian ベースの Linux ディストリビューション（Debian、Ubuntu、
 kris@pihole:~ $ sudo apt-get update
 Hit:1 https://ftp.harukasan.org/raspbian/raspbian bullseye InRelease
 Get:2 https://download.docker.com/linux/raspbian bullseye InRelease [26.7 kB]
-Get:3 http://archive.raspberrypi.org/debian bullseye InRelease [23.7 kB]       
-Get:4 http://packages.azlux.fr/debian buster InRelease [3,989 B]               
+Get:3 http://archive.raspberrypi.org/debian bullseye InRelease [23.7 kB]      
+Get:4 http://packages.azlux.fr/debian buster InRelease [3,989 B]              
 Get:5 http://archive.raspberrypi.org/debian bullseye/main armhf Packages [282 kB]
 Get:6 http://packages.azlux.fr/debian buster/main armhf Packages [3,418 B]
-Fetched 340 kB in 4s (94.8 kB/s)     
+Fetched 340 kB in 4s (94.8 kB/s)    
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
@@ -62,8 +62,8 @@ rpi-eeprom/stable 13.13-1 armhf [upgradable from: 13.12-1]
 ```
 kris@pihole:~ $ sudo apt-get update
 Get:1 https://download.docker.com/linux/raspbian bullseye InRelease [26.7 kB]
-Hit:2 https://ftp.harukasan.org/raspbian/raspbian bullseye InRelease           
-Hit:3 http://packages.azlux.fr/debian buster InRelease                         
+Hit:2 https://ftp.harukasan.org/raspbian/raspbian bullseye InRelease          
+Hit:3 http://packages.azlux.fr/debian buster InRelease                        
 Hit:4 http://archive.raspberrypi.org/debian bullseye InRelease
 Fetched 26.7 kB in 3s (8,789 B/s)
 Reading package lists... Done
@@ -152,7 +152,7 @@ kris@pihole:~ $ sudo apt-get upgrade
 Get:1 http://archive.raspberrypi.org/debian bullseye/main armhf libcamera0 armhf 0~git20220426+18e68a9b-1 [548 kB]
 Get:2 http://archive.raspberrypi.org/debian bullseye/main armhf raspi-config all 20220425 [30.3 kB]
 Get:3 http://archive.raspberrypi.org/debian bullseye/main armhf rpi-eeprom armhf 13.13-1 [2,037 kB]
-2,616 kB を 3秒 で取得しました (1,019 kB/s)   
+2,616 kB を 3秒 で取得しました (1,019 kB/s)  
 変更履歴を読んでいます... 完了
 (データベースを読んでいます ... 現在 43496 個のファイルとディレクトリがインストールされています。)
 libcamera0:armhf (0~git20220426+18e68a9b-1) アンパックの準備をしています...

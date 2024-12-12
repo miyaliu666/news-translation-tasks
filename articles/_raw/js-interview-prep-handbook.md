@@ -94,9 +94,9 @@ console.log(arr); // [ 1, 4, 3 ]
 Hoisting refers to JavaScript's default behavior that moves all variables and function declarations to the top. This means you can use them before they are declared.
 
 ```javascript
-x=5 
-console.log(x) // prints 5 
-var x               
+x=5
+console.log(x) // prints 5
+var x              
 ```
 
 In the code above, JavaScript has moved the variable declaration to the top of the code block. That is: it is similar to declaring `x` at the first line.
@@ -570,9 +570,9 @@ Let's take a simple example:
 function asyncOperation() {
     return new Promise((resolve, reject) => {
         const x = 1 + Math.random() * 10;
-        if (x < 5) 
+        if (x < 5)
             resolve("Successful");
-        else 
+        else
             reject("Error");
     });
 }

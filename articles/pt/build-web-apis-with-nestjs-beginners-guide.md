@@ -113,7 +113,7 @@ Aqui, estamos usando uma estrutura de dados simples para armazenar os dados. Em 
 
 ### Módulos
 
-Um módulo é uma classe JavaScript/TypeScript com o decorator `@Module()`.  
+Um módulo é uma classe JavaScript/TypeScript com o decorator `@Module()`. 
 O decorator `@Module()` fornece metadados que o Nest usa para organizar a estrutura da aplicação.
 
 Os módulos são um aspecto muito importante do Nest e cada aplicação deve fornecer pelo menos um Módulo: o módulo raiz da aplicação. O módulo raiz é o ponto de partida que o Nest usa para construir o gráfico da aplicação.
@@ -185,8 +185,8 @@ Agora você tem o Nest instalado globalmente na sua máquina.
 
 No seu terminal ou cmd, acesse o diretório onde você deseja criar sua aplicação e execute os seguintes comandos:
 
-`nest new nest-blog-api`  
-`cd nest-blog-api`  
+`nest new nest-blog-api` 
+`cd nest-blog-api` 
 `npm run start:dev`
 
 Navegue para `[http://localhost:3000](http://localhost:3000/)` em qualquer um dos seus navegadores. Você deve ver `Hello World`. Bravo! você criou sua primeira aplicação Nest. Vamos continuar.
@@ -416,12 +416,12 @@ bootstrap();
 
 Vamos adicionar um módulo de Usuário para gerenciar todas as operações relacionadas ao usuário e para manter o controle de quem está criando qual post.
 
-Execute `nest generate module /modules/users`.  
+Execute `nest generate module /modules/users`. 
 Isso adicionará automaticamente este módulo ao nosso módulo raiz `AppModule`.
 
 ### Gerar Serviço de Usuário
 
-Execute `nest generate service /modules/users`.  
+Execute `nest generate service /modules/users`. 
 Isso adicionará automaticamente esse serviço ao módulo de Usuários.
 
 ### Configurar Modelo de Esquema de Banco de Dados de Usuário
@@ -576,19 +576,19 @@ export const databaseProviders = [{
 
 ### Gerar Módulo de Autenticação
 
-Este módulo lidará com a autenticação do usuário (Login e Inscrição).  
-Execute `nest generate module /modules/auth`.  
+Este módulo lidará com a autenticação do usuário (Login e Inscrição). 
+Execute `nest generate module /modules/auth`. 
 Isso adicionará automaticamente este módulo ao nosso módulo raiz `AppModule`.
 
 ### Gerar Serviço de Autenticação
 
-Execute `nest generate service /modules/auth`.  
+Execute `nest generate service /modules/auth`. 
 Isso adicionará automaticamente este serviço ao módulo Auth.
 
 ### Gerar Controlador de Autenticação
 
-Execute `nest g co /modules/auth`.  
-Isso adicionará automaticamente este controlador ao módulo Auth.  
+Execute `nest g co /modules/auth`. 
+Isso adicionará automaticamente este controlador ao módulo Auth. 
 **Nota:** `**g**` **é um alias para** `**generate**` **e** `**co**` **é para** `**controller**`**.**
 
 Usaremos [Passport][7] para lidar com nossa autenticação. É simples integrar esta biblioteca com uma aplicação **Nest** usando o módulo @nestjs/passport.
@@ -599,9 +599,9 @@ Usaremos [Passport][7] para lidar com nossa autenticação. É simples integrar 
 
 ### Local Passport Strategy
 
-Execute  
-`npm install --save @nestjs/passport passport passport-local`  
-`npm install --save-dev @types/passport-local`  
+Execute 
+`npm install --save @nestjs/passport passport passport-local` 
+`npm install --save-dev @types/passport-local` 
 `npm install bcrypt --save`
 
 Dentro da pasta auth, crie um arquivo `local.strategy.ts` e adicione o seguinte código:
@@ -707,8 +707,8 @@ Aqui, verificamos se o usuário existe com o email fornecido. Em seguida, verifi
 
 ### JWT Passport Strategy
 
-Execute  
-`npm install @nestjs/jwt passport-jwt`  
+Execute 
+`npm install @nestjs/jwt passport-jwt` 
 `npm install @types/passport-jwt --save-dev`
 
 Dentro da pasta auth, crie um arquivo `jwt.strategy.ts` e adicione o seguinte código:
@@ -1049,17 +1049,17 @@ Vamos tentar criar um usuário com um email que já exista em nosso banco de dad
 
 ## Módulo de Post
 
-Execute `nest g module /modules/posts`.  
+Execute `nest g module /modules/posts`. 
 Isto adicionará automaticamente este módulo ao nosso módulo raiz `AppModule`.
 
 ### Gerar Serviço de Post
 
-Execute `nest g service /modules/posts`.  
+Execute `nest g service /modules/posts`. 
 Isto adicionará automaticamente este serviço ao módulo de Post.
 
 ### Gerar Controlador de Post
 
-Execute `nest g co /modules/posts`,  
+Execute `nest g co /modules/posts`, 
 Isto adicionará automaticamente este controlador ao módulo de Post.
 
 ### Entidade de Post
@@ -1244,7 +1244,7 @@ async update(@Param('id') id: number, @Body() post: PostDto, @Request() req): Pr
     // get the number of row affected and the updated post
     const { numberOfAffectedRows, updatedPost } = await this.postService.update(id, post, req.user.id);
 
-    // if the number of row affected is zero, 
+    // if the number of row affected is zero,
     // it means the post doesn't exist in our db
     if (numberOfAffectedRows === 0) {
         throw new NotFoundException('This Post doesn\'t exist');
@@ -1260,7 +1260,7 @@ async remove(@Param('id') id: number, @Request() req) {
     // delete the post with this id
     const deleted = await this.postService.delete(id, req.user.id);
 
-    // if the number of row affected is zero, 
+    // if the number of row affected is zero,
     // then the post doesn't exist in our db
     if (deleted === 0) {
         throw new NotFoundException('This Post doesn\'t exist');

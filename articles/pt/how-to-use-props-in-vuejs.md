@@ -87,7 +87,7 @@ ou, em um Componente de Arquivo Único Vue:
 <script>
 export default {
   props: [
-    'firstName', 
+    'firstName',
     'lastName'
   ],
 }

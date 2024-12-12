@@ -18,13 +18,13 @@ This is John's first-ever podcast interview, and the first time he's told his st
 We talk about:
 
 -   How John delivered pizzas to save enough money to buy his first computer in the 90s. "I was tired of being a broke kid."
-    
+   
 -   John's first career in the US military, where he worked as a translator in South Korea
-    
+   
 -   How John crammed Computer Science for 8 months and taught himself enough theory and coding skills to get a job in big tech, then published Coding Interview University on GitHub
-    
+   
 -   What it's like to work as a senior developer at a big tech company, and what you can expect the journey to be like
-    
+   
 
 Can you guess what song I'm playing on my bass during the intro? It's from a 1986 rock song.
 
@@ -39,13 +39,13 @@ Or you can listen to the podcast in Apple Podcasts, Spotify, or your favorite po
 Links we talk about during our conversation:
 
 -   Coding Interview University: [https://github.com/jwasham/coding-interview-university][2]
-    
+   
 -   The Starup Next Door, John's blog: [https://startupnextdoor.com/][3]
-    
+   
 -   The Talent Code, the book John recommends: [https://www.amazon.com/Talent-Code-Greatness-Born-Grown/dp/055380684X][4]
-    
+   
 -   Follow John on LinkedIn: [https://www.linkedin.com/in/johnawasham/][5]
-    
+   
 
 ---
 

@@ -503,7 +503,7 @@ Então, se subirmos aqui, também podemos imprimir, digamos que queremos adicion
 
 Agora você sabe que podemos adicionar aspas simples no meio do nosso texto, mas Python vai ver isso como querendo fechar este texto.
 
-Então, primeiro adicionamos as aspas duplas e podemos apenas facilmente adicionar a barra invertida, então as aspas, agora uma vez que tenha uma barra invertida, isso é bom, essas aspas vão imprimir. 
+Então, primeiro adicionamos as aspas duplas e podemos apenas facilmente adicionar a barra invertida, então as aspas, agora uma vez que tenha uma barra invertida, isso é bom, essas aspas vão imprimir.
 
 Quando eu rodo, verá que temos "Como está?" com essas aspas.
 
@@ -545,7 +545,7 @@ Então, pode ver que o índice da string está fora do intervalo, o que signific
 
 Agora, também fazemos várias coisas.
 
-Digamos que queremos converter tudo para maiúsculas, podemos apenas fazer `nome.upper()`. 
+Digamos que queremos converter tudo para maiúsculas, podemos apenas fazer `nome.upper()`.
 
 Agora, uma vez que rodamos isso, diz que não há atributo "por caso", então às vezes podemos encontrar erros, apenas mudamos.
 
@@ -847,7 +847,7 @@ Então, vamos executá-lo.
 
 Qual é o nome da nossa entrada? inseguro, Tim, você vê que acabou de imprimir Tim.
 
-Então, podemos tornar isso mais interativo perguntando o nome do usuário. 
+Então, podemos tornar isso mais interativo perguntando o nome do usuário.
 
 E talvez perguntando a idade do usuário e depois dizendo ao usuário Seu nome é este e sua idade é esta.
 

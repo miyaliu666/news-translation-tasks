@@ -32,7 +32,7 @@ request.get(url, function(error, response, mongoUrl) {
 
     if(error) throw new Error("MongoDB connection error");
 
-    console.log("Connected successfully to server");    
+    console.log("Connected successfully to server");   
     const db = client.db("dbName");
     // Do some application logic
     client.close();
@@ -134,7 +134,7 @@ getChuckNorrisFact(url).then(data => {
 
 The above code solves the problem neatly using the [**util.promisify**][6] method available from nodejs core library.
 
-All you have to do is use the callback function as an argument to util.promisify, and store it an a variable. In my case, that’s _getChuckNorrisFact_.  
+All you have to do is use the callback function as an argument to util.promisify, and store it an a variable. In my case, that’s _getChuckNorrisFact_. 
 Then you use that variable as a function that you can use like a promise with the **.then()** and the **.catch()** methods.
 
 ### Solution 2 (involved): Turn the Callback into a Promise

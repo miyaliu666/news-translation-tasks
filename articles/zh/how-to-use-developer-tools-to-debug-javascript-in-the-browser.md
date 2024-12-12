@@ -136,7 +136,7 @@ calculateBtn.addEventListener('click', handleButtonClick);
 - 作用域：包含本地和全局变量。
 
 - 调用栈：显示导致当前位置代码执行的函数调用。
-    
+   
 
 要查看任何文件的内容，你可以点击它。然后，调试器标签中的一些图标将不再是灰色的。
 

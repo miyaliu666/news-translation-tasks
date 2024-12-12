@@ -510,7 +510,7 @@ Now pass this to the `sort()` method:
 ```
 numbers.sort(ascendingComp); // retruns [1, 5, 9, 10, 13, 23, 37, 56, 100]
 
-/* 
+/*
 
 We could also code it like,
 
@@ -589,7 +589,7 @@ Let's take a simple HTML code snippet that contains a div and a few list element
       <li>...</li>
       <li>...</li>
     </ol>
-  </ul> 
+  </ul>
 </div>
 ```
 
@@ -658,7 +658,7 @@ let students = [
       'gender': 'M',
       'married': false,
       'age': 22,
-      'paid': 250,  
+      'paid': 250, 
       'courses': ['JavaScript', 'React']
    },
    {
@@ -668,7 +668,7 @@ let students = [
       'gender': 'M',
       'married': true,
       'age': 32,
-      'paid': 150,  
+      'paid': 150, 
       'courses': ['JavaScript', 'PWA']
    },
    {
@@ -678,7 +678,7 @@ let students = [
       'gender': 'F',
       'married': false,
       'age': 27,
-      'paid': 350,  
+      'paid': 350, 
       'courses': ['Blogging', 'React', 'UX']
    },
    {
@@ -688,9 +688,9 @@ let students = [
       'gender': 'M',
       'married': true,
       'age': 36,
-      'paid': 250,  
+      'paid': 250, 
       'courses': ['Git', 'React', 'Branding']
-   } 
+   }
 ];
 ```
 
@@ -742,7 +742,7 @@ const total = students.reduce(
    (accumulator, student, currentIndex, array) => {
       accumulator = accumulator + student.paid;
       return (accumulator);
-   }, 
+   },
 0);
 
 console.log(total); // 1000

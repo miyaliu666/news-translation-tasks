@@ -64,10 +64,10 @@ print("The variable, basics is of type:", type(basics))
 ```
 # Outputs:
 # The variable, name is of type: <class 'str'>
-# The variable, score is of type: <class 'float'>  
+# The variable, score is of type: <class 'float'> 
 # The variable, lessons is of type: <class 'list'>
-# The variable, person is of type: <class 'dict'> 
-# The variable, langs is of type: <class 'tuple'> 
+# The variable, person is of type: <class 'dict'>
+# The variable, langs is of type: <class 'tuple'>
 # The variable, basics is of type: <class 'set'>
 ```
 

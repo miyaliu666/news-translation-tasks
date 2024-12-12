@@ -1984,7 +1984,7 @@ But how do you know they're not exaggerating their claims?
 After all, a devious man once said:
 
 > "If you can only be good at one thing, be good at lying.
-> 
+>
 > Then you're good at everything."
 
 (The true provenance of this quote is unknown. But I like to imagine it was said by a 1920s con man wearing a top hat and a monocle.)
@@ -2297,7 +2297,7 @@ First, remember that you are the hero in your own coding journey. In the theater
 The Narrator Trick is to narrate your actions in your head as you do them.
 
 > Quincy strides across the hackerspace, his laptop tucked under his arm. He sets his mug under the hot water dispenser and drops in a fresh tea bag. He pulls back the lever. And as the steaming water fills his mug, he says aloud in his best British accent: "Tea. Earl Grey. Hot."
-> 
+>
 > His energizing beverage in hand, he slides into a booth, squares his laptop on the surface, and catches the glance of a fellow developer. They lock eyes for a second. Quincy bows his head ever-so-slightly, acknowledging the dev's presence. The dev bows back, almost telepathically sharing this sentiment: "I see you friend. I see you showing up. I see you getting things done."
 
 This may sound ridiculous. Why yes, it is ridiculous. But I do it all the time. And it works.

@@ -81,9 +81,9 @@ proofreader: ""
 官方的 Rust 书这样描述它：
 
 > _宏_ 这个术语指的是 Rust 中的一系列功能。
-> 
+>
 > 从根本上说，宏是一种编写代码来编写其他代码的方法，这被称为 _元编程（Metaprogramming）_。
-> 
+>
 > 元编程对于减少必须编写和维护的代码量非常有用，这也是函数的作用之一。然而，宏具有一些函数所没有的额外能力。
 
 使用宏，你还可以动态添加一些编译时需要添加的内容，这在函数中是不可能的，因为函数是在运行时调用的。例如，在类型上实现 _traits_，这要求在编译阶段完成。
@@ -352,7 +352,7 @@ fn main() {
 如果你在此阶段尝试编译代码，你应该会看到以下编译错误：
 
 ```
-   Compiling my-app v0.1.0 
+   Compiling my-app v0.1.0
 
 error: proc-macro derive panicked
  --> src/main.rs:3:10
@@ -591,7 +591,7 @@ pub fn into_hash_map(item: TokenStream) -> TokenStream {
 
             // 创建最终输出块
             quote! {
-                // 实现 `From` 特性，以允许将你的目标结构体标识为 `struct_identifier` 转换为 
+                // 实现 `From` 特性，以允许将你的目标结构体标识为 `struct_identifier` 转换为
                 // 键和值均为 `String` 的 HashMap。
                 // 就像先前一样，`#struct_identifier` 在输出代码中被替换为目标结构体的实际名称。
                 impl From<#struct_identifier> for std::collections::HashMap<String, String> {
@@ -783,7 +783,7 @@ pub fn derive_custom_model(item: TokenStream) -> TokenStream {
 // 为此结构派生 `FromDeriveInput`，该宏由 darling 提供，
 // 能够自动添加将参数 token 解析到给定结构中的功能。
 #[derive(FromDeriveInput, Clone)]
-// 我们告诉 darling，我们正在查找使用 `custom_model` 
+// 我们告诉 darling，我们正在查找使用 `custom_model`
 // 属性定义的参数，并且我们只支持命名结构。
 #[darling(attributes(custom_model), supports(struct_named))]
 struct CustomModelArgs {

@@ -290,7 +290,7 @@ Suspense uses a fallback when you wait for the data to load. If you would like t
 Here, as our `LazyJerry` component is loading lazily, we have provided a fallback to show a loading message until the component code is download into the browser successfully and rendered.
 
 ```
-{shown && 
+{shown &&
     <Suspense fallback={<h1>Loading Jerry&apos;s Story</h1>}>
                 <LazyJerry />
     </Suspense>
@@ -305,7 +305,7 @@ Let's now test it by importing it into the `page.js` file and adding the compone
 // page.js
 
 import TomStory from "./components/tom/tom-story";
-import JerryStory from "./components/jerry/jerry-story"; 
+import JerryStory from "./components/jerry/jerry-story";
 
 export default function Home() {
   return (
@@ -426,7 +426,7 @@ Now to test it out, again import the component into the `page.js` file, and use 
 
 import TomStory from "./components/tom/tom-story";
 import JerryStory from "./components/jerry/jerry-story";
-import SpikeStory from "./components/spike/spike-story"; 
+import SpikeStory from "./components/spike/spike-story";
 
 export default function Home() {
   return (

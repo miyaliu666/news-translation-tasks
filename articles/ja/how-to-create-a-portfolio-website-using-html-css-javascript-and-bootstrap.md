@@ -94,7 +94,7 @@ nav 要素に Bootstrap の `fixed-top` クラスを使用して、ナビバー�
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
-                
+               
             </div>
         </div>
     </nav>
@@ -244,7 +244,7 @@ Bootstrap 5 のナビバーの機能に関する詳細は[こちら][18]から�
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
                 <div class="col-lg-4 mt-4">
                     <div class="card servicesText">
@@ -255,7 +255,7 @@ Bootstrap 5 のナビバーの機能に関する詳細は[こちら][18]から�
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
 
                 <div class="col-lg-4 mt-4">
@@ -267,7 +267,7 @@ Bootstrap 5 のナビバーの機能に関する詳細は[こちら][18]から�
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
             </div>
 
@@ -281,7 +281,7 @@ Bootstrap 5 のナビバーの機能に関する詳細は[こちら][18]から�
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
 
                 <div class="col-lg-4 mt-4">
@@ -293,7 +293,7 @@ Bootstrap 5 のナビバーの機能に関する詳細は[こちら][18]から�
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
 
                 <div class="col-lg-4 mt-4">
@@ -305,7 +305,7 @@ Bootstrap 5 のナビバーの機能に関する詳細は[こちら][18]から�
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
             </div>
         </div>
@@ -530,7 +530,7 @@ Google マップを埋め込むには、次の手順に従う必要がありま�
                         </div>
                     </form>
                     <button type="button" class="btn btn-success mt-3">Contact Me</button>
-                    
+                   
                 </div>
 
             </div>

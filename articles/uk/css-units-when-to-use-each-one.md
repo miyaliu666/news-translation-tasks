@@ -276,12 +276,12 @@ p {
 
 ```
 body {
-  font-family: 'Courier New', monospace; 
+  font-family: 'Courier New', monospace;
   margin: 0;
 }
 p {
-    font-size: 2ch; 
-    line-height: 1.5; 
+    font-size: 2ch;
+    line-height: 1.5;
   }
 ```
 
@@ -299,7 +299,7 @@ p {
 
 ```
 .container {
-    width: 300px; 
+    width: 300px;
     padding: 20px;
     background-color: #f0f0f0;
   }

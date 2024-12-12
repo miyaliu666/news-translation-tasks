@@ -565,9 +565,9 @@ Ahora discutiré cada una de estas dificultades con más detalle. Y te daré alg
 
 ### Las Herramientas siguen siendo Primitivas
 
-![Imagen](https://www.freecodecamp.org/news/content/images/2023/01/TNG-S4E19-171.jpeg) _Un poseído Barclay de Star Trek: La Nueva Generación, programando en el Holodeck._ 
+![Imagen](https://www.freecodecamp.org/news/content/images/2023/01/TNG-S4E19-171.jpeg) _Un poseído Barclay de Star Trek: La Nueva Generación, programando en el Holodeck._
 
-> "Computadora. Iniciar nuevo programa. Crear lo siguiente. Silla de estación de trabajo. Ahora crea una consola alfanumérica estándar posicionada a la mano izquierda. Ahora una consola de visualización icónica para la mano derecha. Conecta ambas consolas al núcleo principal de la computadora de la Enterprise, utilizando la interfaz de escaneo neural." - Barclay de Star Trek: La Nueva Generación, Temporada 4 Episodio 19: "El Grado N-ésimo" 
+> "Computadora. Iniciar nuevo programa. Crear lo siguiente. Silla de estación de trabajo. Ahora crea una consola alfanumérica estándar posicionada a la mano izquierda. Ahora una consola de visualización icónica para la mano derecha. Conecta ambas consolas al núcleo principal de la computadora de la Enterprise, utilizando la interfaz de escaneo neural." - Barclay de Star Trek: La Nueva Generación, Temporada 4 Episodio 19: "El Grado N-ésimo"
 
 Así es como la gente podría programar en el futuro. Es un ejemplo de mi programa de televisión de ciencia ficción favorito, Star Trek: La Nueva Generación.
 
@@ -1941,7 +1941,7 @@ O decir: "Entrego código dentro del presupuesto y antes de tiempo, todo el tiem
 Después de todo, un hombre astuto una vez dijo:
 
 > "Si solo puedes ser bueno en una cosa, sé bueno en mentir.
-> 
+>
 > Entonces eres bueno en todo."
 
 (Se desconoce la verdadera procedencia de esta cita. Pero me gusta imaginar que lo dijo un estafador de los años 20 con sombrero de copa y monóculo.)
@@ -2246,7 +2246,7 @@ Primero, recuerda que eres el héroe en tu propio viaje de programación. En el 
 El Truco del Narrador es narrar tus acciones en tu cabeza mientras las haces.
 
 > Quincy atraviesa el espacio de hackers, con su laptop bajo el brazo. Coloca su taza debajo del dispensador de agua caliente y deja caer una bolsita de té fresca. Acciona la palanca. Y mientras el agua humeante llena su taza, dice en alto con su mejor acento británico: "Té. Earl Grey. Caliente."
-> 
+>
 > Con su bebida energizante en mano, se desliza en un cubículo, coloca su laptop en la superficie y captura la mirada de un compañero desarrollador. Cruzaron miradas por un segundo. Quincy inclina la cabeza muy levemente, reconociendo la presencia del desarrollador. El desarrollador inclina la cabeza de vuelta, compartiendo casi telepáticamente este sentimiento: "Te veo amigo. Te veo presentándote. Te veo haciendo las cosas."
 
 Narrar incluso los momentos más mundanos de tu vida en tu cabeza puede ayudarte a energizarte. Cristaliza el momento que tienes ante ti y te da claridad de propósito.
@@ -2766,7 +2766,7 @@ Un poco después, las luces se encendieron a mi alrededor. Mi jefe había llegad
 
 No lo estaba. Pero quería transmitir confianza. Así que dije las palabras que se pronuncian por primera vez en Big Trouble in Little China, una de mis películas favoritas de los 80: "Nací listo."
 
-![Imagen](https://www.freecodecamp.org/news/content/images/2023/01/big-trubs-born-ready.jpeg) 
+![Imagen](https://www.freecodecamp.org/news/content/images/2023/01/big-trubs-born-ready.jpeg)
 _Probablemente has oído "Nací listo" un millón de veces. Pero se pronunció por primera vez en 1986 por Jack Burton a su amigo Wang Chi, cuando se preparaban para enfrentar a un mago de mil años en su almacén de muerte. No puedo creer que mis padres me dejaran ver esto en aquel entonces, pero me alegro de que lo hicieran._
 
 "Genial", dijo mi jefe. "Vamos a conseguirte una máquina."

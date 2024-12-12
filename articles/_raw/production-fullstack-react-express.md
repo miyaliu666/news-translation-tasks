@@ -17,16 +17,16 @@ We will setup a React Express full stack app with a PSQL database. We will deplo
 
 We will stay in the free tier so following along with this tutorial will not cost you anything.
 
-**Why learn AWS?**  
+**Why learn AWS?** 
 AWS is currently the biggest cloud computing platform. Wordpress powers more smaller websites, but AWS is used by the vast majority of commercial high-traffic websites. Which means people with AWS skills are in huge demand.
 
-You can watch a video version of this tutorial here  
+You can watch a video version of this tutorial here 
 [https://www.youtube.com/playlist?list=PLMc67XEAt-yzxRboCFHza4SBOxNr7hDD5][1]
 
-**Useful terminal commands:**  
+**Useful terminal commands:** 
 [https://github.com/iqbal125/terminal\_commands\_fullstack][2]
 
-**Sample React/Express Project:**  
+**Sample React/Express Project:** 
 [https://github.com/iqbal125/react-express-sample][3]
 
 ## Theory
@@ -106,7 +106,7 @@ A IPv4 address is resolved to human readable format: “[https://google.com][4]�
 
 There is also IPv6, but to keep things concise we will skip this, we will only need to know IPv4 for the purposes of this tutorial.
 
-More info about IPv6 can be found here:  
+More info about IPv6 can be found here: 
 [https://searchnetworking.techtarget.com/definition/IPv6-Internet-Protocol-Version-6][5]
 
 ### Connecting to a Public Network from a Private Network
@@ -139,7 +139,7 @@ Subnetting in AWS is done with CIDR notation.
 
 ****Example subnet CIDR notation:**** 10.11.12.0/24
 
-**Subnet Mask**  
+**Subnet Mask** 
 The subnet mask determines the number of ip addresses available to the subnet. The /24 is the subnet mask.
 
 A subnet mask is used as a way to divide your subnet into an approximate number of IP addresses
@@ -196,10 +196,10 @@ To avoid all the complexity mentioned above, it is best to stick with Subnet Mas
 
 10.11.12.0/24 will have the entire last 1 octet available as IP addresses
 
-Real Example  
+Real Example 
 **VPC:** 10.11.0.0/16
 
-**Public Subnet 1:** 10.11.1.0/24, any IP address between 10.11.1.0 and 10.11.1.255  
+**Public Subnet 1:** 10.11.1.0/24, any IP address between 10.11.1.0 and 10.11.1.255 
 **Public Subnet 2:** 10.11.2.0/24, any IP address between 10.11.2.0 and 10.11.2.255
 
 **Private Subnet 1:** 10.11.3.0/24, any IP address between 10.11.3.0 and 10.11.3.255 **Private Subnet 2:** 10.11.4.0/24, any IP address between 10.11.4.0 and 10.11.4.255
@@ -551,10 +551,10 @@ We are not done yet, we still have to install node and npm, because we will want
 
 This will install nvm which we can then use to install node and npm. To do so simply list out the versions of node available for download and install the latest stable.
 
-list version of node command  
+list version of node command 
 `nvm ls remote`
 
-install command  
+install command 
 `nvm install version-of-node`  
 
 But after installing npm and node if you go to run npm install on the project directory you will get a permission denied error.
@@ -565,7 +565,7 @@ You can then run the command below to give write permission on the directory. Th
 
 `sudo chmod 777` on the directory
 
-Here is a link to a tutorial if you would like to know more about chmod.  
+Here is a link to a tutorial if you would like to know more about chmod. 
 [https://www.computerhope.com/unix/uchmod.htm][7]
 
 After this your npm modules should install normally with the regular npm install command.
@@ -647,7 +647,7 @@ Copy and pastable version of the code:
 
         location / {
                 root /react-prod5/build;
-                index index.html;                
+                index index.html;               
                 try_files $uri /index.html;
 
         }

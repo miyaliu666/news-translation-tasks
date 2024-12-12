@@ -114,12 +114,12 @@ We picked a font "slant" that looks like this:
 
 ![Image](https://www.freecodecamp.org/news/content/images/2024/04/Przechwycenie-obrazu-ekranu_2024-04-26_22-18-26.png) _Terminal Portfolio ASCII Art_
 
-You can copy this text and put into a string, but you will have issues like backslash  
+You can copy this text and put into a string, but you will have issues like backslash 
 needed to be escaped the quote characters.
 
 ```
-const greetings = `  ______                    _             __   ____             __  ____      ___     
- /_  __/__  _________ ___  (_)___  ____ _/ /  / __ \\____  _____/ /_/ __/___  / (_)___ 
+const greetings = `  ______                    _             __   ____             __  ____      ___    
+ /_  __/__  _________ ___  (_)___  ____ _/ /  / __ \\____  _____/ /_/ __/___  / (_)___
   / / / _ \\/ ___/ __ \`__ \\/ / __ \\/ __ \`/ /  / /_/ / __ \\/ ___/ __/ /_/ __ \\/ / / __ \\
  / / /  __/ /  / / / / / / / / / / /_/ / /  / ____/ /_/ / /  / /_/ __/ /_/ / / / /_/ /
 /_/  \\___/_/  /_/ /_/ /_/_/_/ /_/\\__,_/_/  /_/    \\____/_/   \\__/_/  \\____/_/_/\\____/`
@@ -377,7 +377,7 @@ The `rand` function returns a pseudo-random number from 0 to max value. Here we 
 
 ### How to Make the Greeting Text White
 
-As we showed previously, you can make the text white with terminal formatting.  
+As we showed previously, you can make the text white with terminal formatting. 
 You can use:
 
 -   `[[;white;]Welcome to my Terminal Portfolio]`
@@ -421,7 +421,7 @@ const formatter = new Intl.ListFormat('en', {
 });
 ```
 
-To create a list, we need to use `formatter.format()` and pass an array of commands.  
+To create a list, we need to use `formatter.format()` and pass an array of commands. 
 To get that array we can use `Object.keys()`:
 
 ```
@@ -702,7 +702,7 @@ const commands = {
 
 This will handle all the cases of changing the directory. Next is to add a prompt.
 
-To see what directory we are in, we need to add a custom `prompt` to do this.  
+To see what directory we are in, we need to add a custom `prompt` to do this. 
 We can create a function:
 
 ```

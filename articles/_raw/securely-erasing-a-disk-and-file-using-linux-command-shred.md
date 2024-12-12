@@ -32,15 +32,15 @@ shred -vfz [/file/system/path]
 
 According to the `man` page, some of the \[OPTIONS\] you can use with `shred` are:
 
--   `-n`, --iterations=N  
+-   `-n`, --iterations=N 
     Instead of the default (3) times, overwrite the data N times.
--   `-z`, --zero  
+-   `-z`, --zero 
     Add a final overwrite with zeros to hide shredding.
--   `-f`, --force  
+-   `-f`, --force 
     Force the permissions to allow writing if necessary.
--   `-v`, --verbose  
+-   `-v`, --verbose 
     Show progress in detail.
--   `-u`, --remove  
+-   `-u`, --remove 
     Truncate and remove file after overwriting.
 
 In the example above, replace the path with your disk path.

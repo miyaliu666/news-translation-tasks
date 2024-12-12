@@ -20,17 +20,17 @@ Quindi, in questo articolo elencherò alcuni degli argomenti per aiutarti a prep
 ## Indice dei Contenuti
 
 -   [Fondamenti di JavaScript][1]
-    
+   
 -   [Elementi Essenziali di React][2]
-    
+   
 -   [Hook di React][3]
-    
+   
 -   [Concetti Aggiuntivi][4]
-    
+   
 -   [React Redux][5]
-    
+   
 -   [Note Aggiuntive][6]
-    
+   
 
 ## Fondamenti di JavaScript
 
@@ -78,11 +78,11 @@ Lo stato viene utilizzato per rendere dinamiche le informazioni nel componente e
 Alcune cose da tenere a mente mentre si utilizza lo stato:
 
 -   Gli stati sono immutabili. Aggiorna sempre lo stato utilizzando una funzione `setState`. Per oggetti/array, crea nuovi oggetti e imposta lo stato con il nuovo array/oggetto. Questo garantisce il corretto comportamento del componente.
-    
+   
 -   Usa lo stato solo quando necessario, evita di memorizzare informazioni ridondanti poiché possono causare re-render inutili.
-    
+   
 -   Usa lo stato localmente nello stesso componente, evita di passare lo stato lungo l'albero del DOM, a meno che non sia assolutamente necessario. Per lo stato globale, usa il contesto o redux.
-    
+   
 
 Controlla i [documenti legacy][9] per lo stato nei componenti di classe. Per i componenti funzionali, fai riferimento alla sezione [`useState`][10].
 
@@ -120,11 +120,11 @@ function ChildComponent({ name, age, handleClick }) {
 ```
 
 -   Qui, il componente genitore passa nome, età e metodo handleClick come props al componente figlio.
-    
+   
 -   Queste props formano un oggetto `props` che contiene i valori passati. Ogni componente funzionale prende un oggetto `props` come argomento.
-    
+   
 -   Abbiamo acceduto alle props de-strutturando l'oggetto nel componente figlio.
-    
+   
 ```
 
 ### Differenza tra Componenti di Classe e Funzionali
@@ -134,24 +134,24 @@ I componenti React sono di due tipi: componenti di classe e componenti funzional
 **Componenti di Classe:**
 
 -   I componenti di classe sono scritti usando classi ES6. Le loro proprietà e funzioni sono accessibili tramite la keyword `this`. Necessitano di un metodo `render` per restituire JSX.
-    
+   
 -   I componenti di classe sono componenti con stato che contengono caratteristiche integrate come State e Context.
-    
+   
 -   Hanno metodi per diverse fasi del ciclo di vita del componente: `componentDidMount()`, `componentDidUpdate()`, `componentWillUnmount()`, e così via.
-    
+   
 -   I componenti di classe sono verbosi, difficili da leggere e necessitano sempre della keyword `this` per accedere alle proprietà.
-    
+   
 
 **Componenti Funzionali:**
 
 -   I componenti funzionali sono semplici funzioni JavaScript che accettano un oggetto `props` come argomento. Non necessitano di un metodo `render`, restituiscono direttamente JSX.
-    
+   
 -   I componenti funzionali sono senza stato e non hanno uno stato proprio. Invece, utilizzano Hooks per usare caratteristiche come State o Context dei componenti di classe.
-    
+   
 -   Non ci sono metodi del ciclo di vita, il ciclo di vita è gestito con il hook `useEffect`.
-    
+   
 -   I componenti funzionali richiedono meno codice rispetto ai componenti di classe, quindi sono più facili da leggere e scrivere.
-    
+   
 
 Oggigiorno, gli sviluppatori preferiscono e raccomandano i componenti funzionali, soprattutto con gli Hooks. I componenti di classe si trovano solitamente in basi di codice datate.
 
@@ -168,11 +168,11 @@ In questa fase, un componente viene creato e aggiunto al DOM. Quando un componen
 -   [`constructor()`][11]
 
 -   [`static getDerivedStateFromProps(props, state)`][12] (raramente usato)
-    
+   
 -   [`render()`][13]
-    
+   
 -   `componentDidMount()`
-    
+   
 
 `componentDidMount()` viene chiamato solo una volta; ovvero quando il componente si monta. È il metodo preferito per eseguire effetti collaterali quando un componente viene caricato per la prima volta. Nei componenti funzionali, l'equivalente è il hook `useEffect`.
 
@@ -181,20 +181,20 @@ In questa fase, un componente viene creato e aggiunto al DOM. Quando un componen
 Nella fase di aggiornamento, cambiano lo stato o le props del componente, causando un re-render del componente. I seguenti metodi vengono chiamati quando il componente si aggiorna:
 
 -   [`shouldComponentUpdate(nextProps, nextState)`][14]
-    
+   
 -   `render()` (chiamato di nuovo)
-    
+   
 -   [`getSnapshotBeforeUpdate()`][15]
-    
+   
 -   `componentDidUpdate()`
-    
+   
 
 Il metodo `componentDidUpdate` viene chiamato nei seguenti momenti:
 
 -   La prima volta quando il componente si monta, dopo il metodo `componentDidMount`.
-    
+   
 -   Qualsiasi cambiamento di stato o props che provoca un re-render del componente.
-    
+   
 
 È utile eseguire effetti collaterali quando uno stato si aggiorna. Nei componenti funzionali, l'equivalente è `useEffect` con dipendenze.
 
@@ -229,9 +229,9 @@ function ControlledComponent() {
 ```
 
 -   Il valore del campo `input` è controllato dalla variabile di stato di React `value`.
-    
+   
 -   Quando si aggiorna il campo di input, lo stato viene aggiornato e il valore dell'input viene impostato di conseguenza.
-    
+   
 
 I componenti non controllati, invece, non dipendono dallo stato per gestire i moduli. Invece, i valori dei campi dei moduli sono gestiti internamente, di solito con i refs. I refs sono utilizzati per interagire direttamente con gli elementi del DOM e aggiornare i valori senza aggiornare lo stato e causare re-render.
 
@@ -260,11 +260,11 @@ Qui, abbiamo usato un ref per accedere direttamente al nodo DOM dell'elemento in
 Quando utilizzare l'uno o l'altro:
 
 -   Utilizza componenti controllati se desideri un maggiore controllo sui dati che l'utente inserisce. Questo è particolarmente utile quando due campi del modulo dipendono l'uno dall'altro.
-    
+   
 -   Se hai più stati che dipendono dai dati del modulo, utilizzare lo stato è una buona prassi.
-    
+   
 -   Utilizza componenti non controllati se il tuo modulo è molto semplice e non c'è necessità di manipolare i dati del modulo.
-    
+   
 
 
 
@@ -293,11 +293,11 @@ function App() {
 ```
 
 -   `PureExample` è un componente puro che è figlio del componente `App`. I componenti puri possono essere creati racchiudendo la funzione con `React.memo()`.
-    
+   
 -   Nell'esempio, abbiamo un campo `input` che aggiorna `name`, e un pulsante che cambia lo stato, `toggle`.
-    
+   
 -   `name` viene passato come props a `PureExample`, quindi si ri-renderizza se `name` viene aggiornato. Se aggiorni `toggle` o qualsiasi altro stato, `PureExample` non si ri-renderizza.
-    
+   
 
 Nel caso dei componenti di classe, i componenti puri possono essere creati estendendo la classe `PureComponent`. Tuttavia, sono raccomandati i componenti funzionali.
 
@@ -339,11 +339,11 @@ return (
 ```
 
 -   La funzione `useState` prende un valore iniziale come argomento e restituisce un array contenente due elementi: lo stato corrente e una funzione per aggiornare lo stato.
-    
+   
 -   In questo esempio, abbiamo due pulsanti che incrementano e decrementano il contatore. Al click del pulsante, le operazioni di incremento/decremento vengono eseguite aggiornando lo stato `count`.
-    
+   
 -   Il componente si ri-renderizza e visualizza il `count` aggiornato.
-    
+   
 
 Per ulteriori esempi sul suo utilizzo, dai un'occhiata al mio post qui sotto:
 
@@ -382,20 +382,20 @@ function App() {
 ```
 
 -   `useEffect` prende due argomenti: una funzione che esegue effetti collaterali ed un array di dipendenze.
-    
+   
 -   In questo esempio, visualizziamo i dati paginati includendo la logica di recupero dati all'interno di un `useEffect` e includendo la pagina corrente nelle dipendenze.
-    
+   
 -   `useEffect` effettua la chiamata API al primo render, caricando la prima pagina di dati. Successivamente, carica dati aggiuntivi ogni volta che l'utente cambia pagina.
-    
+   
 
 Come implementare i metodi ciclo di vita in `useEffect`:
 
 -   Per implementare `componentDidMount()`, passa un array di dipendenze vuoto
-    
+   
 -   Per implementare `componentDidUpdate()`, passa le dipendenze per eseguire `useEffect` se una di quelle dipendenze cambia
-    
+   
 -   Per `componentWillUnmount()`, ritorna una funzione di callback da `useEffect` contenente il codice di pulizia
-    
+   
 
 `useEffect` può essere utilizzato in molti modi. La documentazione React [docs][18] contiene diversi esempi di utilizzo.
 
@@ -439,11 +439,11 @@ function MainComponent() {
 ```
 
 -   Abbiamo utilizzato il metodo `React.createContext` per creare un contesto e poi abbiamo creato una funzione provider che avvolge il componente principale.
-    
+   
 -   La proprietà `value` di `DataContext.Provider` è usata per passare i dati all'intero albero di componenti sotto `MainComponent`.
-    
+   
 -   Il Hook `useContext` consuma questi dati all'interno dei componenti. Restituisce i dati che sono stati passati alla proprietà `value` del provider.
-    
+   
 
 `useContext` può essere utilizzato solo se il componente o uno dei suoi genitori ha un provider di contesto che lo avvolge. Esempi di casi d'uso sono temi, informazioni utente, preferenze di lingua e localizzazione, e così via.
 
@@ -468,24 +468,24 @@ export function App(props) {
 ```
 
 -   `useRef` prende un valore iniziale come argomento e restituisce un oggetto `ref`.
-    
+   
 -   Quando questo oggetto `ref` è passato alla proprietà `ref` di un elemento, otteniamo un riferimento diretto al nodo DOM dell'elemento.
-    
+   
 -   Il valore di un `ref` è memorizzato all'interno della sua proprietà `current`.
-    
+   
 -   Poiché `ref` è un oggetto DOM JavaScript, possiamo chiamare il metodo [focus()][23] per focalizzare l'elemento `input` quando il componente viene montato.
-    
+   
 
 A differenza dello stato, i ref non causano il ri-rendering del componente e, a differenza delle variabili locali, i ref mantengono i loro valori tra i render.
 
 Alcuni aspetti da ricordare sui ref:
 
 -   I componenti possono esporre i loro nodi DOM ai componenti genitori utilizzando [forwardRef][24].
-    
+   
 -   Usa i ref solo quando hai assolutamente bisogno di accedere agli elementi del DOM. Esempi di casi d'uso potrebbero essere attività come focalizzare elementi input, selezionare test, innescare animazioni, determinare posizioni degli elementi, e così via.
-    
+   
 -   Evita di usarli eccessivamente, preferisci stato e proprietà rispetto ai ref. Evita di modificare gli elementi del DOM esplicitamente per controllare il comportamento del componente, utilizza lo stato invece.
-    
+   
 
 ### Hook useMemo
 
@@ -524,20 +524,20 @@ const MemoExample = () => {
 ```
 
 -   `useMemo` prende in ingresso la funzione e un array di dipendenze come argomenti e restituisce il risultato di questa funzione. Memorizza in cache il risultato per il prossimo render e restituisce il valore memorizzato a meno che non cambi qualche dipendenza.
-    
+   
 -   Abbiamo passato lo stato `computedValue` all'interno dell'array, quindi, dopo l'esecuzione del primo render, la funzione verrà eseguita solo quando `computedValue` cambia.
-    
+   
 -   Se aggiorni qualsiasi altro stato, il componente ri-renderizza, ma la funzione non viene eseguita di nuovo.
-    
+   
 
 Quando usarlo:
 
 -   Se non vuoi eseguire una funzione a ogni render, tranne per lo stato che ne dipende.
-    
+   
 -   Per mantenere l'uguaglianza referenziale di array e oggetti tra i render. I riferimenti di array/oggetti cambiano ogni volta che vengono dichiarati.
-    
+   
 -   Quando si renderizzano elenchi con [`Array.map`][25] che non devono cambiare tranne che per aggiornamenti di stato rilevanti.
-    
+   
 
 
 
@@ -577,24 +577,24 @@ const Child = React.memo(({ handleSubmit }) => {
 ```
 
 -   Qui, abbiamo volutamente rallentato il componente figlio per simulare rendering lenti. Poiché è avvolto dentro `React.memo()`, viene renderizzato nuovamente solo se la sua unica prop `handleSubmit` cambia.
-    
+   
 -   Tuttavia, quando lo stato `toggle` cambia, anche il componente figlio viene ri-renderizzato, anche se non viene passato al componente figlio.
-    
+   
 -   Questo accade perché, ogni volta che il componente padre viene renderizzato, la funzione `handleSubmit` viene creata con un nuovo riferimento. Quindi, tecnicamente `handleSubmit` è cambiato e quindi il componente figlio viene ri-renderizzato.
-    
+   
 -   Per evitare questo comportamento, avvolgiamo la dichiarazione della funzione `handleSubmit` dentro un `useCallback`. Questo assicura che il riferimento della funzione rimanga lo stesso tra i rendering.
-    
+   
 -   Nel nostro esempio, la funzione viene creata solo una volta, poiché non ci sono dipendenze. Se aggiungi dipendenze, la funzione viene ricreata solo se una di esse cambia.
-    
+   
 
 Quando usarlo:
 
 -   Quando hai gestori di eventi definiti per un elemento all'interno del tuo componente, avvolgili dentro un `useCallback` per evitare ricreazioni inutili dei gestori di eventi.
-    
+   
 -   Quando chiami una funzione all'interno di un `useEffect`, di solito passeresti la funzione come dipendenza. Per evitare di eseguire `useEffect` inutilmente ad ogni rendering, avvolgi la definizione della funzione dentro un `useCallback`.
-    
+   
 -   Se il tuo Hook personalizzato restituisce una funzione, è consigliato avvolgerla dentro un `useCallback`. Così, gli utenti non devono ottimizzare l'Hook – piuttosto, possono concentrarsi sul loro proprio codice.
-    
+   
 
 Se vuoi saperne di più sui hook `useMemo` e `useCallback`, dai un'occhiata al mio post qui sotto:
 
@@ -643,20 +643,20 @@ export function App(props) {
 ```
 
 -   Questo esempio contiene uno stato di contatore semplice con tre azioni: incrementa, decrementa e resetta.
-    
+   
 -   Definiamo una funzione reducer che accetta lo stato attuale e un oggetto azione come argomenti. L'oggetto azione contiene il tipo di azione (una stringa) e il payload (dati passati all'azione).
-    
+   
 -   L'Hook `useReducer` accetta la funzione reducer e uno stato iniziale, e restituisce un array contenente lo stato attuale e un metodo `dispatch`.
-    
+   
 -   Per aggiornare lo stato, chiamiamo il metodo `dispatch` e passiamo il tipo di azione e il payload in un oggetto. Chiamiamo questo processo "dispatching di un'azione".
-    
+   
 
 Quando usare `useReducer`:
 
 -   Usa questo hook solo quando il tuo componente ha una logica di aggiornamento dello stato complessa. Poiché comporta scrivere più codice, preferisci `useState` per aggiornamenti di stato più semplici. L'esempio semplice fornito è solo a scopo dimostrativo.
-    
+   
 -   Quando ci sono molte azioni di aggiornamento dello stato con diverse logiche, ha senso averle tutte in una funzione separata. Con questo, basta passare il tipo di azione e il payload a una funzione `dispatch` e il reducer gestisce l'aggiornamento dello stato.
-    
+   
 
 
 [https://www.freecodecamp.org/news/usereducer-hook-react/][28]
@@ -813,9 +813,9 @@ export const App = () => {
 ```
 
 - Una volta identificato un componente da caricare in modo asincrono, utilizza la funzione `React.lazy()` per importare dinamicamente il componente lazy.
-    
+   
 - Avvolgi il componente caricato in modo asincrono all'interno di `Suspense`. Questo renderà un componente di fallback (predefinito) finché il componente lazy non sarà caricato.
-    
+   
 
 In questo modo, puoi caricare un componente React su richiesta. Questo è anche noto come code splitting**.** Il codice viene suddiviso e una parte del codice React viene caricata dinamicamente quando necessario.
 
@@ -830,28 +830,28 @@ Ci sono due modi per fare il rendering delle pagine web in React. Diamo un'occhi
 **Rendering lato server (SSR):**
 
 - La pagina web viene generata e renderizzata sul server prima di essere inviata al client. Il client riceve una pagina web completa dal server e la mostra direttamente all'utente.
-    
+   
 - Caricando l'HTML preparato, i tempi di caricamento sono più rapidi, migliorando l'esperienza utente. Questo è particolarmente utile per gli utenti con connessioni internet più lente.
-    
+   
 - Poiché la pagina web è già preparata, aiuta i motori di ricerca a indicizzare meglio il tuo sito, rendendolo più SEO-friendly.
 
 - SSR può aumentare il carico del server se la pagina viene aggiornata frequentemente. Le pagine con contenuti dinamici possono impiegare più tempo per l'aggiornamento poiché devono essere re-renderizzate spesso.
-    
+   
 - SSR è utilizzato per siti di marketing, blog e notizie dove i tempi di caricamento iniziale e la SEO sono importanti.
-    
+   
 
 **Rendering lato client (CSR):**
 
 - Un file HTML di base viene inviato al client, che poi rende i contenuti dinamici usando JavaScript.
-    
+   
 - I tempi di caricamento iniziali sono più lenti perché la preparazione e il rendering del contenuto avvengono principalmente sul lato client.
-    
+   
 - Poiché inizialmente viene renderizzato HTML di base e i contenuti JavaScript vengono aggiunti successivamente, i motori di ricerca potrebbero non essere in grado di indicizzare il tuo contenuto, rendendolo meno SEO-friendly.
-    
+   
 - Per le pagine web con contenuti dinamici, i tempi di rendering sono più veloci poiché tutto il rendering avviene sul lato client.
-    
+   
 - CSR è usato per siti con contenuti dinamici e frequenti interazioni utente come piattaforme social o dashboard.
-    
+   
 
 ## React Redux
 
@@ -866,7 +866,7 @@ Una funzione selettore accetta un oggetto di stato Redux come argomento e restit
 ```
 // esempio di stato per un'app di e-commerce
 const initialState = {
-    users: { 
+    users: {
         ...
     },
     products: {
@@ -950,9 +950,9 @@ Redux è molto più di questi due Hook. Assicurati di avere chiari i concetti fo
 Ci sono alcune altre aree che non ho menzionato finora, ma che possono essere un buon complemento:
 
 -   [React Router][35]
-    
+   
 -   [Test Unitari in React][36]
-    
+   
 
 Inoltre, potrebbe esserti chiesto di implementare una piccola funzionalità utilizzando i concetti spiegati in questo articolo. Questo ti dà l'opportunità di dimostrare la tua comprensione di React.
 
@@ -971,11 +971,11 @@ Durante i colloqui, basta restare calmo e dimostrare con sicurezza la tua conosc
 ### Riferimenti
 
 -   [Domande di colloquio React – Preparazione al colloquio con Risposte ed Esempi][38]
-    
+   
 -   [Domande di colloquio React][39] - InterviewBit
-    
+   
 -   [Impara React – Una guida ai concetti chiave di Ankur Tyagi][40]
-    
+   
 
 [1]: #heading-javascript-fundamentals
 [2]: #heading-react-essentials

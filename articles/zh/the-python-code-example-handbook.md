@@ -445,7 +445,7 @@ if __name__ == '__main__':
 
 说到 `print()` 方法，你可以使用 `+` 号在一个打印方法中添加变量和字符串：
 
-```    
+```   
 print(book + ' 是由 ' + author + ' 撰写的小说, 发表在 ' + release_year + '. 它在 goodreads 上的评分是 ' + goodreads_rating + '.')
 
 
@@ -1820,12 +1820,12 @@ if __name__ == '__main__':
 
 ```
 def main():
-    paragraph = '''At three in the morning the chief Sussex detective, obeying the urgent call from Sergeant Wilson of 
-    Birlstone, arrived from headquarters in a light dog-cart behind a breathless trotter. By the five-forty train in 
-    the morning he had sent his message to Scotland Yard, and he was at the Birlstone station at twelve o'clock to 
-    welcome us. White Mason was a quiet, comfortable-looking person in a loose tweed suit, with a clean-shaved, 
-    ruddy face, a stoutish body, and powerful bandy legs adorned with gaiters, looking like a small farmer, 
-    a retired gamekeeper, or anything upon earth except a very favourable specimen of the provincial criminal 
+    paragraph = '''At three in the morning the chief Sussex detective, obeying the urgent call from Sergeant Wilson of
+    Birlstone, arrived from headquarters in a light dog-cart behind a breathless trotter. By the five-forty train in
+    the morning he had sent his message to Scotland Yard, and he was at the Birlstone station at twelve o'clock to
+    welcome us. White Mason was a quiet, comfortable-looking person in a loose tweed suit, with a clean-shaved,
+    ruddy face, a stoutish body, and powerful bandy legs adorned with gaiters, looking like a small farmer,
+    a retired gamekeeper, or anything upon earth except a very favourable specimen of the provincial criminal
     officer.'''
 
     substring = 'morning'

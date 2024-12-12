@@ -19,11 +19,11 @@ Even though they are important to Rust projects, lifetimes can be quite tricky t
 To get the most out of this tutorial, you'll need the following:
 
 -   At least beginner-level familiarity with Rust: This tutorial doesn't help with learning how to code in Rust. It only helps with understanding lifetimes in Rust and how they work
-    
+   
 -   Familiarity with generics: Generics in Rust work identically to how they do in popular programming languages. Knowledge of how generics work in any language would be helpful.
-    
+   
 -   Knowing how the borrow checker works isn't as much a requirement as the last two above, but it would be helpful. Knowledge of how lifetimes work also helps in understanding how the borrow checker works.
-    
+   
 
 ## So, What are Lifetimes in Rust?
 

@@ -28,7 +28,7 @@ React 的 Context API 提供了一种在组件之间共享这些值的方法，�
 
 本文中的所有示例都在这个仓库中：[https://github.com/DoableDanny/React-context-API-tutorial][6]
 
-我还制作了本文的视频版，以便您更容易跟随示例：[React Context 教程与示例  
+我还制作了本文的视频版，以便您更容易跟随示例：[React Context 教程与示例 
 ][7]
 
 ## 什么是 React Context API 以及何时应该使用它？

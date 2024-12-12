@@ -89,9 +89,9 @@ Para instalar estas extensiones, sigue estos pasos:
 Así es como se ve la vista de Extensiones en Visual Studio Code:
 
 -   Extensión Devkit de C# para Visual Studio Code ![Vista de Extensiones para Devkit](https://www.freecodecamp.org/news/content/images/2024/05/DevKIt.png)
-    
+   
 -   Extensión de Autocompletado de Espacios de Nombres para Visual Studio Code ![Vista de Extensiones para Autocompletado de Espacios de Nombres](https://www.freecodecamp.org/news/content/images/2024/05/NameSpace.png)
-    
+   
 
 En las imágenes anteriores, las extensiones ya están instaladas. Si no están instaladas en tu sistema, puedes hacerlo haciendo clic en el botón de Instalar.
 
@@ -159,15 +159,15 @@ La imagen anterior muestra la estructura del proyecto generada. Incluye todos lo
 Con los archivos y carpetas del proyecto generados por la CLI de .NET Core, tomémonos un momento para entender el propósito de cada archivo.
 
 -   `appsettings.json`: Este archivo alberga la configuración de la aplicación. Es el lugar de referencia para almacenar cadenas de conexión, configuraciones de registro y otros ajustes.
-    
+   
 -   `Program.cs`: Sirviendo como el punto de entrada de la aplicación, este archivo es responsable de configurar el host y los servicios.
-    
+   
 -   `TodoAPI.csproj`: Este archivo de proyecto contiene metadatos sobre tu proyecto, incluidas referencias a los paquetes y bibliotecas necesarios.
-    
+   
 -   `appsettings.Development.json`: Este archivo está diseñado para configuraciones específicas del entorno de desarrollo. Es ideal para almacenar configuraciones específicas del entorno. Pero para el propósito de este tutorial, usaremos en su lugar el archivo `appsettings.json`.
-    
+   
 -   `TodoAPI.http`: Este archivo se usa típicamente para probar los endpoints de la API utilizando la extensión REST Client en Visual Studio Code, ya que contiene solicitudes de muestra para los endpoints de la API. Sin embargo, en este tutorial, utilizaremos Postman para las pruebas, por lo que no necesitamos este archivo y procederemos a eliminarlo.
-    
+   
 
 ## Paso 2: Establece la Estructura de tu Proyecto
 
@@ -307,7 +307,7 @@ Este modelo ErrorResponse se usará para devolver mensajes de error al cliente c
 Definamos otro modelo para gestionar nuestra cadena de conexión a la base de datos.
 
 ```
-// Models/DbSettings.cs 
+// Models/DbSettings.cs
 
 namespace TodoAPI.Models
 {
@@ -341,7 +341,7 @@ Si la salida de tu terminal coincide con la imagen anterior, estás en el direct
 Ahora, vamos a instalar los paquetes:
 
 ```
-dotnet add package Microsoft.EntityFrameworkCore --version 8.0.0 
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.0
 dotnet add package AutoMapper --version 13.0.1
@@ -796,7 +796,7 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>(); // Añade esta l
 
 builder.Services.AddProblemDetails();  // Añade esta línea
 
-// Adición del inicio de sesión 
+// Adición del inicio de sesión
 builder.Services.AddLogging();  // Añade esta línea
 
 
@@ -833,7 +833,7 @@ En el desarrollo de .NET, la capa de servicios encapsula la lógica central del 
 Primero, definamos una interfaz para nuestra capa de servicios.
 
 ```
-// Interfaces/ITodoServices.cs 
+// Interfaces/ITodoServices.cs
 
 using TodoAPI.Contracts;
 using TodoAPI.Models;
@@ -1039,9 +1039,9 @@ public async Task<IEnumerable<Todo>> GetAllAsync()
 Aquí tienes un desglose del método `GetAllAsync`:
 
 -   **Recuperación de Ítems Todo**: Usamos el método `ToListAsync` de Entity Framework Core para obtener todos los ítems Todo de la base de datos.
-    
+   
 -   **Manejo de Errores**: Si no se encuentran ítems Todo, lanzamos una excepción con un mensaje descriptivo de error.
-    
+   
 
 Ahora tu clase Service debería verse así:
 
@@ -1071,7 +1071,7 @@ namespace TodoAPI.Services
             _mapper = mapper;
         }
 
-        // Crear Todo para guardarlo en la base de datos 
+        // Crear Todo para guardarlo en la base de datos
 
         public async Task CreateTodoAsync(CreateTodoRequest request)
         {
@@ -1104,7 +1104,7 @@ namespace TodoAPI.Services
             throw new NotImplementedException();
         }
 
-        // Obtener todos los ítems TODO de la base de datos 
+        // Obtener todos los ítems TODO de la base de datos
 
         public Task<Todo> GetByIdAsync(Guid id)
         {
@@ -1190,13 +1190,13 @@ Navegue a la clase `TodoController` y agregue el siguiente código al método `C
 Aquí hay un desglose del método `CreateTodoAsync`:
 
 -   **Validación del Modelo**: Verificamos si el modelo de solicitud es válido usando `ModelState.IsValid`. Si el modelo no es válido, devolvemos una respuesta `BadRequest` con los errores del estado del modelo.
-    
+   
 -   **Creación de un Elemento Todo**: Llamamos al método `CreateTodoAsync` de la interfaz `ITodoServices` para crear un nuevo elemento Todo en la base de datos.
-    
+   
 -   **Respuesta Exitosa**: Si el elemento Todo se crea exitosamente, devolvemos una respuesta `Ok` con un mensaje de éxito.
-    
+   
 -   **Manejo de Errores**: Si ocurre un error durante el proceso de creación, devolvemos una respuesta `500 Internal Server Error` con un mensaje de error.
-    
+   
 
 Ahora implementemos el método `GetAllAsync` en la clase `TodoController`. Este método recuperará todos los elementos Todo de la base de datos.
 
@@ -1204,7 +1204,7 @@ Navegue a la clase `TodoController` y agregue el siguiente código al método `G
 
 ```
 
-// Controllers/TodoController.cs 
+// Controllers/TodoController.cs
 
 // ...
 
@@ -1235,11 +1235,11 @@ Navegue a la clase `TodoController` y agregue el siguiente código al método `G
 Aquí hay un desglose del método `GetAllAsync`:
 
 -   **Recuperación de Elementos Todo**: Llamamos al método `GetAllAsync` de la interfaz `ITodoServices` para obtener todos los elementos Todo de la base de datos.
-    
+   
 -   **Respuesta Exitosa**: Si los elementos Todo se recuperan exitosamente, devolvemos una respuesta `Ok` con un mensaje de éxito y la lista de elementos Todo.
-    
+   
 -   **Manejo de Errores**: Si ocurre un error durante el proceso de recuperación, devolvemos una respuesta `500 Internal Server Error` con un mensaje de error.
-    
+   
 
 Ahora tu clase `TodoController` debería lucir así:
 
@@ -1510,13 +1510,13 @@ Ahora que hemos creado exitosamente un nuevo elemento Todo, vamos a recuperar to
 Para recuperar todos los elementos Todo de la base de datos, sigue estos pasos:
 
 1.  Abre Postman y crea una nueva solicitud.
-    
+   
 2.  Configura el método de solicitud a `GET`.
-    
+   
 3.  Ingresa la siguiente URL: `https://localhost:5086/api/todo`.
-    
+   
 4.  Haz clic en el botón `Send` para ejecutar la solicitud.
-    
+   
 
 Si la solicitud es exitosa, recibirás una respuesta similar a la siguiente:
 
@@ -1662,11 +1662,11 @@ Navegue a la clase `TodoServices` y agregue el siguiente código al método `Upd
 Aquí hay un desglose del método `UpdateTodoAsync`:
 
 -   **Recuperación de un elemento Todo específico**: Usamos el método `FindAsync` de Entity Framework Core para obtener un elemento Todo por su `Id`.
-    
+   
 -   **Actualización del elemento Todo**: Actualizamos las propiedades del elemento Todo basándonos en los valores proporcionados en el objeto `UpdateTodoRequest`.
-    
+   
 -   **Manejo de errores**: Si no se encuentra ningún elemento Todo con el `Id` especificado, lanzamos una excepción con un mensaje de error descriptivo.
-    
+   
 
 Ahora implementemos el método `UpdateTodoAsync` en la clase `TodoController`. Este método modificará un elemento Todo existente en la base de datos.
 
@@ -1676,7 +1676,7 @@ Navegue a la clase `TodoController` y agregue el siguiente código al método `U
 
 // Controllers/TodoController.cs
 
-// ... 
+// ...
    [HttpPut("{id:guid}")]
 
    public async Task<IActionResult> UpdateTodoAsync(Guid id, UpdateTodoRequest request)
@@ -1716,15 +1716,15 @@ Navegue a la clase `TodoController` y agregue el siguiente código al método `U
 Aquí hay un desglose del método `UpdateTodoAsync`:
 
 -   **Validación del modelo**: Verificamos si el modelo de la solicitud es válido usando `ModelState.IsValid`. Si el modelo no es válido, devolvemos una respuesta `BadRequest` con los errores del estado del modelo.
-    
+   
 -   **Recuperación de un elemento Todo específico**: Llamamos al método `GetByIdAsync` de la interfaz `ITodoServices` para obtener un elemento Todo por su `Id`.
-    
+   
 -   **Actualización del elemento Todo**: Si se encuentra el elemento Todo, llamamos al método `UpdateTodoAsync` de la interfaz `ITodoServices` para actualizar el elemento Todo.
-    
+   
 -   **Respuesta de éxito**: Si el elemento Todo se actualiza correctamente, devolvemos una respuesta `Ok` con un mensaje de éxito.
-    
+   
 -   **Manejo de errores**: Si ocurre un error durante el proceso de actualización, devolvemos una respuesta `500 Internal Server Error` con un mensaje de error.
-    
+   
 
 ## Paso 18: Implementar el método DeleteTodoAsync
 
@@ -1764,11 +1764,11 @@ Navegue a la clase `TodoServices` y agregue el siguiente código al método `Del
 Aquí hay un desglose del método `DeleteTodoAsync`:
 
 -   **Recuperación de un elemento Todo específico**: Usamos el método `FindAsync` de Entity Framework Core para obtener un elemento Todo por su `Id`.
-    
+   
 -   **Eliminación del elemento Todo**: Si se encuentra el elemento Todo, lo eliminamos del DbSet `Todos` en nuestro contexto y guardamos los cambios de forma asíncrona.
-    
+   
 -   **Manejo de errores**: Si no se encuentra ningún elemento Todo con el `Id` especificado, lanzamos una excepción con un mensaje de error descriptivo.
-    
+   
 
 Ahora implementemos el método `DeleteTodoAsync` en la clase `TodoController`. Este método eliminará un elemento Todo de la base de datos.
 
@@ -1805,11 +1805,11 @@ public async Task<IActionResult> DeleteTodoAsync(Guid id)
 A continuación se muestra un desglose del método `DeleteTodoAsync`:
 
 -   **Eliminación del elemento Todo**: Llamamos al método `DeleteTodoAsync` de la interfaz `ITodoServices` para eliminar un elemento Todo por su `Id`.
-    
+   
 -   **Respuesta de éxito**: Si el elemento Todo se elimina correctamente, devolvemos una respuesta `Ok` con un mensaje de éxito.
-    
+   
 -   **Manejo de errores**: Si ocurre un error durante el proceso de eliminación, devolvemos una respuesta `500 Internal Server Error` con un mensaje de error.
-    
+   
 
 Ahora tu clase `TodoServices` debería verse así:
 
@@ -1841,7 +1841,7 @@ namespace TodoAPI.Services
 
 
 
-        // Creación de Todo para que se guarde en la base de datos 
+        // Creación de Todo para que se guarde en la base de datos
 
         public async Task CreateTodoAsync(CreateTodoRequest request)
         {

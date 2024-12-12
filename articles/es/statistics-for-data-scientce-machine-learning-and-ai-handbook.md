@@ -66,11 +66,11 @@ Las variables aleatorias forman la piedra angular de muchos conceptos estadísti
 
 Por ejemplo, podemos definir el proceso aleatorio de lanzar una moneda mediante la variable aleatoria X que toma el valor 1 si el resultado es _cara_ y 0 si el resultado es _cruz._
 
-$$X =  
-\\begin{cases}  
-1 & \\text{si es cara} \\\\  
-0 & \\text{si es cruz}  
-\\end{cases}  
+$$X = 
+\\begin{cases} 
+1 & \\text{si es cara} \\\\ 
+0 & \\text{si es cruz} 
+\\end{cases} 
 $$
 
 En este ejemplo, tenemos un proceso aleatorio de lanzar una moneda donde este experimento puede producir **dos** **resultados posibles**: {0,1}. Este conjunto de todos los posibles resultados se llama el **espacio muestral** del experimento. Cada vez que se repite el proceso aleatorio, se refiere a un **evento**.
@@ -79,11 +79,11 @@ En este ejemplo, tenemos un proceso aleatorio de lanzar una moneda donde este ex
 
 La probabilidad de un evento es la probabilidad de que una variable aleatoria tome un valor específico de x, lo cual puede describirse por P(x). En el ejemplo de lanzar una moneda, la probabilidad de obtener caras o cruces es la misma, es decir, 0.5 o 50%. Así que tenemos la siguiente configuración:
 
-$$  
-\\begin{align}  
-\\Pr(X = \\text{caras}) = 0.5 \\\\  
-\\Pr(X = \\text{cruces}) = 0.5  
-\\end{align}  
+$$ 
+\\begin{align} 
+\\Pr(X = \\text{caras}) = 0.5 \\\\ 
+\\Pr(X = \\text{cruces}) = 0.5 
+\\end{align} 
 $$
 
 donde la probabilidad de un evento, en este ejemplo, solo puede tomar valores en el rango \[0,1\].
@@ -112,18 +112,18 @@ $$ X\_1, X\_2, X\_3, \\ldots, X\_N $$
 
 donde N es el número de observaciones o puntos de datos en el conjunto de la muestra o simplemente la frecuencia de los datos. Entonces, la **media de la muestra** definida por **μ**, que muy a menudo se usa para aproximar la **media de la población**, puede expresarse de la siguiente manera:
 
-$$  
-\\mu = \\frac{\\sum\_{i=1}^{N} x\_i}{N}  
+$$ 
+\\mu = \\frac{\\sum\_{i=1}^{N} x\_i}{N} 
 $$
 
 La media también se refiere como **expectativa**, que a menudo se define por **E**() o una variable aleatoria con una barra en la parte superior. Por ejemplo, la expectativa de las variables aleatorias X e Y, es decir, **E**(X) y **E**(Y), respectivamente, puede expresarse de la siguiente manera:
 
-$$  
-\\bar{X} = \\frac{\\sum\_{i=1}^{N} X\_i}{N}  
-$$  
-  
-$$  
-\\bar{Y} = \\frac{\\sum\_{i=1}^{N} Y\_i}{N}  
+$$ 
+\\bar{X} = \\frac{\\sum\_{i=1}^{N} X\_i}{N} 
+$$ 
+ 
+$$ 
+\\bar{Y} = \\frac{\\sum\_{i=1}^{N} Y\_i}{N} 
 $$
 
 Ahora que tenemos una comprensión sólida de la media como medida estadística, veamos cómo podemos aplicar este conocimiento prácticamente usando Python. Python es un lenguaje de programación versátil que, con la ayuda de bibliotecas como NumPy, facilita realizar operaciones matemáticas complejas, incluyendo el cálculo de la media.
@@ -164,8 +164,8 @@ Para derivar expectativas y varianzas de diferentes funciones de distribución d
 
 La desviación estándar es simplemente la raíz cuadrada de la varianza y mide la magnitud en la que los datos varían respecto a su media. La desviación estándar definida por **sigma** puede expresarse de la siguiente manera:
 
-$$  
-\\sigma^2 = \\frac{\\sum\_{i=1}^{N} (x\_i - \\mu)^2}{N}  
+$$ 
+\\sigma^2 = \\frac{\\sum\_{i=1}^{N} (x\_i - \\mu)^2}{N} 
 $$
 
 La desviación estándar a menudo es preferida sobre la varianza porque tiene las mismas unidades que los puntos de datos, lo que significa que se puede interpretar más fácilmente.
@@ -229,9 +229,9 @@ Una función que describe todos los posibles valores, el espacio muestral, y las
 
 Toda pdf debe satisfacer los siguientes dos criterios:
 
-$$  
-0 \\leq \\Pr(X) \\leq 1 \\\\  
-\\sum p(X) = 1  
+$$ 
+0 \\leq \\Pr(X) \\leq 1 \\\\ 
+\\sum p(X) = 1 
 $$
 
 donde el primer criterio establece que todas las probabilidades deben ser números en el rango de \[0,1\] y el segundo criterio establece que la suma de todas las probabilidades posibles debe ser igual a 1.
@@ -320,9 +320,9 @@ Predecir el número de llegadas de clientes a una tienda dentro de una hora. Est
 
 Así, la distribución de Poisson ayuda a hacer pronósticos probabilísticos sobre la ocurrencia de eventos raros o aleatorios a lo largo de intervalos de tiempo o espacio.
 
-$$  
-E(X) = \\lambda \\\\  
-\\text{Var}(X) = \\lambda  
+$$ 
+E(X) = \\lambda \\\\ 
+\\text{Var}(X) = \\lambda 
 $$
 
 Por ejemplo, la distribución de Poisson puede ser utilizada para modelar el número de clientes que llegan a la tienda entre las 7 y las 10 pm, o el número de pacientes que llegan a una sala de emergencias entre las 11 y las 12 pm.
@@ -357,17 +357,17 @@ plt.show()
 
 Supongamos que una variable aleatoria X sigue una distribución normal. Entonces, su función de densidad de probabilidad se puede expresar de la siguiente manera:
 
-$$  
-\\Pr(X = k) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2} \\left(\\frac{x-\\mu}{\\sigma}\\right)^2}  
+$$ 
+\\Pr(X = k) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2} \\left(\\frac{x-\\mu}{\\sigma}\\right)^2} 
 $$
 
 donde el parámetro **μ** (mu) es la media de la distribución, también conocido como el **parámetro de ubicación**, y el parámetro **σ** (sigma) es la desviación estándar de la distribución, también conocido como el **parámetro de escala**. El número [**π**][40] (pi) es una constante matemática aproximadamente igual a 3.14.
 
 #### Media y varianza de la distribución normal
 
-$$  
-E(X) = \\mu \\\\  
-\\text{Var}(X) = \\sigma^2  
+$$ 
+E(X) = \\mu \\\\ 
+\\text{Var}(X) = \\sigma^2 
 $$
 
 La figura a continuación visualiza un ejemplo de distribución normal con una media de 0 (**μ = 0**) y una desviación estándar de 1 (**σ = 1**), que se conoce como distribución **normal estándar**, la cual es simétrica.
@@ -575,7 +575,7 @@ t_critical = t.ppf(q =1-0.05/2, df = N-2)
 margin_of_error = t_critical*SE_i
 CI = [np.round(beta_hat[i,0]-margin_of_error,3), np.round(beta_hat[i,0]+margin_of_error,3)]
 CI_s.append(CI)
-return(beta_hat, SE, t_stats, p_values,CI_s, 
+return(beta_hat, SE, t_stats, p_values,CI_s,
        MSE, RMSE, R_squared)
 ```
 
@@ -677,11 +677,11 @@ donde H0 y H1 representan la Hipótesis Nula y la Hipótesis Alternativa, respec
 
 Rechazar la Hipótesis Nula significaría que un aumento de una unidad en la Longitud del Ala tiene un impacto directo en la Masa Corporal (dado que la estimación del parámetro β1 describe este impacto de la variable independiente, Longitud del Ala, en la variable dependiente, Masa Corporal). Podemos reformular esta hipótesis de la siguiente manera:
 
-$$  
-\\begin{cases}  
-H\_0: \\hat{\\beta}\_1 = 0 \\\\  
-H\_1: \\hat{\\beta}\_1 \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: \\hat{\\beta}\_1 = 0 \\\\ 
+H\_1: \\hat{\\beta}\_1 \\neq 0 
+\\end{cases} 
 $$
 
 donde H0 establece que la estimación del parámetro β1 es igual a 0, es decir, el efecto de la Longitud del Ala en la Masa Corporal es **estadísticamente insignificante** mientras que H1 sostiene que la estimación del parámetro β1 no es igual a 0, sugiriendo que el efecto de la Longitud del Ala en la Masa Corporal es **estadísticamente significativo**.
@@ -725,9 +725,9 @@ Hay dos versiones de la prueba t: una **prueba t de dos colas** y una **prueba t
 
 Puedes usar la prueba t de dos colas o **prueba t de dos extremos** cuando la hipótesis sea probar la relación _igual_ versus _no igual_ bajo las Hipótesis Nula y Alternativa. Sería similar al siguiente ejemplo:
 
-$$  
-H\_{0} = \\beta\_hat\_1  = h\_0\\  
-H\_{1} = \\beta\_hat\_1 \\neq h\_0  
+$$ 
+H\_{0} = \\beta\_hat\_1  = h\_0\\ 
+H\_{1} = \\beta\_hat\_1 \\neq h\_0 
 $$
 
 La prueba t de dos colas tiene **dos regiones de rechazo** como se visualiza en la figura a continuación:
@@ -766,11 +766,11 @@ La prueba F es otra prueba estadística muy popular que a menudo se utiliza para
 
 A continuación se muestra un ejemplo de una hipótesis estadística que puedes probar usando la prueba F:
 
-$$  
-\\begin{cases}  
-H\_0: \\hat{\\beta}\_1 = \\hat{\\beta}\_2 = \\hat{\\beta}\_3 = 0 \\\\  
-H\_1: \\hat{\\beta}\_1 \\neq \\hat{\\beta}\_2 \\neq \\hat{\\beta}\_3 \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: \\hat{\\beta}\_1 = \\hat{\\beta}\_2 = \\hat{\\beta}\_3 = 0 \\\\ 
+H\_1: \\hat{\\beta}\_1 \\neq \\hat{\\beta}\_2 \\neq \\hat{\\beta}\_3 \\neq 0 
+\\end{cases} 
 $$
 
 donde la Null establece que las tres variables correspondientes a estos coeficientes son conjuntamente no significativas estadísticamente, y la Alternativa establece que estas tres variables son conjuntamente significativas estadísticamente.
@@ -813,8 +813,8 @@ donde la distribución muestral de las medias del grupo de Control sigue una dis
 
 Tenga en cuenta que N\_con y N\_exp son el número de usuarios en los grupos de Control y Experimental, respectivamente.
 
-$$ \\hat{\\mu}\_{\\text{con}} \\sim t(N\_{\\text{con}} - 1) $$  
-  
+$$ \\hat{\\mu}\_{\\text{con}} \\sim t(N\_{\\text{con}} - 1) $$ 
+ 
 $$ \\hat{\\mu}\_{\\text{exp}} \\sim t(N\_{\\text{exp}} - 1) $$
 
 Luego puede calcular una estimación para la **varianza combinada** de las dos muestras de la siguiente manera:
@@ -835,16 +835,16 @@ El p-valor es la probabilidad de observar valores al menos tan extremos como el 
 
 Entonces, el p-valor de las estadísticas de prueba se puede calcular de la siguiente manera:
 
-$$ p\_{\\text{valor}} = \\Pr\[t \\leq -T \\text{ o } t \\geq T\] $$  
-  
+$$ p\_{\\text{valor}} = \\Pr\[t \\leq -T \\text{ o } t \\geq T\] $$ 
+ 
 $$ = 2 \* \\Pr\[t \\geq T\] $$
 
 La interpretación de un _p_\-valor depende del nivel de significancia elegido, alfa, que se elige antes de realizar la prueba durante el _análisis de poder_.
 
 Si el _p_\-valor calculado parece ser menor o igual a alfa (por ejemplo, 0.05 para un nivel de significancia del 5%) podemos rechazar la hipótesis nula y afirmar que existe una diferencia estadísticamente significativa entre las métricas primarias de los grupos de Control y Experimental.
 
-Finalmente, para determinar cuán precisos son los resultados obtenidos y también para comentar sobre la significancia práctica de los resultados obtenidos, puede calcular el **Intervalo de Confianza** de su prueba utilizando la siguiente fórmula:  
-  
+Finalmente, para determinar cuán precisos son los resultados obtenidos y también para comentar sobre la significancia práctica de los resultados obtenidos, puede calcular el **Intervalo de Confianza** de su prueba utilizando la siguiente fórmula: 
+ 
 $$ CI = \\left\[ (\\hat{\\mu}\_{\\text{con}} - \\hat{\\mu}\_{\\text{exp}}) - t\_{\\frac{\\alpha}{2}} \* SE(\\hat{\\mu}\_{\\text{con}} - \\hat{\\mu}\_{\\text{exp}}), (\\hat{\\mu}\_{\\text{con}} - \\hat{\\mu}\_{\\text{exp}}) + t\_{\\frac{\\alpha}{2}} \* SE \\right\] $$
 
 donde t\_(1-alpha/2) es el valor crítico de la prueba correspondiente a la prueba t de dos colas con un nivel de significancia alfa. Se puede encontrar usando la [tabla t][58].
@@ -865,9 +865,9 @@ import numpy as np
 from scipy.stats import t
 
 N_con = 20
-df_con = N_con - 1 # grados de libertad del Control 
+df_con = N_con - 1 # grados de libertad del Control
 N_exp = 20
-df_exp = N_exp - 1 # grados de libertad del Experimental 
+df_exp = N_exp - 1 # grados de libertad del Experimental
 
 # Nivel de significancia
 alpha = 0.05
@@ -923,26 +923,26 @@ Aquí haremos una distinción entre dos casos: donde la métrica principal está
 
 Si deseas probar si hay una diferencia estadísticamente significativa entre las métricas de los grupos de Control y Experimental que están en forma de proporciones (como la Tasa de Clics) y si el evento de clic ocurre independientemente, puedes usar una prueba Z de dos muestras para probar la siguiente hipótesis:
 
-$$  
-\\begin{cases}  
-H\_0: p\_{\\text{con}} = p\_{\\text{exp}} \\\\  
-H\_1: p\_{\\text{con}} \\neq p\_{\\text{exp}}  
-\\end{cases}  
-$$  
-  
-$$  
-\\begin{cases}  
-H\_0: p\_{\\text{con}} - p\_{\\text{exp}} = 0 \\\\  
-H\_1: p\_{\\text{con}} - p\_{\\text{exp}} \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: p\_{\\text{con}} = p\_{\\text{exp}} \\\\ 
+H\_1: p\_{\\text{con}} \\neq p\_{\\text{exp}} 
+\\end{cases} 
+$$ 
+ 
+$$ 
+\\begin{cases} 
+H\_0: p\_{\\text{con}} - p\_{\\text{exp}} = 0 \\\\ 
+H\_1: p\_{\\text{con}} - p\_{\\text{exp}} \\neq 0 
+\\end{cases} 
 $$
 
 donde cada evento de clic puede describirse mediante una variable aleatoria que puede tomar dos valores posibles: 1 (éxito) y 0 (fracaso). También sigue una distribución de Bernoulli (clic: éxito y no clic: fracaso) donde p\_con y p\_exp son las probabilidades de clic (probabilidad de éxito) de los grupos de Control y Experimental, respectivamente.
 
 Entonces, después de recopilar los datos de interacción de los usuarios de Control y Experimental, puedes calcular las estimaciones de estas dos probabilidades como sigue:
 
-$$ SE = \\sqrt{\\hat{S}^2\_{\\text{combinada}}} $$  
-  
+$$ SE = \\sqrt{\\hat{S}^2\_{\\text{combinada}}} $$ 
+ 
 $$ Z = \\frac{(\\hat{p}\_{\\text{con}} - \\hat{p}\_{\\text{exp}})}{SE} $$
 
 Dado que estamos probando la diferencia en estas probabilidades, necesitamos obtener una estimación de la probabilidad combinada de éxito y una estimación de la varianza combinada, lo cual se puede hacer de la siguiente manera:
@@ -961,8 +961,8 @@ $$ Z = \\frac{(\\hat{p}_{\\text{con}} - \\hat{p}_{\\text{exp}})}{SE} $$
 
 Entonces, el valor p de estos estadísticos de prueba se puede calcular de la siguiente manera:
 
-$$ p\_{\\text{valor}} = \\Pr\[Z \\leq -T \\text{ o } z \\geq T\] $$  
-  
+$$ p\_{\\text{valor}} = \\Pr\[Z \\leq -T \\text{ o } z \\geq T\] $$ 
+ 
 $$ = 2 \* \\Pr\[Z \\geq T\] $$
 
 Finalmente, puedes calcular el **Intervalo de Confianza** de la prueba de la siguiente manera:
@@ -1046,24 +1046,24 @@ plt.show()
 
 Si deseas comprobar si existe una diferencia estadísticamente significativa entre las métricas de los grupos Control y Experimental que están en forma de promedios (como el monto promedio de compra) puedes usar una prueba Z de 2 muestras para probar la siguiente hipótesis:
 
-$$  
-\\begin{cases}  
-H\_0: {CR}\_{\\text{con}} = {CR}\_{\\text{exp}} \\\\  
-H\_1:{CR}\_{\\text{con}} \\neq {CR}\_{\\text{exp}}  
-\\end{cases}  
-$$  
-  
-$$  
-\\begin{cases}  
-H\_0: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} = 0 \\\\  
-H\_1: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: {CR}\_{\\text{con}} = {CR}\_{\\text{exp}} \\\\ 
+H\_1:{CR}\_{\\text{con}} \\neq {CR}\_{\\text{exp}} 
+\\end{cases} 
+$$ 
+ 
+$$ 
+\\begin{cases} 
+H\_0: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} = 0 \\\\ 
+H\_1: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} \\neq 0 
+\\end{cases} 
 $$
 
 donde la distribución muestral de las medias del grupo Control sigue una distribución Normal con media mu\_con y σ²\_con/N\_con. Además, la distribución muestral de las medias del grupo Experimental también sigue la distribución Normal con media mu\_exp y σ²\_exp/N\_exp.
 
-$$ \\hat{\\mu}\_{\\text{con}} \\sim N(\\mu\_{con}, \\frac{\\sigma^2\_{con}}{N\_{con}}) $$  
-  
+$$ \\hat{\\mu}\_{\\text{con}} \\sim N(\\mu\_{con}, \\frac{\\sigma^2\_{con}}{N\_{con}}) $$ 
+ 
 $$ \\hat{\\mu}\_{\\text{exp}} \\sim N(\\mu\_{exp}, \\frac{\\sigma^2\_{exp}}{N\_{exp}}) $$
 
 Entonces, la diferencia en las medias de los grupos control y experimental también sigue distribuciones Normales con media mu\_con - mu\_exp y varianza σ²\_con/N\_con + σ²\_exp/N\_exp.
@@ -1080,8 +1080,8 @@ $$ SE = \\sqrt{\\frac{\\sigma^2\_{con}}{N\_{con}} + \\frac{\\sigma^2\_{exp}}{N\_
 
 Entonces, el valor p de estos estadísticos de prueba se puede calcular de la siguiente manera:
 
-$$ p\_{\\text{value}} = \\Pr\[Z \\leq -T \\text{ or } Z \\geq T\] $$  
-  
+$$ p\_{\\text{value}} = \\Pr\[Z \\leq -T \\text{ or } Z \\geq T\] $$ 
+ 
 $$ = 2 \* \\Pr\[Z \\geq T\] $$
 
 Finalmente, puedes calcular el **Intervalo de Confianza** de la prueba de la siguiente manera:
@@ -1158,17 +1158,17 @@ plt.show()
 
 Si deseas comprobar si hay una diferencia estadísticamente significativa entre las métricas de rendimiento de los grupos de Control y Experimental (por ejemplo, sus conversiones) y realmente no deseas conocer la naturaleza de esta relación (cuál es mejor), puedes usar una prueba Chi-Cuadrada para probar la siguiente hipótesis:
 
-$$  
-\\begin{cases}  
-H\_0: \\CR\_{\\text{con}} = \\CR\_{\\text{exp}} \\\\  
-H\_1: \\CR\_{\\text{con}} \\neq \\CR\_{\\text{exp}}  
-\\end{cases}  
-$$  
-  
-$$\\begin{cases}  
-H\_0: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} = 0 \\\\  
-H\_1: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: \\CR\_{\\text{con}} = \\CR\_{\\text{exp}} \\\\ 
+H\_1: \\CR\_{\\text{con}} \\neq \\CR\_{\\text{exp}} 
+\\end{cases} 
+$$ 
+ 
+$$\\begin{cases} 
+H\_0: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} = 0 \\\\ 
+H\_1: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} \\neq 0 
+\\end{cases} 
 $$
 
 Ten en cuenta que la métrica debe estar en forma de una variable binaria (por ejemplo, conversión o no conversión/clic o no clic). Los datos luego pueden ser representados en la forma de la siguiente tabla, donde O y T corresponden a valores observados y teóricos, respectivamente.
@@ -1328,13 +1328,13 @@ donde:
 
 En otras palabras, un modelo factorial es una serie de regresiones múltiples, prediciendo cada una de las variables Xi a partir de los valores de los factores comunes no observables, de la siguiente manera:
 
-$$  
-X\_1 = \\mu\_1 + a\_{11}f\_1 + a\_{12}f\_2 + ... + a\_{1m}f\_m + u1\\\\  
-X\_2 = \\mu\_2 + a\_{21}f\_1 + a\_{22}f\_2 + ... + a\_{2m}f\_m + u2\\\\  
-.\\\\  
-.\\\\  
-.\\\\  
-X\_p = \\mu\_p + a\_{p1}f\_1 + a\_{p2}f\_2 + ... + a\_{pm}f\_m + up  
+$$ 
+X\_1 = \\mu\_1 + a\_{11}f\_1 + a\_{12}f\_2 + ... + a\_{1m}f\_m + u1\\\\ 
+X\_2 = \\mu\_2 + a\_{21}f\_1 + a\_{22}f\_2 + ... + a\_{2m}f\_m + u2\\\\ 
+.\\\\ 
+.\\\\ 
+.\\\\ 
+X\_p = \\mu\_p + a\_{p1}f\_1 + a\_{p2}f\_2 + ... + a\_{pm}f\_m + up 
 $$
 
 Cada variable tiene k de sus propios factores comunes, y estos se relacionan con las observaciones a través de la matriz de cargas factoriales para una sola observación de la siguiente manera:

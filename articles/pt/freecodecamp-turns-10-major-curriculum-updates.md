@@ -23,13 +23,13 @@ Muitos desses campistas – como nos chamamos agora – conseguiram empregos com
 Nos últimos 10 anos, construímos:
 
 1. Um currículo interativo de 3.000 horas que ensina Matemática, Programação e Ciência da Computação
-    
+   
 2. Uma biblioteca com mais de 12.000 tutoriais de programação – e dezenas de livros completos – em nossa publicação, [freecodecamp.org/news][1]
-    
+   
 3. Um canal no YouTube com mais de 1.000 cursos completos gratuitos. Acabamos de atingir 10 milhões de inscritos há poucos dias.
-    
+   
 4. O fórum de programação mais gentil e solidário do planeta. E temos um servidor Discord igualmente gentil também.
-    
+   
 
 A equipe cresceu de apenas eu para um staff de 35 professores e engenheiros. E isso é apenas a ponta do iceberg. Uma grande parte do trabalho é feita pela própria comunidade open source. Todos os dias, voluntários surgem para melhorar nossa base de código, criar novos recursos de aprendizado abertos e ajudar uns aos outros no fórum.
 
@@ -50,82 +50,82 @@ Buscamos inspiração em organizações sem fins lucrativos de certificação de
 Nossas novas certificações serão:
 
 - Ainda mais abrangentes
-    
+   
 - Envolverão um exame final
-    
+   
 - Envolverão um projeto final
-    
+   
 - E serão válidas por 3 anos, com um caminho para renovação
-    
+   
 
 E como tudo o que o freeCodeCamp cria, essas certificações continuarão sendo **completamente gratuitas**.
 
 O currículo de preparação para a certificação Certified Full Stack Developer cobrirá:
 
 - HTML Semântico
-    
+   
 - Acessibilidade
-    
+   
 - Fundamentos de CSS
-    
+   
 - CSS Flexbox
-    
+   
 - Design para Desenvolvedores
-    
+   
 - Tipografia
-    
+   
 - Editores de Código
-    
+   
 - Fundamentos de JavaScript
-    
+   
 - Programação Funcional
-    
+   
 - Funções de Ordem Superior e Callbacks
-    
+   
 - Manipulação do DOM e eventos
-    
+   
 - Padrões Web
-    
+   
 - Fundamentos de React
-    
+   
 - Fundamentos de TypeScript
-    
+   
 - Conceitos de Teste
-    
+   
 - Scripting Bash
-    
+   
 - SQL e Bancos de Dados Relacionais
-    
+   
 - Git & GitHub
-    
+   
 - Segurança e Privacidade
-    
+   
 - Node.js
-    
+   
 - Express.js
-    
+   
 - Fundamentos de Python
-    
+   
 - Pensamento Algorítmico
-    
+   
 - Estruturas de Dados
-    
+   
 - Programação Orientada a Objetos
-    
+   
 - Programação Dinâmica
-    
+   
 - Segurança para Desenvolvedores Web
-    
+   
 - Ferramentas e Implantação
-    
+   
 - Trabalhando com APIs
-    
+   
 - Fundamentos de Engenharia de IA
-    
+   
 - Como Conseguir um Emprego de Desenvolvedor
-    
+   
 - e mais
-    
+   
 
 E a pedido popular, vamos cobrir muito mais teoria – bem no currículo principal.
 
@@ -142,19 +142,19 @@ E vamos inserir você nos laboratórios de codificação estilo "tela em branco"
 Aqui está o conteúdo completo do novo caminho para Desenvolvedor Full Stack Certificado. É bastante extenso:
 
 -   **64 Workshops** – Cursos interativos passo-a-passo sobre ferramentas que vão de HTML a SQL e Python
-    
+   
 -   **513 Palestras** – Vídeos curtos cobrindo conceitos de ciência da computação, com perguntas de múltipla escolha para verificar sua compreensão
-    
+   
 -   **83 Laboratórios** – Projetos onde você começa com um editor em branco e um conjunto de testes, e precisa desenvolver seu projeto para que todos os testes sejam aprovados
-    
+   
 -   **62 Páginas de Revisão** – Listas abrangentes de tópicos de cada módulo que você pode revisar para se preparar para questionários e exames
-    
+   
 -   **66 Questionários** e **6 Exames de Preparação** – Para afirmar sua compreensão dos conceitos e ferramentas de desenvolvimento full stack
-    
+   
 -   **1 Projeto Final** – um grande projeto único que você construirá para seu portfólio, revisado por professores dentro da comunidade freeCodeCamp
-    
+   
 -   **1 Exame Final** – um exame abrangente com 90 questões, supervisionado, realizado dentro do ambiente de exame do freeCodeCamp
-    
+   
 
 Após concluir todo o trabalho deste curso, você estará qualificado para fazer o exame final. Criamos nosso próprio Ambiente de Exame de código aberto, onde você pode fazer um exame aprofundado sobre tudo o que aprendeu ao longo de todo o nosso trabalho preparatório.
 

@@ -28,7 +28,7 @@ React's Context API provides a way to share values like these between components
 
 All examples from this article are in this repo: [https://github.com/DoableDanny/React-context-API-tutorial][6]
 
-I also made a video version of this article to make it easier for you to follow along with the examples: [React Context Tutorial with Examples  
+I also made a video version of this article to make it easier for you to follow along with the examples: [React Context Tutorial with Examples 
 ][7]
 
 ## What is the React Context API and When Should You Use It?

@@ -45,7 +45,7 @@ cd first-react-app
 npm start
 ```
 
-Go to your browser and go the following URL **localhost:3000**  
+Go to your browser and go the following URL **localhost:3000** 
 You should be able to see that your application is running. The Application will look like this in your browser:
 
 ![Image](https://cdn-media-1.freecodecamp.org/images/w1SbWWOdE5XDpq25D6aYcw6e7RjJSJupdp1T)
@@ -265,7 +265,7 @@ This component displays the details of the selected Customer. Some important cod
 componentDidUpdate(prevProps) {
 
 //get Customer Details only if props has changed
-//(props is the input) 
+//(props is the input)
     if (this.props.val !== prevProps.val) {
         this.getCustomerDetails(this.props.val)
     }

@@ -230,7 +230,7 @@ For the `end` parameter you could first find the length of the list.
 To find the length, use the `len()` function:
 
 ```
-print(len(programming_languages)) 
+print(len(programming_languages))
 
 #output is 6
 ```

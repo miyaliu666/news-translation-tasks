@@ -19,68 +19,68 @@ This article serves as a guide to navigating the intricate landscape of string h
 ## Table of Contents
 
 1.  **[What are Strings in JavaScript][1]**
-2.  **[Basic String Operations][2]**  
+2.  **[Basic String Operations][2]** 
     – [Single and double quotes][3]
-3.  **[Template Literals][4]**  
-    – [Basic usage][5]  
-    – [Multiline strings][6]  
-    – [Expression evaluation][7]  
-    – [Tagged templates][8]  
+3.  **[Template Literals][4]** 
+    – [Basic usage][5] 
+    – [Multiline strings][6] 
+    – [Expression evaluation][7] 
+    – [Tagged templates][8] 
     – [Use cases][9]
-4.  **[The String Constructor][10]**  
-    – [Using the Strings Constructor][11]  
-    – [String objects vs. string primitives][12]  
-    – [Converting string objects to primitives][13]  
+4.  **[The String Constructor][10]** 
+    – [Using the Strings Constructor][11] 
+    – [String objects vs. string primitives][12] 
+    – [Converting string objects to primitives][13] 
     – [Rare use cases][14]
-5.  **[The String.fromCharCode Method][15]**  
-    – [Basic usage][16]  
-    – [Creating Strings from Unicode Values][17]  
+5.  **[The String.fromCharCode Method][15]** 
+    – [Basic usage][16] 
+    – [Creating Strings from Unicode Values][17] 
     – [Use cases][18]
-6.  **[Concatenation][19]**  
-    – [Using the + operator][20]  
-    – [Using the concat method][21]  
-    – [Concatenating Variables and Strings][22]  
+6.  **[Concatenation][19]** 
+    – [Using the + operator][20] 
+    – [Using the concat method][21] 
+    – [Concatenating Variables and Strings][22] 
     – [Combining `String.fromCharCode` with Concatenation][23]
-7.  **[Characteristics of Strings][24]**  
-    – [Immutability][25]  
+7.  **[Characteristics of Strings][24]** 
+    – [Immutability][25] 
     – [Sequence of characters][26]
-8.  **[Case Manipulation Methods][27]**  
-    – [toUpperCase()][28]  
+8.  **[Case Manipulation Methods][27]** 
+    – [toUpperCase()][28] 
     – [toLowerCase()][29]
-9.  **[Trimming whitespaces with trim(), trimStart(), and trimEnd()][30]**  
-    – [trim()][31]  
-    – [trimStart()][32]  
-    – [trimEnd()][33]  
+9.  **[Trimming whitespaces with trim(), trimStart(), and trimEnd()][30]** 
+    – [trim()][31] 
+    – [trimStart()][32] 
+    – [trimEnd()][33] 
     – [Use Cases][34]
-10.  **[String Searching][35]**  
-    – [indexOf() and lastIndexOf()][36]  
-    – [includes() method for substring presence][37]  
+10.  **[String Searching][35]** 
+    – [indexOf() and lastIndexOf()][36] 
+    – [includes() method for substring presence][37] 
     – [startsWith() and endsWith() methods][38]
-11.  **[Substring extraction with slice() and substring()][39]**  
-    – [slice()][40]  
+11.  **[Substring extraction with slice() and substring()][39]** 
+    – [slice()][40] 
     – [substring()][41]
-12.  **[Modifying Strings][42]**  
-    – [Replacing substrings with replace() method][43]  
-    – [Splitting strings with split()][44]  
+12.  **[Modifying Strings][42]** 
+    – [Replacing substrings with replace() method][43] 
+    – [Splitting strings with split()][44] 
     – [Joining arrays into a string with join()][45]
-13.  **[String Comparison][46]**  
-    – [Equality checks with === and ==][47]  
-    – [Locale-sensitive string comparison using localeCompare()][48]  
+13.  **[String Comparison][46]** 
+    – [Equality checks with === and ==][47] 
+    – [Locale-sensitive string comparison using localeCompare()][48] 
     – [Comparing Strings Using `localeCompare()`][49]
-14.  **[Regular Expressions and Strings][50]**  
-    – [Using RegExp for string matching and manipulation][51]  
+14.  **[Regular Expressions and Strings][50]** 
+    – [Using RegExp for string matching and manipulation][51] 
     – [String methods with regular expressions: match(), search(), replace()][52]
-15.  **[Unicode and Strings][53]**  
-    – [Strings and Unicode in JavaScript][54]  
-    – [Creating Unicode strings][55]  
-    – [Unicode Code Points][56]  
+15.  **[Unicode and Strings][53]** 
+    – [Strings and Unicode in JavaScript][54] 
+    – [Creating Unicode strings][55] 
+    – [Unicode Code Points][56] 
     – [Code Point Iteration][57]
-16.  **[Common String Pitfalls][58]**  
-    – [String vs. number coercion][59]  
-    – [Unexpected Behavior with Whitespace][60]  
+16.  **[Common String Pitfalls][58]** 
+    – [String vs. number coercion][59] 
+    – [Unexpected Behavior with Whitespace][60] 
     – [Dealing with special characters][61]
-17.  **\[Case Studies and Examples\](#Case Studies and Examples)**  
-    – [User input validation][62]  
+17.  **\[Case Studies and Examples\](#Case Studies and Examples)** 
+    – [User input validation][62] 
     – [Formatting names][63]
 18.  **[Conclusion][64]**
 
@@ -89,7 +89,7 @@ This article serves as a guide to navigating the intricate landscape of string h
 In JavaScript, strings are sequences of characters enclosed in either single or double quotes. This flexibility allows developers to choose the quotation style based on preference or contextual requirements. For instance:
 
 ```
-let greeting = "Hello, World!"; 
+let greeting = "Hello, World!";
 let message = "JavaScript is powerful.";
 ```
 

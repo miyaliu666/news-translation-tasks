@@ -141,7 +141,7 @@ pip install fastapi pymongo uvicorn starlette pydantic
 Now, let's write a Python script to insert all this course data into the database so that we can start building API routes. Spin up your IDE, create a file called `script.py`, and make sure it is in the same directory as the `courses.json` file.
 
 ```
-""" 
+"""
 Script to parse course information from courses.json, create the appropriate databases and
 collection(s) on a local instance of MongoDB, create the appropriate indices (for efficient retrieval)
 and finally add the course data on the collection(s).
@@ -195,17 +195,17 @@ I recommend designing the API endpoints first along with the HTTP request type b
 
 | Endpoint | Request Type | Description |
 | --- | --- | --- |
-| /courses | GET | Get a list of all available courses with sorting options.  
-  
-Options: Sort by title (ascending), date (descending), or total course rating (descending).  
-  
+| /courses | GET | Get a list of all available courses with sorting options. 
+ 
+Options: Sort by title (ascending), date (descending), or total course rating (descending). 
+ 
 Optional filtering based on domain is supported. |
 | /courses/{course\_id} | GET | Get the overview of a specific course identified by course\_id. |
 | /courses/{course\_id}/{chapter\_id} | GET | Get information about a specific chapter within a course. |
-| /courses/{course\_id}/{chapter\_id} | POST | Rate a specific chapter within a course.  
-  
-Options: Positive rating (1), negative rating (-1).  
-  
+| /courses/{course\_id}/{chapter\_id} | POST | Rate a specific chapter within a course. 
+ 
+Options: Positive rating (1), negative rating (-1). 
+ 
 The ratings are aggregated for each course. |
 
 Okay, time to dive into the API code. Create a brand new Python file and call it `main.py`:
@@ -255,7 +255,7 @@ def get_courses(sort_by: str = 'date', domain: str = None):
         sort_order = -1
 
     # sort_by == 'alphabetical' [ASCENDING]
-    else:  
+    else: 
         sort_field = 'name'
         sort_order = 1
 
@@ -332,7 +332,7 @@ def get_course(course_id: str):
     try:
         course['rating'] = course['rating']['total']
     except KeyError:
-        course['rating'] = 'Not rated yet' 
+        course['rating'] = 'Not rated yet'
 
     return course
 ```
@@ -351,7 +351,7 @@ Hitting this endpoint returns specific information about a chapter within a cour
 
 ```
 @app.get('/courses/{course_id}/{chapter_id}')
-def get_chapter(course_id: str, chapter_id: str):    
+def get_chapter(course_id: str, chapter_id: str):   
     course = db.courses.find_one({'_id': ObjectId(course_id)}, {'_id': 0, })
     if not course:
         raise HTTPException(status_code=404, detail='Course not found')

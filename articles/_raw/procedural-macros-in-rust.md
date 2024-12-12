@@ -81,9 +81,9 @@ Macros are a way to extend functionality of the compiler beyond what's supported
 Here's how the official Rust book describes it:
 
 > The term _macro_ refers to a family of features in Rust.
-> 
+>
 > Fundamentally, macros are a way of writing code that writes other code, which is known as _metaprogramming_.
-> 
+>
 > Metaprogramming is useful for reducing the amount of code you have to write and maintain, which is also one of the roles of functions. However, macros have some additional powers that functions don’t.
 
 Using macros, you can also dynamically add things that are required to be added at compilation time, which is not possible using functions since they get called at runtime. One such feature, for example, is implementing _Traits_ on types, which is required to be implemented at compilation time.
@@ -352,7 +352,7 @@ You can just use your macro as any other derive macro, using the identifier you 
 If you try and compile your code at this stage, you should see the following compilation error:
 
 ```
-   Compiling my-app v0.1.0 
+   Compiling my-app v0.1.0
 
 error: proc-macro derive panicked
  --> src/main.rs:3:10
@@ -1461,9 +1461,9 @@ let variable = "Some variable";
 
 hash_mapify!(
     &str,
-    key = "value", 
-    key2 = "value2", 
-    key3 = "value3", 
+    key = "value",
+    key2 = "value2",
+    key3 = "value3",
     key4 = variable
 );
 ```
@@ -1794,7 +1794,7 @@ pub fn hash_mapify_impl(item: TokenStream) -> TokenStream {
     // we don't shadow any existing variables. Return the hashmap
     // from the block.
     quote!({
-        // Create a new hashmap with `String` for key type and `#ty` for 
+        // Create a new hashmap with `String` for key type and `#ty` for
         // value type, which parsed from the macro input arguments.
         let mut hash_map = std::collections::HashMap::<String, #ty>::new();
 

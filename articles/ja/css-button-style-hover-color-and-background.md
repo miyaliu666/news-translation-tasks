@@ -80,7 +80,7 @@ HTML コンテンツにスタイルを適用するためには、2 つのファ�
 ```
 * {
     box-sizing: border-box;
-} 
+}
 
 body {
     display:flex;
@@ -199,10 +199,10 @@ body {
     top:50%;
     background-color:#0a0a23;
     color: #fff;
-    border:none; 
-    border-radius:10px; 
+    border:none;
+    border-radius:10px;
     padding:15px;
-    min-height:30px; 
+    min-height:30px;
     min-width:120px;
   }
 ```
@@ -299,7 +299,7 @@ body {
 
 また、ボタンがクリックされると同時に `:focus` 状態も取得されるため、 `:focus` 状態のスタイルも適用されます。
 
-ただし、これらは _同じものではありません_。 
+ただし、これらは _同じものではありません_。
 
 `:focus` 状態は要素がフォーカスされているとき、 `:active` 状態はユーザーが要素を押し下げてクリックしているときです。
 

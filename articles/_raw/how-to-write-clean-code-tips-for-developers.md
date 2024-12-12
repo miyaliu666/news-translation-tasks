@@ -21,9 +21,9 @@ Let’s have a look at this graph. It shows two different ways of writing code a
 ![3fa8f5a1-0af4-4ffd-aa3a-bb70001b026d](https://cdn.hashnode.com/res/hashnode/image/upload/v1730728342241/3fa8f5a1-0af4-4ffd-aa3a-bb70001b026d.png)
 
 1.  ⚠️ **Quick & Dirty Code** (Red line): This is when you write code quickly without planning or organizing it well. At first, it may seem faster, but as more lines are added, it becomes harder to understand and fix. So, over time, it takes longer and longer to add each new line.
-    
+   
 2.  **⚡ Thoughtful & Clean Code** (Blue line): This is when you write code carefully, making it easy to understand and change. At first, it might take a bit longer, but over time, it remains easy to work with. This way, adding new lines doesn't become more difficult.
-    
+   
 
 In simple terms, writing clean code might seem slower at the beginning, but in the long run, it saves a lot of time and makes work easier. It also leads to more reliable software and better products.
 
@@ -32,27 +32,27 @@ Writing clean code is a habit that professional developers cultivate, showing de
 ### What we’ll cover:
 
 1.  [Use Meaningful Names][1]
-    
+   
 2.  [Follow the Single Responsibility Principle (SRP)][2]
-    
+   
 3.  [Avoid Unnecessary Comments][3]
-    
+   
 4.  [Make Your Code Readable][4]
-    
+   
 5.  [Write Unit Tests][5]
-    
+   
 6.  [Be Careful with Dependencies][6]
-    
+   
 7.  [Organize Your Project][7]
-    
+   
 8.  [Use Consistent Formatting][8]
-    
+   
 9.  [Avoid Hardcoding Values][9]
-    
+   
 10.  [Limit Function Length][10]
-    
+   
 11.  [Conclusion][11]
-    
+   
 
 ## 10 Essential Tips for Writing Clean Code
 
@@ -77,11 +77,11 @@ let b = 5; // Vague and unclear
 **💡 Naming Tips**
 
 -   **Variables**: Use nouns that describe the data, like `userAge` or `totalAmount`.
-    
+   
 -   **Functions**: Use action words, like `calculateTotal()` or `fetchUserData()`.
-    
+   
 -   **Classes**: Use singular nouns, like `User` or `Order`, to represent what they are.
-    
+   
 
 ```
 // Variable: Describes the data it holds
@@ -118,13 +118,13 @@ Here's an example to show why it's important to keep functions focused:
 Let’s say you want to calculate a total and return an object with extra information, like who calculated it and when. Instead of adding these directly into `calculateTotal`, we can use a second function.
 
 1.  **Good Example (Separate Tasks)**
-    
+   
     ```
      // This function only calculates the total
      function calculateTotal(a, b) {
          return a + b;
      }
-    
+   
      // This function creates an object with extra details
      function createCalculationRecord(a, b, user) {
          let sum = calculateTotal(a, b); // Calls the calculate function
@@ -134,15 +134,15 @@ Let’s say you want to calculate a total and return an object with extra inform
              timestamp: new Date()
          };
      }
-    
+   
      let record = createCalculationRecord(5, 10, "Shahan");
      console.log(record);
     ```
-    
+   
     **👍 Why this is good**: Each function has a clear, focused task. `calculateTotal` only does the math, while `createCalculationRecord` adds the extra details. If you want to change how the total is calculated, you only update `calculateTotal`, and if you want to change the record format, you only update `createCalculationRecord`.
-    
+   
 2.  **Bad Example (Mixed Tasks in One Function)**
-    
+   
     ```
      // This function calculates the total and creates an object in one step
      function calculateTotalAndReturnRecord(a, b, user) {
@@ -153,13 +153,13 @@ Let’s say you want to calculate a total and return an object with extra inform
              timestamp: new Date()
          };
      }
-    
+   
      let record = calculateTotalAndReturnRecord(5, 10, "Shahan");
      console.log(record);
     ```
-    
+   
     **👎 Why this is bad**: The function name `calculateTotalAndReturnRecord` shows that it’s trying to do multiple things. If you want to use just the calculation, you can’t reuse this function without the record part. It’s also harder to update and test each task separately.
-    
+   
 
 ### 3\. Avoid Unnecessary Comments
 
@@ -170,11 +170,11 @@ Comments are helpful when explaining complex logic or a unique approach, but too
 **💬 When to Use Comments**:
 
 -   To clarify why something is done in a particular way.
-    
+   
 -   When working with complex algorithms or calculations.
-    
+   
 -   To add notes about potential limitations.
-    
+   
 
 **Example**:
 
@@ -288,13 +288,13 @@ try {
 **🫧 Explanation of the tests:**
 
 1.  **Addition** (`add` method): We test that `add(2, 3)` returns `5`, and `add(-1, 1)` returns `0`. If these tests pass, we know that the addition logic is working correctly.
-    
+   
 2.  **Subtraction** (`subtract` method): We verify that `subtract(5, 3)` returns `2`, and `subtract(0, 0)` returns `0`. These checks confirm that subtraction is accurate.
-    
+   
 3.  **Multiplication** (`multiply` method): We test the multiplication function with both positive and negative values, ensuring that `multiply(2, 3)` returns `6`, and `multiply(-1, 2)` returns `-2`.
-    
+   
 4.  **Division** (`divide` method): We verify that dividing `6` by `3` returns `2`. For division by zero, we use a `try...catch` block to confirm that an error is thrown with the correct message. This test make sure the method handles errors properly.
-    
+   
 
 You can see that if any method fails, the test will produce a clear error message, allowing us to quickly identify and fix the issue. Testing methods individually helps us catch bugs early and maintain reliable, clean code as the project grows.
 
@@ -336,11 +336,11 @@ Even though dependencies are useful, you should try to avoid over-dependence on 
 Managing dependencies effectively is key to writing clean code. Here are some tips:
 
 -   **Limit Dependencies**: Only include libraries or modules that are essential for your project.
-    
+   
 -   **Keep Versions Updated**: Use updated versions of libraries to avoid security risks.
-    
+   
 -   **Separate Logic**: Write core functions yourself whenever possible. This way, if you ever need to remove a dependency, it won’t break your code.
-    
+   
 
 Let me give you an example with our previous Nodemailer code to implement the concept of separating logic in your code.
 
@@ -392,11 +392,11 @@ sendEmail('recipient@example.com', 'Test Subject', 'Hello, this is a test email.
 **🗝️ Key points:**
 
 1.  **Core Functions**: The `sendEmail`, `createTransporter`, and `createMailOptions` functions are separate, allowing you to modify one without affecting the others.
-    
+   
 2.  **Easy Modifications**: If you want to switch to another email service in the future, you can simply modify the `createTransporter` function.
-    
+   
 3.  **Maintainability**: This structure makes your code more maintainable and easier to understand.
-    
+   
 
 ### 7\. Organize Your Project
 
@@ -420,11 +420,11 @@ myProject
 #### Breakdown of the project structure:
 
 1.  **myProject**: This is the root folder of your project. It contains everything related to your application.
-    
+   
 2.  **src (Source)**: This folder holds all the source code for your project. It’s where you’ll spend most of your time coding.
-    
+   
 3.  **components**: This subfolder contains reusable UI components. For example, if you're building a web app, you might have individual files for buttons, headers, or forms here. Each component can be in its own file to keep things modular.
-    
+   
     -   Example structure within `components`:
 
 ```
@@ -435,7 +435,7 @@ myProject
 ```
 
 4.  **services**: This folder includes functions that perform specific tasks or handle business logic. For example, if you're sending emails, you could have a file here with all the email-related functions.
-    
+   
     -   Example structure within `services`:
 
 ```
@@ -446,7 +446,7 @@ myProject
 ```
 
 5.  **utils (Utilities)**: Here, you place helper functions that can be used across your project. These might include functions for formatting dates, validating inputs, or any other common tasks that don't belong to specific components or services.
-    
+   
     -   Example structure within `utils`:
 
 ```
@@ -457,7 +457,7 @@ myProject
 ```
 
 6.  **tests**: This folder is dedicated to your testing files. Keeping your tests organized helps ensure that as you build new features, you can easily test them without digging through your codebase.
-    
+   
     -   Example structure within `tests`:
 
 ```
@@ -487,26 +487,26 @@ myEmailApp
 ```
 
 -   **EmailForm.js**: This component handles the user interface for sending an email, like the input fields for the recipient, subject, and message.
-    
+   
 -   **SuccessMessage.js**: This component displays a success message once the email has been sent.
-    
+   
 -   **emailService.js**: This service contains the logic for sending emails using Nodemailer, keeping your code modular and clean.
-    
+   
 -   **validateEmail.js**: A utility function that checks if an email address is formatted correctly.
-    
+   
 -   **tests**: Here, you would write tests to ensure your email service and components are functioning as expected.
-    
+   
 
 **🍱 Benefits of a Well-Organized Project**
 
 1.  **Ease of Navigation**: Anyone looking at your project can quickly understand where to find specific parts of the code.
-    
+   
 2.  **Better Collaboration**: If you’re working with others, a clear structure helps everyone know where to contribute without stepping on each other’s toes.
-    
+   
 3.  **Scalability**: As your project grows, maintaining a clear structure helps manage the complexity and keeps your codebase clean.
-    
+   
 4.  **Improved Maintenance**: When you need to update or fix something, you can find the relevant files quickly, which saves time and reduces errors.
-    
+   
 
 ### **8\. Use Consistent Formatting**
 
@@ -519,9 +519,9 @@ Following consistent formatting makes your code look clean and well-organized.
 **🛠️ Tools for Formatting**
 
 -   [**Prettier**][13]: Automatically formats code based on a set of rules. [Here’s a tutorial][14] that explains how to set up and use Prettier in VSCode.
-    
+   
 -   [**ESLint**][15]: Helps enforce coding standards by highlighting issues. [Here’s a tutorial][16] that includes a helpful and in-depth section on setting up ESLint for your projects.
-    
+   
 
 ### 9\. Avoid Hardcoding Values
 
@@ -572,13 +572,13 @@ function getCurrentUserCount() {
 **🥣 Breakdown of the improved example:**
 
 1.  **Using Constants**: The `MAX_USERS` constant is defined at the top. This way, if you ever need to change the maximum number of users, you only have to update it in one place.
-    
+   
 2.  **Dynamic Values**: The `getCurrentUserCount()` function dynamically retrieves the current user count from a database or any other source. This approach prevents hardcoding the count and allows for easy changes.
-    
+   
 3.  **Maintainability**: By storing values in constants, your code becomes more maintainable. If the business requirement changes and you need to increase the user limit to `150`, you can simply change `MAX_USERS` from `100` to `150`, and the change will reflect throughout your application.
-    
+   
 4.  **Clarity**: Using descriptive names for your constants (like `MAX_USERS`) improves the readability of your code. Anyone looking at your code can quickly understand what this value represents.
-    
+   
 
 **🤐 When to Use Configuration Files**
 
@@ -603,7 +603,7 @@ For instance in your **config.json** file you can hardcode `maxUsers` as follows
 const config = require('./config.json');
 
 function createUser(name) {
-    let numberOfUsers = getCurrentUserCount(); 
+    let numberOfUsers = getCurrentUserCount();
     if (numberOfUsers >= config.maxUsers) {
         return 'User limit reached.';
     }
@@ -646,13 +646,13 @@ function updateCart(cart, item, discountCode) {
 ⚠️ **This function does multiple things:**
 
 1.  Adds an item to the cart.
-    
+   
 2.  Calculates the total price.
-    
+   
 3.  Applies a discount if there’s a code.
-    
+   
 4.  Logs the transaction.
-    
+   
 
 While this function might look manageable now, it can quickly grow if more tasks are added, making it harder to debug and maintain.
 
@@ -687,35 +687,35 @@ function logTransaction(item, total) {
 #### 🧩 Let me explain:
 
 1.  `addItemToCart`: This function is now responsible only for adding an item to the cart. It’s simple, with a clear purpose.
-    
+   
 2.  `calculateTotal`: This function calculates the total price of all items in the cart. It’s easier to read and understand, and if you need to update the way totals are calculated, you only have to modify this function.
-    
+   
 3.  `logTransaction`: Handles the responsibility of logging details. If you ever need to change what gets logged (for example, adding a timestamp), you can do so in this function without touching the rest of the code.
-    
+   
 4.  `updateCart`: The main function now reads more like a summary of the actions being taken: add an item, calculate the total, apply discounts, and log the result. It’s easier to follow and understand at a glance.
-    
+   
 
 **📒 Let’s summarize limiting function length:**
 
 1.  **🎯 Focus on One Task**: Each function should ideally perform just one task. If a function seems to be doing multiple tasks, consider breaking it up.
-    
+   
 2.  **🩼 Use Helper Functions**: Helper functions are small, focused functions that assist a main function by performing a specific task. In the example above, `addItemToCart`, `calculateTotal`, and `logTransaction` are helper functions.
-    
+   
 3.  **🪦 Descriptive Names**: Name your functions based on their tasks (for example, `addItemToCart`), which helps make the code self-explanatory.
-    
+   
 
 ## Best Practices for Clean Code
 
 Now that we’ve covered some important tips, let’s look at some overarching principles that make up the philosophy behind clean code:
 
 1.  **🎏 Simplicity**: Always aim to make your code as simple as possible.
-    
+   
 2.  **🧂 Consistency**: Keep your code uniform in style and structure.
-    
+   
 3.  **🌾 Clarity**: Your code should clearly communicate what it does.
-    
+   
 4.  **⛽ Efficiency**: Write code that’s optimized for performance without sacrificing readability.
-    
+   
 
 These principles make coding less about writing and more about designing solutions. Writing clean code is a skill that grows with practice, so keep learning and improving over time.
 

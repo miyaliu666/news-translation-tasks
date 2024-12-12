@@ -93,9 +93,9 @@ console.log(arr); // [ 1, 4, 3 ]
 提升指的是 JavaScript 的默认行为，即将所有变量和函数声明移动到顶部。这意味着你可以在它们声明之前使用它们。
 
 ```javascript
-x=5 
-console.log(x) // 打印 5 
-var x               
+x=5
+console.log(x) // 打印 5
+var x              
 ```
 
 在上面的代码中，JavaScript 将变量声明移动到了代码块的顶部。这意味着相当于在第一行声明 `x`。
@@ -560,9 +560,9 @@ Promise 使用一个 [Promise][29] 对象，该对象存在于三种状态之一
 function asyncOperation() {
     return new Promise((resolve, reject) => {
         const x = 1 + Math.random() * 10;
-        if (x < 5) 
+        if (x < 5)
             resolve("Successful");
-        else 
+        else
             reject("Error");
     });
 }

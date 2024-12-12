@@ -801,7 +801,7 @@ pip install flake8
 Similar to PyLint, you can run flake8 on your Python code by executing the following command in your terminal:
 
 ```
-flake8 your_file.py 
+flake8 your_file.py
 #Replace your_file.py with the actual name of your Python file.
 ```
 

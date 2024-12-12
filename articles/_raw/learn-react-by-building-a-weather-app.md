@@ -212,7 +212,7 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 import Weather from './components/weather';
 export default function App() {
-  
+ 
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
@@ -233,10 +233,10 @@ export default function App() {
     }
     fetchData();
   }, [lat,long])
-  
+ 
   return (
     <div className="App">
-      
+     
     </div>
   );
 }
@@ -257,7 +257,7 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 import Weather from './components/weather';
 export default function App() {
-  
+ 
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
@@ -278,7 +278,7 @@ export default function App() {
     }
     fetchData();
   }, [lat,long])
-  
+ 
   return (
     <div className="App">
       {(typeof data.main != 'undefined') ? (
@@ -286,7 +286,7 @@ export default function App() {
       ): (
         <div></div>
       )}
-      
+     
     </div>
   );
 }
@@ -483,7 +483,7 @@ const CardExampleCard = ({weatherData}) => (
       <div>
         <p className="temp">Temprature: {weatherData.main.temp} &deg;C</p>
       </div>
-      
+     
   </div>
 )
 
@@ -572,8 +572,8 @@ const CardExampleCard = ({weatherData}) => (
         <p className="temp">Temprature: {weatherData.main.temp} &deg;C</p>
         <p className="temp">Humidity: {weatherData.main.humidity} %</p>
       </div>
-      
-      
+     
+     
   </div>
 )
 
@@ -606,7 +606,7 @@ const WeatherCard = ({weatherData}) => (
         <p className="sunrise-sunset">Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString('en-IN')}</p>
         <p className="sunrise-sunset">Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString('en-IN')}</p>
       </div>
-    
+   
   </div>
 )
 
@@ -721,7 +721,7 @@ const WeatherCard = ({weatherData}) => (
         <p className="sunrise-sunset">Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString('en-IN')}</p>
         <p className="sunrise-sunset">Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString('en-IN')}</p>
       </div>
-    
+   
   </div>
 )
 

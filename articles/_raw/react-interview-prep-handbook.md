@@ -19,17 +19,17 @@ So, in this article, I am going to list some of the topics to help you prepare f
 ## Table of Contents
 
 -   [JavaScript Fundamentals][1]
-    
+   
 -   [React Essentials][2]
-    
+   
 -   [React Hooks][3]
-    
+   
 -   [Additional Concepts][4]
-    
+   
 -   [React Redux][5]
-    
+   
 -   [Additional Notes][6]
-    
+   
 
 ## JavaScript Fundamentals
 
@@ -77,11 +77,11 @@ State is used to render dynamic information in the component and makes the UI in
 Some things you need to keep in mind while using state:
 
 -   States are immutable. Always update the state using a `setState` function. For objects/arrays, create new ones and set the state with the new array/object. This ensures proper component behavior.
-    
+   
 -   Use state only when necessary, avoid storing redundant information as it may cause unnecessary re-renders.
-    
+   
 -   Use the state locally in the same component, avoid passing state down the DOM tree, unless absolutely necessary. For global state, use context or redux.
-    
+   
 
 Check the [legacy docs][9] for state in class components. For functional components, refer to the [`useState`][10] section.
 
@@ -119,11 +119,11 @@ function ChildComponent({ name, age, handleClick }) {
 ```
 
 -   Here, the parent component passes down name, age and handleClick method as props to the child component.
-    
+   
 -   These props form a `props` object that contains the values passed. Every functional component takes a `props` object as an argument
-    
+   
 -   We have accessed the props by destructuring the object in the child component.
-    
+   
 
 Props can only be passed one way down the component tree. That is, from parent to child component. Props are read-only, you cannot change their value directly. State values passed down as props can be updated using state update function.
 
@@ -134,24 +134,24 @@ React components are of two types: class and functional components. Let's unders
 **Class Components:**
 
 -   Class components are written using ES6 classes. Its properties and functions are accessed using the `this` keyword. They need a `render` method to return JSX.
-    
+   
 -   Class components are stateful components that contain built-in features like State and Context.
-    
+   
 -   They have methods for different stages of component lifecycle: `componentDidMount()` `componentDidUpdate()` `componentWillUnmount()`, and so on.
-    
+   
 -   Class components are verbose, hard to read and always need `this` keyword to access properties.
-    
+   
 
 **Functional Components:**
 
 -   Functional components are simple JavaScript functions that take a `props` object as an argument. They don't need a `render` method, they return JSX directly.
-    
+   
 -   Functional components are stateless and do not have state of their own. Instead, they use Hooks to use class component features like State or Context.
-    
+   
 -   There are no lifecycle methods, lifecycle is be managed with `useEffect` hook.
-    
+   
 -   Functional components require less code than class components, so they are easier to read and write.
-    
+   
 
 Nowadays, developers prefer and recommend functional components, especially with Hooks. Class components are usually found in older codebases.
 
@@ -168,11 +168,11 @@ In this phase, a component is created and added to the DOM. When a component is 
 -   [`constructor()`][11]
 
 -   [`static getDerivedStateFromProps(props, state)`][12] (rarely used)
-    
+   
 -   [`render()`][13]
-    
+   
 -   `componentDidMount()`
-    
+   
 
 `componentDidMount()` is called only once; that is, when the component mounts. It is the preferred method for executing side effects when a component loads for the first time. In functional components, its equivalent is `useEffect` Hook.
 
@@ -181,20 +181,20 @@ In this phase, a component is created and added to the DOM. When a component is 
 In updating phase, the component's state or props change, which causes the component to re-render. The following methods are called when component updates:
 
 -   [`shouldComponentUpdate(nextProps, nextState)`][14]
-    
+   
 -   `render()` (called again)
-    
+   
 -   [`getSnapshotBeforeUpdate()`][15]
-    
+   
 -   `componentDidUpdate()`
-    
+   
 
 The `componentDidUpdate` method is called following times:
 
 -   The first time when component mounts, after the `componentDidMount` method.
-    
+   
 -   Any state or props change triggering component re-render.
-    
+   
 
 It is useful to execute side effects when a state updates. In functional component, the equivalent is `useEffect` with dependencies.
 
@@ -229,9 +229,9 @@ function ControlledComponent() {
 ```
 
 -   The value of the `input` field is being controlled by React state variable `value`.
-    
+   
 -   When you update the input field, the state gets updated and value of the input is set accordingly.
-    
+   
 
 Uncontrolled components, on the other hand, do not depend on state to manage forms. Instead, the values of form fields are managed internally, usually with refs. Refs are used to directly interact with the DOM elements and update values without updating state and causing re-renders.
 
@@ -260,11 +260,11 @@ Here, we have used a ref to directly access the input element's DOM node and use
 When to use either:
 
 -   Use controlled components if you want more control over data that the user inputs. This is particularly useful when two form fields are dependent on each other.
-    
+   
 -   If you have multiple state dependent on the form data, using state is a good practice.
-    
+   
 -   Use uncontrolled components if your form is very simple and there's no need to manipulate the form data.
-    
+   
 
 ### What are Pure Components?
 
@@ -291,11 +291,11 @@ function App() {
 ```
 
 -   `PureExample` is a pure component that is a child of `App` component. Pure components can be created by surrounding the function with `React.memo()`.
-    
+   
 -   In the example, we have an `input` field that updates `name`, and a button that toggles the state, `toggle`.
-    
+   
 -   `name` is passed down as props to `PureExample`, so it re-renders if `name` is updated. If you update `toggle` or any other state, `PureExample` does not re-render.
-    
+   
 
 In case of class components, pure components can be created by extending the `PureComponent` class. However, functional components are recommended.
 
@@ -337,11 +337,11 @@ return (
 ```
 
 -   `useState` function takes an initial value as an argument and returns an array containing two elements: the current state, and a state update function.
-    
+   
 -   In this example, we have two buttons that increment and decrement the count. On click of the button, the increment/decrement operations are performed by updating the `count` state.
-    
+   
 -   The component re-renders and displays the updated `count`.
-    
+   
 
 For more examples of its usages, check out my post below:
 
@@ -380,20 +380,20 @@ function App() {
 ```
 
 -   `useEffect` takes two arguments: a function that performs side effects and a dependency array.
-    
+   
 -   In this example, we display paginated data by including the fetching logic inside a `useEffect` and including the current page in the dependency.
-    
+   
 -   `useEffect` makes the API call on the first render, loading the first page of data. After that, it loads additional data every time user changes the page.
-    
+   
 
 How to implement lifecycle methods in `useEffect`:
 
 -   To implement `componentDidMount()`, pass an empty dependency array
-    
+   
 -   To implement `componentDidUpdate()`, pass dependencies to run the `useEffect` if one of those dependencies changes
-    
+   
 -   For `componentWillUnmount()`, return a callback function from `useEffect` containing the cleanup code
-    
+   
 
 `useEffect` can be used in a lot of ways. The React [docs][18] contain several examples of usages.
 
@@ -439,11 +439,11 @@ function MainComponent() {
 ```
 
 -   We used `React.createContext` method to create a context and then created a provider function that wraps around the main component.
-    
+   
 -   The `value` prop of `DataContext.Provider` is used the pass data to the entire component tree under `MainComponent`.
-    
+   
 -   The `useContext` Hook consumes this data inside components. It returns the data that was passed to the `value` prop of the provider.
-    
+   
 
 `useContext` can only be used if the component or one of its parents has a context provider wrapped around it. Examples use cases are themes, user info, language preferences and localization, and so on.
 
@@ -468,24 +468,24 @@ export function App(props) {
 ```
 
 -   `useRef` takes an initial value as an argument and returns a `ref` object.
-    
+   
 -   When this `ref` object is passed to the `ref` prop of an element, we get a direct reference to the element's DOM node.
-    
+   
 -   The value of a `ref` is stored inside its `current` property.
-    
+   
 -   Since `ref` is a JavaScript DOM object, we can call the [focus()][23] method to focus on the `input` element when the component mounts.
-    
+   
 
 Unlike state, refs do not cause component re-renders and unlike local variables, refs retain their values between renders.
 
 Some things to remember about refs:
 
 -   Components can expose their DOM nodes to parent components by using [forwardRef][24].
-    
+   
 -   Only use refs when you absolutely need to access DOM elements. Example use cases could be for tasks like focusing on input elements, selecting tests, triggering animations, determining elements positions, and so on.
-    
+   
 -   Avoid over-using them, prefer state and props over refs. Avoid modifying DOM elements explicitly to control component behavior, use state instead.
-    
+   
 
 ### useMemo Hook
 
@@ -524,20 +524,20 @@ const MemoExample = () => {
 ```
 
 -   `useMemo` takes in the function and a dependency array as arguments, and returns the result of this function. It memoizes the result for the next render and returns the memoized value unless some dependency changes.
-    
+   
 -   We have passed `computedValue` state inside the array, so, after running on the first render, the function will run only when `computedValue` changes.
-    
+   
 -   If you update any other state, the component re-renders, but the function does not run again.
-    
+   
 
 When to use:
 
 -   If you do not want to run a function on every render, except for the state dependent on it.
-    
+   
 -   To maintain referential equality of arrays and object across renders. Array/object references change each time they are declared.
-    
+   
 -   When rendering lists with [`Array.map`][25] that do not need to change except for relevant state updates.
-    
+   
 
 ### useCallback Hook
 
@@ -577,24 +577,24 @@ const Child = React.memo(({ handleSubmit }) => {
 ```
 
 -   Here, we deliberately slow down the child component to simulate slow renders. Since it's wrapped inside `React.memo()`, it only re-renders if its only prop `handleSubmit` changes.
-    
+   
 -   But when `toggle` state changes, it triggers a re-render for the child component as well, even if it's not passed down to the child component.
-    
+   
 -   This is because, every time the parent component renders, the `handleSubmit` function is created with a new reference. So, technically `handleSubmit` has changed and thus, the child component re-renders.
-    
+   
 -   To avoid this behaviour, we wrap the `handleSubmit` function declaration inside a `useCallback`. This ensures that the function reference remains the same between renders.
-    
+   
 -   In our example, the function is created only once, since there are no dependencies. If you add dependencies, the function is re-created only if one of them changes.
-    
+   
 
 When to use:
 
 -   When you have event handlers defined for an element inside your component, wrap them inside a `useCallback` to avoid unnecessary re-creations of event handlers.
-    
+   
 -   When you call a function inside a `useEffect`, you would usually pass the function as a dependency. To avoid running `useEffect` unnecessarily on every render, wrap the function definition inside a `useCallback`.
-    
+   
 -   If your custom Hook is returning a function, it is recommended to wrap it inside a `useCallback`. So, the users don't have to optimize the Hook – rather, they can focus on their own code.
-    
+   
 
 If you want to learn more about `useMemo` and `useCallback` hooks, check out my post below:
 
@@ -643,20 +643,20 @@ export function App(props) {
 ```
 
 -   This example contains a simple counter state with three actions: increment, decrement and reset.
-    
+   
 -   We define a reducer function that accepts the current state and an action object as arguments. The action object contains the action type (a string) and payload (data passed to the action).
-    
+   
 -   The `useReducer` Hook accepts the reducer function and an initial state, and returns an array containing the current state and a `dispatch` method.
-    
+   
 -   To update state, we call the `dispatch` method and pass the action type and payload in an object. We call this process, "dispatching an action".
-    
+   
 
 When to use `useReducer`:
 
 -   Use this hook only when your component has complex state update logic. Since it involves writing more code, prefer `useState` for simpler state updates. The simple example provided is just for demonstration purpose.
-    
+   
 -   When there are a lot of state update actions with different logic, it makes sense to have them all in a separate function. With this, you just pass the action type and payload to a `dispatch` function and the reducer handles the state update.
-    
+   
 
 If you want to understand more about the `useReducer` hook, check out my post:
 
@@ -704,9 +704,9 @@ export default useFetch;
 ```
 
 -   In the `useFetch` custom hook, we fetched the data inside a `useEffect` Hook, just as would inside a component. We also handled loading and error states in the Hook.
-    
+   
 -   Finally, we return the data, with the loading and error states, allowing the component to use them for handling the rendering logic.
-    
+   
 
 Let's use this in a component:
 
@@ -732,11 +732,11 @@ The `UsersList` component displays a list of users fetched from an API, and also
 This way, custom Hooks help you abstract the logic from a component and make it re-usable throughout the application. There are several other use cases:
 
 -   Event listeners for events like window resizing, mouse movements or keyboard presses.
-    
+   
 -   Form handling, including form validation and submission.
-    
+   
 -   Themes, caches, transitions, and so on.
-    
+   
 
 Check out the [docs][30] to learn more about custom hooks.
 
@@ -818,9 +818,9 @@ export const App = () => {
 ```
 
 -   Once you have identified a component to lazy load, use the `React.lazy()` function to dynamically import the lazy component.
-    
+   
 -   Wrap the lazy-loaded component inside `Suspense`. It renders a fallback (default) component till the lazy component loads.
-    
+   
 
 This way, you can load a React component on demand. This is also known as code splitting**.** The code is split and some part of the React code is loaded dynamically when needed.
 
@@ -835,28 +835,28 @@ There are two ways to render webpages in React. Let's have a look:
 **Server Side Rendering (SSR):**
 
 -   Web Page is generated and rendered on the server before sending to the client. Client receives complete web page from the server and displays it directly to the user.
-    
+   
 -   Loading the prepared HTML helps with faster loading times, improving the user experience. This is especially beneficial for users with slower internet connections.
-    
+   
 -   Since the web page is already prepared, it helps search engines better index your website, making it more SEO-friendly.
-    
+   
 -   SSR can increase server load if the page is updated frequently. Pages with dynamic content can take longer to update because they need to re-render often.
-    
+   
 -   SSR is used for marketing, blogging and news websites where initial load times and SEO are important.
-    
+   
 
 **Client Side Rendering (CSR):**
 
 -   A basic HTML file is sent to the client, and then it renders dynamic content using JavaScript.
-    
+   
 -   Initial load times are slower because preparing and rendering the content mostly happens on the client side.
-    
+   
 -   Since it initially renders basic HTML and adds JavaScript content later, search engines may not be able to index your content, making it less SEO-friendly.
-    
+   
 -   For web pages with dynamic content, rendering times are faster since all the rendering happens on client side.
-    
+   
 -   CSR is used for websites with dynamic content and frequent user interactions like social media platforms or dashboards.
-    
+   
 
 ## React Redux
 
@@ -871,7 +871,7 @@ A selector function accepts a Redux state object as an argument and returns a pa
 ```
 // example state for e-commerce app
 const initialState = {
-    users: { 
+    users: {
         ...
     },
     products: {
@@ -957,9 +957,9 @@ Redux is much more than just these two Hooks. Make sure you are clear on the cor
 There are a few other areas that I haven't mentioned so far, but can be a good addition:
 
 -   [React Router][35]
-    
+   
 -   [Unit Testing in React][36]
-    
+   
 
 Additionally, you may be asked to implement a small feature using the concepts I explained in this article. This gives you the opportunity to demonstrate your understanding of React.
 
@@ -978,11 +978,11 @@ During the interviews, just stay calm and confidently demonstrate your knowledge
 ### References
 
 -   [React Interview Questions – Interview Prep with Answers and Examples][38]
-    
+   
 -   [React Interview Questions][39] - InterviewBit
-    
+   
 -   [Learn React – A Guide to the Key Concepts by Ankur Tyagi][40]
-    
+   
 
 [1]: #heading-javascript-fundamentals
 [2]: #heading-react-essentials

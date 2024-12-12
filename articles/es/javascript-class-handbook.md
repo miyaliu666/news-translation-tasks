@@ -285,7 +285,7 @@ Aquí hay un ejemplo:
 ```
 // Define una clase de JavaScript:
 class Time {
-  // Crea dos métodos de campo de clase abreviados: 
+  // Crea dos métodos de campo de clase abreviados:
   hourNow() {
     return new Date().getHours();
   }
@@ -1474,7 +1474,7 @@ class Bio {
     this.firstName = "Oluwatobi";
     this.lastName = "Sofela";
   }
-  
+ 
   showFullName() {
     return `${ this.firstName } ${ this.lastName }`;
   }
@@ -1506,11 +1506,11 @@ class Bio {
   constructor() {
     let firstName = "Oluwatobi";
     let lastName = "Sofela";
-    
+   
     this.showMyName = function() {
       return firstName;
     };
-    
+   
     this.updateMyName = function(newName) {
       firstName = newName;
     };

@@ -4,7 +4,7 @@
 
 Excited to have you on board for our localization mission! Here's a simple guide to get you started:
 
-Please sign up through [this form](https://forms.gle/1w8umSbTF4JTPwyj9) if you have not already done so. This will enable us to send you an invitation to join the "news-translation-tasks" as a Collaborator. 
+Please sign up through [this form](https://forms.gle/1w8umSbTF4JTPwyj9) if you have not already done so. This will enable us to send you an invitation to join the "news-translation-tasks" as a Collaborator.
 
 **Can't wait to have you officially join the team!**
 
@@ -41,7 +41,7 @@ Here are the detailed steps.
 
 ### Select the article to work on
 
-1. Select an article from the list of articles to be post-edited. 
+1. Select an article from the list of articles to be post-edited.
 
 Check out the list of available articles in the GitHub Projects of your language, and pick the issue that you'd like to work on.
 
@@ -88,13 +88,13 @@ By committing and pushing, you can save your changes on GitHub.
 3. In the commit message, enter the translated title of the article. (If you make multiple commits, use a commit message that describes the change you've made.)
 ![Commit message](images/ghdev-commit-msg.png)
 
-4. Click `Commit & Push`. 
+4. Click `Commit & Push`.
 ![Commit & Push](images/ghdev-commit.png)
 
 5. You will be prompted to name the new branch. It would be helpful to give it a short, descriptive name so that you can easily find it later. Press Enter to confirm.
 ![Name new branch](images/ghdev-branch-name.png)
 
-6. Your changes will automatically be pushed to your branch in your fork on GitHub. If the following pop-up appears, click `Switch to Fork`  
+6. Your changes will automatically be pushed to your branch in your fork on GitHub. If the following pop-up appears, click `Switch to Fork` 
 ![Switch to Fork](images/ghdev-switch-fork.png)
 
 6. It will switch to the new branch you have just created, and you can continue working there. You can find the file you were working on in the Explorer.
@@ -129,7 +129,7 @@ When the review is done, the language lead will merge your pull request.
 
 Once your pull request is merged, the language lead will take over the final steps. This includes a through final revision to ensure quality and consistency. The language lead will also handle the transfer of the content to our publication platform, complete with a thumbnail, slug, tags, and the link to the original English article.
 
-**What is next ?** You are free to pick another translation and repeat the same process 1-4. 
+**What is next ?** You are free to pick another translation and repeat the same process 1-4.
 
 Thank you ahead of time!
 

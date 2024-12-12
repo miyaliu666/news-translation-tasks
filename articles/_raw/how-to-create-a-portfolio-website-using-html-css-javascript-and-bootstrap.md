@@ -94,7 +94,7 @@ We will use Bootstrap's `fixed-top` class in nav element to keep the navbar at t
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
-                
+               
             </div>
         </div>
     </nav>
@@ -181,7 +181,7 @@ We will be adding an image to the left side of the row, and on the right side we
 
                 <div class="col-lg-8">
                     <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-                        
+                       
                     </p>
                     <div class="row mt-3">
                         <div class="col-md-6">
@@ -251,7 +251,7 @@ Let's add the code for this section and describe it below:
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
                 <div class="col-lg-4 mt-4">
                     <div class="card servicesText">
@@ -262,7 +262,7 @@ Let's add the code for this section and describe it below:
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
 
                 <div class="col-lg-4 mt-4">
@@ -274,7 +274,7 @@ Let's add the code for this section and describe it below:
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
             </div>
 
@@ -288,7 +288,7 @@ Let's add the code for this section and describe it below:
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
 
                 <div class="col-lg-4 mt-4">
@@ -300,7 +300,7 @@ Let's add the code for this section and describe it below:
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
 
                 <div class="col-lg-4 mt-4">
@@ -312,7 +312,7 @@ Let's add the code for this section and describe it below:
                                 Some quick example text to build on the card title and make up the bulk of the card's content.
                             </p>
                         </div>
-                    </div>  
+                    </div> 
                 </div>
             </div>
         </div>
@@ -556,7 +556,7 @@ Our code will look like this with the contact form included:
                         </div>
                     </form>
                     <button type="button" class="btn btn-success mt-3">Contact Me</button>
-                    
+                   
                 </div>
 
             </div>

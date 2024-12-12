@@ -35,13 +35,13 @@ Antes de que estén listos para su uso y puedan responder a tus preguntas, los L
 Así es como funciona el proceso de entrenamiento:
 
 1.  **Recopilación de Datos:** El primer paso implica reunir millones (o incluso miles de millones) de documentos de texto de diversas fuentes, incluidos libros, sitios web, trabajos de investigación y redes sociales. Este extenso conjunto de datos sirve como base para el proceso de aprendizaje del modelo.
-    
+   
 2.  **Aprendizaje de Patrones:** El modelo analiza los datos recopilados para identificar y aprender patrones en el texto. Estos patrones incluyen reglas gramaticales, asociaciones de palabras, relaciones contextuales e incluso algún nivel de sentido común. Al procesar estos datos, el modelo comienza a entender cómo funciona el lenguaje.
-    
+   
 3.  **Ajuste Fino:** Después del entrenamiento inicial, el modelo se ajusta para tareas específicas. Esto implica ajustar los parámetros del modelo para optimizar su rendimiento en tareas como traducción, resumen, análisis de sentimientos o respuesta a preguntas.
-    
+   
 4.  **Evaluación y Pruebas:** Una vez entrenado, el modelo se prueba rigurosamente contra una serie de referencias para evaluar su precisión, eficiencia y fiabilidad. Este paso asegura que el modelo funcione bien en aplicaciones del mundo real.
-    
+   
 
 Después de completar el proceso de entrenamiento, los modelos se someten a pruebas exhaustivas en una serie de benchmarks para evaluar su precisión, eficiencia, seguridad, y más.
 
@@ -54,30 +54,30 @@ Los LLMs tienen una amplia gama de aplicaciones, desde la generación de conteni
 ### **Creación de Contenido:**
 
 -   **Asistencia de Escritura:** Herramientas como Grammarly utilizan LLMs para proporcionar sugerencias en tiempo real para mejorar la gramática, el estilo y la claridad en la escritura. Ya sea que estés redactando un correo electrónico o escribiendo una novela, los LLMs pueden ayudarte a pulir tu texto.
-    
+   
 -   **Narrativa Automatizada:** Los modelos de IA ahora pueden generar contenido creativo, desde cuentos hasta novelas completas. Estos modelos pueden emular el estilo de autores famosos o incluso crear estilos literarios completamente nuevos.
-    
+   
 
 ### **Atención al Cliente:**
 
 -   **Chatbots:** Muchas empresas despliegan chatbots impulsados por IA que pueden comprender y responder a las consultas de los clientes en tiempo real. Estos chatbots pueden manejar una amplia gama de tareas, desde responder preguntas frecuentes hasta procesar pedidos.
-    
+   
 -   **Asistentes Personales:** Asistentes virtuales como Siri y Alexa utilizan LLMs para interpretar y responder a comandos de voz, proporcionando a los usuarios información, recordatorios y entretenimiento a demanda.
-    
+   
 
 ### **Salud:**
 
 -   **Resumen de Registros Médicos:** Los LLMs pueden ayudar a los profesionales de la salud resumiendo los registros de los pacientes, facilitando la revisión de información crítica y la toma de decisiones informadas.
-    
+   
 -   **Asistencia Diagnóstica:** Los modelos de IA pueden analizar datos de pacientes y literatura médica para asistir a los médicos en el diagnóstico de enfermedades y la recomendación de tratamientos.
-    
+   
 
 ### **Investigación y Educación:**
 
 -   **Revisión de Literatura:** Los LLMs pueden revisar grandes cantidades de trabajos de investigación para proporcionar resúmenes concisos, identificar tendencias y sugerir nuevas direcciones de investigación.
-    
+   
 -   **Herramientas Educativas:** Los tutores impulsados por IA pueden ofrecer experiencias de aprendizaje personalizadas al adaptarse al progreso y las necesidades del estudiante. Estas herramientas pueden proporcionar retroalimentación instantánea y planes de estudio personalizados.
-    
+   
 
 
 - **Desarrollo de Videojuegos**: Los modelos de lenguaje grandes (LLMs, por sus siglas en inglés) se utilizan para crear personajes más dinámicos y receptivos en los videojuegos. Estos personajes impulsados por IA pueden interactuar con los jugadores de manera más realista e interactiva.

@@ -65,11 +65,11 @@ Random variables form the cornerstone of many statistical concepts. It might be 
 
 For instance, we can define the random process of flipping a coin by random variable X which takes a value 1 if the outcome is _heads_ and 0 if the outcome is _tails._
 
-$$X =  
-\\begin{cases}  
-1 & \\text{if heads} \\\\  
-0 & \\text{if tails}  
-\\end{cases}  
+$$X = 
+\\begin{cases} 
+1 & \\text{if heads} \\\\ 
+0 & \\text{if tails} 
+\\end{cases} 
 $$
 
 In this example, we have a random process of flipping a coin where this experiment can produce **two** **possible outcomes**: {0,1}. This set of all possible outcomes is called the **sample space** of the experiment. Each time the random process is repeated, it is referred to as an **event**.
@@ -78,11 +78,11 @@ In this example, flipping a coin and getting a tail as an outcome is an event. T
 
 A probability of an event is the likelihood that a random variable takes a specific value of x which can be described by P(x). In the example of flipping a coin, the likelihood of getting heads or tails is the same, that is 0.5 or 50%. So we have the following setting:
 
-$$  
-\\begin{align}  
-\\Pr(X = \\text{heads}) = 0.5 \\\\  
-\\Pr(X = \\text{tails}) = 0.5  
-\\end{align}  
+$$ 
+\\begin{align} 
+\\Pr(X = \\text{heads}) = 0.5 \\\\ 
+\\Pr(X = \\text{tails}) = 0.5 
+\\end{align} 
 $$
 
 where the probability of an event, in this example, can only take values in the range \[0,1\].
@@ -111,18 +111,18 @@ $$ X\_1, X\_2, X\_3, \\ldots, X\_N $$
 
 where N is the number of observations or data points in the sample set or simply the data frequency. Then the **sample mean** defined by **μ**, which is very often used to approximate the **population mean**, can be expressed as follows:
 
-$$  
-\\mu = \\frac{\\sum\_{i=1}^{N} x\_i}{N}  
+$$ 
+\\mu = \\frac{\\sum\_{i=1}^{N} x\_i}{N} 
 $$
 
 The mean is also referred to as **expectation** which is often defined by **E**() or random variable with a bar on the top. For example, the expectation of random variables X and Y, that is **E**(X) and **E**(Y), respectively, can be expressed as follows:
 
-$$  
-\\bar{X} = \\frac{\\sum\_{i=1}^{N} X\_i}{N}  
-$$  
-  
-$$  
-\\bar{Y} = \\frac{\\sum\_{i=1}^{N} Y\_i}{N}  
+$$ 
+\\bar{X} = \\frac{\\sum\_{i=1}^{N} X\_i}{N} 
+$$ 
+ 
+$$ 
+\\bar{Y} = \\frac{\\sum\_{i=1}^{N} Y\_i}{N} 
 $$
 
 Now that we have a solid understanding of the mean as a statistical measure, let's see how we can apply this knowledge practically using Python. Python is a versatile programming language that, with the help of libraries like NumPy, makes it easy to perform complex mathematical operations—including calculating the mean.
@@ -163,8 +163,8 @@ For deriving expectations and variances of different popular probability distrib
 
 The standard deviation is simply the square root of the variance and measures the extent to which data varies from its mean. The standard deviation defined by **sigma** can be expressed as follows:
 
-$$  
-\\sigma^2 = \\frac{\\sum\_{i=1}^{N} (x\_i - \\mu)^2}{N}  
+$$ 
+\\sigma^2 = \\frac{\\sum\_{i=1}^{N} (x\_i - \\mu)^2}{N} 
 $$
 
 Standard deviation is often preferred over the variance because it has the same units as the data points, which means you can interpret it more easily.
@@ -230,9 +230,9 @@ A function that describes all the possible values, the sample space, and the cor
 
 Every pdf needs to satisfy the following two criteria:
 
-$$  
-0 \\leq \\Pr(X) \\leq 1 \\\\  
-\\sum p(X) = 1  
+$$ 
+0 \\leq \\Pr(X) \\leq 1 \\\\ 
+\\sum p(X) = 1 
 $$
 
 where the first criterium states that all probabilities should be numbers in the range of \[0,1\] and the second criterium states that the sum of all possible probabilities should be equal to 1.
@@ -259,9 +259,9 @@ The mean of a binomial distribution, denoted as _E_(_X_)=_np_, tells you the ave
 
 A binary experiment is one where there are only two outcomes: success (with probability _p_) or failure (with probability _q_\=1−_p_).
 
-$$  
-E(X) = np \\\\  
-\\text{Var}(X) = npq  
+$$ 
+E(X) = np \\\\ 
+\\text{Var}(X) = npq 
 $$
 
 For example, if you were to flip a coin 100 times and you define a success as the coin landing on heads (let's say the probability of heads is 0.5), the binomial distribution would tell you how likely it is to get any number of heads in those 100 flips. The mean _E_(_X_) would be 100×0.5=50, indicating that on average, you’d expect to get 50 heads.
@@ -327,9 +327,9 @@ Predicting the number of customer arrivals at a store within an hour. Estimating
 
 So, the Poisson distribution helps in making probabilistic forecasts about the occurrence of rare or random events over intervals of time or space.
 
-$$  
-E(X) = \\lambda \\\\  
-\\text{Var}(X) = \\lambda  
+$$ 
+E(X) = \\lambda \\\\ 
+\\text{Var}(X) = \\lambda 
 $$
 
 For example, Poisson distribution can be used to model the number of customers arriving in the shop between 7 and 10 pm, or the number of patients arriving in an emergency room between 11 and 12 pm.
@@ -366,17 +366,17 @@ plt.show()
 
 Let's assume a random variable X follows a Normal distribution. Then its probability density function can be expressed as follows:
 
-$$  
-\\Pr(X = k) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2} \\left(\\frac{x-\\mu}{\\sigma}\\right)^2}  
+$$ 
+\\Pr(X = k) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2} \\left(\\frac{x-\\mu}{\\sigma}\\right)^2} 
 $$
 
 where the parameter **μ** (mu) is the mean of the distribution also referred to as the **location parameter**, parameter **σ** (sigma) is the standard deviation of the distribution also referred to as the **scale parameter**. The number [**π**][40] (pi) is a mathematical constant approximately equal to 3.14.
 
 #### Normal Distribution Mean and Variance
 
-$$  
-E(X) = \\mu \\\\  
-\\text{Var}(X) = \\sigma^2  
+$$ 
+E(X) = \\mu \\\\ 
+\\text{Var}(X) = \\sigma^2 
 $$
 
 The figure below visualizes an example of Normal distribution with a mean 0 (**μ = 0**) and standard deviation of 1 (**σ = 1**), which is referred to as **Standard Normal** distribution which is symmetric_._
@@ -574,12 +574,12 @@ def runOLS(Y,X):
 
    # Standard error of estimates:square root of estimate's variance
    var_beta_hat = np.linalg.inv(np.dot(np.transpose(X),X))*sigma_squared_hat
-   
+  
    SE = []
    t_stats = []
    p_values = []
    CI_s = []
-   
+  
    for i in range(len(beta)):
        #standard errors
        SE_i = np.sqrt(var_beta_hat[i,i])
@@ -589,7 +589,7 @@ def runOLS(Y,X):
         t_stat = np.round(beta_hat[i,0]/SE_i,3)
         t_stats.append(t_stat)
 
-        #p-value of t-stat p[|t_stat| >= t-treshhold two sided] 
+        #p-value of t-stat p[|t_stat| >= t-treshhold two sided]
         p_value = t.sf(np.abs(t_stat),N-2) * 2
         p_values.append(np.round(p_value,3))
 
@@ -598,7 +598,7 @@ def runOLS(Y,X):
         margin_of_error = t_critical*SE_i
         CI = [np.round(beta_hat[i,0]-margin_of_error,3), np.round(beta_hat[i,0]+margin_of_error,3)]
         CI_s.append(CI)
-        return(beta_hat, SE, t_stats, p_values,CI_s, 
+        return(beta_hat, SE, t_stats, p_values,CI_s,
                MSE, RMSE, R_squared)
 ```
 
@@ -701,11 +701,11 @@ where H0 and H1 represent Null Hypothesis and Alternative Hypothesis, respective
 
 Rejecting the Null Hypothesis would mean that a one-unit increase in Flipper Length has a direct impact on the Body Mass (given that the parameter estimate of β1 is describing this impact of the independent variable, Flipper Length, on the dependent variable, Body Mass). We can reformulate this hypothesis as follows:
 
-$$  
-\\begin{cases}  
-H\_0: \\hat{\\beta}\_1 = 0 \\\\  
-H\_1: \\hat{\\beta}\_1 \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: \\hat{\\beta}\_1 = 0 \\\\ 
+H\_1: \\hat{\\beta}\_1 \\neq 0 
+\\end{cases} 
 $$
 
 where H0 states that the parameter estimate of β1 is equal to 0, that is Flipper Length effect on Body Mass is **statistically insignificant** whereas H1 states that the parameter estimate of β1 is not equal to 0, suggesting that Flipper Length effect on Body Mass is **statistically significant**.
@@ -751,9 +751,9 @@ There are two versions of the t-test: a **two-sided t-test** and a **one-sided t
 
 You can use the two-sided or **two-tailed t-test** when the hypothesis is testing _equal_ versus _not equal_ relationship under the Null and Alternative Hypotheses. It would be similar to the following example:
 
-$$  
-H\_{0} = \\beta\_hat\_1  = h\_0\\  
-H\_{1} = \\beta\_hat\_1 \\neq h\_0  
+$$ 
+H\_{0} = \\beta\_hat\_1  = h\_0\\ 
+H\_{1} = \\beta\_hat\_1 \\neq h\_0 
 $$
 
 The two-sided t-test has **two rejection regions** as visualized in the figure below:
@@ -792,11 +792,11 @@ F-test is another very popular statistical test often used to test hypotheses te
 
 Following is an example of a statistical hypothesis that you can test using the F-test:
 
-$$  
-\\begin{cases}  
-H\_0: \\hat{\\beta}\_1 = \\hat{\\beta}\_2 = \\hat{\\beta}\_3 = 0 \\\\  
-H\_1: \\hat{\\beta}\_1 \\neq \\hat{\\beta}\_2 \\neq \\hat{\\beta}\_3 \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: \\hat{\\beta}\_1 = \\hat{\\beta}\_2 = \\hat{\\beta}\_3 = 0 \\\\ 
+H\_1: \\hat{\\beta}\_1 \\neq \\hat{\\beta}\_2 \\neq \\hat{\\beta}\_3 \\neq 0 
+\\end{cases} 
 $$
 
 where the Null states that the three variables corresponding to these coefficients are jointly statistically insignificant, and the Alternative states that these three variables are jointly statistically significant.
@@ -835,26 +835,26 @@ $$ F\_{\\text{stat}} > F\_{\\alpha,q,N} $$
 
 If you want to test whether there is a statistically significant difference between the control and experimental groups’ metrics that are in the form of averages (for example, average purchase amount), metric follows _student-t_ distribution. When the sample size is smaller than 30, you can use 2-sample T-test to test the following hypothesis:
 
-$$  
-\\begin{cases}  
-H\_0: \\mu\_{\\text{con}} = \\mu\_{\\text{exp}} \\\\  
-H\_1: \\mu\_{\\text{con}} \\neq \\mu\_{\\text{exp}}  
-\\end{cases}  
-$$  
-  
-$$  
-\\begin{cases}  
-H\_0: \\mu\_{\\text{con}} - \\mu\_{\\text{exp}} = 0 \\\\  
-H\_1: \\mu\_{\\text{con}} - \\mu\_{\\text{exp}} \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: \\mu\_{\\text{con}} = \\mu\_{\\text{exp}} \\\\ 
+H\_1: \\mu\_{\\text{con}} \\neq \\mu\_{\\text{exp}} 
+\\end{cases} 
+$$ 
+ 
+$$ 
+\\begin{cases} 
+H\_0: \\mu\_{\\text{con}} - \\mu\_{\\text{exp}} = 0 \\\\ 
+H\_1: \\mu\_{\\text{con}} - \\mu\_{\\text{exp}} \\neq 0 
+\\end{cases} 
 $$
 
 where the sampling distribution of means of Control group follows Student-t distribution with degrees of freedom N\_con-1. Also, the sampling distribution of means of the Experimental group also follows the Student-t distribution with degrees of freedom N\_exp-1.
 
 Note that the N\_con and N\_exp are the number of users in the Control and Experimental groups, respectively.
 
-$$ \\hat{\\mu}\_{\\text{con}} \\sim t(N\_{\\text{con}} - 1) $$  
-  
+$$ \\hat{\\mu}\_{\\text{con}} \\sim t(N\_{\\text{con}} - 1) $$ 
+ 
 $$ \\hat{\\mu}\_{\\text{exp}} \\sim t(N\_{\\text{exp}} - 1) $$
 
 Then you can calculate an estimate for the **pooled variance** of the two samples as follows:
@@ -875,16 +875,16 @@ The p-value is the probability of observing values at least as extreme as the co
 
 Then the p-value of the test statistics can be calculated as follows:
 
-$$ p\_{\\text{value}} = \\Pr\[t \\leq -T \\text{ or } t \\geq T\] $$  
-  
+$$ p\_{\\text{value}} = \\Pr\[t \\leq -T \\text{ or } t \\geq T\] $$ 
+ 
 $$ = 2 \* \\Pr\[t \\geq T\] $$
 
 The interpretation of a _p_\-value is dependent on the chosen significance level, alpha, which you choose before running the test during the _power analysis_.
 
 If the calculated _p_\-value appears to be smaller than equal to alpha (for example, 0.05 for 5% significance level) we can reject the null hypothesis and state that there is a statistically significant difference between the primary metrics of the Control and Experimental groups.
 
-Finally, to determine how accurate the obtained results are and also to comment about the practical significance of the obtained results, you can compute the **Confidence Interval** of your test by using the following formula:  
-  
+Finally, to determine how accurate the obtained results are and also to comment about the practical significance of the obtained results, you can compute the **Confidence Interval** of your test by using the following formula: 
+ 
 $$ CI = \\left\[ (\\hat{\\mu}\_{\\text{con}} - \\hat{\\mu}\_{\\text{exp}}) - t\_{\\frac{\\alpha}{2}} \* SE(\\hat{\\mu}\_{\\text{con}} - \\hat{\\mu}\_{\\text{exp}}), (\\hat{\\mu}\_{\\text{con}} - \\hat{\\mu}\_{\\text{exp}}) + t\_{\\frac{\\alpha}{2}} \* SE \\right\] $$
 
 where the t\_(1-alpha/2) is the critical value of the test corresponding to the two-sided t-test with alpha significance level. It can be found using the [t-table][58].
@@ -905,9 +905,9 @@ import numpy as np
 from scipy.stats import t
 
 N_con = 20
-df_con = N_con - 1 # degrees of freedom of Control 
+df_con = N_con - 1 # degrees of freedom of Control
 N_exp = 20
-df_exp = N_exp - 1 # degrees of freedom of Experimental 
+df_exp = N_exp - 1 # degrees of freedom of Experimental
 
 # Significance level
 alpha = 0.05
@@ -967,26 +967,26 @@ Here we will make a distinction between two cases: where the primary metric is i
 
 If you want to test whether there is a statistically significant difference between the Control and Experimental groups’ metrics that are in the form of proportions (like CTR) and if the click event occurs independently, you can use a 2-sample Z-test to test the following hypothesis:
 
-$$  
-\\begin{cases}  
-H\_0: p\_{\\text{con}} = p\_{\\text{exp}} \\\\  
-H\_1: p\_{\\text{con}} \\neq p\_{\\text{exp}}  
-\\end{cases}  
-$$  
-  
-$$  
-\\begin{cases}  
-H\_0: p\_{\\text{con}} - p\_{\\text{exp}} = 0 \\\\  
-H\_1: p\_{\\text{con}} - p\_{\\text{exp}} \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: p\_{\\text{con}} = p\_{\\text{exp}} \\\\ 
+H\_1: p\_{\\text{con}} \\neq p\_{\\text{exp}} 
+\\end{cases} 
+$$ 
+ 
+$$ 
+\\begin{cases} 
+H\_0: p\_{\\text{con}} - p\_{\\text{exp}} = 0 \\\\ 
+H\_1: p\_{\\text{con}} - p\_{\\text{exp}} \\neq 0 
+\\end{cases} 
 $$
 
 where each click event can be described by a random variable that can take two possible values: 1 (success) and 0 (failure). It also follows a Bernoulli distribution (click: success and no click: failure) where p\_con and p\_exp are the probabilities of clicking (probability of success) of Control and Experimental groups, respectively.
 
 So, after collecting the interaction data of the Control and Experimental users, you can calculate the estimates of these two probabilities as follows:
 
-$$ SE = \\sqrt{\\hat{S}^2\_{\\text{pooled}}} $$  
-  
+$$ SE = \\sqrt{\\hat{S}^2\_{\\text{pooled}}} $$ 
+ 
 $$ Z = \\frac{(\\hat{p}\_{\\text{con}} - \\hat{p}\_{\\text{exp}})}{SE} $$
 
 Since we are testing for the difference in these probabilities, we need to obtain an estimate for the pooled probability of success and an estimate for pooled variance, which can be done as follows:
@@ -1005,8 +1005,8 @@ $$ Z = \\frac{(\\hat{p}_{\\text{con}} - \\hat{p}_{\\text{exp}})}{SE} $$
 
 Then the p-value of this test statistics can be calculated as follows:
 
-$$ p\_{\\text{value}} = \\Pr\[Z \\leq -T \\text{ or } z \\geq T\] $$  
-  
+$$ p\_{\\text{value}} = \\Pr\[Z \\leq -T \\text{ or } z \\geq T\] $$ 
+ 
 $$ = 2 \* \\Pr\[Z \\geq T\] $$
 
 Finally, you can compute the **Confidence Interval** of the test as follows:
@@ -1092,24 +1092,24 @@ plt.show()
 
 If you want to test whether there is a statistically significant difference between the Control and Experimental groups’ metrics that are in the form of averages (like average purchase amount) you can use a 2-sample Z-test to test the following hypothesis:
 
-$$  
-\\begin{cases}  
-H\_0: {CR}\_{\\text{con}} = {CR}\_{\\text{exp}} \\\\  
-H\_1:{CR}\_{\\text{con}} \\neq {CR}\_{\\text{exp}}  
-\\end{cases}  
-$$  
-  
-$$  
-\\begin{cases}  
-H\_0: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} = 0 \\\\  
-H\_1: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: {CR}\_{\\text{con}} = {CR}\_{\\text{exp}} \\\\ 
+H\_1:{CR}\_{\\text{con}} \\neq {CR}\_{\\text{exp}} 
+\\end{cases} 
+$$ 
+ 
+$$ 
+\\begin{cases} 
+H\_0: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} = 0 \\\\ 
+H\_1: {CR}\_{\\text{con}} - {CR}\_{\\text{exp}} \\neq 0 
+\\end{cases} 
 $$
 
 where the sampling distribution of means of the Control group follows Normal distribution with mean mu\_con and σ²\_con/N\_con. Moreover, the sampling distribution of means of the Experimental group also follows the Normal distribution with mean mu\_exp and σ²\_exp/N\_exp.
 
-$$ \\hat{\\mu}\_{\\text{con}} \\sim N(\\mu\_{con}, \\frac{\\sigma^2\_{con}}{N\_{con}}) $$  
-  
+$$ \\hat{\\mu}\_{\\text{con}} \\sim N(\\mu\_{con}, \\frac{\\sigma^2\_{con}}{N\_{con}}) $$ 
+ 
 $$ \\hat{\\mu}\_{\\text{exp}} \\sim N(\\mu\_{exp}, \\frac{\\sigma^\_{exp}2}{N\_{exp}}) $$
 
 Then the difference in the means of the control and experimental groups also follows Normal distributions with mean mu\_con-mu\_exp and variance σ²\_con/N\_con + σ²\_exp/N\_exp.
@@ -1126,8 +1126,8 @@ $$ SE = \\sqrt{\\frac{\\sigma^2\_{con}}{N\_{con}} + \\frac{\\sigma^2\_{exp}}{N\_
 
 Then the p-value of this test statistics can be calculated as follows:
 
-$$ p\_{\\text{value}} = \\Pr\[Z \\leq -T \\text{ or } Z \\geq T\] $$  
-  
+$$ p\_{\\text{value}} = \\Pr\[Z \\leq -T \\text{ or } Z \\geq T\] $$ 
+ 
 $$ = 2 \* \\Pr\[Z \\geq T\] $$
 
 Finally, you can compute the **Confidence Interval** of the test as follows:
@@ -1205,17 +1205,17 @@ plt.show()
 
 If you want to test whether there is a statistically significant difference between the Control and Experimental groups’ performance metrics (for example their conversions) and you don’t really want to know the nature of this relationship (which one is better) you can use a Chi-Squared test to test the following hypothesis:
 
-$$  
-\\begin{cases}  
-H\_0: \\CR\_{\\text{con}} = \\CR\_{\\text{exp}} \\\\  
-H\_1: \\CR\_{\\text{con}} \\neq \\CR\_{\\text{exp}}  
-\\end{cases}  
-$$  
-  
-$$\\begin{cases}  
-H\_0: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} = 0 \\\\  
-H\_1: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} \\neq 0  
-\\end{cases}  
+$$ 
+\\begin{cases} 
+H\_0: \\CR\_{\\text{con}} = \\CR\_{\\text{exp}} \\\\ 
+H\_1: \\CR\_{\\text{con}} \\neq \\CR\_{\\text{exp}} 
+\\end{cases} 
+$$ 
+ 
+$$\\begin{cases} 
+H\_0: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} = 0 \\\\ 
+H\_1: \\CR\_{\\text{con}} - \\CR\_{\\text{exp}} \\neq 0 
+\\end{cases} 
 $$
 
 Note that the metric should be in the form of a binary variable (for example, conversion or no conversion/click or no click). The data can then be represented in the form of the following table, where O and T correspond to observed and theoretical values, respectively.
@@ -1388,13 +1388,13 @@ where:
 
 So, to put it differently, a factor model is as a series of multiple regressions, predicting each of the variables Xi from the values of the unobservable common factors are:
 
-$$  
-X\_1 = \\mu\_1 + a\_{11}f\_1 + a\_{12}f\_2 + ... + a\_{1m}f\_m + u1\\\\  
-X\_2 = \\mu\_2 + a\_{21}f\_1 + a\_{22}f\_2 + ... + a\_{2m}f\_m + u2\\\\  
-.\\\\  
-.\\\\  
-.\\\\  
-X\_p = \\mu\_p + a\_{p1}f\_1 + a\_{p2}f\_2 + ... + a\_{pm}f\_m + up  
+$$ 
+X\_1 = \\mu\_1 + a\_{11}f\_1 + a\_{12}f\_2 + ... + a\_{1m}f\_m + u1\\\\ 
+X\_2 = \\mu\_2 + a\_{21}f\_1 + a\_{22}f\_2 + ... + a\_{2m}f\_m + u2\\\\ 
+.\\\\ 
+.\\\\ 
+.\\\\ 
+X\_p = \\mu\_p + a\_{p1}f\_1 + a\_{p2}f\_2 + ... + a\_{pm}f\_m + up 
 $$
 
 Each variable has k of its own common factors, and these are related to the observations via the factor loading matrix for a single observation as follows:

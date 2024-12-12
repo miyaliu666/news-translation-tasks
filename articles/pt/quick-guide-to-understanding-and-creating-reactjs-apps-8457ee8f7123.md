@@ -45,7 +45,7 @@ cd first-react-app
 npm start
 ```
 
-Vá ao seu navegador e acesse a seguinte URL **localhost:3000**  
+Vá ao seu navegador e acesse a seguinte URL **localhost:3000** 
 Você deverá ver que seu aplicativo está em execução. O Aplicativo deve se parecer com isto em seu navegador:
 
 ![Imagem](https://cdn-media-1.freecodecamp.org/images/w1SbWWOdE5XDpq25D6aYcw6e7RjJSJupdp1T)
@@ -261,7 +261,7 @@ Este componente exibe os detalhes do Cliente selecionado. Alguns trechos de cód
 componentDidUpdate(prevProps) {
 
 // obter detalhes do cliente apenas se as props mudarem
-// (props é a entrada) 
+// (props é a entrada)
     if (this.props.val !== prevProps.val) {
         this.getCustomerDetails(this.props.val)
     }

@@ -21,11 +21,11 @@ $$10^0 = \\text{?}$$
 Este artigo vai abordar
 
 -   os fundamentos dos expoentes,
-    
+   
 -   o que eles significam, e
-    
+   
 -   mostrará que (10^0) é igual a (1) usando expoentes negativos
-    
+   
 
 Tudo o que estou assumindo é que você tem um entendimento de multiplicação e divisão.
 
@@ -36,9 +36,9 @@ Primeiro, vamos começar com as partes de um expoente.
 Há duas partes em um expoente:
 
 1.  a base
-    
+   
 2.  o expoente ou potência
-    
+   
 
 No início, tínhamos um expoente (3^2). O "3" aqui é a **base**, enquanto o "2" é **o expoente ou potência**.
 
@@ -101,9 +101,9 @@ $$10^3 = 10 \\times 10 \\times 10 = 1000$$
 Para diminuir as potências, precisamos entender brevemente os conceitos de
 
 -   combinando expoentes
-    
+   
 -   potências de um
-    
+   
 
 Em nossa busca para diminuir o expoente de (10^3) ("dez à terceira potência") para (10^0) ("dez à potência de zero"), continuaremos fazendo o contrário de multiplicar, que é dividir.
 

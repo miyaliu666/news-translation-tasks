@@ -19,27 +19,27 @@ SQLite is a great choice for small to medium applications because it’s easy to
 In this tutorial, you'll learn how to work with SQLite using Python. Here’s what we’re going to cover in this tutorial:
 
 -   [How to Set Up Your Python Environment][1]
-    
+   
 -   [How to Create an SQLite Database][2]
-    
+   
 -   [How to Create Database Tables][3]
-    
+   
 -   [How to Insert Data into a Table][4]
-    
+   
 -   [How to Query Data][5]
-    
+   
 -   [How to Update and Delete Data][6]
-    
+   
 -   [How to Use Transactions][7]
-    
+   
 -   [How to Optimize SQLite Query Performance with Indexing][8]
-    
+   
 -   [How to Handle Errors and Exceptions][9]
-    
+   
 -   [How to Export and Import Data \[Bonus Section\]][10]
-    
+   
 -   [Wrapping Up][11]
-    
+   
 
 This tutorial is perfect for anyone who wants to get started with databases without diving into complex setups.
 
@@ -70,9 +70,9 @@ It’s a good idea to create a virtual environment for each project to keep your
 To create a virtual environment, follow these steps:
 
 1.  First, open your terminal or command prompt and navigate to the directory where you want to create your project.
-    
+   
 2.  Run the following command to create a virtual environment:
-    
+   
 
 ```
 python -m venv env
@@ -97,9 +97,9 @@ After activating the virtual environment, you’ll notice that your terminal pro
 We’ll need a few additional libraries for this project. Specifically, we’ll use:
 
 -   `pandas`: This is an optional library for handling and displaying data in tabular format, useful for advanced use cases.
-    
+   
 -   `faker`: This library will help us generate fake data, like random names and addresses, which we can insert into our database for testing.
-    
+   
 
 To install `pandas` and `faker`, simply run the following commands:
 
@@ -187,13 +187,13 @@ To create a table, we use SQL's `CREATE TABLE` statement. This command defines t
 Here’s a simple SQL command to create a `Students` table with the following fields:
 
 -   `id`: A unique identifier for each student (an integer).
-    
+   
 -   **name**: The student's name (text).
-    
+   
 -   **age**: The student's age (an integer).
-    
+   
 -   **email**: The student's email address (text).
-    
+   
 
 The SQL command to create this table would look like this:
 
@@ -238,9 +238,9 @@ with sqlite3.connect('my_database.db') as connection:
 ```
 
 -   `IF NOT EXISTS`: This ensures that the table is only created if it doesn’t already exist, preventing errors if the table has been created before.
-    
+   
 -   `connection.commit()`: This saves (commits) the changes to the database.
-    
+   
 
 When you run the Python code above, it will create the `Students` table in the `my_database.db` database file. You’ll also see a message in the terminal confirming that the table has been created successfully.
 
@@ -263,11 +263,11 @@ SQLite supports several data types, which we need to understand when defining ou
 In our `Students` table:
 
 -   `id` is of type `INTEGER`, which maps to Python’s `int`.
-    
+   
 -   `name` and `email` are of type `TEXT`, which map to Python’s `str`.
-    
+   
 -   `age` is also of type `INTEGER`, mapping to Python’s `int`.
-    
+   
 
 ## How to Insert Data into a Table
 
@@ -280,7 +280,7 @@ To insert data into the database, we use the `INSERT INTO` SQL command. Let’s 
 Here’s the basic SQL syntax for inserting a single record:
 
 ```
-INSERT INTO Students (name, age, email) 
+INSERT INTO Students (name, age, email)
 VALUES ('John Doe', 20, 'johndoe@example.com');
 ```
 
@@ -297,7 +297,7 @@ with sqlite3.connect('my_database.db') as connection:
 
     # Insert a record into the Students table
     insert_query = '''
-    INSERT INTO Students (name, age, email) 
+    INSERT INTO Students (name, age, email)
     VALUES (?, ?, ?);
     '''
     student_data = ('Jane Doe', 23, 'jane@example.com')
@@ -332,7 +332,7 @@ with sqlite3.connect('my_database.db') as connection:
 
     # Insert a record into the Students table
     insert_query = '''
-    INSERT INTO Students (name, age, email) 
+    INSERT INTO Students (name, age, email)
     VALUES (?, ?, ?);
     '''
     students_data = [(fake.name(), fake.random_int(
@@ -351,11 +351,11 @@ with sqlite3.connect('my_database.db') as connection:
 In this code:
 
 -   `Faker()` generates random names, ages, and emails for students. Passing the locale(`[‘en_IN’]`) is optional.
-    
+   
 -   `cursor.executemany()`: This method allows us to insert multiple records at once, making the code more efficient.
-    
+   
 -   `students_data`: A list of tuples where each tuple represents one student’s data.
-    
+   
 
 ### How to Handle Common Issues: SQL Injection
 
@@ -535,8 +535,8 @@ To modify existing records in a database, we use the SQL `UPDATE` command. This 
 For example, if we want to update a student's age, the SQL command would look like this:
 
 ```
-UPDATE Students 
-SET age = 21 
+UPDATE Students
+SET age = 21
 WHERE name = 'Jane Doe';
 ```
 
@@ -551,8 +551,8 @@ with sqlite3.connect('my_database.db') as connection:
 
     # SQL command to update a student's age
     update_query = '''
-    UPDATE Students 
-    SET age = ? 
+    UPDATE Students
+    SET age = ?
     WHERE name = ?;
     '''
 
@@ -579,7 +579,7 @@ To remove records from a database, we use the SQL `DELETE` command. This command
 For example, if we want to delete a student named 'Jane Doe', the SQL command would look like this:
 
 ```
-DELETE FROM Students 
+DELETE FROM Students
 WHERE name = 'Jane Doe';
 ```
 
@@ -594,7 +594,7 @@ with sqlite3.connect('my_database.db') as connection:
 
     # SQL command to delete a student
     delete_query = '''
-    DELETE FROM Students 
+    DELETE FROM Students
     WHERE name = ?;
     '''
 
@@ -614,11 +614,11 @@ with sqlite3.connect('my_database.db') as connection:
 #### Important Considerations
 
 -   **Conditions**: Always use the `WHERE` clause when updating or deleting records to avoid modifying or removing all rows in the table. Without a `WHERE` clause, the command affects every row in the table.
-    
+   
     ![357089 rows affected Meme](https://cdn.hashnode.com/res/hashnode/image/upload/v1727519069500/f22be4cc-e75f-4492-af01-ed08f31361f3.jpeg)
-    
+   
 -   **Backup**: It’s good practice to back up your database before performing updates or deletions, especially in production environments.
-    
+   
 
 ## How to Use Transactions
 
@@ -629,24 +629,24 @@ For example, if you are transferring money between two bank accounts, you would 
 ### Why Use Transactions?
 
 1.  **Atomicity**: Transactions ensure that a series of operations are treated as a single unit. If one operation fails, none of the operations will be applied to the database.
-    
+   
 2.  **Consistency**: Transactions help maintain the integrity of the database by ensuring that all rules and constraints are followed.
-    
+   
 3.  **Isolation**: Each transaction operates independently of others, preventing unintended interference.
-    
+   
 4.  **Durability**: Once a transaction is committed, the changes are permanent, even in the event of a system failure.
-    
+   
 
 ### When to Use Transactions?
 
 You should use transactions when:
 
 -   Performing multiple related operations that must succeed or fail together.
-    
+   
 -   Modifying critical data that requires consistency and integrity.
-    
+   
 -   Working with operations that can potentially fail, such as financial transactions or data migrations.
-    
+   
 
 ### How to Manage Transactions in Python
 
@@ -781,7 +781,7 @@ def insert_fake_students(num_records):
 
         # Insert fake data into the Students table
         cursor.executemany('''
-        INSERT INTO Students (name, age, email) 
+        INSERT INTO Students (name, age, email)
         VALUES (?, ?, ?);
         ''', fake_data)
 
@@ -1029,9 +1029,9 @@ Now, let's summarize the performance results we obtained when querying with and 
 #### Performance Improvement Summary
 
 -   The query with the index is approximately 4.04 times faster than the query without the index.
-    
+   
 -   The execution time improved by about 75.24% after adding the index.
-    
+   
 
 ### Best Practices for Using Indexes
 
@@ -1040,33 +1040,33 @@ Indexes can significantly enhance the performance of your SQLite database, but t
 #### When and Why to Use Indexes
 
 1.  **Frequent Query Columns**: Use indexes on columns that are frequently used in `SELECT` queries, especially those used in `WHERE`, `JOIN`, and `ORDER BY` clauses. This is because indexing these columns can drastically reduce query execution time.
-    
+   
 2.  **Uniqueness Constraints**: When you have columns that must hold unique values (like usernames or email addresses), creating an index can enforce this constraint efficiently.
-    
+   
 3.  **Large Datasets**: For tables with a large number of records, indexes become increasingly beneficial. They enable quick lookups, which is essential for maintaining performance as your data grows.
-    
+   
 4.  **Composite Indexes**: Consider creating composite indexes for queries that filter or sort by multiple columns. For example, if you often search for students by both `name` and `age`, an index on both columns can optimize such queries.
-    
+   
 
 #### Potential Downsides of Indexes
 
 While indexes provide significant advantages, there are some potential downsides:
 
 1.  **Slower Insert/Update Operations**: When you insert or update records in a table with indexes, SQLite must also update the index, which can slow down these operations. This is because each insert or update requires additional overhead to maintain the index structure.
-    
+   
 2.  **Increased Storage Requirements**: Indexes consume additional disk space. For large tables, the storage cost can be substantial. Consider this when designing your database schema, especially for systems with limited storage resources.
-    
+   
 3.  **Complex Index Management**: Having too many indexes can complicate database management. It may lead to situations where you have redundant indexes, which can degrade performance rather than enhance it. Regularly reviewing and optimizing your indexes is a good practice.
-    
+   
 
 Indexes are powerful tools for optimizing database queries, but they require careful consideration. Striking a balance between improved read performance and the potential overhead on write operations is key. Here are some strategies for achieving this balance:
 
 -   **Monitor Query Performance**: Use SQLite’s `EXPLAIN QUERY PLAN` to analyze how your queries perform with and without indexes. This can help identify which indexes are beneficial and which may be unnecessary.
-    
+   
 -   **Regular Maintenance**: Periodically review your indexes and assess whether they are still needed. Remove redundant or rarely used indexes to streamline your database operations.
-    
+   
 -   **Test and Evaluate**: Before implementing indexes in a production environment, conduct thorough testing to understand their impact on both read and write operations.
-    
+   
 
 By following these best practices, you can leverage the benefits of indexing while minimizing potential drawbacks, ultimately enhancing the performance and efficiency of your SQLite database.
 
@@ -1079,13 +1079,13 @@ In this section, we’ll discuss how to handle errors and exceptions when workin
 When interacting with an SQLite database, several common errors may arise:
 
 1.  **Constraint Violations**: This occurs when you try to insert or update data that violates a database constraint, such as primary key uniqueness or foreign key constraints. For example, trying to insert a duplicate primary key will trigger an error.
-    
+   
 2.  **Data Type Mismatches**: Attempting to insert data of the wrong type (for example, inserting a string where a number is expected) can lead to an error.
-    
+   
 3.  **Database Locked Errors**: If a database is being written to by another process or connection, trying to access it can result in a "database is locked" error.
-    
+   
 4.  **Syntax Errors**: Mistakes in your SQL syntax will result in errors when you try to execute your commands.
-    
+   
 
 ### How to Use Python's Exception Handling
 
@@ -1125,11 +1125,11 @@ add_customer_with_error_handling('Vishakha', 150.0)  # Duplicate entry
 In this example:
 
 -   We catch `IntegrityError`, which is raised for violations like unique constraints.
-    
+   
 -   We catch `OperationalError` for general database-related issues (like database locked errors).
-    
+   
 -   We also have a generic `except` block to handle any unexpected exceptions.
-    
+   
 
 Output:
 
@@ -1141,19 +1141,19 @@ Error: Integrity constraint violated - UNIQUE constraint failed: Customers.name
 ### Best Practices for Ensuring Database Integrity
 
 1.  **Use Transactions**: Always use transactions (as discussed in the previous section) when performing multiple related operations. This helps ensure that either all operations succeed or none do, maintaining consistency.
-    
+   
 2.  **Validate Input Data**: Before executing SQL commands, validate the input data to ensure it meets the expected criteria (for example, correct types, within allowable ranges).
-    
+   
 3.  **Catch Specific Exceptions**: Always catch specific exceptions to handle different types of errors appropriately. This allows for clearer error handling and debugging.
-    
+   
 4.  **Log Errors**: Instead of just printing errors to the console, consider logging them to a file or monitoring system. This will help you track issues in production.
-    
+   
 5.  **Graceful Degradation**: Design your application to handle errors gracefully. If an operation fails, provide meaningful feedback to the user rather than crashing the application.
-    
+   
 6.  **Regularly Backup Data**: Regularly back up your database to prevent data loss in case of critical failures or corruption.
-    
+   
 7.  **Use Prepared Statements**: Prepared statements help prevent SQL injection attacks and can also provide better performance for repeated queries.
-    
+   
 
 ## How to Export and Import Data \[Bonus Section\]
 

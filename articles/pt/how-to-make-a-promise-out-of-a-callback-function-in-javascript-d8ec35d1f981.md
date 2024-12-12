@@ -32,7 +32,7 @@ request.get(url, function(error, response, mongoUrl) {
 
     if(error) throw new Error("Erro de conexão com o MongoDB");
 
-    console.log("Conectado com sucesso ao servidor");    
+    console.log("Conectado com sucesso ao servidor");   
     const db = client.db("dbName");
     // Realizar alguma lógica da aplicação
     client.close();

@@ -80,7 +80,7 @@ const word = "freecodecamp"
 const capitalized =
   word.charAt(0).toUpperCase()
   + word.slice(1)
-  
+ 
 // Freecodecamp
 // F is capitalized
 ```

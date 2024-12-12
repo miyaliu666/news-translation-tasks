@@ -19,19 +19,19 @@ Whether you're new to the world of tech or just looking to understand the basics
 ## Table of Content
 
 -   [What Are Containers?][1]
-    
+   
 -   [What is Docker?][2]
-    
+   
 -   [Why Docker?][3]
-    
+   
 -   [Docker Architecture][4]
-    
+   
 -   [Docker’s Container Runtime: containerd][5]
-    
+   
 -   [How to Create a Simple Container Using Docker][6]
-    
+   
 -   [Wrapping Up][7]
-    
+   
 
 ## What Are Containers?
 
@@ -42,11 +42,11 @@ Containers solve this problem by packaging an application and all its dependenci
 Key features of containers:
 
 -   **Lightweight**: Containers share the host system's kernel, unlike virtual machines (VMs) that require separate OS instances, making them faster and more efficient.
-    
+   
 -   **Portable**: Once built, a container can run consistently across various environments.
-    
+   
 -   **Isolated**: Containers run in isolated processes, meaning that they don’t interfere with other applications running on the same system.
-    
+   
 
 ## What is Docker?
 
@@ -57,28 +57,28 @@ Docker is an open-source tool designed to simplify the process of creating, mana
 ### Key Concepts in Docker
 
 1.  **Docker Images**: Think of a Docker image as a blueprint for your container. It contains everything needed to run the application, including code, libraries, and system dependencies. Images are built from a set of instructions written in a Dockerfile.
-    
+   
 2.  **Docker Containers**: A container is a running instance of a Docker image. When you create and start a container, Docker launches the image into an isolated environment where your application can run.
-    
+   
 3.  **Dockerfile**: This is a text file that contains the steps needed to create a Docker image. It’s where you define what your container will look like, including the base image, application code, and any additional dependencies.
-    
+   
 4.  **Docker Hub**: Docker Hub is a public registry where developers can share and access pre-built images. If you're working on a common application or technology stack, chances are that there’s already an image available on Docker Hub, saving you time.
-    
+   
 5.  **Docker Compose**: For applications that require multiple containers (for example, a web server and a database), Docker Compose allows you to define and manage multi-container environments using a simple YAML file.
-    
+   
 
 ## Why Docker?
 
 Docker's popularity stems from its ability to solve a variety of challenges developers face today:
 
 -   **Consistency Across Environments**: Developers can "build once, run anywhere," ensuring the same application works the same way in different environments, from local development to production.
-    
+   
 -   **Speed**: Docker containers are fast to start and stop, making them ideal for testing and deployment pipelines.
-    
+   
 -   **Efficient Use of Resources**: Since containers share the host system's resources more effectively than virtual machines, they reduce overhead and allow for greater density in deployments.
-    
+   
 -   **Version Control for Your Applications**: Docker allows you to version control not only your code but also the environment in which your code runs. This is particularly useful for rolling back to previous versions or debugging issues in production.
-    
+   
 
 ## Docker Architecture
 
@@ -91,17 +91,17 @@ Docker's architecture is designed to ensure efficiency, flexibility, and scalabi
 Docker’s architecture is built around a client-server model that includes the following components
 
 -   **Docker Client**
-    
+   
 -   **Docker Daemon (dockerd)**
-    
+   
 -   **Docker Engine**
-    
+   
 -   **Docker Images**
-    
+   
 -   **Docker Containers**
-    
+   
 -   **Docker Registries**
-    
+   
 
 ![Docker Architecture](https://docs.docker.com/get-started/images/docker-architecture.webp)
 
@@ -118,9 +118,9 @@ The Docker Daemon, also known as **dockerd**, is the brain of the entire Docker 
 Here’s what the Docker Daemon is responsible for
 
 -   **Building and running containers**: When the client sends a command to run a container, the daemon pulls the image, creates the container, and starts it.
-    
+   
 -   **Managing Docker resources**: The daemon handles tasks like network configurations and volume management.
-    
+   
 
 -   The Docker Daemon runs on the host machine and communicates with the Docker Client using a REST API, Unix sockets, or a network interface. It’s also responsible for interacting with container runtimes, which handle the actual execution of containers.
 
@@ -131,9 +131,9 @@ The Docker Engine is the core part of Docker. It’s what makes the entire platf
 There are two versions of the Docker Engine
 
 -   **Docker CE (Community Edition)**: This is the free, open-source version of Docker that’s widely used for personal and smaller-scale projects.
-    
+   
 -   **Docker EE (Enterprise Edition)**: The paid, enterprise-level version of Docker comes with additional features like enhanced security, support, and certification.
-    
+   
 
 The Docker Engine simplifies the complexities of container orchestration by integrating the various components required to build, run, and manage containers.
 
@@ -164,9 +164,9 @@ Containers can be created, started, stopped, and destroyed, and they can even be
 A few key characteristics of Docker containers:
 
 -   **Isolation**: Containers are isolated from each other and the host, but they still share the same OS kernel.
-    
+   
 -   **Portability**: Containers can run anywhere, whether on your local machine, a virtual machine, or a cloud provider.
-    
+   
 
 #### 6\. Docker Registries
 
@@ -175,24 +175,24 @@ A Docker Registry is a centralized place where Docker Images are stored and dist
 Docker Registries provide several key features:
 
 -   **Image Versioning**: Images are versioned using tags, making it easy to manage different versions of an application.
-    
+   
 -   **Access Control**: Registries can be public or private, with role-based access control to manage who can pull or push images.
-    
+   
 -   **Distribution**: Images can be pulled from a registry and deployed anywhere, making it easy to share and reuse containerized applications.
-    
+   
 
 ## Docker’s Container Runtime: containerd
 
 One important recent development in Docker’s architecture is the use of containerd. Docker used to have its own container runtime, but now it uses containerd, a container runtime that follows industry standards and is also used by other platforms like Kubernetes.
 
 1.  containerd is responsible for
-    
+   
     -   Starting and stopping containers
-        
+       
     -   Managing storage and networking for containers
-        
+       
     -   Pulling container images from registries
-        
+       
 
 By separating the container runtime from Docker’s higher-level functionality, Docker has become more modular, allowing other tools to use containerd while Docker focuses on user-facing features.
 
@@ -221,13 +221,13 @@ docker run -it alpine /bin/sh
 Here’s what each option means:
 
 -   `docker run`: Creates and starts a new container.
-    
+   
 -   `-it`: Allows you to interact with the container (interactive mode + terminal).
-    
+   
 -   `alpine`: Specifies the image to use.
-    
+   
 -   `/bin/sh`: Specifies the command to run inside the container (a shell session in this case).
-    
+   
 
 **Explore the Container**
 
@@ -290,17 +290,17 @@ docker exec -it <container-id> /bin/sh
 If you no longer need the container, you can remove it
 
 1.  Stop the container (if it’s still running):
-    
+   
     ```
      docker stop <container-id>
     ```
-    
+   
 2.  Remove the container:
-    
+   
     ```
      docker rm <container-id>
     ```
-    
+   
 
 **Key Docker Commands Recap**
 
@@ -323,9 +323,9 @@ You'll soon see why Docker has become a cornerstone of modern DevOps and softwar
 You can follow me on
 
 -   [Twitter][8]
-    
+   
 -   [LinkedIn][9]
-    
+   
 
 [1]: #heading-what-are-containers
 [2]: #heading-what-is-docker

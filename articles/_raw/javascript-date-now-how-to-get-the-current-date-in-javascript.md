@@ -43,7 +43,7 @@ Similarly, there are methods for getting the current day of the month and the cu
 
 ```js
 const today = date.getDate();
-const currentMonth = date.getMonth() + 1; 
+const currentMonth = date.getMonth() + 1;
 ```
 
 The `getDate()` method returns the current day of the month (1-31).

@@ -139,7 +139,7 @@ pip install fastapi pymongo uvicorn starlette pydantic
 Ahora, vamos a escribir un script Python para insertar todos estos datos de cursos en la base de datos para que podamos empezar a construir rutas de API. Abre tu IDE, crea un archivo llamado `script.py`, y asegúrate de que esté en el mismo directorio que el archivo `courses.json`.
 
 ```
-""" 
+"""
 Script para analizar la información del curso en courses.json, crear las bases de datos y
 colección(es) apropiadas en una instancia local de MongoDB, crear los índices apropiados (para la recuperación eficiente)
 y finalmente agregar los datos del curso en la(s) colección(es).
@@ -192,17 +192,17 @@ Recomiendo diseñar los endpoints de la API primero junto con el tipo de solicit
 
 | Endpoint | Tipo de Solicitud | Descripción |
 | --- | --- | --- |
-| /courses | GET | Obtén una lista de todos los cursos disponibles con opciones de clasificación.  
-  
-Opciones: Ordenar por título (ascendente), fecha (descendente) o calificación total del curso (descendente).  
-  
+| /courses | GET | Obtén una lista de todos los cursos disponibles con opciones de clasificación. 
+ 
+Opciones: Ordenar por título (ascendente), fecha (descendente) o calificación total del curso (descendente). 
+ 
 Se admite filtrado opcional basado en el dominio. |
 | /courses/{course\_id} | GET | Obtén una visión general de un curso específico identificado por course\_id. |
 | /courses/{course\_id}/{chapter\_id} | GET | Obtén información sobre un capítulo específico dentro de un curso. |
-| /courses/{course\_id}/{chapter\_id} | POST | Califica un capítulo específico dentro de un curso.  
-  
-Opciones: Calificación positiva (1), calificación negativa (-1).  
-  
+| /courses/{course\_id}/{chapter\_id} | POST | Califica un capítulo específico dentro de un curso. 
+ 
+Opciones: Calificación positiva (1), calificación negativa (-1). 
+ 
 Las calificaciones se agregan para cada curso. |
 
 Bien, es hora de sumergirnos en el código de la API. Crea un archivo nuevo de Python y llámalo `main.py`:
@@ -252,7 +252,7 @@ def get_courses(sort_by: str = 'date', domain: str = None):
         sort_order = -1
 
     # sort_by == 'alphabetical' [ASCENDING]
-    else:  
+    else: 
         sort_field = 'name'
         sort_order = 1
 
@@ -327,7 +327,7 @@ def get_course(course_id: str):
     try:
         course['rating'] = course['rating']['total']
     except KeyError:
-        course['rating'] = 'Not rated yet' 
+        course['rating'] = 'Not rated yet'
 
     return course
 ```
@@ -346,7 +346,7 @@ Acceder a este endpoint devuelve información específica sobre un capítulo den
 
 ```
 @app.get('/courses/{course_id}/{chapter_id}')
-def get_chapter(course_id: str, chapter_id: str):    
+def get_chapter(course_id: str, chapter_id: str):   
     course = db.courses.find_one({'_id': ObjectId(course_id)}, {'_id': 0, })
     if not course:
         raise HTTPException(status_code=404, detail='Course not found')

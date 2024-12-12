@@ -69,7 +69,7 @@ Iterators are not a new concept, neither are they specific to Rust. It's both a 
 In Rust, iterators are a very powerful feature. The official Rust book describes it as:
 
 > The iterator pattern allows you to perform some task on a sequence of items in turn. An iterator is responsible for the logic of iterating over each item and determining when the sequence has finished. When you use iterators, you don’t have to reimplement that logic yourself.
-> 
+>
 > In Rust, iterators are _lazy_, meaning they have no effect until you call methods that consume the iterator to use it up.
 
 An iterator is an object that facilitates sequential access to the elements of a collection, like an array or a vector, without exposing the implementation details.
@@ -463,12 +463,12 @@ where
     /// be used by the iterator.
     ///
     /// This is necessary because UTF-8 can be 1-4 bytes long.
-    /// Because of this, the reader always reads 4 bytes at a 
-    /// time. We then iterate over "characters", irrespective of 
+    /// Because of this, the reader always reads 4 bytes at a
+    /// time. We then iterate over "characters", irrespective of
     /// whether they are 1 byte long, or 4.
     ///
-    /// A [`VecDeque`] is used instead of a normal vector 
-    /// because characters need to be read out from the start 
+    /// A [`VecDeque`] is used instead of a normal vector
+    /// because characters need to be read out from the start
     /// of the buffer.
     character_buffer: VecDeque<char>,
 }
@@ -526,7 +526,7 @@ match from_utf8(&utf8_buffer) {
         self.character_buffer.pop_front()
     }
     Err(error) => {
-        // Read valid bytes, and rewind the buffered reader for 
+        // Read valid bytes, and rewind the buffered reader for
         // the remaining bytes so that they can be read again in the
         // next iteration.
 

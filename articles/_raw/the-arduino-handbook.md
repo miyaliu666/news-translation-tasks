@@ -510,7 +510,7 @@ This operator compares the values of two variables. If the values are the same, 
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x == y)
 // returns 0
@@ -526,7 +526,7 @@ Here's an example:
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x != y)
 // returns 1
@@ -538,7 +538,7 @@ The greater than (`>`) operator checks if the operand on the left is greater tha
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x > y)
 // returns 1
@@ -550,7 +550,7 @@ The less than (`<`) operator checks if the operand on the left is less than the 
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x < y)
 // returns 0
@@ -564,7 +564,7 @@ Just like the name, the `>=` operator checks if the operand on the left is eithe
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x >= y)
 // returns 1
@@ -576,7 +576,7 @@ The `<=` operator checks if the left operand is either less than or equal to the
 
 ```
 int x = 10;
-int y = 5; 
+int y = 5;
 
 Serial.print(x <= y)
 // returns 0
@@ -1530,13 +1530,13 @@ int ldrValue;
 
 void setup() {
   pinMode(ldrPin, INPUT);
-  Serial.begin(9600); 
+  Serial.begin(9600);
 }
 
 void loop() {
   ldrValue = analogRead(ldrPin);
   Serial.println(ldrValue);
-  delay(1000); 
+  delay(1000);
 }
 ```
 
@@ -1583,8 +1583,8 @@ The trig pin is used to "trigger" the ultrasonic sensor while the echo pin is us
 Here's a code example:
 
 ```
-int trigPin = 9; 
-int echoPin = 10;  
+int trigPin = 9;
+int echoPin = 10; 
 
 long duration, distance;
 
@@ -1770,7 +1770,7 @@ int ldrValue;
 void setup() {
   pinMode(ldrPin, INPUT);
   pinMode(redLED, OUTPUT);
-  Serial.begin(9600); 
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -1783,7 +1783,7 @@ void loop() {
   }
 
   Serial.println(ldrValue);
-  delay(1000); 
+  delay(1000);
 }
 ```
 
@@ -1859,7 +1859,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Hello"); 
+  Serial.print("Hello");
   delay(1000);
 }
 ```
@@ -2020,7 +2020,7 @@ void loop(){
       digitalWrite(redLED, HIGH);
       digitalWrite(blueLED, LOW);
       digitalWrite(yellowLED, LOW);
-    } 
+    }
 
     if (userInput == "blue") {
       digitalWrite(redLED, LOW);
@@ -2093,7 +2093,7 @@ if (userInput == "red") {
   digitalWrite(redLED, HIGH);
   digitalWrite(blueLED, LOW);
   digitalWrite(yellowLED, LOW);
-} 
+}
 
 if (userInput == "blue") {
   digitalWrite(redLED, LOW);

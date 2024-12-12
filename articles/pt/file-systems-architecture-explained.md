@@ -290,7 +290,7 @@ Model: Virtio Block Device (virtblk)
 Disk /dev/vda: 172GB
 Sector size (logical/physical): 512B/512B
 Partition Table: gpt
-Disk Flags: 
+Disk Flags:
 
 Number  Start   End     Size    File system  Name  Flags
 14      1049kB  5243kB  4194kB                     bios_grub
@@ -364,7 +364,7 @@ Diferentemente do NTFS, o exFAT possui suporte para **leitura e gravação** em 
 
 Basicamente, se você tem um disco removível que deseja usar no Windows, Mac e Linux, você precisa formatá-lo para exFAT.
 
-A Apple também desenvolveu e usou vários sistemas de arquivos ao longo dos anos, incluindo  
+A Apple também desenvolveu e usou vários sistemas de arquivos ao longo dos anos, incluindo 
 **Hierarchical File System (HFS)**, **HFS+**, e recentemente **Apple File System (APFS)**.
 
 Assim como o NTFS, o APFS é um sistema de arquivos com journaling e tem sido usado desde o lançamento do **OS X High Sierra** em 2017.

@@ -692,8 +692,8 @@ Então, vamos voltar ao nosso arquivo `models/User.js` e adicioná-lo:
 
 ```
 userSchema.statics.createUser = async function (
-    firstName, 
-    lastName, 
+    firstName,
+    lastName,
     type
 ) {
   try {
@@ -847,9 +847,9 @@ Vamos criar nossa rota final para deletar um usuário pelo seu ID. Para a rota `
 onDeleteUserById: async (req, res) => {
   try {
     const user = await UserModel.deleteByUserById(req.params.id);
-    return res.status(200).json({ 
-      success: true, 
-      message: `Deleted a count of ${user.deletedCount} user.` 
+    return res.status(200).json({
+      success: true,
+      message: `Deleted a count of ${user.deletedCount} user.`
     });
   } catch (error) {
     return res.status(500).json({ success: false, error: error })
@@ -955,8 +955,8 @@ export const encode = async (req, res, next) => {
     req.authToken = authToken;
     next();
   } catch (error) {
-    return res.status(400).json({ 
-    	success: false, message: error.error 
+    return res.status(400).json({
+    	success: false, message: error.error
     });
   }
 }
@@ -1014,9 +1014,9 @@ Vamos detalhar isso:
 
 ```javascript
 if (!req.headers['authorization']) {
-  return res.status(400).json({ 
-      success: false, 
-      message: 'No access token provided' 
+  return res.status(400).json({
+      success: false,
+      message: 'No access token provided'
   });
 }
 ```
@@ -1040,8 +1040,8 @@ try {
   req.userType = decoded.type;
   return next();
 } catch (error) {
-  return res.status(401).json({ 
-      success: false, message: error.message 
+  return res.status(401).json({
+      success: false, message: error.message
   });
 }
 ```
@@ -1505,9 +1505,9 @@ initiate: async (req, res) => {
     const validation = makeValidation(types => ({
       payload: req.body,
       checks: {
-        userIds: { 
-          type: types.array, 
-          options: { unique: true, empty: false, stringOnly: true } 
+        userIds: {
+          type: types.array,
+          options: { unique: true, empty: false, stringOnly: true }
         },
         type: { type: types.enum, options: { enum: CHAT_ROOM_TYPES } },
       }
@@ -1782,7 +1782,7 @@ chatMessageSchema.statics.getConversationByRoomId = async function (chatRoomId, 
     return this.aggregate([
       { $match: { chatRoomId } },
       { $sort: { createdAt: -1 } },
-      // faça um join em outra tabela chamada users, e 
+      // faça um join em outra tabela chamada users, e
       // obtenha um usuário cujo _id = postedByUser
       {
         $lookup: {

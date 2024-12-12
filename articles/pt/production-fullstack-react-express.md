@@ -17,16 +17,16 @@ Configuraremos um aplicativo full stack React Express com um banco de dados PSQL
 
 Vamos nos manter dentro do nível gratuito, então seguir este tutorial não custará nada.
 
-**Por que aprender AWS?**  
+**Por que aprender AWS?** 
 AWS é atualmente a maior plataforma de computação em nuvem. O Wordpress alimenta mais sites pequenos, mas a AWS é usada pela grande maioria dos sites comerciais de alto tráfego. Isso significa que pessoas com habilidades em AWS estão em grande demanda.
 
-Você pode assistir a uma versão em vídeo deste tutorial aqui  
+Você pode assistir a uma versão em vídeo deste tutorial aqui 
 [https://www.youtube.com/playlist?list=PLMc67XEAt-yzxRboCFHza4SBOxNr7hDD5][1]
 
-**Comandos úteis do terminal:**  
+**Comandos úteis do terminal:** 
 [https://github.com/iqbal125/terminal\_commands\_fullstack][2]
 
-**Projeto de exemplo React/Express:**  
+**Projeto de exemplo React/Express:** 
 [https://github.com/iqbal125/react-express-sample][3]
 
 ## Teoria
@@ -137,7 +137,7 @@ O subnetting na AWS é feito com a notação CIDR.
 
 ****Exemplo de notação CIDR para sub-rede:**** 10.11.12.0/24
 
-**Máscara de Sub-rede**  
+**Máscara de Sub-rede** 
 A máscara de sub-rede determina o número de endereços IP disponíveis para a sub-rede. O /24 é a máscara de sub-rede.
 
 Uma máscara de sub-rede é usada como uma forma de dividir sua sub-rede em um número aproximado de endereços IP
@@ -194,10 +194,10 @@ Para evitar toda a complexidade mencionada acima, é melhor ficar com Máscaras 
 
 10.11.12.0/24 terá o último 1 octeto inteiro disponível como endereços IP
 
-Exemplo real  
+Exemplo real 
 **VPC:** 10.11.0.0/16
 
-**Sub-rede Pública 1:** 10.11.1.0/24, qualquer endereço IP entre 10.11.1.0 e 10.11.1.255  
+**Sub-rede Pública 1:** 10.11.1.0/24, qualquer endereço IP entre 10.11.1.0 e 10.11.1.255 
 **Sub-rede Pública 2:** 10.11.2.0/24, qualquer endereço IP entre 10.11.2.0 e 10.11.2.255
 
 **Sub-rede Privada 1:** 10.11.3.0/24, qualquer endereço IP entre 10.11.3.0 e 10.11.3.255 **Sub-rede Privada 2:** 10.11.4.0/24, qualquer endereço IP entre 10.11.4.0 e 10.11.4.255
@@ -541,10 +541,10 @@ Ainda não terminamos, ainda precisamos instalar o node e o npm, porque queremos
 
 Isso instalará o nvm, que podemos usar para instalar o node e o npm. Para fazer isso, basta listar as versões do node disponíveis para download e instalar a mais estável.
 
-comando para listar versões do node  
+comando para listar versões do node 
 `nvm ls remote`
 
-comando de instalação  
+comando de instalação 
 `nvm install version-of-node`
 
 Mas depois de instalar o npm e o node, se você tentar executar `npm install` no diretório do projeto, receberá um erro de permissão negada.
@@ -555,7 +555,7 @@ Você pode então executar o comando abaixo para dar permissão de escrita no di
 
 `sudo chmod 777` no diretório
 
-Aqui está um link para um tutorial se você quiser saber mais sobre o chmod.  
+Aqui está um link para um tutorial se você quiser saber mais sobre o chmod. 
 [https://www.computerhope.com/unix/uchmod.htm][7]
 
 Depois disso, seus módulos npm devem instalar normalmente com o comando normal `npm install`.

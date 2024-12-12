@@ -40,8 +40,8 @@ Let’s create our first TypeScript file and write some code inside it. Open up 
 For now, we’re just going to write a few lines of plain old JavaScript, as all JavaScript code also is valid TypeScript code:
 
 ```
-let a = 5;  
-let b = 5;  
+let a = 5; 
+let b = 5; 
 let c = a + b;
 
 console.log(c);
@@ -84,8 +84,8 @@ let myVariable: any = 'This is a string'
 These are the types which are built in TypeScript. They include `number`, `string`, `boolean`, `void`, `null` and `undefined`.
 
 ```
-let num: number = 5;  
-let name: string = 'Alex';  
+let num: number = 5; 
+let name: string = 'Alex'; 
 let isPresent: boolean = true;
 ```
 
@@ -106,19 +106,19 @@ TypeScript has built-in support for classes, which were unsupported by ES5 and e
 ```
 class Car {
 
-// fields  
-  model: String;  
-  doors: Number;  
+// fields 
+  model: String; 
+  doors: Number; 
   isElectric: Boolean;
 
-constructor(model: String, doors: Number, isElectric: Boolean) {  
-    this.model = model;  
-    this.doors = doors;  
-    this.isElectric = isElectric;  
+constructor(model: String, doors: Number, isElectric: Boolean) { 
+    this.model = model; 
+    this.doors = doors; 
+    this.isElectric = isElectric; 
   }
 
-displayMake(): void {  
-    console.log(`This car is ${this.model}`);  
+displayMake(): void { 
+    console.log(`This car is ${this.model}`); 
   }
 
 }
@@ -129,7 +129,7 @@ In the above example, we have declared a `Car` class, along with some of its pro
 Let’s see how we can create a new instance of this class:
 
 ```
-const Prius = new Car('Prius', 4, true);  
+const Prius = new Car('Prius', 4, true); 
 Prius.displayMake(); // This car is Prius
 ```
 
@@ -142,36 +142,36 @@ The concept of interfaces is another powerful feature of TypeScript, which allow
 Interfaces are best described through an actual example. So, suppose we have an object of `Car`:
 
 ```
-const Car = {  
-  model: 'Prius',  
-  make: 'Toyota',  
-  display() => { console.log('hi'); }  
+const Car = { 
+  model: 'Prius', 
+  make: 'Toyota', 
+  display() => { console.log('hi'); } 
 }
 ```
 
 If we look at the object above and try to extract its signature, it would be:
 
 ```
-{  
-  model: String,  
-  make: String,  
-  display(): void  
+{ 
+  model: String, 
+  make: String, 
+  display(): void 
 }
 ```
 
 If we want to reuse this signature, we can declare it in the form of an interface. To create an interface, we use the keyword `interface`.
 
 ```
-interface ICar {  
-  model: String,  
-  make: String,  
-  display(): void  
+interface ICar { 
+  model: String, 
+  make: String, 
+  display(): void 
 }
 
-const Car: ICar = {  
-  model: 'Prius',  
-  make: 'Toyota',  
-  display() => { console.log('hi'); }  
+const Car: ICar = { 
+  model: 'Prius', 
+  make: 'Toyota', 
+  display() => { console.log('hi'); } 
 }
 ```
 

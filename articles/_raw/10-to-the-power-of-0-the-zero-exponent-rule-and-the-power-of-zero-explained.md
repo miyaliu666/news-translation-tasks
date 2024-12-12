@@ -21,11 +21,11 @@ $$10^0 = \\text{?}$$
 This article will go over
 
 -   the basics of exponents,
-    
+   
 -   what they mean, and
-    
+   
 -   it will show that (10^0) equals (1) using negative exponents
-    
+   
 
 All I'm assuming is that you have an understanding of multiplication and division.
 
@@ -36,9 +36,9 @@ First, let's start with the parts of an exponent.
 There are two parts to an exponent:
 
 1.  the base
-    
+   
 2.  the exponent or power
-    
+   
 
 At the beginning, we had an exponent (3^2). The "3" here is the **base**, while the "2" is **the exponent or power**.
 
@@ -101,9 +101,9 @@ $$10^3 = 10 \\times 10 \\times 10 = 1000$$
 To decrease the powers, we need to briefly understand the concepts of
 
 -   combining exponents
-    
+   
 -   powers of one
-    
+   
 
 In our quest to decrease the exponent from (10^3) ("ten to the third power") to (10^0) ("ten to the zeroth power"), we will keep on doing the opposite of multiplying, which is dividing.
 

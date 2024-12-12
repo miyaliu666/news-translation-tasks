@@ -113,7 +113,7 @@ Here, we are using a simple data structure to store the data. In a real project,
 
 ### Modules
 
-A module is a JavaScript/TypeScript class with the `@Module()`decorator.  
+A module is a JavaScript/TypeScript class with the `@Module()`decorator. 
 The `@Module()` decorator provides metadata that Nest uses to organise the application structure.
 
 Modules are a very important aspect of Nest and each application must provide at least one Module: the application root module. The root module is the starting point Nest uses to build the application graph.
@@ -185,8 +185,8 @@ Now you have Nest installed globally in your machine.
 
 On your terminal or cmd, cd into the directory where you want to create your application, and run following commands:
 
-`nest new nest-blog-api`  
-`cd nest-blog-api`  
+`nest new nest-blog-api` 
+`cd nest-blog-api` 
 `npm run start:dev`
 
 Navigate to `[http://localhost:3000](http://localhost:3000/)` on any of your browsers. You should see `Hello World`. Bravo! you have created your first Nest app. Let’s continue.
@@ -417,12 +417,12 @@ bootstrap();
 
 Let’s add a User module to handle all user-related operations and to keep tabs on who is creating what post.
 
-Run `nest generate module /modules/users`.  
+Run `nest generate module /modules/users`. 
 This will automatically add this module to our root module `AppModule`.
 
 ### Generate User Service
 
-Run `nest generate service /modules/users`.  
+Run `nest generate service /modules/users`. 
 This will automatically add this service to the Users module.
 
 ### Set Up User Database Schema Model
@@ -579,19 +579,19 @@ export const databaseProviders = [{
 
 ### Generate Auth Module
 
-This module will handle user authentication (Login and Sign up).  
-Run `nest generate module /modules/auth`.  
+This module will handle user authentication (Login and Sign up). 
+Run `nest generate module /modules/auth`. 
 This will automatically add this module to our root module `AppModule`
 
 ### Generate Auth Service
 
-Run `nest generate service /modules/auth`.  
+Run `nest generate service /modules/auth`. 
 This will automatically add this service to the Auth module.
 
 ### Generate Auth Controller
 
-Run `nest g co /modules/auth`.  
-This will automatically add this controller to the Auth module.  
+Run `nest g co /modules/auth`. 
+This will automatically add this controller to the Auth module. 
 **Note:** `**g**` **is an alias for** `**generate**` **and** `**co**` **is for** `**controller**`**.**
 
 We will be using [Passport][7] to handle our authentication. It is straightforward to integrate this library with a **Nest** application using the @nestjs/passport module.
@@ -603,9 +603,9 @@ We will implement two auth strategies for this application:
 
 ### Local Passport Strategy
 
-Run  
-`npm install --save @nestjs/passport passport passport-local`  
-`npm install --save-dev @types/passport-local`  
+Run 
+`npm install --save @nestjs/passport passport passport-local` 
+`npm install --save-dev @types/passport-local` 
 `npm install bcrypt --save`
 
 Inside the auth folder create a `local.strategy.ts` file and add the following code:
@@ -711,8 +711,8 @@ Here, we check if the user exists with the email provided. Then we check if the 
 
 ### JWT Passport Strategy
 
-Run  
-`npm install @nestjs/jwt passport-jwt`  
+Run 
+`npm install @nestjs/jwt passport-jwt` 
 `npm install @types/passport-jwt --save-dev`
 
 Inside the auth folder create a `jwt.strategy.ts` file and add the following code:
@@ -1064,17 +1064,17 @@ Let’s try to create a user with an email that already exists in our database:
 
 ## Post Module
 
-Run `nest g module /modules/posts`.  
+Run `nest g module /modules/posts`. 
 This will automatically add this module to our root module `AppModule`.
 
 ### Generate Post Service
 
-Run`nest g service /modules/posts`.  
+Run`nest g service /modules/posts`. 
 This will automatically add this service to the Post module.
 
 ### Generate Post Controller
 
-Run `nest g co /modules/posts`,  
+Run `nest g co /modules/posts`, 
 This will automatically add this controller to the Post module.
 
 ### Post Entity
@@ -1267,7 +1267,7 @@ export class PostsController {
         // get the number of row affected and the updated post
         const { numberOfAffectedRows, updatedPost } = await this.postService.update(id, post, req.user.id);
 
-        // if the number of row affected is zero, 
+        // if the number of row affected is zero,
         // it means the post doesn't exist in our db
         if (numberOfAffectedRows === 0) {
             throw new NotFoundException('This Post doesn\'t exist');
@@ -1283,7 +1283,7 @@ export class PostsController {
         // delete the post with this id
         const deleted = await this.postService.delete(id, req.user.id);
 
-        // if the number of row affected is zero, 
+        // if the number of row affected is zero,
         // then the post doesn't exist in our db
         if (deleted === 0) {
             throw new NotFoundException('This Post doesn\'t exist');

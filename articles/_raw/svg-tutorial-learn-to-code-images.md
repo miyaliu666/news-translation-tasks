@@ -176,7 +176,7 @@ Instead of that, we can just define one wing as a group, then repeat it five tim
 Star shape made out of transformed polygons. On the right we can see the coordianates of one arm of the star
 
 ```html
-<svg width="200" height="200" viewBox="-100 -100 200 200">      
+<svg width="200" height="200" viewBox="-100 -100 200 200">     
   <g transform="translate(0 5)">
     <g>
       <polygon points="0,0 36,-50 0,-100" fill="#EDD8B7" />
@@ -363,7 +363,7 @@ Bell example made out of different curves and straight lines
         L 50 50
         L 50 40
         Q 40 40 40 10
-        C 40 -60 -40 -60 -40 10   
+        C 40 -60 -40 -60 -40 10  
         Q -40 40 -50 40"
       fill="#FDEA96"
     />

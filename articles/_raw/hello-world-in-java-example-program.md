@@ -27,7 +27,7 @@ Here's the code:
 ```
 class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello World!"); 
+        System.out.println("Hello World!");
         // Hello World!
     }
 }
@@ -86,7 +86,7 @@ Here's what our code looks like:
 ```
 class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello World!"); 
+        System.out.println("Hello World!");
         // Hello World!
     }
 }

@@ -20,27 +20,27 @@ SQLite è una scelta eccellente per applicazioni piccole o medie perché è faci
 In questo tutorial, imparerai come lavorare con SQLite usando Python. Ecco cosa copriremo in questo tutorial:
 
 -   [Come Preparare il Tuo Ambiente Python][1]
-    
+   
 -   [Come Creare un Database SQLite][2]
-    
+   
 -   [Come Creare Tabelle nel Database][3]
-    
+   
 -   [Come Inserire Dati in una Tabella][4]
-    
+   
 -   [Come Interrogare i Dati][5]
-    
+   
 -   [Come Aggiornare e Eliminare Dati][6]
-    
+   
 -   [Come Usare le Transazioni][7]
-    
+   
 -   [Come Ottimizzare le Prestazioni delle Query SQLite con l'Indicizzazione][8]
-    
+   
 -   [Come Gestire Errori ed Eccezioni][9]
-    
+   
 -   [Come Esportare e Importare Dati \[Sezione Bonus\]][10]
-    
+   
 -   [Conclusioni][11]
-    
+   
 
 Questo tutorial è perfetto per chiunque desideri iniziare a lavorare con i database senza addentrarsi in configurazioni complesse.
 
@@ -71,9 +71,9 @@ La buona notizia è che SQLite3 è integrato con Python! Non è necessario insta
 Per creare un ambiente virtuale, segui questi passaggi:
 
 1.  In primo luogo, apri il tuo terminale o prompt dei comandi e naviga nella directory dove vuoi creare il tuo progetto.
-    
+   
 2.  Esegui il seguente comando per creare un ambiente virtuale:
-    
+   
 
 ```
 python -m venv env
@@ -98,9 +98,9 @@ Dopo aver attivato l'ambiente virtuale, noterai che il prompt del terminale camb
 Avremo bisogno di alcune librerie aggiuntive per questo progetto. In particolare, useremo:
 
 -   `pandas`: Questa è una libreria opzionale per gestire e visualizzare i dati in formato tabellare, utile per casi d'uso avanzati.
-    
+   
 -   `faker`: Questa libreria ci aiuterà a generare dati fittizi, come nomi e indirizzi casuali, che possiamo inserire nel nostro database per testare.
-    
+   
 
 Per installare `pandas` e `faker`, esegui semplicemente i seguenti comandi:
 
@@ -257,11 +257,11 @@ SQLite supporta diversi tipi di dati, che dobbiamo comprendere quando definiamo 
 Nella nostra tabella `Students`:
 
 - `id` è di tipo `INTEGER`, che si mappa a `int` di Python.
-    
+   
 - `name` e `email` sono di tipo `TEXT`, che si mappano a `str` di Python.
-    
+   
 - `age` è anche di tipo `INTEGER`, mappandosi a `int` di Python.
-    
+   
 
 ## Come Inserire Dati in una Tabella
 
@@ -274,7 +274,7 @@ Per inserire dati nel database, usiamo il comando SQL `INSERT INTO`. Cominciamo 
 Ecco la sintassi SQL di base per inserire un singolo record:
 
 ```
-INSERT INTO Students (name, age, email) 
+INSERT INTO Students (name, age, email)
 VALUES ('John Doe', 20, 'johndoe@example.com');
 ```
 
@@ -291,7 +291,7 @@ with sqlite3.connect('my_database.db') as connection:
 
     # Inserisci un record nella tabella Students
     insert_query = '''
-    INSERT INTO Students (name, age, email) 
+    INSERT INTO Students (name, age, email)
     VALUES (?, ?, ?);
     '''
     student_data = ('Jane Doe', 23, 'jane@example.com')
@@ -326,7 +326,7 @@ with sqlite3.connect('my_database.db') as connection:
 
     # Inserisci un record nella tabella Students
     insert_query = '''
-    INSERT INTO Students (name, age, email) 
+    INSERT INTO Students (name, age, email)
     VALUES (?, ?, ?);
     '''
     students_data = [(fake.name(), fake.random_int(
@@ -345,11 +345,11 @@ with sqlite3.connect('my_database.db') as connection:
 In questo codice:
 
 - `Faker()` genera nomi, età ed email casuali per gli studenti. Passare la localizzazione (`['it_IT']`) è opzionale.
-    
+   
 - `cursor.executemany()`: Questo metodo ci permette di inserire più record contemporaneamente, rendendo il codice più efficiente.
-    
+   
 - `students_data`: Una lista di tuple dove ogni tupla rappresenta i dati di uno studente.
-    
+   
 
 ### Come Gestire i Problemi Comuni: Iniezione SQL
 
@@ -528,8 +528,8 @@ Per modificare i record esistenti in un database, usiamo il comando SQL `UPDATE`
 Ad esempio, se vogliamo aggiornare l'età di uno studente, il comando SQL sarebbe il seguente:
 
 ```
-UPDATE Students 
-SET age = 21 
+UPDATE Students
+SET age = 21
 WHERE name = 'Jane Doe';
 ```
 
@@ -544,8 +544,8 @@ with sqlite3.connect('my_database.db') as connection:
 
     # Comando SQL per aggiornare l'età di uno studente
     update_query = '''
-    UPDATE Students 
-    SET age = ? 
+    UPDATE Students
+    SET age = ?
     WHERE name = ?;
     '''
 
@@ -572,7 +572,7 @@ Per rimuovere record da un database, usiamo il comando SQL `DELETE`. Questo coma
 Ad esempio, se vogliamo cancellare uno studente di nome 'Jane Doe', il comando SQL sarebbe il seguente:
 
 ```
-DELETE FROM Students 
+DELETE FROM Students
 WHERE name = 'Jane Doe';
 ```
 
@@ -586,7 +586,7 @@ with sqlite3.connect('my_database.db') as connection:
 
     # Comando SQL per eliminare uno studente
     delete_query = '''
-    DELETE FROM Students 
+    DELETE FROM Students
     WHERE name = ?;
     '''
 
@@ -606,11 +606,11 @@ with sqlite3.connect('my_database.db') as connection:
 #### Considerazioni Importanti
 
 -   **Condizioni**: Usa sempre la clausola `WHERE` quando si aggiornano o eliminano record per evitare di modificare o rimuovere tutte le righe nella tabella. Senza una clausola `WHERE`, il comando influisce su ogni riga della tabella.
-    
+   
     ![357089 righe interessate Meme](https://cdn.hashnode.com/res/hashnode/image/upload/v1727519069500/f22be4cc-e75f-4492-af01-ed08f31361f3.jpeg)
-    
+   
 -   **Backup**: È buona pratica eseguire un backup del database prima di eseguire aggiornamenti o eliminazioni, soprattutto in ambienti di produzione.
-    
+   
 
 ## Come Utilizzare le Transazioni
 
@@ -621,24 +621,24 @@ Ad esempio, se stai trasferendo denaro tra due conti bancari, vorresti che sia l
 ### Perché Usare le Transazioni?
 
 1.  **Atomicità**: Le transazioni garantiscono che una serie di operazioni siano trattate come un'unica unità. Se un'operazione fallisce, nessuna delle operazioni verrà applicata al database.
-    
+   
 2.  **Coerenza**: Le transazioni aiutano a mantenere l'integrità del database garantendo che tutte le regole e i vincoli siano rispettati.
-    
+   
 3.  **Isolamento**: Ogni transazione opera indipendentemente dalle altre, impedendo interferenze non intenzionali.
-    
+   
 4.  **Durabilità**: Una volta che una transazione è confermata, le modifiche sono permanenti, anche in caso di guasto del sistema.
-    
+   
 
 ### Quando Usare le Transazioni?
 
 Dovresti usare le transazioni quando:
 
 -   Stai eseguendo più operazioni correlate che devono riuscire o fallire insieme.
-    
+   
 -   Modifichi dati critici che richiedono coerenza e integrità.
-    
+   
 -   Lavori con operazioni che possono potenzialmente fallire, come le transazioni finanziarie o le migrazioni di dati.
-    
+   
 
 ### Come Gestire le Transazioni in Python
 
@@ -772,7 +772,7 @@ def insert_fake_students(num_records):
 
         # Inserisci dati fittizi nella tabella Students
         cursor.executemany('''
-        INSERT INTO Students (name, age, email) 
+        INSERT INTO Students (name, age, email)
         VALUES (?, ?, ?);
         ''', fake_data)
 
@@ -1023,11 +1023,11 @@ add_customer_with_error_handling('Vishakha', 150.0)  # Inserimento duplicato
 In questo esempio:
 
 -   Catturiamo `IntegrityError`, che viene sollevato per violazioni come vincoli unici.
-    
+   
 -   Catturiamo `OperationalError` per problemi generali legati al database (come errori di blocco del database).
-    
+   
 -   Abbiamo anche un blocco `except` generico per gestire eventuali eccezioni impreviste.
-    
+   
 
 Output:
 
@@ -1039,19 +1039,19 @@ Errore: Vincolo di integrità violato - Il vincolo UNIQUE è fallito: Customers.
 ### Migliori pratiche per garantire l'integrità del database
 
 1.  **Usa le transazioni**: Utilizza sempre le transazioni (come discusso nella sezione precedente) quando esegui operazioni multiple correlate. Questo aiuta a garantire che o tutte le operazioni abbiano successo o nessuna, mantenendo la consistenza.
-    
+   
 2.  **Valida i dati di input**: Prima di eseguire comandi SQL, valida i dati di input per assicurarti che rispondano ai criteri previsti (ad esempio, tipi corretti, all'interno degli intervalli consentiti).
-    
+   
 3.  **Cattura eccezioni specifiche**: Cattura sempre eccezioni specifiche per gestire diversi tipi di errori in modo appropriato. Questo permette una gestione degli errori e un debug più chiari.
-    
+   
 4.  **Registra gli errori**: Invece di limitarti a stampare gli errori nella console, considera di registrarli in un file o in un sistema di monitoraggio. Questo ti aiuterà a tracciare i problemi in produzione.
-    
+   
 5.  **Degradazione graduale**: Progetta la tua applicazione per gestire gli errori con grazia. Se un'operazione fallisce, fornisci un feedback significativo all'utente invece di far crashare l'applicazione.
-    
+   
 6.  **Backup regolare dei dati**: Esegui regolarmente il backup del tuo database per evitare la perdita di dati in caso di guasti critici o corruzione.
-    
+   
 7.  **Usa dichiarazioni preparate**: Le dichiarazioni preparate aiutano a prevenire attacchi di iniezione SQL e possono anche offrire prestazioni migliori per query ripetute.
-    
+   
 
 ## Come esportare e importare dati \[Sezione bonus\]
 

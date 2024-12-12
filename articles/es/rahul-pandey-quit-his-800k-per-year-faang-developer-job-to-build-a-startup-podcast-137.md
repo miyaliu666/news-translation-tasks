@@ -15,13 +15,13 @@ En el episodio de esta semana del podcast, el fundador de freeCodeCamp Quincy La
 Hablamos sobre:
 
 -   El panorama laboral de desarrolladores después de los despidos
-    
+   
 -   Entrevistas para desarrolladores y cómo diferenciarse
-    
+   
 -   Por qué la negociación salarial sigue teniendo sentido
-    
+   
 -   Su creencia de que existen ingenieros 10x, e incluso 100x y 1000x
-    
+   
 
 ¿Puedes adivinar qué canción estoy tocando en mi bajo durante la introducción? Es de un clásico de Motown de 1969.
 
@@ -36,17 +36,17 @@ Además, quiero agradecer a las 10,443 personas amables que apoyan nuestra organ
 Enlaces de los que hablamos durante nuestra conversación:
 
 -   Tutorial de la aplicación Android de Rahul en freeCodeCamp (4 horas de visualización): [https://www.freecodecamp.org/news/learn-how-to-build-and-publish-an-android-app-from-scratch/][2]
-    
+   
 -   Video de Rahul sobre ofertas de trabajo después de la universidad: [https://www.youtube.com/watch?v=rceUVaiXQgU][3]
-    
+   
 -   Taro, la empresa de Rahul: [https://www.jointaro.com/][4]
-    
+   
 -   La historia de un ingeniero de software que se muda de vuelta a India para dirigir el negocio químico de su padre después de su muerte: [https://anandsanwal.me/2018/06/19/dad-company-sale/][5]
-    
+   
 -   Charla de conferencia sobre la correlación entre las tasas de interés y la contratación de desarrolladores, por Pragmatic Engineer: [https://www.youtube.com/watch?v=VpPPHDxR9aM][6]
-    
+   
 -   Rahul en LinkedIn: [https://www.linkedin.com/in/rpandey1234/][7]
-    
+   
 
 ---
 

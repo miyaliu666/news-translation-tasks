@@ -121,7 +121,7 @@ fn main() {
     let a = 10;
     let b = 20;
     let result = block_on(add(a, b));
-    println!("{result}"); 
+    println!("{result}");
 }
 ```
 
