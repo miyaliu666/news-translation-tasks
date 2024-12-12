@@ -1,6 +1,6 @@
 ```markdown 
 --- 
-title: Docker 和容器初学者入门 
+title: Docker 和容器初学者入门课程
 date: 2024-12-10T07:50:04.070Z 
 author: Kedar Makode 
 authorURL: https://www.freecodecamp.org/news/author/Kedar98/ 
