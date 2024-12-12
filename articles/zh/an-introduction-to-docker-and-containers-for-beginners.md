@@ -1,11 +1,11 @@
-```markdown 
+
 --- 
 title: Docker 和容器初学者入门 
 date: 2024-12-10T07:50:04.070Z 
 author: Kedar Makode 
 authorURL: https://www.freecodecamp.org/news/author/Kedar98/ 
 originalURL: https://www.freecodecamp.org/news/an-introduction-to-docker-and-containers-for-beginners/ 
-posteditor: "" 
+posteditor: "miyaliu66" 
 proofreader: "" 
 --- 
  
@@ -13,7 +13,7 @@ proofreader: ""
  
 <!-- more --> 
  
-容器和 Docker 是已经革新了软件构建、测试和部署方式的技术。 
+容器和 Docker 是已经革新了软件构建、测试和部署方式的技术。
  
 无论你是技术领域的新人，还是只是想了解 Docker 的基础知识，本文将带你了解必备知识。 
  
@@ -114,7 +114,7 @@ Docker 客户端是用户与 Docker 交互的主要方式。它是一个命令�
  
 Docker 守护进程，也称为 **dockerd**，是整个 Docker 操作的核心。它是一个后台进程，监听来自 Docker 客户端的请求并管理 Docker 对象，如容器、镜像、网络和卷。 
  
-以下是 Docker 守护进程负责的工作： 
+以下是 Docker 守护进程负责的工作：
  
 - **构建和运行容器**：当客户端发送运行容器的命令时，守护进程会拉取镜像，创建容器并启动。 
    
