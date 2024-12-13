@@ -1,7 +1,7 @@
 ```markdown 
 --- 
-title: 如何在技术领域进行代码审查 —— 无痛的方法 
-date: 2024-12-12T14:09:30.751Z 
+title: 如何在技术领域进行代码审查 —— 无痛的方法
+date: 2024-12-12T14:09:30.751Z
 author: Ankur Tyagi 
 authorURL: https://www.freecodecamp.org/news/author/TheAnkurTyagi/ 
 originalURL: https://www.freecodecamp.org/news/how-to-perform-code-reviews-in-tech-the-painless-way/ 
