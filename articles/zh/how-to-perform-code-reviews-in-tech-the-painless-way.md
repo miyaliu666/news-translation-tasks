@@ -1,6 +1,5 @@
-```markdown 
 --- 
-title: 如何在技术领域进行代码审查 —— 无痛的方法 
+title: 如何在技术领域进行代码审查
 date: 2024-12-12T14:09:30.751Z 
 author: Ankur Tyagi 
 authorURL: https://www.freecodecamp.org/news/author/TheAnkurTyagi/ 
@@ -13,7 +12,7 @@ proofreader: ""
  
 <!-- more --> 
  
-本指南提供了一个简单灵活的 `代码审查` 模板，你可以将其应用到你的工程团队中。唯一的要求是你的应用程序代码是 `开源` 的。 
+本指南提供了一个简单灵活的 `代码审查` 模板，你可以将其应用到你的工程团队中。唯一的要求是你的应用程序代码是 `开源` 的。
  
 你可以尝试 TypeScript 工作流、Java 工作流、Python 工作流、PHP、Ruby 甚至你发明的一些令人称奇的 web 栈。而且不管你是在 Windows、Linux 还是 Mac 上开发，这都无关紧要。最棒的是，除了一个 `yaml` 文件，你不需要进行复杂的配置或安装软件。 
  
