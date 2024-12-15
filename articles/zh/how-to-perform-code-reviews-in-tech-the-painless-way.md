@@ -4,11 +4,11 @@ date: 2024-12-12T14:09:30.751Z
 author: Ankur Tyagi 
 authorURL: https://www.freecodecamp.org/news/author/TheAnkurTyagi/ 
 originalURL: https://www.freecodecamp.org/news/how-to-perform-code-reviews-in-tech-the-painless-way/ 
-posteditor: "" 
+posteditor: "66" 
 proofreader: "" 
 --- 
  
-好的，我知道你可能会怀疑：其他指南曾承诺过无痛的 `代码审查`，但结果却发现他们的解决方案需要某些超具体的技术栈或付费的开发者工具。我不会那样对待你。 
+好的，我知道你可能会怀疑：其他指南曾承诺过无痛的 `代码审查`，但结果却发现他们的解决方案需要某些超具体的技术栈或付费的开发者工具。我不会那样对待你。
  
 <!-- more --> 
  
@@ -28,7 +28,7 @@ proofreader: ""
      
 -   [什么是代码审查？][2] 
      
--   [代码审查的目的是什么？][3] 
+-   [代码审查的目的是什么？][3]
      
 -   [为什么进行代码审查很难？][4] 
      
