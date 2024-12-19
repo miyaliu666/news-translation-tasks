@@ -47,14 +47,14 @@ jobs:
           git checkout -b $head_branch $pr_creator/$head_branch || git checkout $head_branch
           # git checkout -b feat-xxx $pr_creator/$head_branch
           
-          # Get modified files and filtering .md files
+          # Get modified files and filter .md files
           files=$(git diff --name-only $base_commit $head_commit | grep '\.md$')
           echo "Modified .md files: $files"
 
           if [ -n "$files" ]; then
             for file in $files; do
               echo "Processing file: $file"
-              # Remove spaces at the end of each line
+              # Remove whitespaces at the end of each line
               sed -i 's/ $//g' "$file"
               git add "$file"
             done
