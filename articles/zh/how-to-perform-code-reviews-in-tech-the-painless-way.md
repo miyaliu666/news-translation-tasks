@@ -4,7 +4,7 @@ date: 2024-12-12T14:09:30.751Z
 author: Ankur Tyagi 
 authorURL: https://www.freecodecamp.org/news/author/TheAnkurTyagi/ 
 originalURL: https://www.freecodecamp.org/news/how-to-perform-code-reviews-in-tech-the-painless-way/ 
-posteditor: "" 
+posteditor: "66" 
 proofreader: "" 
 --- 
  
