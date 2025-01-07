@@ -19,11 +19,11 @@ This guide will explain how to host an open source LLM on your computer. Doing t
 -   **A little AI knowledge**. I’ll cover the main concepts related to what we’ll be doing in the article, but some basic knowledge about LLMs will help you understand this better. No worries if you don’t know anything though – you should still find this interesting.
 
 -   **A decent computer:** A system with at least 16GB of RAM, a multi-core CPU, and preferably a GPU for optimal performance. (If you have lesser specs, it may be quite slow)
-    
+   
 -   **Internet connection**: Required to download and install the models.
-    
+   
 -   **Time and patience**
-    
+   
 
 ## What is an LLM?
 
@@ -42,15 +42,15 @@ These services are hosted and maintained by providers like OpenAI, Google, or AW
 **Key Characteristics**:
 
 -   **Easy to use**: Setup is minimal – you simply integrate with an API or access through the web pages.
-    
+   
 -   **Scalability**: Handles large workloads and concurrent requests better since they’re managed by companies.
-    
+   
 -   **Cutting-edge models**: Often the latest and most powerful models are available in the cloud.
-    
+   
 -   **Data dependency**: Your data is sent to the cloud for processing, which may raise privacy concerns.
-    
+   
 -   **Ongoing costs**: Though some models are free, others are typically billed per request or usage on certain models like the more powerful or latest ones, making it an operational expense.
-    
+   
 
 ### **Self-Hosted AI**
 
@@ -59,15 +59,15 @@ With this approach, you run the model on your own hardware. Open-source LLMs lik
 **Key Characteristics**:
 
 -   **Data privacy**: Your data stays on your infrastructure, giving you full control over it.
-    
+   
 -   **More cost-effective over the long-term**: Requires an upfront investment in hardware, but avoids recurring API fees.
-    
+   
 -   **Customizability**: You can fine-tune and adapt models to specific needs.
-    
+   
 -   **Technical requirements**: Requires powerful hardware, setup effort, and technical know-how.
-    
+   
 -   **Limited scalability**: Best suited for personal or small-scale use.
-    
+   
 
 ### **Which Should You Choose?**
 
@@ -80,22 +80,22 @@ There are various solutions out there that let you run certain open source LLMs 
 While most locally-hosted solutions focus on **open-source LLMs**—such as Llama 2, GPT-J, or Mistral—there are cases where proprietary or licensed models can also be run locally, depending on their terms of use.
 
 -   **Open-Source Models**: These are freely available and can be downloaded, modified, and hosted without licensing restrictions. Examples include Llama 2 (Meta), GPT-J, and Mistral.
-    
+   
 -   **Proprietary Models with Local Options**: Some companies may offer downloadable versions of their models for offline use, but this often requires specific licensing or hardware. For instance, NVIDIA’s NeMo framework provides tools for hosting their models on your infrastructure, and some smaller companies may offer downloadable versions of their proprietary LLMs for enterprise customers.
-    
+   
 
 Just remember that if you run your own LLM, you’ll need a powerful computer (with a good GPU and CPU). In case your computer is not very powerful, you can try running smaller and more lightweight models, though it can still be slow.
 
 **Here’s an example of a suitable system setup that I am using for this guide**:
 
 -   CPU: Intel Core i7 13700HX
-    
+   
 -   RAM: 16GB DDR5
-    
+   
 -   STORAGE: 512GB SSD
-    
+   
 -   GPU: Nvidia RTX 3050 (6GB)
-    
+   
 
 In this guide, you’ll be using Ollama to download and run AI models on your PC.
 
@@ -106,13 +106,13 @@ In this guide, you’ll be using Ollama to download and run AI models on your PC
 **Here’s what Ollama helps you do:**
 
 -   **Manage your models**: Ollama provides a straightforward way to browse, download, and manage different open-source models. You can view a list of supported models on their official website.
-    
+   
 -   **Deploy easily**: With just a few commands, you can set up a fully functional environment to run and interact with LLMs.
-    
+   
 -   **Host locally**: Models run entirely on your infrastructure, ensuring that your data stays private and secure.
-    
+   
 -   **Integrate different models**: It includes support for integrating models into your own projects using programming languages like Python or JavaScript.
-    
+   
 
 By using Ollama, you don’t need to dive deep into the complexities of setting up machine learning frameworks or managing dependencies. It simplifies the process, especially for those who want to experiment with LLMs without needing a deep technical background.
 
@@ -125,15 +125,15 @@ You can install Ollama very easily through the **Download** button in their [web
 After you have installed Ollama, follow these steps to install and use your model:
 
 1.  Open your browser and go to [localhost:11434][3] to make sure Ollama is running.
-    
+   
 2.  Now, open the command prompt, and write `ollama run <model_name>`. Add your desired model name here which is supported by Ollama, say, Llama2 (by Meta) or Mistral.
-    
+   
     ![picture of a command prompt window where the llama2 model is being installed](https://cdn.hashnode.com/res/hashnode/image/upload/v1734604496300/beef69ca-f6e0-44b8-a3a7-ed488e78e776.png)
-    
+   
 3.  Wait for the installation process to finish.
-    
+   
 4.  In the prompt that says `>>> Send a message (/? for help)`, write a message to the AI and press Enter.
-    
+   
 
 You have successfully installed your model and now you can chat with it!
 
@@ -172,7 +172,7 @@ def stream_response(user_input):
         for chunk in stream:
             content = chunk['message']['content']
             print(content, end='', flush=True)
-        print() 
+        print()
     except Exception as e:
         print(f"\nError: {str(e)}")
 
@@ -192,11 +192,11 @@ if __name__ == "__main__":
 If you don’t understand Python code, here’s what it basically does:
 
 -   First, the chat module is imported from the `ollama` library, which contains pre-written code to integrate with the Ollama application on your computer.
-    
+   
 -   Then a `stream_response` function is declared, which passes oyur prompt to the specified model, and streams (provides the response chunk by chunk as it is generated) the live response back to you.
-    
+   
 -   Then in the main function, a Welcome text is printed to the terminal. It gets the user input which is passed to the `stream_response` function, all wrapped in a `while True` or infinite loop. This lets us ask the AI questions without the execution process breaking. We also specify that if the user input contains either **exit** or **quit**, the code will stop executing.
-    
+   
 
 ### Step 4: Write Prompts
 
@@ -217,11 +217,11 @@ Fine-tuning is the process of taking a pre-trained language model and training i
 Fine-tuning requires:
 
 -   **A pre-trained model**: I’d suggest starting with a powerful open-source LLM like LLaMA, Mistral, or Falcon.
-    
+   
 -   **A quality dataset**: A **dataset** is a collection of data that is used for training, testing, or evaluating machine learning models, including LLMs. The quality and relevance of the dataset directly influence how well the model performs on a given task. Use a dataset relevant to your domain or task. For example, if you want the AI to write blog posts, train it on high-quality blog content.
-    
+   
 -   **Sufficient resources**: Fine-tuning involves re-training the model, which requires significant computational resources (preferably a machine with a powerful GPU).
-    
+   
 
 For fine tuning your model, there are several tools you can use. [Unsloth][8] is a fast option to fine-tune a model with any datasets.
 
@@ -230,13 +230,13 @@ For fine tuning your model, there are several tools you can use. [Unsloth][8] is
 As I’ve briefly discussed above, there are various reasons to self-host an LLM. To summarize, here are some of the top benefits:
 
 -   Enhanced data privacy and security, as your data does not leave your computer, and you have complete control over it.
-    
+   
 -   Cost savings, as you do not need to pay for API subscriptions regularly. Instead, it’s a one-time-investment to get powerful-enough infrastructure to help you get going in the long run.
-    
+   
 -   Great customizability, as you get to tailor the models to your specific needs through fine-tuning or training on your own datasets.
-    
+   
 -   Lower latency
-    
+   
 
 ## When Should You NOT Use a Self-hosted AI?
 
