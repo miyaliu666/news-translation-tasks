@@ -1,6 +1,6 @@
 ---
 title: How to Build a Real-time Network Traffic Dashboard with Python and Streamlit
-date: 2025-01-07T13:51:03.306Z
+date: 2025-01-07T14:12:31.203Z
 author: Chaitanya Rahalkar
 authorURL: https://www.freecodecamp.org/news/author/chaitanyarahalkar/
 originalURL: https://www.freecodecamp.org/news/build-a-real-time-network-traffic-dashboard-with-python-and-streamlit/
