@@ -40,13 +40,14 @@ jobs:
           ignoreSelector: '.ad-wrapper'
           skipSameArticleCheck: true
           skipIssueComment: true
-          markDownFilePath: './articles/_raw/'
+          markDownFilePath: './articles/_tmp/'
           githubToken: '${{ github.token }}'
           
       # Copy raw md file to '{lang}' dir, and prepare to translate
       - name: Checkout the repository to auto-translate-branch
         run: |
           cp -f ${{ steps.fetch-webpage-to-markdown.outputs.markdown_file_path }} ./articles/${{ steps.extract-lang.outputs.lang }}/
+          cp -f ${{ steps.fetch-webpage-to-markdown.outputs.markdown_file_path }} ./articles/_raw/
 
       # Commit changes, ready to switch to the 'auto-translate' branch. Auto-translated md file will be saved in the 'auto-translate' branch instead of the 'main' branch
       # Raw md file should be saved in the 'main' branch, and it can be used for diff when a pull request created
