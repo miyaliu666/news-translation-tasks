@@ -74,6 +74,7 @@ jobs:
         run: |
           git checkout -b auto-translate
           git config pull.rebase true
+          git branch --set-upstream-to=origin/auto-translate auto-translate
           git pull
 
       # Translate
