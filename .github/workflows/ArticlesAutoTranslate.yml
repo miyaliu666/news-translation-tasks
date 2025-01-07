@@ -63,6 +63,7 @@ jobs:
       - name: Checkout the repository to auto-translate-branch
         run: |
           git checkout -b auto-translate
+          git pull
 
       # Translate
       - name: Articles auto translate
