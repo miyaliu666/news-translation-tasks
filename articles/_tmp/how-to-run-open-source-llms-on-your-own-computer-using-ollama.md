@@ -1,6 +1,6 @@
 ---
 title: How to Run Open Source LLMs on Your Own Computer Using Ollama
-date: 2025-01-07T12:00:41.740Z
+date: 2025-01-07T12:08:36.052Z
 author: Krishna Sarathi Ghosh
 authorURL: https://www.freecodecamp.org/news/author/imkrishnasarathi/
 originalURL: https://www.freecodecamp.org/news/how-to-run-open-source-llms-on-your-own-computer-using-ollama/
