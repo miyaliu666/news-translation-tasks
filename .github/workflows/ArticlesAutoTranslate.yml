@@ -49,8 +49,8 @@ jobs:
           cp -f ${{ steps.fetch-webpage-to-markdown.outputs.markdown_file_path }} ./articles/${{ steps.extract-lang.outputs.lang }}/
           cp -f ${{ steps.fetch-webpage-to-markdown.outputs.markdown_file_path }} ./articles/_raw/
 
-      # Commit changes, ready to switch to the 'auto-translate' branch. Auto-translated md file will be saved in the 'auto-translate' branch instead of the 'main' branch
-      # Raw md file should be saved in the 'main' branch, and it can be used for diff when a pull request created
+      # Commit changes, and be ready to switch to the 'auto-translate' branch. Auto-translated md file will be saved in the 'auto-translate' branch instead of the 'main' branch
+      # Raw md file should be saved in the 'main' branch, and it can be used for diff when a pull request is created
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -73,8 +73,8 @@ jobs:
       - name: Checkout the repository to auto-translate-branch
         run: |
           git checkout -b auto-translate
-          git fetch origin
-          git reset --hard origin/auto-translate
+          git config pull.rebase true
+          git pull
 
       # Translate
       - name: Articles auto translate
