@@ -5,7 +5,7 @@ author: Krishna Sarathi Ghosh
 authorURL: https://www.freecodecamp.org/news/author/imkrishnasarathi/
 originalURL: https://www.freecodecamp.org/news/how-to-run-open-source-llms-on-your-own-computer-using-ollama/
 posteditor: ""
-proofreader: ""
+proofreader: " "
 ---
 
 AI tools have become commonplace these days, and you may use them daily. One of the key ways to secure your confidential data – both personal and business-related – is by running your own AI on your own infrastructure.
