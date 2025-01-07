@@ -1,273 +1,274 @@
----
-title: How to Run Open Source LLMs on Your Own Computer Using Ollama
-date: 2025-01-07T05:43:05.474Z
-author: Krishna Sarathi Ghosh
-authorURL: https://www.freecodecamp.org/news/author/imkrishnasarathi/
-originalURL: https://www.freecodecamp.org/news/how-to-run-open-source-llms-on-your-own-computer-using-ollama/
-posteditor: ""
-proofreader: ""
----
-
-AI tools have become commonplace these days, and you may use them daily. One of the key ways to secure your confidential data – both personal and business-related – is by running your own AI on your own infrastructure.
-
-<!-- more -->
-
-This guide will explain how to host an open source LLM on your computer. Doing this helps make sure you don’t compromise your data to third-party companies through cloud-based AI solutions.
-
-## Prerequisites
-
--   **A little AI knowledge**. I’ll cover the main concepts related to what we’ll be doing in the article, but some basic knowledge about LLMs will help you understand this better. No worries if you don’t know anything though – you should still find this interesting.
-
--   **A decent computer:** A system with at least 16GB of RAM, a multi-core CPU, and preferably a GPU for optimal performance. (If you have lesser specs, it may be quite slow)
-    
--   **Internet connection**: Required to download and install the models.
-    
--   **Time and patience**
-    
-
-## What is an LLM?
-
-LLMs, or Large Language Models, are advanced AI systems that are trained to understand and generate natural human-readable language. They use algorithms to process and understand natural language and are trained on large amounts of information to understand patterns and relationships in the data.
-
-Companies like OpenAI, Anthropic, and Meta have created LLMs that you can use to perform tasks such as generating content, analyzing code, planning trips, and so on.
-
-## Cloud-Based AI vs. Self-Hosted AI
-
-Before deciding to host an AI model locally, it’s important to understand how this approach differs from cloud-based solutions. Both options have their strengths and are suited to different use cases.
-
-### **Cloud-Based AI Solutions**
-
-These services are hosted and maintained by providers like OpenAI, Google, or AWS. Examples include OpenAI’s GPT models, Google Bard, and AWS SageMaker. You access these models over the internet using APIs or their endpoints.
-
-**Key Characteristics**:
-
--   **Easy to use**: Setup is minimal – you simply integrate with an API or access through the web pages.
-    
--   **Scalability**: Handles large workloads and concurrent requests better since they’re managed by companies.
-    
--   **Cutting-edge models**: Often the latest and most powerful models are available in the cloud.
-    
--   **Data dependency**: Your data is sent to the cloud for processing, which may raise privacy concerns.
-    
--   **Ongoing costs**: Though some models are free, others are typically billed per request or usage on certain models like the more powerful or latest ones, making it an operational expense.
-    
-
-### **Self-Hosted AI**
-
-With this approach, you run the model on your own hardware. Open-source LLMs like Llama 2, GPT-J, or Mistral can be downloaded and hosted using tools like Ollama.
-
-**Key Characteristics**:
-
--   **Data privacy**: Your data stays on your infrastructure, giving you full control over it.
-    
--   **More cost-effective over the long-term**: Requires an upfront investment in hardware, but avoids recurring API fees.
-    
--   **Customizability**: You can fine-tune and adapt models to specific needs.
-    
--   **Technical requirements**: Requires powerful hardware, setup effort, and technical know-how.
-    
--   **Limited scalability**: Best suited for personal or small-scale use.
-    
-
-### **Which Should You Choose?**
-
-If you need quick and scalable access to advanced models and don’t mind sharing data with a third party, cloud-based AI solutions are likely the better option. On the other hand, if data security, customization, or cost savings are top priorities, hosting an LLM locally could be the way to go.
-
-## How Can You Run LLMs Locally on Your Machine?
-
-There are various solutions out there that let you run certain open source LLMs on your own infrastructure.
-
-While most locally-hosted solutions focus on **open-source LLMs**—such as Llama 2, GPT-J, or Mistral—there are cases where proprietary or licensed models can also be run locally, depending on their terms of use.
-
--   **Open-Source Models**: These are freely available and can be downloaded, modified, and hosted without licensing restrictions. Examples include Llama 2 (Meta), GPT-J, and Mistral.
-    
--   **Proprietary Models with Local Options**: Some companies may offer downloadable versions of their models for offline use, but this often requires specific licensing or hardware. For instance, NVIDIA’s NeMo framework provides tools for hosting their models on your infrastructure, and some smaller companies may offer downloadable versions of their proprietary LLMs for enterprise customers.
-    
-
-Just remember that if you run your own LLM, you’ll need a powerful computer (with a good GPU and CPU). In case your computer is not very powerful, you can try running smaller and more lightweight models, though it can still be slow.
-
-**Here’s an example of a suitable system setup that I am using for this guide**:
-
--   CPU: Intel Core i7 13700HX
-    
--   RAM: 16GB DDR5
-    
--   STORAGE: 512GB SSD
-    
--   GPU: Nvidia RTX 3050 (6GB)
-    
-
-In this guide, you’ll be using Ollama to download and run AI models on your PC.
-
-### What is Ollama?
-
-[Ollama][1] is a tool designed to simplify the process of running open-source large language models (LLMs) directly on your computer. It acts as a local model manager and runtime, handling everything from downloading the model files to setting up a local environment where you can interact with them.
-
-**Here’s what Ollama helps you do:**
-
--   **Manage your models**: Ollama provides a straightforward way to browse, download, and manage different open-source models. You can view a list of supported models on their official website.
-    
--   **Deploy easily**: With just a few commands, you can set up a fully functional environment to run and interact with LLMs.
-    
--   **Host locally**: Models run entirely on your infrastructure, ensuring that your data stays private and secure.
-    
--   **Integrate different models**: It includes support for integrating models into your own projects using programming languages like Python or JavaScript.
-    
-
-By using Ollama, you don’t need to dive deep into the complexities of setting up machine learning frameworks or managing dependencies. It simplifies the process, especially for those who want to experiment with LLMs without needing a deep technical background.
-
-You can install Ollama very easily through the **Download** button in their [website][2].
-
-![ollama official website](https://cdn.hashnode.com/res/hashnode/image/upload/v1734604517326/06605e51-4425-4dbe-b8d9-403270eec95b.png)
-
-### How to Use Ollama to Install/Run Your Model
-
-After you have installed Ollama, follow these steps to install and use your model:
-
-1.  Open your browser and go to [localhost:11434][3] to make sure Ollama is running.
-    
-2.  Now, open the command prompt, and write `ollama run <model_name>`. Add your desired model name here which is supported by Ollama, say, Llama2 (by Meta) or Mistral.
-    
-    ![picture of a command prompt window where the llama2 model is being installed](https://cdn.hashnode.com/res/hashnode/image/upload/v1734604496300/beef69ca-f6e0-44b8-a3a7-ed488e78e776.png)
-    
-3.  Wait for the installation process to finish.
-    
-4.  In the prompt that says `>>> Send a message (/? for help)`, write a message to the AI and press Enter.
-    
-
-You have successfully installed your model and now you can chat with it!
-
-## Building a Chatbot with Your Newly Installed Model
-
-With open source models running in your own infrastructure, you have a lot of freedom to alter and use the model any way you like. You can even use it to build local chatbots or applications for personal use by using the `ollama` module in Python, JavaScript, and other languages.
-
-Now let’s walk through how you can build a chatbot with it in Python in just a few minutes.
-
-### Step 1: Install Python
-
-If you don’t already have Python installed, download and install it from the [official Python website][4]. For best compatibility[,][5] avoid using the most recent Python version, as some modules may not yet fully support it. Instead, select the latest stable version (generally the one before the most recent release) to ensure smooth functioning of all required modules.
-
-While setting up Python, make sure to give the installer admin privileges and check the **Add to PATH** checkbox.
-
-### Step 2: Install Ollama
-
-Now, you need to open a new terminal window in the directory where the file is saved. You can open the directory in the File Explorer and **right click**, then click on **Open in Terminal** (**Open with Command Prompt** or **Powershell** if you’re using Windows 10 or a previous version).
-
-Type `pip install ollama` and press Enter. This will install the `ollama` module for Python, so you can access your models and the functions provided by the tool from Python. Wait until the process finishes.
-
-### Step 3: Add the Python Code
-
-Go ahead and create a Python file with the `.py` extension somewhere in your File System, where you can access it easily. Open the file with your favourite Code Editor, and if you have none installed, you can use the online version of [VS Code][6] from your browser.
-
-Now, add this code in your Python File:
-
-```
-from ollama import chat
-
-def stream_response(user_input):
-    """Stream the response from the chat model and display it in the CLI."""
-    try:
-        print("\nAI: ", end="", flush=True)
-        stream = chat(model='llama2', messages=[{'role': 'user', 'content': user_input}], stream=True)
-        for chunk in stream:
-            content = chunk['message']['content']
-            print(content, end='', flush=True)
-        print() 
-    except Exception as e:
-        print(f"\nError: {str(e)}")
-
-def main():
-    print("Welcome to your CLI AI Chatbot! Type 'exit' to quit.\n")
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() in {"exit", "quit"}:
-            print("Goodbye!")
-            break
-        stream_response(user_input)
-
-if __name__ == "__main__":
-    main()
-```
-
-If you don’t understand Python code, here’s what it basically does:
-
--   First, the chat module is imported from the `ollama` library, which contains pre-written code to integrate with the Ollama application on your computer.
-    
--   Then a `stream_response` function is declared, which passes oyur prompt to the specified model, and streams (provides the response chunk by chunk as it is generated) the live response back to you.
-    
--   Then in the main function, a Welcome text is printed to the terminal. It gets the user input which is passed to the `stream_response` function, all wrapped in a `while True` or infinite loop. This lets us ask the AI questions without the execution process breaking. We also specify that if the user input contains either **exit** or **quit**, the code will stop executing.
-    
-
-### Step 4: Write Prompts
-
-Now go back to the terminal window and type `python filename.py`, replacing `filename` with the actual file name that you set, and press Enter.
-
-You should see a prompt saying `You:`, just like we mentioned in the code. Write your prompt and press Enter. You should see the AI Response being streamed. To stop executing, enter the prompt `exit`, or close the Terminal window.
-
-You can even install the module for JavaScript or any other supported language and integrate the AI in your code. Feel free to check the [Ollama Official Documentation][7] and understand what can you code with the AI Models.
-
-## How to Customize Your Models with Fine-Tuning
-
-### What is Fine-Tuning?
-
-Fine-tuning is the process of taking a pre-trained language model and training it further on a specific and custom dataset for a specific purpose. While LLMs are trained on massive datasets, they may not always perfectly align with your needs. Fine-tuning allows you to make the model better suited for your particular use case.
-
-### How to Fine-Tune a Model
-
-Fine-tuning requires:
-
--   **A pre-trained model**: I’d suggest starting with a powerful open-source LLM like LLaMA, Mistral, or Falcon.
-    
--   **A quality dataset**: A **dataset** is a collection of data that is used for training, testing, or evaluating machine learning models, including LLMs. The quality and relevance of the dataset directly influence how well the model performs on a given task. Use a dataset relevant to your domain or task. For example, if you want the AI to write blog posts, train it on high-quality blog content.
-    
--   **Sufficient resources**: Fine-tuning involves re-training the model, which requires significant computational resources (preferably a machine with a powerful GPU).
-    
-
-For fine tuning your model, there are several tools you can use. [Unsloth][8] is a fast option to fine-tune a model with any datasets.
-
-## What Are the Benefits of Self-hosted LLMs?
-
-As I’ve briefly discussed above, there are various reasons to self-host an LLM. To summarize, here are some of the top benefits:
-
--   Enhanced data privacy and security, as your data does not leave your computer, and you have complete control over it.
-    
--   Cost savings, as you do not need to pay for API subscriptions regularly. Instead, it’s a one-time-investment to get powerful-enough infrastructure to help you get going in the long run.
-    
--   Great customizability, as you get to tailor the models to your specific needs through fine-tuning or training on your own datasets.
-    
--   Lower latency
-    
-
-## When Should You NOT Use a Self-hosted AI?
-
-But this might not be the right fit for you for several reasons. First, you may not have the system resources required to be able to run the models – and perhaps you don’t want to or can’t upgrade.
-
-Second, you may not have the technical knowledge or time to set up your own model and fine tune it. It’s not terribly difficult, but it does require some background knowledge and particular skills. This can also be a problem if you don’t know how to troubleshoot errors that may come up.
-
-You also may need your models to be up 24/7, and you might not have the infrastructure to handle it.
-
-None of these issues are insurmountable, but they may inform your decision as to whether you use a cloud-based solution or host your own model.
-
-## Conclusion
-
-Hosting your own LLMs can be a game-changer if you value data privacy, cost-efficiency, and customization.
-
-Tools like Ollama make it easier than ever to bring powerful AI models right to your personal infrastructure. While self-hosting isn't without its challenges, it gives you control over your data and the flexibility to adapt models to your needs.
-
-Just make sure you assess your technical capabilities, hardware resources, and project requirements before deciding to go this way. If you need reliability, scalability, and quick access to cutting-edge features, cloud-based LLMs might still be the better fit.
-
-If you liked this article, don’t forget to show your support, and follow me on [X][9] and [LinkedIn][10] to get connected. Also, I create short but informative tech content on [YouTube][11], so don’t forget to check out my content.
-
-Thanks for reading this article!
-
-[1]: http://ollama.com
-[2]: http://ollama.com
-[3]: http://localhost:11434
-[4]: https://www.python.org/
-[5]: https://www.python.org/
-[6]: https://vscode.dev/
-[7]: https://github.com/ollama/ollama/blob/main/docs/README.md
-[8]: https://unsloth.ai/
-[9]: https://x.com/Codeskae
-[10]: https://www.linkedin.com/in/imkrishnasarathi/
-[11]: https://youtube.com/@krishcodes
+```markdown 
+--- 
+title: 如何在您自己的计算机上使用 Ollama 运行开源 LLM 
+date: 2025-01-07T05:43:05.474Z 
+author: Krishna Sarathi Ghosh 
+authorURL: https://www.freecodecamp.org/news/author/imkrishnasarathi/ 
+originalURL: https://www.freecodecamp.org/news/how-to-run-open-source-llms-on-your-own-computer-using-ollama/ 
+posteditor: "" 
+proofreader: "" 
+--- 
+ 
+如今，AI 工具已经非常普遍，您可能每天都会使用它们。为了保护您的机密数据——包括个人和业务相关的数据——的一个关键方法是，在您自己的基础设施上运行您自己的 AI。 
+ 
+<!-- more --> 
+ 
+本指南将解释如何在您的计算机上托管开源 LLM。这样做可以确保您不会通过基于云的 AI 解决方案将数据泄露给第三方公司。 
+ 
+## 前提条件 
+ 
+-   **一些 AI 知识**：我将涵盖与本文相关的主要概念，但一些关于 LLM 的基本知识将帮助您更好地理解这一点。不过，如果您不了解任何内容也没关系——您可能会发现这仍然很有趣。 
+ 
+-   **一台不错的电脑**：拥有至少 16GB 内存、多核 CPU，最好还有 GPU 的系统，以获得最佳性能。（如果您的规格较低，速度可能会非常慢） 
+ 
+-   **互联网连接**：下载和安装模型需要互联网连接。 
+ 
+-   **时间和耐心** 
+ 
+## 什么是 LLM？ 
+ 
+LLM，即大型语言模型，是经过训练以理解和生成自然人类可读语言的高级 AI 系统。它们使用算法来处理和理解自然语言，并通过大量的信息训练来理解数据中的模式和关系。 
+ 
+像 OpenAI、Anthropic 和 Meta 这样的公司创建了 LLM，您可以使用它们来执行生成内容、分析代码、规划旅行等任务。 
+ 
+## 基于云的 AI 与自托管 AI 
+ 
+在决定本地托管 AI 模型之前，了解这种方法与基于云的解决方案有何不同是很重要的。这两种选择各有优势，适用于不同的使用场景。 
+ 
+### **基于云的 AI 解决方案** 
+ 
+这些服务由 OpenAI、Google 或 AWS 等提供商托管和维护。示例包括 OpenAI 的 GPT 模型、Google Bard 和 AWS SageMaker。您可以通过互联网使用 API 或其端点访问这些模型。 
+ 
+**主要特点**： 
+ 
+-   **易于使用**：设置最小化——您只需集成 API 或通过网页访问。 
+     
+-   **可扩展性**：由于由公司管理，因此更好地处理大型工作负载和并发请求。 
+     
+-   **前沿模型**：通常最新和最强大的模型都在云中可用。 
+     
+-   **数据依赖**：您的数据需要发送到云中进行处理，这可能引发隐私问题。 
+     
+-   **持续成本**：尽管有些模型是免费的，但其他模型通常按请求或使用计费，尤其是更强大或最新的模型，从而成为运营成本。 
+     
+ 
+### **自托管 AI** 
+ 
+使用这种方法，您在自己的硬件上运行模型。可以使用 Ollama 等工具下载和托管开源 LLM，如 Llama 2、GPT-J 或 Mistral。 
+ 
+**主要特点**： 
+ 
+-   **数据隐私**：您的数据保留在您的基础设施上，让您对其有完全的控制权。 
+     
+-   **从长远来看更具成本效益**：需要在硬件上进行前期投资，但避免了持续的 API 费用。 
+     
+-   **可定制性**：您可以微调和调整模型以满足特定需求。 
+     
+-   **技术要求**：需要强大的硬件、设置工作和技术知识。 
+     
+-   **有限的可扩展性**：最适合个人或小规模使用。 
+     
+ 
+### **您应该选择哪种方式？** 
+ 
+如果您需要快速和可扩展地访问高级模型，并且不介意与第三方共享数据，那么基于云的 AI 解决方案可能是更好的选择。另一方面，如果数据安全、定制化或节约成本是首要任务，局部托管 LLM 可能是更好的选择。 
+ 
+## 如何在您的计算机上本地运行 LLM？ 
+ 
+有多种解决方案可以让您在自己的基础设施上运行某些开源 LLM。 
+ 
+虽然大多数本地托管的解决方案专注于**开源 LLM**——如 Llama 2、GPT-J 或 Mistral——但也有部分情况下，根据其使用条款，可以本地运行专有或授权的模型。 
+ 
+-   **开源模型**：这些模型是免费提供的，可以下载、修改和托管，无需许可证限制。示例包括 Llama 2（Meta）、GPT-J 和 Mistral。 
+ 
+-   **具有本地选项的专有模型**：一些公司可能会提供其模型的可下载版本以供离线使用，但这通常需要特定的许可或硬件。例如，NVIDIA 的 NeMo 框架提供工具以在您的基础设施上托管他们的模型，某些小公司可能会为企业客户提供其专有 LLM 的可下载版本。 
+ 
+请记住，如果您运行自己的 LLM，您将需要一台性能强大的计算机（需要良好的 GPU 和 CPU）。如果您的计算机性能不高，您可以尝试运行较小和更轻量级的模型，但速度可能仍然很慢。 
+``` 
+ 
+```markdown 
+-   CPU: 英特尔 Core i7 13700HX 
+ 
+-   RAM: 16GB DDR5 
+ 
+-   存储: 512GB SSD 
+ 
+-   GPU: 英伟达 RTX 3050 (6GB) 
+ 
+在本指南中，您将使用 Ollama 在您的 PC 上下载和运行 AI 模型。 
+ 
+### 什么是 Ollama？ 
+ 
+[Ollama][1] 是一款工具，旨在简化直接在您的计算机上运行开源大型语言模型（LLM）的过程。它充当本地模型管理器和运行环境，处理从下载模型文件到设置本地交互环境的一切工作。 
+ 
+**Ollama 能帮助您做的事情包括：** 
+ 
+-   **管理您的模型**：Ollama 提供了一种简单的方法来浏览、下载和管理不同的开源模型。您可以在他们的官方网站上查看支持的模型列表。 
+     
+-   **轻松部署**：只需几个命令，您就可以设置一个功能齐全的环境来运行和交互 LLM。 
+     
+-   **本地托管**：模型完全在您的基础架构上运行，确保您的数据保持私密和安全。 
+     
+-   **集成不同的模型**：它支持将模型集成到您自己的项目中，使用诸如 Python 或 JavaScript 等编程语言。 
+     
+ 
+通过使用 Ollama，您无需深入了解机器学习框架设置或管理依赖性即可使用 LLM。对于那些希望在没有深厚技术背景的情况下进行 LLM 实验的人来说，它简化了这个过程。 
+ 
+您可以通过他们网站上的**下载**按钮轻松安装 Ollama。 
+ 
+![ollama 官方网站](https://cdn.hashnode.com/res/hashnode/image/upload/v1734604517326/06605e51-4425-4dbe-b8d9-403270eec95b.png) 
+ 
+### 如何使用 Ollama 安装/运行您的模型 
+ 
+安装 Ollama 后，请按照以下步骤安装和使用您的模型： 
+ 
+1.  打开您的浏览器并访问 [localhost:11434][3] 以确保 Ollama 正在运行。 
+     
+2.  现在，打开命令提示符，输入 `ollama run <model_name>`。在此添加您想要的由 Ollama 支持的模型名称，例如，Llama2（由 Meta 开发）或 Mistral。 
+     
+    ![命令提示窗口中正在安装 llama2 模型的图片](https://cdn.hashnode.com/res/hashnode/image/upload/v1734604496300/beef69ca-f6e0-44b8-a3a7-ed488e78e776.png) 
+     
+3.  等待安装过程完成。 
+     
+4.  在提示符 `>>> Send a message (/? for help)` 中，输入一条消息给 AI，然后按回车。 
+     
+ 
+您已成功安装模型，现在可以与它对话了！ 
+ 
+## 使用您新安装的模型构建一个聊天机器人 
+ 
+在您自己的基础设施中运行开源模型，您可以自由地以任何方式更改和使用模型。您甚至可以使用 `ollama` 模块在 Python、JavaScript 以及其他语言中创建本地聊天机器人或个人应用程序。 
+ 
+现在，让我们通过 Python 在几分钟内创建一个聊天机器人。 
+ 
+### 步骤 1：安装 Python 
+ 
+如果您还没有安装 Python，从[官方 Python 网站][4]下载并安装它。为获得最佳兼容性，请避免使用最新的 Python 版本，因为某些模块可能尚未完全支持它。相反，选择最新的稳定版本（通常是在最近版本之前的版本）以确保所有必需模块的顺利运行。 
+ 
+在设置 Python 时，请确保给予安装程序管理员权限并勾选**添加到 PATH**选项。 
+ 
+### 步骤 2：安装 Ollama 
+ 
+现在，您需要在保存文件的目录中打开一个新的终端窗口。您可以在文件资源管理器中打开该目录并**右键单击**，然后单击**在终端中打开**（如果您使用的是 Windows 10 或更早版本，则为**使用命令提示符或 Powershell 打开**）。 
+ 
+输入 `pip install ollama` 并按回车。这将为 Python 安装 `ollama` 模块，这样您就可以从 Python 访问模型和工具提供的功能。等待直到过程完成。 
+ 
+### 步骤 3：添加 Python 代码 
+ 
+继续在文件系统的某处创建一个带有 `.py` 扩展名的 Python 文件，以便您能轻松访问它。使用您最喜欢的代码编辑器打开文件，如果您尚未安装，可以使用浏览器中的 [VS Code][6] 在线版本。 
+ 
+现在，在您的 Python 文件中添加以下代码： 
+ 
+```python 
+from ollama import chat 
+ 
+def stream_response(user_input): 
+    """在 CLI 中流式显示聊天模型的响应。""" 
+    try: 
+        print("\nAI: ", end="", flush=True) 
+        stream = chat(model='llama2', messages=[{'role': 'user', 'content': user_input}], stream=True) 
+        for chunk in stream: 
+            content = chunk['message']['content'] 
+            print(content, end='', flush=True) 
+        print()  
+    except Exception as e: 
+        print(f"\nError: {str(e)}") 
+ 
+def main(): 
+    print("欢迎使用 CLI AI 聊天机器人！输入 'exit' 以退出。\n") 
+    while True: 
+        user_input = input("You: ") 
+        if user_input.lower() in {"exit", "quit"}: 
+            print("再见！") 
+            break 
+        stream_response(user_input) 
+ 
+if __name__ == "__main__": 
+    main() 
+``` 
+``` 
+ 
+```markdown 
+-   首先，聊天模块从 `ollama` 库中导入，该库包含预编写的代码以便与您计算机上的 Ollama 应用集成。 
+     
+-   然后声明一个 `stream_response` 函数，它将您的提示传递给指定的模型，并在生成时逐块流式传输（提供响应块）实时报答给您。 
+     
+-   接下来在主函数中，欢迎文本被打印到终端。它获取用户输入并将其传递给 `stream_response` 函数，全部包装在 `while True` 或无限循环中。这使我们可以无限制地向 AI 提问，而不导致执行过程中断。我们还注明如果用户输入包含 **exit** 或 **quit**，代码将停止执行。 
+     
+ 
+### 第4步：编写提示 
+ 
+现在返回到终端窗口，输入 `python filename.py`，将 `filename` 替换为您设置的实际文件名，然后按 Enter。 
+ 
+您应该会看到提示 `You:`，就像我们在代码中提到的一样。编写您的提示并按 Enter。您应该会看到 AI 响应正在流式传输。要停止执行，请输入提示 `exit`，或关闭终端窗口。 
+ 
+您甚至可以为 JavaScript 或其他任何支持的语言安装模块，并将 AI 集成到您的代码中。请随时查看 [Ollama 官方文档][7] 以了解您可以使用 AI 模型编写什么代码。 
+ 
+## 如何通过微调自定义您的模型 
+ 
+### 什么是微调？ 
+ 
+微调是将预训练语言模型在特定和自定义数据集上进一步训练以实现特定目的的过程。 虽然 LLM 使用庞大的数据集进行训练，但它们可能并不总是完美契合您的需求。 微调可以让您的模型更适合您的特定用例。 
+ 
+### 如何微调模型 
+ 
+微调需要： 
+ 
+-   **一个预训练的模型**：我建议从一个强大的开源 LLM 开始，比如 LLaMA、Mistral 或 Falcon。 
+     
+-   **质量数据集**：**数据集**是用于训练、测试或评估机器学习模型（包括 LLM）的数据集合。数据集的质量和相关性直接影响模型在特定任务上的表现。请使用与您的领域或任务相关的数据集。例如，如果您希望 AI 撰写博客文章，请对高质量的博客内容进行训练。 
+     
+-   **足够的资源**：微调需要重新训练模型，这需要大量的计算资源（最好是拥有强大 GPU 的机器）。 
+     
+ 
+为了微调你的模型，你可以使用多个工具。[Unsloth][8] 是一个快速选项，允许您用任意数据集微调模型。 
+ 
+## 自托管 LLM 的好处是什么？ 
+ 
+正如我在上面简要讨论的，自己托管 LLM 有多种原因。总结来说，这里有一些最大的好处： 
+ 
+-   增强的数据隐私和安全性，因为您的数据不会离开您的电脑，您可以完全控制它。 
+     
+-   节省成本，因为您无需定期支付 API 订阅费用。相反，这是一次性投资，帮助您在长期使用中拥有足够强大的基础设施。 
+     
+-   很好的可定制性，因为您可以通过微调或在自己的数据集上进行训练来定制模型以满足特定需求。 
+     
+-   较低的延迟 
+     
+ 
+## 什么时候您不应该使用自托管 AI？ 
+ 
+但由于多种原因，这可能不适合您。首先，您可能没有运行模型所需的系统资源——可能您不想升级或不能升级。 
+ 
+其次，您可能没有技术知识或时间来设置自己的模型并进行微调。虽然这并不是特别困难，但确实需要一些背景知识和特定技能。如果您不知道如何解决可能出现的问题，这也可能成为一个问题。 
+ 
+您还可能需要模型全天候运行，而您可能没有基础设施来支持它。 
+ 
+这些问题都不是不可克服的，但它们可能为您提供使用基于云的解决方案还是托管自己模型的决策依据。 
+ 
+## 结论 
+ 
+如果您重视数据隐私、成本效益和定制化，自托管 LLM 可能会改变游戏规则。 
+ 
+像 Ollama 这样的工具让将强大的 AI 模型引入自己的基础设施比以往任何时候都更加容易。尽管自托管并非没有挑战，但它让您可以控制数据，并灵活地根据需要调整模型。 
+ 
+只需要确保在决定这样做之前评估自己的技术能力、硬件资源和项目需求。如果您需要可靠性、可扩展性和快速访问最前沿功能，基于云的 LLM 可能仍然是更好的选择。 
+ 
+如果您喜欢本文，不要忘记表示支持，并在 [X][9] 和 [LinkedIn][10] 上关注我以保持联系。此外，我在 [YouTube][11] 上创建了简短但信息丰富的技术内容，所以不要忘记查看我的内容。 
+ 
+感谢您阅读本文！ 
+ 
+[1]: http://ollama.com 
+[2]: http://ollama.com 
+[3]: http://localhost:11434 
+[4]: https://www.python.org/ 
+[5]: https://www.python.org/ 
+[6]: https://vscode.dev/ 
+[7]: https://github.com/ollama/ollama/blob/main/docs/README.md 
+[8]: https://unsloth.ai/ 
+[9]: https://x.com/Codeskae 
+[10]: https://www.linkedin.com/in/imkrishnasarathi/ 
+[11]: https://youtube.com/@krishcodes 
+``` 
+ 
+ 
