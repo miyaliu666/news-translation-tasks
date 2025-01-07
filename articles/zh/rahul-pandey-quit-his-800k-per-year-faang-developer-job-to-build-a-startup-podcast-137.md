@@ -1,11 +1,10 @@
-```markdown 
 --- 
 title: "Rahul Pandey 辞去了他每年 80 万美元的 FAANG 开发者工作，去创办一个初创公司 [播客 #137]" 
 date: 2025-01-05T14:22:56.400Z 
 author: Quincy Larson 
 authorURL: https://www.freecodecamp.org/news/author/quincy/ 
 originalURL: https://www.freecodecamp.org/news/rahul-pandey-quit-his-800k-per-year-faang-developer-job-to-build-a-startup-podcast-137/ 
-posteditor: "" 
+posteditor: "miya" 
 proofreader: "" 
 --- 
  
