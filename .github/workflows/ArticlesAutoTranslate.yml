@@ -70,11 +70,12 @@ jobs:
       - name: List files before hard reset
         run: ls -la ./articles/_tmp/
 
-      - name: Fetch and merge auto-translate branch
+      # Switch to the 'auto-translate' branch, using HARD RESET
+      - name: Checkout the repository to auto-translate-branch
         run: |
           git checkout -b auto-translate
           git fetch origin
-          git merge origin/auto-translate
+          git reset --hard origin/auto-translate
 
       - name: List files after hard reset
         run: ls -la ./articles/_tmp/
