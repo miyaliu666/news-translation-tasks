@@ -87,7 +87,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: '${{ github.event.issue.title }}'
-          file_pattern: articles/**/*.md
+          file_pattern: 'articles/_raw/*.md articles/${{ steps.extract-lang.outputs.lang }}/*.md'
           commit_user_name: PageToMarkdown Bot
           commit_user_email: PageToMarkdown-bot@freeCodeCamp.org
           branch: "auto-translate"
+          push_options: --force
