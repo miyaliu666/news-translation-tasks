@@ -1,6 +1,6 @@
 ---
 title: "How to Write User Stories for Beginners: Agile in Practice"
-date: 2025-01-08T05:23:25.813Z
+date: 2025-01-09T15:17:10.190Z
 author: Ben
 authorURL: https://www.freecodecamp.org/news/author/justanothertechlead/
 originalURL: https://www.freecodecamp.org/news/how-to-write-user-stories-for-beginners/
