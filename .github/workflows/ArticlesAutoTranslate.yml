@@ -91,4 +91,5 @@ jobs:
           commit_user_name: PageToMarkdown Bot
           commit_user_email: PageToMarkdown-bot@freeCodeCamp.org
           branch: "auto-translate"
+          skip_fetch: true
           push_options: --force
