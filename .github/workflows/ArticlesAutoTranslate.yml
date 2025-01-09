@@ -20,7 +20,7 @@ jobs:
         if: ${{ !github.event.issue.body }}
         shell: bash
         run: echo "The description of the issue is empty." 1>&2; exit 1;
-
+          
       - name: Extract language code (e.g., [zh])
         id: extract-lang
         run: |
@@ -28,6 +28,13 @@ jobs:
           LANG_CODE=$(echo "$ISSUE_TITLE" | sed -E 's/^\[([a-zA-Z]+)\].*/\1/')
           echo "::set-output name=lang::$LANG_CODE"
           
+      # Clean _tmp dir
+      - name: Clean _tmp dir
+        run: |
+          if [ -d "_tmp" ]; then
+            rm -rf _tmp
+          fi
+
       # Fetch webpage article to markdown, and save it to '_raw'
       - uses: actions/checkout@v3
       - name: Crawl pages and generate Markdown files
