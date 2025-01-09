@@ -1,6 +1,6 @@
 ---
 title: How to Run Integration Tests with GitHub Service Containers
-date: 2025-01-08T13:16:29.199Z
+date: 2025-01-09T13:53:39.508Z
 author: Alex Pliutau
 authorURL: https://www.freecodecamp.org/news/author/pltvs/
 originalURL: https://www.freecodecamp.org/news/how-to-run-integration-tests-with-github-service-containers/
