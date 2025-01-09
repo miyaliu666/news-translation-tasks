@@ -27,6 +27,13 @@ jobs:
           ISSUE_TITLE="${{ github.event.issue.title }}"
           LANG_CODE=$(echo "$ISSUE_TITLE" | sed -E 's/^\[([a-zA-Z]+)\].*/\1/')
           echo "::set-output name=lang::$LANG_CODE"
+
+      # Clean ./articles/_tmp/ dir.
+      - name: Checkout the repository to auto-translate-branch
+        run: |
+          if [ -d "./articles/_tmp/" ]; then
+            rm -rf ./articles/_tmp/
+          fi
           
       # Fetch webpage article to markdown, and save it to '_raw'
       - uses: actions/checkout@v3
@@ -77,7 +84,7 @@ jobs:
 
       - name: Checkout the repository to auto-translate-branch
         run: |
-          rm -rf /_tmp
+          rm -rf ./articles/_tmp/
           git add *
           git commit -m 'Save auto-translated article markdown.'
           git push origin auto-translate
