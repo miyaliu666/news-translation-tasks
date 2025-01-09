@@ -1,313 +1,312 @@
----
-title: "How to Write User Stories for Beginners: Agile in Practice"
-date: 2025-01-08T05:23:25.813Z
-author: Ben
-authorURL: https://www.freecodecamp.org/news/author/justanothertechlead/
-originalURL: https://www.freecodecamp.org/news/how-to-write-user-stories-for-beginners/
-posteditor: ""
-proofreader: ""
----
-
-In this tutorial, you’ll learn about an important part of the Agile approach to software development: user stories.
-
-<!-- more -->
-
-I’ll take you through what user stories are, common pitfalls that I’ve seen with creating user stories, and the frameworks that exist to validate if your user story is “good”.
-
-### Here’s what we’ll cover:
-
--   [The beginnings of Agile][1]
-    
--   [What is Agile?][2]
-    
--   [What is a User Story?][3]
-    
-    -   [Structure of a User Story][4]
-        
-    -   [Example of User Stories][5]
-        
--   [How to make good User Stories][6]
-    
--   [Common pitfalls in User Story creation][7]
-    
-    -   [Focusing on the technical aspects][8]
-        
-    -   [Stakeholder Collaboration][9]
-        
-    -   [Vague User Stories][10]
-        
--   [How to begin with User Stories][11]
-    
--   [Conclusion][12]
-    
-
-## The Beginnings of Agile
-
-Chances are that you’ve heard of Agile Development and User Stories. But if you haven’t, let’s have a brief history lesson:
-
-User Stories are part of a larger concept called Agile methodologies.
-
-Agile methodologies have been around since 2001 when 17 well-respected software engineers met at a Ski resort in Utah and created the now infamous [Agile Manifesto][13].
-
-If names such as Robert Martin, Martin Fowler and Kent Beck don’t mean anything to you, once you’ve finished this article, go and search them out. They have a wealth of knowledge and between them gave the world of software a more fluid way of delivering projects, called Agiile.
-
-## What is Agile?
-
-Agile is more of a way of thinking than a prescribed method. Prescribed methods exist, such as Scrum and Kanban, but Agile is a concept.
-
-Agile promotes collaboration, fast feedback, and delivering value often to the user.
-
-The Agile way of thinking encourages flexibility in project planning, which is in stark contrast to its competitor at the time, Waterfall project planning, which was very rigid with what was being delivered and when.
-
-Agile methodologies promote doing “just enough” research at the beginning to get the project started, and then learning, iterating, and changing the design and deliverable as needed throughout the project until the final code is delivered. This “change and learn as you go” approach is called “adaptive planning”.
-
-Agile promotes delivering something of value quickly and often, usually in the form of delivering code to production at the end of every two week “sprint”. This, again, is very different from traditional waterfall planning which would often require months of development before any user-visible change could be delivered to production.
-
-Another key part of Agile is the focus it puts on stakeholders working together closely and often. Product, QA, Engineering, and Sales all have a large input and constant feedback on the project through the project lifecycle.
-
-Now that you know a bit more about how Agile works, let’s dive deeper into how we validate value to the user.
-
-Enter the User Story.
-
-![Photo by Mikhail Nilov: https://www.pexels.com/photo/a-hand-pointing-the-sticky-note-on-the-wall-6592358/](https://cdn.hashnode.com/res/hashnode/image/upload/v1733997119683/6002c66a-b11c-4607-a37f-36480a970099.jpeg)
-
-## What is a User Story?
-
-A user story is way in plain English to connect the engineer to the end goal of the software.
-
-It’s designed so that a non-techy can read it and understand what is being delivered, and so that an engineer can look at it and see the value and how to validate that you’ve delivered that value.
-
-### Structure of a User Story
-
-> As a \[type of user\], when I \[perform action\], \[expected outcome\]
-
-At its most basic, that is it.
-
-You are putting the emphasis on the end user and the “value” that you will deliver.
-
-Let’s dig into the inputs:
-
--   **Type of user**: There is no one size fits all “user”. You have “admin users”, you have “logged-in users”, you have “users with permission X” or “users in role Y”. This is being specific about who is performing the action
-    
--   **Perform action**: What is the user doing? Clicking the “login” button? Deleting a record? Submitting a form?
-    
--   **Expected outcome**: Once your user has performed the action, what should happen? If they’ve clicked “login” with the correct email address and password, where should they be directed? If they’ve clicked “login” with an incorrect email address and password, what should happen?
-    
-
-### Example of User Stories
-
-Let’s look at examples of user stories for a login page.
-
-There’s nothing better than examples.
-
-Let’s set the scene. You have a login page with an entry text box for an email address and an entry text box for a password. You have a submit button. That’s it.
-
-What are the different permutations that can happen on this page from the user’s perspective?
-
-> As a logged in user, when the page loads, I am redirected to the logged in home page
-
-If I’m already logged in, I don’t want to have to reenter my details, just redirect me to the logged-in home page.
-
-> As a non logged in user, when I enter the correct email address but incorrect password and click Login, an error message appears
-
-I’m a user who’s not already logged in, and I entered the incorrect details. I should not be logged in.
-
-> As a non logged in user, when I enter an incorrect email address and password and click login, an error message appears.
-
-Again. I’m not a logged-in user. I’ve entered incorrect details, I should not be logged in.
-
-> As a non logged in user, when I enter the correct email address and password and click login, I am rediected to the logged in home page.
-
-This time, I’m not already logged in, I enter the correct details and click login. I’m logged in to the system.
-
-Can you see how all of these are focused on the user?
-
-You may notice that some of the “expected behaviour” in the above is not fully defined. We’ll address that later in the acceptance criteria.
-
-![Photo by cottonbro studio: https://www.pexels.com/photo/manager-considering-project-strategy-by-the-task-board-6804077/](https://cdn.hashnode.com/res/hashnode/image/upload/v1733997173211/1946f2a3-eee3-497e-960b-a6aeac9bd48d.jpeg)
-
-## How to make good User Stories
-
-There’s a good model called the INVEST model that really simply shows how to know if your user stories are good.
-
-**INVEST Model**:
-
--   **I**ndependent: Can be developed separately.
-    
--   **N**egotiable: Open to discussion and change.
-    
--   **V**aluable: Delivers value to the user.
-    
--   **E**stimable: Can be estimated for effort.
-    
--   **S**mall: Fits within a sprint.
-    
--   **T**estable: Has clear acceptance criteria.
-    
-
-Let’s apply this INVEST model to one of the user stories examples from above:
-
-> As a non logged in user, when I enter the correct email address and password and click login, I am rediected to the logged in home page.
-
-_(I’m going to make some assumptions here, as this is a theoretical code base and theoretical project)_
-
-Is this story **Independent**? I would say so, yes. It’s a small story that involves only a few components that probably already exist. If the database hasn’t been created yet though for the project, that would give us a dependency. This would no longer be independent.
-
-Is it **Negotiable**? Well again, yes. This story could easily be changed to redirect to the users profile page rather than their home page.
-
-This story is definitely **valuable.** Once implemented, the user can log in. If the story was:
-
-> As a non logged in user, when I enter the correct email address and password and click login, nothing happens
-
-This would not be valuable. The user would get nothing out of this.
-
-Is the story **estimable**? Again, we have to take some assumptions in this made up scenario, but I would certainly hope that this would be easily estimated. It’s a concise story, involving few components, in a domain that everyone is familiar with and has clear acceptance criteria.
-
-The story is certainly **small.** There is little ambiguity in what needs to be done, there is one user path only and clear outcomes. Let’s take a look at a story that would be too large:
-
-> As a non logged in user, the login page should work as expected.
-
-As discussed further up in this article, there are many ways that the login page can and should work. “Should work as expected” seems to cover all of those permutations. This would be too large to effectively size as a story, and probably too large to be completed in one sprint.
-
-The story is definitely **Testable.** There are clear user actions to take that has a clear outcome. This user story can be covered by Unit Tests, Integration Tests, and Manual Tests.
-
-It looks like we’ve created a good user story!
-
-If you use the structure I’ve defined above, and the story meets the criteria of the INVEST model, it’s probably a good story.
-
-## Common pitfalls in User Story creation
-
-I’ve seen User stories go wrong in the past where people have missed a few crucial aspects to the user story:
-
-### Focusing on the technical aspects
-
-As my examples show above, the user story is non-technical.
-
-There should be no reference to a service name, a database name, or validation based on anything that the user can’t see.
-
-As soon as your story is no longer able to be understood by the end user, you’ve gone wrong.
-
-Focus on what the user is going to do, and what the user is going to see.
-
-Let’s look at an example of a technically focused story:
-
-> As a non logged in user, when I click the forgotten password link with a correct email address, a record is logged in a database table stating that the password reset link has been sent.
-
-This story can not be verified by a user and non technical users may not understand what it means.
-
-Let’s fix it:
-
-> As a non logged in user, when I click the forgotten password link with a correct email address, an email is sent to the email address provided with a forgotten password reset link
-
-Non technical users can understand this and it puts the focus on the user, not the product.
-
-### Stakeholder Collaboration
-
-Agile is collaborative.
-
-User stories need input from Product, BA, QA, Engineers, and most importantly, Users.
-
-This is how you will ensure that you are delivering what the user wants. Many hands make light work.
-
-If, for instance, just an engineering team came up with user stories, they may look something like this:
-
-> As a logged in user, when the page loads, I am redirected to the logged in home page
-> 
-> As a non logged in user, when I enter the correct email address but incorrect password and click Login, an error message appears
-> 
-> As a non logged in user, when I enter an incorrect email address and password and click login, an error message appears.
-
-And that’s great. But now let’s get QA involved, who are coming from a different perspective as they’ve different experiences with software:
-
-> As a non logged in user, when I enter a correct email address in Hebrew and a correct password, I am redirected to the home page
-> 
-> As a non logged in user, when I enter a correct email address and password and repeatedly click login, I am redirected to the home page
-
-Great. We’re getting a more rounded set of user stories now that cover more situations. But what happens if we get Product involved?
-
-> As a non logged in user, when the page loads, my password manager should pre-load my username and password, when I click login, I am redirected to the home page
-
-The Product team know the users. They know that people really use password managers. We should make sure that when the user doesn’t actually type anything (as the text is loaded by the password manager), the login still works correctly.
-
-### Vague User Stories
-
-The idea behind a good user story is that everyone, regardless of expertise, can understand it.
-
-If you’ve written a User Story that. can be interpreted 10 different ways by 10 different people, you’ve gone a bit wrong.
-
-I mentioned above that I would touch on acceptance criteria, and now is the time to do that.
-
-Let’s re-examine the following User Story:
-
-> As a non logged in user, when I enter an incorrect email address and password and click login, an error message appears.
-
-There’s vagueness in there.
-
-What message should appear? When the page reloads after an invalid login attempt, should the username text box be set back to empty, or prepopulated with the previously entered value? What does “incorrect email address” mean? An email address that has never been seen before, or an email address that is not valid at the moment (not paid the subscription, canceled subscription etc.)
-
-So as you can see, details matter.
-
-This User Story is a fairly contrived simple example and I’ve managed to find a lot of questions about it.
-
-Let’s fix the problem:
-
-> As a non logged in user, when I enter an email address that it not registered with the system, when I click login, an error message appears
-
-That removed the questions around the user action but has not resolved the issue about the expected error message.
-
-Enter the acceptance criteria.
-
-Within the user story, you need to have a set of acceptance criteria that defines if the implementation of the user story is as expected.
-
-Things like:
-
--   Error message: “Invalid email address or password”
-    
--   Email Address and Password text box reset to empty on reload
-    
--   User unable to access pages where login is required
-    
--   User is presented with a “forgotten password” suggested.
-    
-
-Acceptance criteria states what is expected from the implementation.
-
-## How to Begin with User Stories
-
-Start small.
-
-You will not be perfect at refining and creating user stories to start with.
-
-Creating user stories is as much an art as a science. Practice makes perfect.
-
-The creation of User Stories should be done as a group. Often, this is done with the “3 Amigoes” approach, where you will have an engineer, a product person and a QA all sit together and brain storm different permutations that you need to support.
-
-Once you have delivered your project, retrospect. Take a look back and see what gaps you have in your user stories. There will be bugs that the users find, that QA and UAT find, and these are either due to gaps in your user stories or gaps in your testing. Either way, you should learn from them for next time.
-
-## Conclusion
-
-Agile is collaborative. Scrum is collaborative. Creating User Stories is collaborative. Remember that.
-
-The more people from different areas of expertise you have brainstorming user story creation, the more likely you are to cover the full set of workflows.
-
-The user is the focus. If you are ever including terminology that your user doesn’t understand, rethink the user story.
-
-You won’t be perfect at this from the start, but as you do more and more, the quicker and more effective you become. Take this from someone who has been doing this for over 10 years. The difference in speed and quality of my User Story creation today vs 10 years ago is a world apart.
-
-Check out my blog posts on my website, [Just Another Tech Lead][14], or sign up to my weekly email news letter [here][15].
-
-[1]: #the-beginnings-of-agile
-[2]: #what-is-agile
-[3]: #what-is-a-user-story
-[4]: #structure-of-a-user-story
-[5]: #example-of-user-stories
-[6]: #how-to-make-good-user-stories
-[7]: #common-pitfalls-in-user-story-creation
-[8]: #focusing-on-the-technical-aspects
-[9]: #stakeholder-collaboration
-[10]: #vague-user-stories
-[11]: #how-to-begin-with-user-stories
-[12]: #conclusion
-[13]: https://agilemanifesto.org/
-[14]: https://justanothertechlead.com
-[15]: https://just-another-tech-lead.kit.com/ca91094ee6
+```markdown 
+--- 
+title: "为初学者编写用户故事：敏捷实践" 
+date: 2025-01-09T15:17:10.190Z 
+author: Ben 
+authorURL: https://www.freecodecamp.org/news/author/justanothertechlead/ 
+originalURL: https://www.freecodecamp.org/news/how-to-write-user-stories-for-beginners/ 
+posteditor: "" 
+proofreader: "" 
+--- 
+ 
+在本教程中，你将了解软件开发敏捷方法中的重要部分：用户故事。 
+ 
+<!-- more --> 
+ 
+我将带你了解什么是用户故事、创建用户故事时常见的陷阱，以及验证用户故事是否“良好”的框架。 
+ 
+### 我们将涵盖以下内容： 
+ 
+-   [敏捷的起源][1] 
+     
+-   [什么是敏捷？][2] 
+     
+-   [什么是用户故事？][3] 
+     
+    -   [用户故事的结构][4] 
+         
+    -   [用户故事示例][5] 
+         
+-   [如何做出好的用户故事][6] 
+     
+-   [用户故事创建中的常见陷阱][7] 
+     
+    -   [关注技术方面][8] 
+         
+    -   [利益相关者合作][9] 
+         
+    -   [模糊的用户故事][10] 
+         
+-   [如何开始用户故事][11] 
+     
+-   [结论][12] 
+     
+ 
+## 敏捷的起源 
+ 
+你可能听说过敏捷开发和用户故事。但如果没有，我们来简要回顾一下历史： 
+ 
+用户故事是一个更大概念的一部分，称为敏捷方法。 
+ 
+敏捷方法自2001年开始存在，当时17位备受尊敬的软件工程师在犹他州的一个滑雪胜地聚集，创建了现在著名的[敏捷宣言][13]。 
+ 
+如果Robert Martin、Martin Fowler和Kent Beck这些名字对你来说无意义，等你看完这篇文章后，去搜索一下。他们拥有丰富的知识，提供了一个更加灵活的软件项目交付方式，称为敏捷。 
+ 
+## 什么是敏捷？ 
+ 
+敏捷更多是一种思维方式，而非规定的方法。规定的方法如Scrum和Kanban存在，但敏捷是一个概念。 
+ 
+敏捷提倡协作、快速反馈，并经常为用户提供价值。 
+ 
+敏捷的思维方式鼓励项目计划中的灵活性，这与当时的竞争对手瀑布式项目计划形成鲜明对比，后者对于交付内容和时间非常死板。 
+ 
+敏捷方法提倡在开始项目时进行“仅够用”的研究，然后在整个项目过程中学习、迭代和更改设计和交付物，直到最终代码交付。这种“边改变边学习”的方法称为“适应性计划”。 
+ 
+敏捷提倡快速且经常地交付有价值的东西，通常是在每两周的“冲刺”结束时将代码交付到生产环境中。这与传统的瀑布式计划大不相同，后者通常需要数月的开发才能交付任何用户可见的变化。 
+ 
+敏捷的另一个关键部分是强调利益相关者密切且经常地合作。在整个项目生命周期中，产品、质量保证、工程和销售都对项目有大量投入并提供持续反馈。 
+ 
+现在你对敏捷的运作方式有了一些了解，让我们深入探讨如何验证用户价值。 
+ 
+进入用户故事。 
+ 
+![Photo by Mikhail Nilov: https://www.pexels.com/photo/a-hand-pointing-the-sticky-note-on-the-wall-6592358/](https://cdn.hashnode.com/res/hashnode/image/upload/v1733997119683/6002c66a-b11c-4607-a37f-36480a970099.jpeg) 
+ 
+## 什么是用户故事？ 
+ 
+用户故事是一种用简单英语连接工程师与软件最终目标的方式。 
+ 
+它的设计目的是让非技术人员可以阅读并理解正在交付什么，让工程师查看它可以看到价值，并知道如何验证你已交付该价值。 
+ 
+### 用户故事的结构 
+ 
+> 作为一个\[用户类型\]，当我\[执行动作\]时，\[预期结果\] 
+ 
+这就是最基本的。 
+ 
+你将重点放在最终用户和你将交付的“价值”上。 
+ 
+让我们深入了解输入： 
+ 
+-   **用户类型**：没有一种适合所有情况的“用户”。你有“管理员用户”、你有“已登录的用户”、你有“具有权限X的用户”或“角色Y的用户”。这就是具体说明谁在执行动作。 
+     
+-   **执行动作**：用户在做什么？点击“登录”按钮？删除记录？提交表单？ 
+     
+-   **预期结果**：一旦用户执行了该动作，应该发生什么？如果他们用正确的电子邮件地址和密码点击“登录”，他们应该被引导到哪里？如果他们用不正确的电子邮件地址和密码点击“登录”，应该发生什么？ 
+     
+ 
+### 用户故事示例 
+ 
+让我们看看登录页面的用户故事示例。 
+ 
+没有什么比示例更好。 
+ 
+让我们设定场景。你有一个登录页面，页面上有一个用于输入电子邮件地址的文本框和一个用于输入密码的文本框。你有一个提交按钮。就是这样。 
+ 
+从用户的角度来看，这个页面上可能发生的不同情况有哪些？ 
+``` 
+ 
+如果我已经登录，我不希望再次输入我的详细信息，只需将我重定向到已登录的主页。 
+ 
+> 作为一个未登录用户，当我输入正确的电子邮件地址但密码错误时，并点击登录，一个错误消息会出现。 
+ 
+我是一个尚未登录的用户，我输入了不正确的信息。我不应该被登录。 
+ 
+> 作为一个未登录用户，当我输入错误的邮箱地址和密码并点击登录时，一个错误消息会出现。 
+ 
+再次说明，我不是一个已登录用户。我输入了不正确的信息，我不应该登录。 
+ 
+> 作为一个未登录用户，当我输入正确的邮箱地址和密码并点击登录时，我被重定向到已登录的主页。 
+ 
+这次，我尚未登录，我输入了正确的信息并点击登录。我登录到了系统。 
+ 
+你能看到这些都是以用户为中心的吗？ 
+ 
+你可能会注意到，上述中的一些"预期行为"没有被完全定义。我们将在验收标准中稍后解决这个问题。 
+ 
+![由 cottonbro studio 拍摄的照片: https://www.pexels.com/photo/manager-considering-project-strategy-by-the-task-board-6804077/](https://cdn.hashnode.com/res/hashnode/image/upload/v1733997173211/1946f2a3-eee3-497e-960b-a6aeac9bd48d.jpeg) 
+ 
+## 如何撰写良好的用户故事 
+ 
+有一个很好的模型称为 INVEST 模型，它简单地展示了如何知道你的用户故事是否好。 
+ 
+**INVEST 模型**： 
+ 
+- **I**ndependent: 可以独立开发。 
+   
+- **N**egotiable: 可以讨论和更改。 
+   
+- **V**aluable: 为用户提供价值。 
+   
+- **E**stimable: 可以估算出工作量。 
+   
+- **S**mall: 可以在一个冲刺中完成。 
+   
+- **T**estable: 有明确的验收标准。 
+ 
+让我们将这个 INVEST 模型应用到上面用户故事的一个例子中： 
+ 
+> 作为一个未登录用户，当我输入正确的邮箱地址和密码并点击登录时，我被重定向到已登录的主页。 
+ 
+（在这个假想的代码库和假想的项目中，我将做一些假设） 
+ 
+这个故事是**独立的**吗？我会说，是的。这是一个小故事，只涉及几个可能已经存在的组件。如果项目的数据库尚未创建，那就会造成依赖。这将不再是独立的。 
+ 
+它是**可协商的**吗？再一次，是的。这个故事可以很容易地改变为重定向到用户的个人资料页面，而不是他们的主页。 
+ 
+这个故事绝对是**有价值的**。一旦实现，用户可以登录。如果故事是： 
+ 
+> 作为一个未登录用户，当我输入正确的邮箱地址和密码并点击登录时，什么也没发生 
+ 
+这将没有价值。用户将从中得不到任何好处。 
+ 
+这个故事是**可估计的**吗？在这个虚构的场景中，我们必须做一些假设，但我当然希望这将很容易估算。它是一个简洁的故事，涉及少数组件，在每个人都熟悉的领域，并具有明确的验收标准。 
+ 
+这个故事当然是**小的**。需要做的事情含糊不清，只有一个用户路径和明确的结果。让我们看看一个太大的故事： 
+ 
+> 作为一个未登录用户，登录页面应该按预期工作。 
+ 
+如本文章中所述，登录页面可以和应该有很多方式工作。“应该按预期工作”似乎涵盖了所有这些情况。这将太大，无法有效地作为故事来估算，并且可能太大以至于无法在一个冲刺中完成。 
+ 
+这个故事绝对是**可测试的**。有明确的用户操作可采取，并有明确的结果。此用户故事可以通过单元测试、集成测试和手动测试来覆盖。 
+ 
+看起来我们创造了一个好的用户故事！ 
+ 
+如果你使用我上面定义的结构，并且故事符合 INVEST 模型的标准，那么它可能是一个好的故事。 
+ 
+## 用户故事创建中的常见陷阱 
+ 
+在过去，我见过用户故事出错，人们错过了一些关键方面： 
+ 
+### 侧重于技术方面 
+ 
+如我上面的例子所示，用户故事是非技术性的。 
+ 
+不应提及服务名称、数据库名称或基于用户看不到的任何内容的验证。 
+ 
+一旦你的故事不再能被终端用户理解，你就走错了方向。 
+ 
+专注于用户将要做什么，以及用户将会看到什么。 
+ 
+让我们看看一个技术上集中的故事： 
+ 
+> 作为一个未登录用户，当我点击正确邮箱地址的忘记密码链接时，会在数据库表中记录一条信息，说明已发送密码重置链接。 
+ 
+这个故事无法由用户验证，非技术用户可能不理解其意义。 
+ 
+让我们修正它： 
+ 
+> 作为一个未登录用户，当我点击正确邮箱地址的忘记密码链接时，会向提供的邮箱地址发送一封包含忘记密码重置链接的电子邮件。 
+ 
+非技术用户可以理解这一点，它把重点放在用户而不是产品上。 
+ 
+### 利益相关者协作 
+ 
+用户故事需要来自产品、业务分析、质量保证、工程师，最重要的是，用户的输入。 
+ 
+这就是你如何确保交付用户所需内容的途径。众人拾柴火焰高。 
+ 
+例如，如果只是一个工程团队编写用户故事，它们可能看起来像这样： 
+ 
+> 作为已登录的用户，当页面加载时，我被重定向到登录主页 
+>  
+> 作为未登录用户，当我输入正确的电子邮件地址但错误的密码并点击登录时，显示错误消息 
+>  
+> 作为未登录用户，当我输入错误的电子邮件地址和密码并点击登录时，显示错误消息。 
+ 
+这很好。但是现在让 QA 参与进来，他们从不同的角度看问题，因为他们对软件有不同的经验： 
+ 
+> 作为未登录的用户，当我输入希伯来文的正确电子邮件地址和正确密码时，我被重定向到主页 
+>  
+> 作为未登录的用户，当我输入正确的电子邮件地址和密码并重复点击登录时，我被重定向到主页 
+ 
+很好。我们现在收集到了更全面的用户故事，涵盖了更多的情况。但如果我们让产品团队参与会怎样？ 
+ 
+> 作为未登录的用户，当页面加载时，我的密码管理器应该预先加载我的用户名和密码，当我点击登录时，我被重定向到主页 
+ 
+产品团队了解用户。他们知道用户确实使用密码管理器。我们应该确保当用户实际上没有输入任何内容时（因为文本是由密码管理器加载的），登录仍能正确工作。 
+ 
+### 模糊的用户故事 
+ 
+一个好的用户故事的理念是每个人，无论其专业水平如何，都能够理解它。 
+ 
+如果你写了一个可以被 10 个人以 10 种不同方式解读的用户故事，那你就有点出错了。 
+ 
+我之前提到过会谈到验收标准，现在是时候做到了。 
+ 
+让我们重新审视以下用户故事： 
+ 
+> 作为未登录的用户，当我输入错误的电子邮件地址和密码并点击登录时，显示错误消息。 
+ 
+这里面有含糊不清的地方。 
+ 
+应该出现什么样的消息？当页面因无效登录尝试而重新加载时，用户名文本框应该重置为空，还是预填入先前输入的值？“错误的电子邮件地址”是什么意思？是指以前从未见过的电子邮件地址，还是当前无效（未支付订阅费，取消订阅等）的电子邮件地址？ 
+ 
+所以，如你所见，细节很重要。 
+ 
+这个用户故事是一个相对简单的例子，我设法找出了很多问题。 
+ 
+让我们来解决问题： 
+ 
+> 作为未登录的用户，当我输入一个未在系统中注册的电子邮件地址时，当我点击登录时，出现错误消息 
+ 
+这消除了关于用户操作的问题，但尚未解决预期错误消息的问题。 
+ 
+引入验收标准。 
+ 
+在用户故事中，你需要有一套验收标准来定义用户故事的实现是否符合预期。 
+ 
+例如： 
+ 
+- 错误消息：“无效的电子邮件地址或密码” 
+     
+- 电子邮件地址和密码文本框在重新加载时重置为空 
+     
+- 用户无法访问需要登录的页面 
+     
+- 用户会看到“忘记密码”的建议。 
+     
+ 
+验收标准说明了实施的预期。 
+ 
+## 如何开始用户故事 
+ 
+从小处开始。 
+ 
+开始时，您无法完美地提炼和创建用户故事。 
+ 
+创建用户故事既是一门艺术，也是一门科学。熟能生巧。 
+ 
+用户故事的创建应该以小组方式进行。通常，这是通过“三个朋友”方法完成的，您将有一名工程师、一名产品人员和一名 QA 坐在一起，头脑风暴需要支持的不同排列组合。 
+ 
+项目交付后，要回顾总结。回顾一下，看看用户故事中有哪些遗漏。有的缺陷是用户发现的，有的是 QA 和 UAT 发现的，这些要么是用户故事中的遗漏，要么是测试中的遗漏。无论哪种情况，您都应该从中吸取教训，为下次做准备。 
+ 
+## 结论 
+ 
+敏捷是协作的。Scrum 是协作的。创建用户故事是协作的。记住这一点。 
+ 
+越多来自不同专业领域的人参与到用户故事创建的头脑风暴中，您就越可能覆盖整个工作流程。 
+ 
+用户是中心。如果您使用了用户无法理解的术语，请重新考虑用户故事。 
+ 
+您不会从一开始就做到完美，但随着做得越来越多，您会变得越来越快、越来越有效。对于这点，请相信一个有超过 10 年经验的人。今天我的用户故事创建的速度和质量与 10 年前相比可谓天壤之别。 
+ 
+请查看我的博客文章，网址在我的网站上，[Just Another Tech Lead][14]，或在此订阅我的每周电子邮件简报 [here][15]。 
+ 
+[1]: #the-beginnings-of-agile 
+[2]: #what-is-agile 
+[3]: #what-is-a-user-story 
+[4]: #structure-of-a-user-story 
+[5]: #example-of-user-stories 
+[6]: #how-to-make-good-user-stories 
+[7]: #common-pitfalls-in-user-story-creation 
+[8]: #focusing-on-the-technical-aspects 
+[9]: #stakeholder-collaboration 
+[10]: #vague-user-stories 
+[11]: #how-to-begin-with-user-stories 
+[12]: #conclusion 
+[13]: https://agilemanifesto.org/ 
+[14]: https://justanothertechlead.com 
+[15]: https://just-another-tech-lead.kit.com/ca91094ee6 
+ 
+ 
