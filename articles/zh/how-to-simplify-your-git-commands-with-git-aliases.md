@@ -5,7 +5,7 @@ date: 2025-01-10T14:23:59.725Z
 author: Grant Riordan
 authorURL: https://www.freecodecamp.org/news/author/grantdotdev/
 originalURL: https://www.freecodecamp.org/news/how-to-simplify-your-git-commands-with-git-aliases/
-posteditor: ""
+posteditor: "66"
 proofreader: ""
 ---
 
