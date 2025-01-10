@@ -40,7 +40,7 @@ jobs:
       - name: Crawl pages and generate Markdown files
         id: fetch-webpage-to-markdown
         continue-on-error: true
-        uses: miyaliu666/article-webpage-to-markdown-action@feat/add-trailing-spaces
+        uses: freecodecamp/article-webpage-to-markdown-action@dev
         with:
           newsLink: '${{ github.event.issue.Body }}'
           includeSelector: 'span.author-card-name,section.post-content'
@@ -69,7 +69,7 @@ jobs:
 
       # Translate
       - name: Articles auto translate
-        uses: miyaliu666/article-webpage-to-markdown-action@feat/add-trailing-spaces
+        uses: miyaliu666/articles-auto-translate-action@feat/add-trailing-spaces
         with:
           with_issue_title: '${{ github.event.issue.title }}'
           with_issue_body: '${{ github.event.issue.Body }}'
