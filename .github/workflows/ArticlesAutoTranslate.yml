@@ -40,7 +40,7 @@ jobs:
       - name: Crawl pages and generate Markdown files
         id: fetch-webpage-to-markdown
         continue-on-error: true
-        uses: miyaliu666/article-webpage-to-markdown-action@add-trailing-spaces
+        uses: miyaliu666/article-webpage-to-markdown-action@feat/add-trailing-spaces
         with:
           newsLink: '${{ github.event.issue.Body }}'
           includeSelector: 'span.author-card-name,section.post-content'
