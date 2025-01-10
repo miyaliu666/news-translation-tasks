@@ -1,6 +1,6 @@
 ---
 title: How to Simplify Your Git Commands with Git Aliases
-date: 2025-01-10T13:45:08.074Z
+date: 2025-01-10T14:23:59.725Z
 author: Grant Riordan
 authorURL: https://www.freecodecamp.org/news/author/grantdotdev/
 originalURL: https://www.freecodecamp.org/news/how-to-simplify-your-git-commands-with-git-aliases/
