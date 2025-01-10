@@ -1,4 +1,5 @@
 ---
+
 title: 2025年freeCodeCamp课程重大更新现已上线
 date: 2025-01-10T15:18:43.371Z
 author: Quincy Larson
@@ -8,9 +9,8 @@ posteditor: ""
 proofreader: ""
 ---
 
-圣诞快乐，campers！🎄 freeCodeCamp 刚刚发布了大量免费的学习工具，供您在假期中深入学习：
 
-<!-- more -->
+圣诞快乐，campers！🎄 freeCodeCamp 刚刚发布了大量免费的学习工具，供您在假期中深入学习：
 
 🏗️ 新的认证全栈开发者课程已上线！
 
@@ -88,4 +88,3 @@ freeCodeCamp 移动应用现在比以往更好。我们的 Flutter 代码库已�
 [4]: https://apps.apple.com/us/app/freecodecamp/id6446908151
 [5]: https://contribute.freecodecamp.org
 [6]: https://www.freecodecamp.org/donate
-
