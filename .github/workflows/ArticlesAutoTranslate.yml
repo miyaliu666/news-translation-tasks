@@ -69,7 +69,7 @@ jobs:
 
       # Translate
       - name: Articles auto translate
-        uses: freeCodeCamp/articles-auto-translate-action@main
+        uses: miyaliu666/article-webpage-to-markdown-action@feat/add-trailing-spaces
         with:
           with_issue_title: '${{ github.event.issue.title }}'
           with_issue_body: '${{ github.event.issue.Body }}'
