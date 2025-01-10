@@ -8,7 +8,7 @@ posteditor: ""
 proofreader: ""
 ---
 
-圣诞快乐，露营者们！🎄 freeCodeCamp 刚刚发布了大量免费的学习工具，供您在假期中深入学习：
+圣诞快乐，campers！🎄 freeCodeCamp 刚刚发布了大量免费的学习工具，供您在假期中深入学习：
 
 <!-- more -->
 
