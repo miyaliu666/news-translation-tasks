@@ -1,11 +1,11 @@
 ```markdown
 ---
-title: 如何使用 AI 与任何数据库对话——构建您自己的 SQL 查询数据提取器
+title: 如何使用 AI 与任何数据库对话——构建你自己的 SQL 查询数据提取器
 date: 2025-01-10T14:44:05.268Z
 author: Prankur Pandey
 authorURL: https://www.freecodecamp.org/news/author/prankurpandeyy/
 originalURL: https://www.freecodecamp.org/news/talk-to-databases-using-ai-build-a-sql-query-data-extractor/
-posteditor: ""
+posteditor: "miyliu66"
 proofreader: ""
 ---
 
