@@ -1,6 +1,5 @@
-```markdown
 ---
-title: 如何用 Git 别名简化 Git 命令
+title: How to Simplify Your Git Commands with Git Aliases
 date: 2025-01-10T14:23:59.725Z
 author: Grant Riordan
 authorURL: https://www.freecodecamp.org/news/author/grantdotdev/
@@ -9,196 +8,197 @@ posteditor: ""
 proofreader: ""
 ---
 
-作为开发者，你可能每天都在使用 Git CLI（命令行界面）。然而，反复输入相同的命令，尤其是冗长的命令，可能会很麻烦。这时候，Git 别名就能帮上忙了。
+As a developer, you probably use the Git CLI (Command Line Interface) daily. However, writing the same old commands repeatedly can be laborious, especially when the commands are lengthy. This is where Git aliases come in to help out.
 
 <!-- more -->
 
-在本文中，你将学习如何使用别名来简化你的 Git 命令。
+In this article, you’ll learn how to simplify your Git commands by using aliases.
 
-## 目录
+## Table of Contents
 
--   [先决条件][1]
+-   [Prerequisites][1]
     
--   [什么是 Git 别名？][2]
+-   [What Are Git Aliases?][2]
     
--   [如何通过全局 Git 配置文件添加 Git 别名（推荐）][3]
+-   [How to Add Git Aliases Via the Global Git Configuration File (Recommended)][3]
     
-    -   [如何设置首选的 Git 编辑器][4]
+    -   [How to Set Your Preferred Git Editor][4]
         
-    -   [如何打开 Git 配置文件][5]
+    -   [How to Open the Git Config File][5]
         
-    -   [如何通过配置文件添加 Git 别名][6]
+    -   [How to Add a Git Alias Via Your Config File][6]
         
--   [如何在 CLI 中添加别名][7]
+-   [How to Add Aliases in the CLI][7]
     
--   [如何创建用于更复杂快捷方式的自定义命令][8]
+-   [How to Create Custom Commands for More Complex Shortcuts][8]
     
-    -   [如何在所有命令中使用参数][9]
--   [其他有用的别名][10]
+    -   [How to Use Parameters in All Commands][9]
+-   [Other Useful Aliases][10]
     
--   [总结][11]
-    
-
-## 先决条件
-
--   Git 知识。
-    
--   安装了 Git Bash（可选但推荐给 Windows 用户）。
-    
--   像 VS Code 这样的集成开发环境（这也是可选的）。
+-   [Summary][11]
     
 
-## 什么是 Git 别名？
+## Prerequisites
 
-Git 别名是现有 Git 命令的自定义快捷方式，使常见任务更快速、更简单。它们允许你定义自己的命令，帮助你定制快捷方式。
+-   Knowledge of Git.
+    
+-   Git Bash installed (optional but recommended Windows users).
+    
+-   An IDE like VS Code (this is also optional).
+    
 
-你有两个主要选项可以在你的 git 配置中添加/创建 git 别名，使用你的 Git 配置文件或直接通过 CLI（终端/命令行）添加。
+## What Are Git Aliases?
 
-## 如何通过全局 Git 配置文件添加 Git 别名（推荐）
+Git aliases are custom shortcuts for existing Git commands, making common tasks quicker and easier. They let you define your commands, allowing you to tailor shortcuts exactly how you want.
 
-此选项需要打开你的全局 git 配置文件，并将你的 git 别名追加到文件的末尾。
+You have two main options for adding/creating git aliases in your git configuration, using your Git configuration file or adding them directly via the CLI (terminal/command line).
 
-### 如何设置首选的 Git 编辑器
+## How to Add Git Aliases Via the Global Git Configuration File (Recommended)
 
-设置你的默认 Git 配置编辑器软件，例如，我使用 VS Code 来编辑我的 Git 配置文件，但你可以使用任何你喜欢的文本编辑器/代码编辑器。
+This option involves opening your global git config file and appending your git aliases to the bottom of the file.
 
-运行此命令以在 Windows（CMD/PowerShell）上设置 Notepad 为首选编辑器：
+### How to Set Your Preferred Git Editor
+
+Set your default Git config editor software, for example, I use VS Code to edit my Git configuration file, but you can use whatever text editor/code editor you prefer.
+
+Run this command to set Notepad as your preferred editor on Windows (CMD/PowerShell):
 
 ```
 git config --global core.editor "notepad"
 ```
 
-运行此命令以在 Windows 和 MacOS/Linux 上设置 VS Code 为首选编辑器：
+Run this command to set VS Code as your preferred editor on Windows & MacOS /Linux:
 
 ```
 git config --global core.editor "code --wait"
 ```
 
-要设置其他默认编辑器，在线搜索“Set {editor} as default Git editor”，并用你喜欢的应用程序替换 `{editor}`。
+To set a different default editor, search online for “Set {editor} as default Git editor,” and replace `{editor}` with your preferred app.
 
-### 如何打开 Git 配置文件
+### How to Open the Git Config File
 
-打开你选择的终端并输入以下命令。这将以编辑模式（`-e`）打开全局 Git 配置文件（`git config —global`）。
+Open your terminal of choice and enter the following command. This will open the global Git config file (`git config —global`), in edit mode (`-e`).
 
 ```
 git config --global -e
 ```
 
-你可以直接从以下位置打开 git 配置文件：
+You can open the git configuration file directly from the following locations:
 
-**Mac Os**: 主目录 → 显示隐藏文件（Cmd + Shift + H） → `.gitconfig`
+**Mac Os**: Home Directory → show hidden (Cmd + Shift + H) → `.gitconfig`
 
-**Windows**: `C:\Users\YourUsername\` → 然后显示隐藏文件（在视图中）→ 找到 `.gitconfig`
+**Windows**: `C:\Users\YourUsername\` → then show hidden files (in View) → and find `.gitconfig`
 
-**Linux:** 主目录 → 显示隐藏文件（Ctrl + H） → `.gitconfig`
+**Linux:** Home Directory → show hidden (Ctrl + H) → `.gitconfig`
 
-### 如何通过配置文件添加 Git 别名
+### How to Add a Git Alias Via Your Config File
 
-如果你是第一次添加 Git 别名，打开你的 `.gitconfig` 文件，在末尾添加 `[alias]`，然后在下面列出你的快捷方式。这会告诉 Git 这些是别名。添加你喜欢的别名（你想运行的简化命令）。
+If you're adding Git aliases for the first time, open your `.gitconfig` file, add `[alias]` at the end, and then list your shortcuts below. This tells Git these are aliases. Add your preferred alias (the shortened command you wish to run).
 
-Git 别名的格式是 `<alias> = <command>`，所以我们有：
+The format of a git alias is `<alias> = <command>`, so we have:
 
 ```
 co = checkout
 cob = checkout -b
 ```
 
-**上述例子的说明：**
+**Explanation of the above examples:**
 
-`co = checkout` 这个将 `git checkout` 命令映射为更短的 `git co` 命令。然后你可以在终端中执行 `git co feature/123`。
+`co = checkout` this maps the `git checkout` command to a shorter `git co` command. You’d then call `git co feature/123` in your terminal.
 
-你不需要在命令前面输入 `git`，因为配置文件会自动前缀，因为它知道你正在映射的是一个 Git 命令。
+You do not need to type `git` in front of the command, as the configuration will pre-pend this automatically as it knows the command you’re mapping is a Git command.
 
-**注意**：任何传递给命令的参数将仅应用于别名中调用的最终命令。
+**Note**: Any parameters passed to the command will be applied to the final command called within the alias only.
 
-可以以这种方式添加更多别名，将快捷方式映射到现有 git 命令。保存并关闭文件后，别名将在你的终端中可用。
+More aliases can be added in this way, mapping shortcuts to existing git commands. Saving and closing the file will then make the aliases available within your terminal.
 
-## 如何在 CLI 中添加别名
+## How to Add Aliases in the CLI
 
-如果你想采用更简洁的方法来添加 Git 别名，你可以直接在终端/命令行中添加它们。
+If you want a more streamlined approach to adding Git aliases, you can add them directly from within the terminal/command line.
 
-以上面的例子为例，我们可以通过以下方式直接添加这些别名：
+Taking the examples above, we can add these directly in the following way:
 
-命令的格式是：`git config --global alias.{alias} "{original command}"`：
+The format of the command is: `git config --global alias.{alias} "{original command}"`:
 
 ```
 git config --global alias.co "checkout"
-#或
+#or
 git config --global alias.cob "checkout -b"
 ```
 
-就是这么简单！
+It’s as easy as that!
 
-## 如何创建用于更复杂快捷方式的自定义命令
+## How to Create Custom Commands for More Complex Shortcuts
 
-好吧，这看起来不错，但并不算太惊艳——我们只是移除了一些字符。然而，我们可以让它们更有用，我们可以使用 shell 命令创建我们的命令。
+Ok, this seems great, but it’s not really that impressive – we’re only removing a few characters. However, we can make them much more helpful, we can create our commands using shell commands.
 
-让我们看看以下这个我常用的命令示例！
+Let’s take the following example, a command I use a lot!
 
 ```
 new-work = !git checkout main && git pull && git cob
 ```
 
-这个别名将多个 Git 命令组合成一个 shell 命令。`!` 字符告诉 Git 将其视为 shell 命令，而不是标准 Git 命令。
-```
+This alias combines multiple Git commands into one shell command. The `!` character tells Git to treat it as a shell command, not a standard Git command.
 
-通过将这些命令链接在一起，我们可以编写更有用的别名。上面的命令将会：
+Without `!`, Git treats the alias as a Git command (for example, `checkout` becomes `git checkout`). With `!`, Git knows to run it as a shell command without adding `git` in front.
 
--   首先，切换到 `main` 分支。
+By chaining these commands, we can write much more useful aliases. The one above will:
+
+-   First, check out the `main` branch.
     
--   使用 `&&` 操作符，这表示其他命令只有在前一个命令成功时才会运行。
+-   Using the `&&` operator, it means the other commands will only run if the previous one has been successful.
     
--   第二步，它将从 `main` 拉取更改。
+-   Secondly, it will pull down the changes from `main`.
     
--   最后，使用我们另一个别名 `git cob` 从 `main` 分支创建一个新分支。
+-   Finally, create a new branch from the `main` branch using our other alias `git cob`.
     
 
-最终命令可以接受参数（就像原始的 Git 命令一样），所以可以这样使用：
+The final command can then accept parameters (as the original Git command would), so it can be used like so:
 
 ```
 git new-work 'feature/new-work-from-main'
 ```
 
-### 如何在所有命令中使用参数
+### How to Use Parameters in All Commands
 
-到目前为止，我们只能将参数传递给别名中的最终 git 命令。然而，如果我们想将参数传递给别名中的某些命令甚至所有命令，该怎么办？我们可以通过使用 shell 函数来实现这一点。
+Up until now, we’ve only been able to pass our parameters to the final git command in our alias. However, what if we want to pass parameters to some, if not all of the commands within the alias? We can achieve this by using a shell function.
 
-以下是一个示例：
+Take the following example:
 
 ```
 new-work = "!f() { git checkout \"$1\" && git pull && git checkout -b \"$2\"; }; f"
 ```
 
-上面我们使用了一个处理输入参数的 shell 函数。
+Above we’re using a shell function that processes input parameters.
 
-**解释：**
+**Explanation:**
 
 1.  `!f()`:
     
-    -   `!` 告诉 Git 将别名解释为 shell 命令而不是标准 Git 命令。
+    -   The `!` tells Git to interpret the alias as a shell command rather than a standard Git command.
         
-    -   `f()` 定义了一个 shell 函数 `f`，它允许我们按顺序执行多个命令。
+    -   `f()` defines a shell function `f` that will allow us to execute multiple commands in sequence.
         
-2.  大括号 `{ }` 中的所有内容都是将在函数 `f()` 中执行的内容。
+2.  Everything inside `{ }` is what will be executed within the `f()` function.
     
-3.  `git checkout \"$1\"`: 将运行一个参数化的 Git 命令，其中 `$1` 被转义，且将替换为传递给别名的第一个参数。 `\"` 转义序列允许分支名称中包含空格。
+3.  `git checkout \”$1”'\`: Will run a parameterized Git command, where `$1` is escaped and will be replaced with the 1st parameter passed to the alias. The `\"` escape sequences around `$1` allow for branch names with spaces.
     
-4.  `&&` 是一个逻辑操作符，确保每个命令只有在前一个成功时才运行。如果 `git checkout \"$1\"` 失败，后续命令将不会运行。
+4.  `&&` is a logical operator that ensures each command only runs if the previous one succeeds. If `git checkout "$1"` fails, the commands that follow won’t run.
     
-5.  `git checkout -b \"$2\"`: 用第二个参数的名称创建一个新分支。
+5.  `git checkout -b \”$2”\` : Creates a new branch with the name of the second parameter as before.
     
-6.  `;`: 表示 `f()` 函数的结束；
+6.  `;`: Marks the end of the `f()` function;
     
-7.  `f`: 最后的 `f` 立即调用别名函数，这意味着当调用别名时，它声明函数并立即调用它。
+7.  `f`: The final `f` calls the alias function immediately, meaning that when you call the alias, it declares the function and then calls it immediately.
     
 
-**用法：**
+**Usage:**
 
 ```
 git new-work development task/feat-123
 ```
 
-## 其他有用的别名
+## Other Useful Aliases
 
 ```
 [alias]
@@ -214,34 +214,34 @@ git new-work development task/feat-123
     br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
 ```
 
-## 总结
+## Summary
 
-`co:` 切换到指定分支 → `git co task/feat-123`
+`co:` Checkout given branch → `git co task/feat-123`
 
-`cob`: 从当前分支创建新分支 → `git cob feature/123`
+`cob`: Creates a new branch from the current branch → `git cob feature/123`
 
-`s`: 调用 `git status` 查看当前 git 分支的状态 → `git s`
+`s`: Calls `git status` to view the status of the current git branch → `git s`
 
-`tidy-up`: 删除除 `main` 以外的所有本地分支 → `git tidy-up`
+`tidy-up`: Deletes all local branches other than `main` → `git tidy-up`
 
-`latest`: 获取远程 `main` 分支的最新更改 → `git latest`
+`latest`: Gets the latest changes from remote `main` branch → `git latest`
 
-`new-work`: 从第一个参数的分支创建一个新分支（第二个参数） → `git new-work main feat/123`
+`new-work`: Creates a new branch (2nd param) from 1st param branch → `git new-work main feat/123`
 
-`git done`: 将当前分支推送到远程存储库 (`origin`) 并将其设置为上游分支。在你首次推送并收到错误时，这可能会很有帮助：  
+`git done`: Pushes the current branch to the remote repository (`origin`) and sets it as the upstream branch. This can be helpful when pushing your first commit and you get the error:  
 `fatal: The current branch has no upstream branch. To push the current branch and set the remote as upstream, use git push --set-upstream origin`
 
-`save`: 将所有更改的文件添加并提交，打开默认的 Git 编辑器并请求提交消息 → `git save`
+`save`: Will simply add all changed files, and commit them, opening your default Git editor and requesting a commit message → `git save`
 
-`savem`: 执行与上述相同的操作，但不打开编辑器，你可以在线传递提交消息 → `git savem ‘Task123: add index.html`
+`savem`: Will do as above, but instead of opening your editor, you can pass in a commit message inline → `git savem ‘Task123: add index.html`
 
-`br:` 看起来很复杂，但并不像看起来那么复杂，不过确实展示了别名的强大功能。本质上，它自定义了 `git branch` 的输出格式，以按最近提交日期显示详细、彩色编码的分支列表，类似于下图显示的内容，你本地的每个分支都会显示为这种格式。
+`br:` This one looks complicated, but it’s not as complicated as it seems but does highlight the power of aliases. In essence, it customizes the output format of `git branch` to display a detailed, color-coded list of branches, sorted by the most recent commit date, it will look something like the image below for each branch you have locally.
 
 ![36008ee8-e54e-4b06-8a84-2a20885a1255](https://cdn.hashnode.com/res/hashnode/image/upload/v1730060113591/36008ee8-e54e-4b06-8a84-2a20885a1255.png)
 
-这就是 Git 别名的介绍以及一些你可以添加为配置入门的别名实例。
+There you have it, an introduction to Git aliases and some useful examples of aliases you can add as a starter to your configuration.
 
-如果你想讨论这些内容或了解未来的文章，可以随时在 [Twitter][12] 上关注我。
+As always if you want to chat about it, or hear about future articles you can follow me on [Twitter][12].
 
 [1]: #heading-prerequisites
 [2]: #heading-what-are-git-aliases
@@ -255,4 +255,3 @@ git new-work development task/feat-123
 [10]: #heading-other-useful-aliases
 [11]: #heading-summary
 [12]: https://x.com/grantdotdev
-
