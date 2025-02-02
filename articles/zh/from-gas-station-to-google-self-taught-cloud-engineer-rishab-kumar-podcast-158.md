@@ -4,7 +4,7 @@ date: 2025-02-02T14:09:41.935Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/from-gas-station-to-google-self-taught-cloud-engineer-rishab-kumar-podcast-158/
-posteditor: ""
+posteditor: "miya"
 proofreader: ""
 ---
 
