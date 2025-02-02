@@ -4,7 +4,7 @@ date: 2025-02-02T13:54:44.596Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/rahul-pandey-quit-his-800k-per-year-faang-developer-job-to-build-a-startup-podcast-137/
-posteditor: ""
+posteditor: "miya"
 proofreader: ""
 ---
 
