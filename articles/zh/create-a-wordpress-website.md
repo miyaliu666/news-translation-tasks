@@ -1,5 +1,6 @@
+```markdown
 ---
-title: Create a WordPress Website
+title: 创建一个 WordPress 网站
 date: 2025-02-03T13:34:47.987Z
 author: Beau Carnes
 authorURL: https://www.freecodecamp.org/news/author/beaucarnes/
@@ -8,69 +9,72 @@ posteditor: ""
 proofreader: ""
 ---
 
-Building a website might seem daunting, but WordPress makes it accessible to everyone. With WordPress, you can create a professional website tailored to your needs, whether it’s for a personal blog, a small business, or an online store. The platform’s flexibility and ease of use have made it one of the most popular website-building tools worldwide.
+建立一个网站可能看起来很吓人，但 WordPress 让每个人都可以接触到。使用 WordPress，你可以根据自己的需求创建一个专业网站，无论是用于个人博客、小型企业还是在线商店。该平台的灵活性和易用性使其成为全球最受欢迎的网站建设工具之一。
 
 <!-- more -->
 
-We just published a **beginner-friendly WordPress course** on the freeCodeCamp.org YouTube channel to guide you through every step of creating a WordPress website. Whether you’re starting from scratch or looking to refine your skills, this course equips you with all the tools and knowledge you need to succeed. And best of all, the course was developed by me!
+我们刚刚在 freeCodeCamp.org 的 YouTube 频道上发布了一门**适合初学者的 WordPress 课程**，它将指导您完成创建 WordPress 网站的每一步。无论您是从头开始还是希望完善自己的技能，本课程都会为您提供成功所需的所有工具和知识。而且，最好的是，这门课程是由我开发的！
 
-### What You’ll Learn in This Course
+### 您将在本课程中学到的内容
 
-In this comprehensive course, you’ll go from zero to a fully functioning WordPress website. Here’s what you’ll cover:
+在这门综合课程中，您将从零开始，构建一个功能齐全的 WordPress 网站。以下是您将学习的内容：
 
--   **Getting Started with WordPress:**
+- **开始使用 WordPress：**
     
-    -   Understand what WordPress is and why it’s a great choice for building websites.
-        
-    -   Learn how to get a domain name and hosting, essential for making your site accessible online.
-        
--   **Installing and Setting Up WordPress:**
+    - 理解什么是 WordPress 及其为什么是建站的绝佳选择。
     
-    -   Step-by-step guidance on installing WordPress and setting up your site.
+    - 学习如何获取域名和主机，这是使您网站在线访问的必要条件。
         
-    -   Learn how to create a custom email for your domain.
-        
--   **Customizing Your Website:**
+- **安装和设置 WordPress：**
     
-    -   Explore the WordPress dashboard and configure important settings.
-        
-    -   Learn how to install plugins to add features and functionalities to your site.
-        
-    -   Install and customize a theme to give your site the exact look and feel you want.
-        
--   **Building and Personalizing Your Website:**
+    - 逐步指导安装 WordPress 并设置您的网站。
     
-    -   Use **Elementor**, a powerful page builder, to create visually stunning pages without writing code.
+    - 学习如何为您的域创建自定义电子邮件。
         
-    -   Add logos, menus, and custom HTML elements to make your website unique.
-        
-    -   Customize pages like "About" and "Contact," including creating and updating a contact form.
-        
--   **Making Your Site Responsive:**
+- **自定义您的网站：**
     
-    -   Learn how to ensure your website looks great on all devices, from desktops to smartphones.
--   **Adding a Blog:**
+    - 探索 WordPress 仪表盘并配置重要设置。
     
-    -   Set up a blog on your site and create posts using an AI content creator.
+    - 学习如何安装插件以增加您网站的功能。
+    
+    - 安装并自定义主题，为您的网站赋予您想要的外观和风格。
         
-    -   Customize your blog layout to align with your website’s design.
+- **构建和个性化您的网站：**
+    
+    - 使用**Elementor**，一个强大的页面构建器，无需编写代码即可创建视觉上令人惊叹的页面。
+    
+    - 添加徽标、菜单和自定义 HTML 元素，使您的网站独特。
+    
+    - 自定义“关于”和“联系”等页面，包括创建和更新联系表单。
+        
+- **使您的网站响应式：**
+    
+    - 学习如何确保您的网站在所有设备上都看起来很棒，从台式机到智能手机。
+    
+- **添加博客：**
+    
+    - 在您的网站上设置一个博客，并使用 AI 创建器创建文章。
+    
+    - 自定义您的博客布局，以与您网站的设计保持一致。
         
 
-### Course Highlights
+### 课程亮点
 
--   **Hands-On Learning:** Each section includes practical, step-by-step instructions to help you build your site as you follow along.
+- **动手学习：** 每个部分都包含实用的分步说明，帮助您在跟随课程的同时建立您的网站。
     
--   **No Coding Required:** Perfect for beginners, this course leverages WordPress tools and plugins to simplify the process.
+- **无需编码：** 适合初学者，本课程利用 WordPress 工具和插件简化了流程。
     
--   **Professional Tips:** Learn best practices for site design, responsiveness, and functionality to create a polished and professional website.
+- **专业提示：** 学习网站设计、响应性和功能的最佳实践，以创建一个精致专业的网站。
     
 
-### Why Take This Course?
+### 为什么要参加这门课程？
 
-By the end of the course, you’ll have a fully customized WordPress website and the confidence to manage and update it independently. Whether you’re a business owner, a creative professional, or someone who wants an online presence, this course will empower you to bring your vision to life.
+到课程结束时，您将拥有一个完全自定义的 WordPress 网站，并且有信心独立管理和更新它。无论您是企业主、创意专业人士，还是希望拥有在线形象的人，本课程都将赋予您实现愿景的能力。
 
-Ready to get started? Watch the full course on [freeCodeCamp.org’s YouTube channel][1] (1-hour watch).
+准备好开始了吗？在 [freeCodeCamp.org 的 YouTube 频道][1] 上观看完整课程（1 小时观看）。
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R4v_7hh4Yys" style="aspect-ratio: 16 / 9; width: 100%; height: auto;" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" loading="lazy"></iframe>
 
 [1]: https://youtu.be/R4v_7hh4Yys
+```
+
