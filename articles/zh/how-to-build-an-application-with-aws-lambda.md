@@ -1,5 +1,5 @@
 ---
-title: How to Build an Application with AWS Lambda
+title: 如何使用 AWS Lambda 构建应用程序
 date: 2025-02-03T12:50:57.535Z
 author: Ijeoma Igboagu
 authorURL: https://www.freecodecamp.org/news/author/Ijay/
@@ -8,169 +8,167 @@ posteditor: ""
 proofreader: ""
 ---
 
-AWS Lambda is a service from Amazon Web Services (AWS) that lets you run your code in response to events without managing servers. It’s a simple and scalable way to build applications.
+AWS Lambda 是亚马逊网络服务（AWS）的一项服务，它允许您在响应事件时运行代码，而无需管理服务器。这是一种简单且可扩展的构建应用程序的方法。
 
 <!-- more -->
 
-In this tutorial, I’ll show you how to use AWS Lambda with three other services:
+在本教程中，我将向您展示如何将 AWS Lambda 与其他三个服务结合使用：
 
--   **Amazon S3** for storing files, images, and videos
+-   **Amazon S3** 用于存储文件、图像和视频
     
--   **Amazon Simple Notification Service (SNS)** for sending notifications
+-   **Amazon Simple Notification Service (SNS)** 用于发送通知
     
--   **Amazon EventBridge** for scheduling messages
-    
-
-We’ll go through everything step by step.
-
-By the end, with the integration of the other services, you will have built a Goal Manifestation Quote App that sends random inspirational messages to keep you motivated and focused on your goals.
-
-### Prerequisites
-
--   An AWS account: If you don’t have one, sign up [here][1].
-    
--   A GitHub repository: This is for storing your source code. If you don’t have a GitHub account, you can create one [here][2].
-    
--   An Integrated Development Environment (IDE) such as [Visual Studio Code][3] or [Sublime Text][4].
-    
--   A basic knowledge of web development and any programming language of your choice. I used Python for this tutorial.
-    
--   [Zenquote Random API][5]
+-   **Amazon EventBridge** 用于安排消息
     
 
-### What You'll Learn
+我们将逐步进行每个步骤。
 
--   How to create an Amazon S3 bucket
-    
--   How to use Amazon Simple Notification Service (SNS)
-    
--   How to use Amazon Lambda
-    
--   How to use Amazon EventBridge
-    
+到最后，通过与其他服务的集成，您将构建一个目标实现语录应用，它会发送随机的励志信息，以保持您的动力和专注于目标。
 
-## **Table of Contents**
+### 前提条件
 
-1.  [Step 1: Set Up Your Development Environment][6]
+-   一个 AWS 账户：如果您还没有账户，请在[这里][1]注册。
     
-2.  [Step 2: Create an Amazon Simple Storage Service (S3)][7]
+-   一个 GitHub 仓库：用于存储您的源代码。如果您没有 GitHub 账户，可以在[这里][2]创建一个。
     
-3.  [Step 3: Create an Amazon Simple Notification Service (SNS)][8]
+-   集成开发环境 (IDE)，例如 [Visual Studio Code][3] 或 [Sublime Text][4]。
     
-4.  [Step 4: Create an IAM Policy][9]
+-   基本的 Web 开发知识和您选择的任何编程语言。我在本教程中使用了 Python。
     
-5.  [Step 5: Create an Amazon Lambda function][10]
-    
-6.  [Step 6: Create an EventBridge][11]
-    
-7.  [Step 7. Upload Your Code][12]
-    
-8.  [Conclusion][13]
+-   [Zenquote 随机 API][5]
     
 
-![Let's get started 🚀](https://cdn.hashnode.com/res/hashnode/image/upload/v1736791948488/38dfe402-1050-410d-869b-0cef2797b792.png)
+### 您将学到什么
 
-## Step 1: Set Up Your Development Environment
-
-In this step, you'll get everything set up. Start by signing in to your AWS account, then install [Python][14] if you don't have it on your IDE.
-
-## **Step 2: Create an Amazon Simple Storage Service (S3)**
-
-Before we begin creating an S3 bucket, let's first understand what Amazon S3 is:
-
-**Amazon S3 (Simple Storage Service)** is a service from Amazon that allows you to store and access any amount or type of data, such as photos, videos, documents, and backups, whenever you need it.
-
-Now that you know the basics of what Amazon S3 is, let's return to the tutorial.
-
-### Create an S3 Bucket
-
-There are several ways to create an S3 bucket, but for this tutorial, we'll use the [Ubuntu command line (CMD)][15], your terminal, or **Amazon CloudShell**, depending on what you're most comfortable with.
-
--   Type boto3 s3 in the web search bar to view a list of related documentation.
+-   如何创建一个 Amazon S3 存储桶
     
--   Click on the first result.
+-   如何使用 Amazon Simple Notification Service (SNS)
+    
+-   如何使用 Amazon Lambda
+    
+-   如何使用 Amazon EventBridge
     
 
-![Regular Google search](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792137101/5f38b4ec-fa23-41b3-b108-ca7fc7b390ba.png)
+## **目录**
 
--   Once the documentation is open, copy the first command you see.
+1.  [步骤 1：设置您的开发环境][6]
+    
+2.  [步骤 2：创建 Amazon Simple Storage Service (S3)][7]
+    
+3.  [步骤 3：创建 Amazon Simple Notification Service (SNS)][8]
+    
+4.  [步骤 4：创建一个 IAM 策略][9]
+    
+5.  [步骤 5：创建一个 Amazon Lambda 函数][10]
+    
+6.  [步骤 6：创建一个 EventBridge][11]
+    
+7.  [步骤 7：上传您的代码][12]
+    
+8.  [结论][13]
+    
 
-![boto3 command](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792202800/5647c731-734f-4134-a558-9d66eee47734.png)
+![让我们开始 🚀](https://cdn.hashnode.com/res/hashnode/image/upload/v1736791948488/38dfe402-1050-410d-869b-0cef2797b792.png)
 
--   Paste it on your CMD OR terminal of your choice – but before then remember to "**cd**" into the right directory.
+## 步骤 1：设置您的开发环境
 
-![paste command from documentation to your editor](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792298332/d3384fc3-e31c-4d37-8e17-40ad7e77df28.png)
+在此步骤中，您将完成所有设置。首先登录到您的 AWS 帐户，然后安装 [Python][14]，如果您的 IDE 中尚未安装。
 
--   In the documentation, scroll down and click on "create\_bucket.
+## **步骤 2：创建 Amazon Simple Storage Service (S3)**
+
+在开始创建 S3 存储桶之前，让我们首先了解一下什么是 Amazon S3：
+
+**Amazon S3（简单存储服务）** 是亚马逊的一项服务，它允许您在需要时存储和访问任意数量或类型的数据，如照片、视频、文档和备份。
+
+现在您已经了解了 Amazon S3 的基础知识，让我们回到教程。
+
+### 创建一个 S3 存储桶
+
+有几种方法来创建 S3 存储桶，但对于本教程，我们将使用 [Ubuntu 命令行 (CMD)][15]、您的终端或 **Amazon CloudShell**，取决于您更习惯哪种方式。
+
+-   在网络搜索栏中输入 boto3 s3 以查看相关文档列表。
+    
+-   点击第一个结果。
+    
+
+![常规 Google 搜索](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792137101/5f38b4ec-fa23-41b3-b108-ca7fc7b390ba.png)
+
+-   打开文档后，复制您看到的第一个命令。
+
+![boto3 命令](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792202800/5647c731-734f-4134-a558-9d66eee47734.png)
+
+-   将其粘贴到您选择的 CMD 或终端中——但在此之前，请记得 "**cd**" 进入正确的目录。
+
+![将命令从文档粘贴到您的编辑器](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792298332/d3384fc3-e31c-4d37-8e17-40ad7e77df28.png)
+
+-   在文档中，向下滚动并点击 "create_bucket"。
 
 ![0cd59a14-b037-464b-8193-7ec515c4772e](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792399748/0cd59a14-b037-464b-8193-7ec515c4772e.png)
 
--   Once it's open, scroll down to "Request Syntax." Copy the **bucket name** and the **bucket configuration**.
+-   打开后，向下滚动至 "Request Syntax"。复制 **存储桶名称** 和 **存储桶配置**。
     
--   Other variables listed in the request syntax are optional.
+-   请求语法中列出的其他变量是可选的。
     
 
-![Request syntax from the documentation](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792898846/eea0f8c4-d153-4bc8-8c78-346fc5bf6a04.png)
+![文档中的请求语法](https://cdn.hashnode.com/res/hashnode/image/upload/v1736792898846/eea0f8c4-d153-4bc8-8c78-346fc5bf6a04.png)
 
--   Once this is done, make sure you save.
+-   完成后，确保保存。
 
-![All command](https://cdn.hashnode.com/res/hashnode/image/upload/v1736793004865/a1c9739c-2d12-4e2d-b057-f09bc61e16a3.png)
+![所有命令](https://cdn.hashnode.com/res/hashnode/image/upload/v1736793004865/a1c9739c-2d12-4e2d-b057-f09bc61e16a3.png)
 
--   Go back and call the script:
+-   返回并调用脚本：
 
 ```
 #python3 your file name
 ```
 
--   Running the script automatically creates an S3 bucket in your Amazon S3.
+-   运行脚本会自动在您的 Amazon S3 中创建一个 S3 存储桶。
 
-![Automatic creation](https://cdn.hashnode.com/res/hashnode/image/upload/v1736793086405/9c0b4671-ea07-4ad7-b1d7-0d785aafa954.png)
+![自动创建](https://cdn.hashnode.com/res/hashnode/image/upload/v1736793086405/9c0b4671-ea07-4ad7-b1d7-0d785aafa954.png)
 
--   Now you can go to the console to check if it has been created:
+-   现在您可以到控制台查看是否已创建：
 
-![Amazon console](https://cdn.hashnode.com/res/hashnode/image/upload/v1736692453693/320318d4-bdf3-4be3-a709-6cff18459c9c.png)
+![亚马逊控制台](https://cdn.hashnode.com/res/hashnode/image/upload/v1736692453693/320318d4-bdf3-4be3-a709-6cff18459c9c.png)
 
-### Upload Files
+### 上传文件
 
-With the bucket created, we can now upload files through the console. I believe there's also a programmatic way to upload files and test, but I haven't explored all the methods in the documentation yet.
+创建好存储桶后，我们现在可以通过控制台上传文件。我相信还有一种编程方式可以上传文件和测试，但我还没有探索文档中的所有方法。
 
-Click on the bucket name to be redirected to the object page. This is where you will upload your files for storage.
+![上传页面](https://cdn.hashnode.com/res/hashnode/image/upload/v1736692660862/355f828f-f83f-4501-a960-f0068cf9d977.png)
 
-![upload page](https://cdn.hashnode.com/res/hashnode/image/upload/v1736692660862/355f828f-f83f-4501-a960-f0068cf9d977.png)
+点击**上传按钮**上传文件。记住，我们正在创建一个目标显化引用应用程序。
 
-Click on the **Upload button** to upload a file. Remember, we're creating a Goal Manifestation Quote Application.
+现在我们已经设置了一个存储桶：
 
-Now that we've set up a storage bucket:
-
--   Open a tool like Google Drive, MS Word, WPS, or any other document editor.
+-   打开 Google Drive、MS Word、WPS 或任何其他文档编辑器。
     
--   Write down the goals you want to achieve.
+-   写下你想实现的目标。
     
--   Save the file in either PDF or DOCX format.
+-   将文件保存为 PDF 或 DOCX 格式。
     
--   Take the document and upload it to your Amazon S3.o
+-   将文档上传到你的 Amazon S3。
     
 
-![upload a document](https://cdn.hashnode.com/res/hashnode/image/upload/v1736693525955/765b6c3a-ae68-4cbc-9df7-e896a1d63cbb.png)
+![上传文档](https://cdn.hashnode.com/res/hashnode/image/upload/v1736693525955/765b6c3a-ae68-4cbc-9df7-e896a1d63cbb.png)
 
-To verify if it's the correct file:
+要验证是否是正确的文件：
 
--   Navigate to the **Permissions** tab.
+-   导航到**权限**选项卡。
     
--   Scroll down to **Block public access.**
+-   向下滚动到**阻止公共访问**。
     
--   Click on **Edit** and uncheck the box.
+-   点击**编辑**并取消选中该框。
     
 
-![block access ](https://cdn.hashnode.com/res/hashnode/image/upload/v1736738796036/6ab41bc4-72a8-4874-a491-35bcdda49938.png)
+![阻止访问](https://cdn.hashnode.com/res/hashnode/image/upload/v1736738796036/6ab41bc4-72a8-4874-a491-35bcdda49938.png)
 
-As shown above, it is currently set to "on." Uncheck it to turn it "off."
+如上所示，目前设置为“开”。取消选中以将其关闭。
 
--   On the same bucket settings page, modify the policy.
+-   在同一存储桶设置页面，修改策略。
     
--   Scroll down, and you'll see that a bucket policy has been auto-generated.
+-   向下滚动，你会看到一个自动生成的存储桶策略。
     
--   Go ahead and copy the policy.
+-   继续复制该策略。
     
 
 ```
@@ -188,79 +186,79 @@ As shown above, it is currently set to "on." Uncheck it to turn it "off."
 }
 ```
 
--   Go back to the bucket policy editor and paste the policy.
+-   返回存储桶策略编辑器并粘贴该策略。
 
-Once you've completed these steps, your object will have public access.
+完成这些步骤后，你的对象将具有公共访问权限。
 
-Return to the **Objects** tab and click on the Object URL provided below:
+返回到**对象**选项卡并点击下面提供的对象 URL：
 
 ![3b36b380-912d-4a2a-a8c5-bee61bd42765](https://cdn.hashnode.com/res/hashnode/image/upload/v1736740454730/3b36b380-912d-4a2a-a8c5-bee61bd42765.png)
 
-With this URL, your upload is now visible.
+通过此 URL，你的上传现在可见。
 
-## **Step 3: Create an Amazon Simple Notification Service (SNS)**
+## **步骤3：创建一个 Amazon 简单通知服务 (SNS)**
 
-**SNS** is a fully managed messaging service provided by AWS. It enables communication between applications or directly with users by sending notifications.
+**SNS** 是 AWS 提供的完全托管的消息服务。它通过发送通知在应用程序之间或直接与用户沟通。
 
-To create an SNS, follow these steps:
+若要创建 SNS，请按以下步骤：
 
-#### **1\. Log in to the AWS management console**
+#### **1\. 登录 AWS 管理控制台**
 
-Then go to Amazon SNS. Navigate to the SNS Dashboard and select **Topics** from the left-hand menu.
+然后转到 Amazon SNS。导航到 SNS 仪表板并从左侧菜单中选择**主题**。
 
-To create a topic:
+要创建主题：
 
--   Click **Create topic**.
+-   点击**创建主题**。
     
--   Choose a **Topic type**: Standard (default) or FIFO (for ordered messages).
+-   选择一个**主题类型**：标准（默认）或 FIFO（用于有序消息）。
     
--   Enter a **Name** for your topic. (for example, `MyFirstSNSTopic`).
+-   输入你的主题的**名称**。（例如，`MyFirstSNSTopic`）。
     
-    ![sns topic creation](https://cdn.hashnode.com/res/hashnode/image/upload/v1736743311856/fa51ecb9-935a-4567-829c-b84ee3c1bee0.png)
+    ![sns 主题创建](https://cdn.hashnode.com/res/hashnode/image/upload/v1736743311856/fa51ecb9-935a-4567-829c-b84ee3c1bee0.png)
     
--   Configure optional settings like encryption, delivery retry policies, or tags.
+-   配置可选设置，如加密、交付重试策略或标签。
     
--   Click **Create topic**.
-    
-
-#### **2\. Add Subscriptions:**
-
-Once the topic is created, click on it to open the details page. Select the **Subscriptions** tab.
-
-Click **Create Subscription** and choose:
-
--   **Protocol** can be Email, SMS, HTTP/S, Lambda, or SQS.
-    
--   **Endpoints** such as email address, phone number, or URL.
+-   点击**创建主题**。
     
 
-Click **Create Subscription**.
+#### **2\. 添加订阅：**
 
-![Subscription created](https://cdn.hashnode.com/res/hashnode/image/upload/v1736743374208/8005dc71-68ed-4d26-b79b-7b418959ab6c.png)
+主题创建后，点击它以打开详细信息页面。选择**订阅**选项卡。
 
-#### **3\. Confirm the Subscription:**
+点击**创建订阅**并选择：
 
-If you selected email or SMS, a confirmation link or code will be sent to the provided endpoint. Follow the instructions to confirm the subscription.
-
-![A confirm message from amazon sns](https://cdn.hashnode.com/res/hashnode/image/upload/v1736743525222/90c3b61d-eeb2-450d-a397-253b9e3c15db.png)
-
-Now that we’ve done this, let's create an Amazon Lambda function that will trigger the SNS so that the message will be sent to your mail.
-
-## **Step 4: Create an IAM Policy**
-
-This policy is created to authorize Amazon Lambda to trigger the event and to ensure that CloudWatch is automatically triggered to monitor the application's events.
-
-To create a policy, follow these steps:
-
-#### **1\. Log in to the AWS Management console.**
-
-In the left-hand menu, select **Policies**. Then:
-
--   Click **Create policy**.
+-   **协议**可以是电子邮件、SMS、HTTP/S、Lambda 或 SQS。
     
--   Choose the **Visual** tab, then select the **SNS** service.
+-   **端点**如电子邮件地址、电话号码或 URL。
     
--   Next, click the **Choose** tab to create a custom policy.
+
+点击**创建订阅**。
+
+![订阅已创建](https://cdn.hashnode.com/res/hashnode/image/upload/v1736743374208/8005dc71-68ed-4d26-b79b-7b418959ab6c.png)
+
+#### **3\. 确认订阅：**
+
+如果你选择了电子邮件或 SMS，将会向提供的端点发送一个确认链接或代码。请按照说明确认订阅。
+
+![来自 amazon sns 的确认消息](https://cdn.hashnode.com/res/hashnode/image/upload/v1736743525222/90c3b61d-eeb2-450d-a397-253b9e3c15db.png)
+
+既然我们已经完成了这些操作，让我们创建一个 Amazon Lambda 函数，该函数将触发 SNS，以便消息将发送到你的邮件中。
+
+## **步骤4：创建一个 IAM 策略**
+
+此策略创建用于授权 Amazon Lambda 触发事件，并确保 CloudWatch 自动触发以监控应用程序的事件。
+
+要创建策略，请按以下步骤：
+
+#### **1\. 登录 AWS 管理控制台。**
+
+在左侧菜单中，选择**策略**。然后：
+
+-   点击**创建策略**。
+    
+-   选择**可视化**标签，然后选择**SNS**服务。
+    
+-   然后，点击**选择**标签以创建自定义策略。
     
 
 ```
@@ -276,92 +274,90 @@ In the left-hand menu, select **Policies**. Then:
 }
 ```
 
-Then, replace the following placeholders with your info:
+然后，用你的信息替换以下占位符：
 
--   `region`: Your AWS region (for example, `us-east-1`).
+-   `region`：你的 AWS 地区（例如，`us-east-1`）。
     
--   `account-id`: Your AWS account ID.
+-   `account-id`：你的 AWS 账户 ID。
     
--   `topic-name`: Your SNS topic name.
-    
-
-#### **2\. View and create the policy:**
-
-You can do this by following these steps:
-
--   Click on the Review button.
-    
--   Give your policy a **Name** (for example, `LambdaSNSPolicy`), and optionally, a **Description**.
-    
--   Click **Create policy**.
+-   `topic-name`：你的 SNS 主题名称。
     
 
-#### 3\. Attach policy to the Lambda Execution Role
+#### **2\. 查看并创建策略：**
 
-Now, you need to attach the policy to your Lambda Execution Role. To do that, follow these steps:
+你可以通过以下步骤来做到这一点：
 
--   Go to the **Roles** section in the IAM Console.
+-   点击审查按钮。
     
--   Search for and select the execution role.
+-   给你的策略命名（例如，`LambdaSNSPolicy`），以及可选的描述。
     
-
-![lambdaexecution role](https://cdn.hashnode.com/res/hashnode/image/upload/v1736749886571/70ea6752-5c13-465c-bc05-22e3da50127e.png)
-
--   Next, search for the policy you just created and select it.
-    
--   Click **Attach policy**.
+-   点击**创建策略**。
     
 
-Both policies will be automatically attached.
+#### **3\. 将策略附加到 Lambda 执行角色**
 
-## **Step 5: Create an Amazon Lambda function**
+现在，你需要将策略附加到你的 Lambda 执行角色。要做到这一点，请按以下步骤：
 
-Amazon Lambda is a service from AWS that lets you run code without managing servers. You upload your code, and Lambda automatically runs and scales it when needed.
-
-Follow these steps to create an Amazon Lambda function:
-
-#### **1\. Log in to AWS Management Console**:
-
-Navigate to AWS Lambda.
-
-#### **2\. Create a Function**:
-
-Click on the **Create function** and choose the option **Author from scratch**.
-
-Fill in the details:
-
--   **Function name**: Enter a unique name (for example, `SNSLambdaFunction`).
+-   转到 IAM 控制台中的**角色**部分。
     
--   **Runtime**: Select the runtime (for example, Python, Node.js, Java, and so on).
+-   搜索并选择执行角色。
+    
+
+-   接下来，搜索你刚刚创建的策略并选择它。
+    
+-   点击**附加策略**。
+    
+
+两个策略将会自动附加。
+
+## **步骤5：创建一个Amazon Lambda函数**
+
+Amazon Lambda是AWS提供的一项服务，允许你在无需管理服务器的情况下运行代码。你上传代码，当需要时，Lambda会自动运行并扩展代码。
+
+按照以下步骤创建一个Amazon Lambda函数：
+
+#### **1\. 登录AWS管理控制台**：
+
+导航到AWS Lambda。
+
+#### **2\. 创建一个函数**：
+
+点击**创建函数**并选择选项**从头开始编写**。
+
+填写详细信息：
+
+-   **函数名称**：输入一个唯一名称（例如，`SNSLambdaFunction`）。
+    
+-   **运行时**：选择运行时（例如，Python、Node.js、Java等）。
     
 
 ![creating a function](https://cdn.hashnode.com/res/hashnode/image/upload/v1736751631488/fe254e56-89f1-4938-b2a9-e59b24e54a04.png)
 
--   **Role**: Choose or create a role. If you already have a role, select **Use an existing role**. Otherwise, select **Create a new role with basic Lambda permissions**.
+-   **角色**：选择或创建一个角色。如果你已经有一个角色，选择**使用现有角色**。否则，选择**创建具有基本Lambda权限的新角色**。
 
 ![role choosing](https://cdn.hashnode.com/res/hashnode/image/upload/v1736751816631/97475623-10dc-4427-87ab-7e8789526e9e.png)
 
--   Click the **Create function button**.
+-   点击**创建函数按钮**。
 
-#### **3\. Paste in the code**:
+#### **3\. 粘贴代码**：
 
-On the Lambda function’s page, go to the **Configuration** tab:
+在Lambda函数页面，进入**配置**选项卡：
 
 ![configuration tab](https://cdn.hashnode.com/res/hashnode/image/upload/v1736753706928/b0351665-c506-454e-9c71-b4a52fce5a0a.png)
 
-Remember, we are trying to fetch a quote. I'll add the ARN of the topic we created here and include my API keys. But for this tutorial, I will use the API directly to fetch the data.
+记住，我们是尝试获取一个报价。我会在此处添加我们创建的话题的ARN，并包含我的API密钥。但在本教程中，我将直接使用API来获取数据。
 
 ![1322e207-5c51-45f1-979f-05f2388e9557](https://cdn.hashnode.com/res/hashnode/image/upload/v1736754071465/1322e207-5c51-45f1-979f-05f2388e9557.png)
 
-#### **4\. Write the Lambda Code:**
+#### **4\. 编写Lambda代码：**
 
-Go to the **Code** tab in your Lambda function. Then write or paste the code from your IDE to process the incoming SNS messages.
+进入Lambda函数中的**代码**选项卡。然后从你的IDE中编写或粘贴代码以处理传入的SNS消息。
 
-Example:
+示例：
 
 ![Testing code](https://cdn.hashnode.com/res/hashnode/image/upload/v1736754319755/60224578-53c2-43f6-9bf1-8cba6afaa1a3.png)
 
-Here’s the code:
+以下是代码：
 
 ```
 import os
@@ -371,172 +367,170 @@ import boto3
 
 def fetch_random_quote():
     """
-    Fetches a random quote from the ZenQuotes API.
+    从ZenQuotes API获取随机报价。
     """
     api_url = "https://zenquotes.io/api/random"
     try:
         with urllib.request.urlopen(api_url) as response:
             data = json.loads(response.read().decode())
             if data and isinstance(data, list):
-                # Format the quote and author
-                quote = data[0].get("q", "No quote available")
-                author = data[0].get("a", "Unknown author")
+                # 格式化报价和作者
+                quote = data[0].get("q", "没有可用的报价")
+                author = data[0].get("a", "未知作者")
                 return f'"{quote}" - {author}'
             else:
-                return "No quote available."
+                return "没有可用的报价。"
     except Exception as e:
-        print(f"Error fetching random quote: {e}")
-        return "Failed to fetch quote."
+        print(f"获取随机报价时出错：{e}")
+        return "无法获取报价。"
 
 def lambda_handler(event, context):
     """
-    AWS Lambda handler function to fetch a random quote and publish it to an SNS topic.
+    AWS Lambda处理函数，用于获取随机报价并将其发布到SNS主题。
     """
-    # Get the SNS topic ARN from environment variables
+    # 从环境变量获取SNS主题ARN
     sns_topic_arn = os.getenv("SNS_TOPIC_ARN")
     sns_client = boto3.client("sns")
 
-    # Fetch a random quote
+    # 获取随机报价
     quote = fetch_random_quote()
-    print(f"Fetched Quote: {quote}")
+    print(f"获取到的报价：{quote}")
 
-    # Publish the quote to SNS
+    # 将报价发布到SNS
     try:
         sns_client.publish(
             TopicArn=sns_topic_arn,
             Message=quote,
-            Subject="Daily Random Quote to help you stay motivated and inspired to achieve your goals",
+            Subject="每日随机报价，帮助你保持动力，激励你实现目标",
         )
-        print("Quote published to SNS successfully.")
+        print("报价成功发布到SNS。")
     except Exception as e:
-        print(f"Error publishing to SNS: {e}")
-        return {"statusCode": 500, "body": "Error publishing to SNS"}
+        print(f"发布到SNS时出错：{e}")
+        return {"statusCode": 500, "body": "发布到SNS时出错"}
 
-    return {"statusCode": 200, "body": "Quote sent to SNS"}
+    return {"statusCode": 200, "body": "报价已发送到SNS"}
 ```
 
-#### **5\. Save:**
+#### **5\. 保存：**
 
-Click on the deploy button to save.
+点击部署按钮保存。
 
 ![8ec83b6b-874c-47c3-a1ad-8d8b85cd6d48](https://cdn.hashnode.com/res/hashnode/image/upload/v1736756768348/8ec83b6b-874c-47c3-a1ad-8d8b85cd6d48.png)
 
-#### **6\. Test Your Lambda Function**:
+#### **6\. 测试你的Lambda函数**：
 
-Go to the **Test** tab and create a new test event.
+进入**测试**选项卡并创建一个新的测试事件。
 
 ![TEST EVENT](https://cdn.hashnode.com/res/hashnode/image/upload/v1736757103169/834c5b6c-8796-4a52-bcc3-cbd8009b01da.png)
 
-Then save and run the test. If it’s successful, a message will be sent:
+然后保存并运行测试。如果成功，将会发送一条消息：
 
 ![success msg](https://cdn.hashnode.com/res/hashnode/image/upload/v1736757309807/d97f9648-0000-4ec8-b287-df5250b3be0a.png)
 
-This means the message has been created for you
+这意味着消息已为你创建。
 
-Finally, check your email or SMS, depending on the endpoint you used for this tutorial. In my case, I used email.
+最后，根据你在本教程中使用的终端，检查你的电子邮件或SMS。在我的例子中，我使用了电子邮件。
 
 ![email notification](https://cdn.hashnode.com/res/hashnode/image/upload/v1736757884384/d5b949d4-0804-4694-9674-77fc0265e2e8.png)
 
-## **Step 6: Create an EventBridge**
+## **步骤6：创建一个EventBridge**
 
-Amazon EventBridge is a service that helps you connect applications and AWS services such as the Amazon SNS and Amazon Lambda.
+Amazon EventBridge是一项服务，可以帮助你连接应用程序和AWS服务，例如Amazon SNS和Amazon Lambda。
 
-To create an Amazon EventBridge rule, follow these steps:
+要创建一个Amazon EventBridge规则，请按照以下步骤操作：
 
-#### **1\. Navigate to EventBridge**:
+#### **1\. 导航到EventBridge**：
 
-In the search bar, type **EventBridge** and select it from the services list.
+在搜索栏中输入**EventBridge**并在服务列表中选择它。
 
-#### **2\. Create a Rule:**
+#### **2\. 创建一个规则：**
 
-In the EventBridge console, click **Rules** on the left panel. Then click the **Create rule** button.
+在EventBridge控制台中，点击左侧面板上的**规则**。然后点击**创建规则**按钮。
 
-#### **3\. Set Up the Rule Details**:
-
--   **Name**: Enter a unique name for your rule.
+-   **名称**: 输入规则的唯一名称。
     
--   **Description (optional)**: Add a description to explain what this rule does.
+-   **描述 (可选)**: 添加描述以解释规则的作用。
     
 
-#### **4\. Choose the Event Bus**:
+#### **4\. 选择事件总线**：
 
-Select **Default event bus** (or another event bus if you've created one).
+选择 **默认事件总线**（或另一个您创建的事件总线）。
 
-#### **5\. Define the Event Pattern or Schedule**:
+#### **5\. 定义事件模式或计划**：
 
-**For Event Pattern**:
+**对于事件模式**：
 
--   Choose an **AWS Service** as the event source.
+-   选择一个 **AWS 服务** 作为事件源。
     
--   Select the specific **event type** (for example, an S3 file upload or an EC2 instance state change).
+-   选择具体的 **事件类型**（例如，S3 文件上传或 EC2 实例状态变更）。
     
 
-**For Schedule**:
+**对于计划**：
 
--   Choose the **Schedule** option to run the rule on a fixed interval (for example, every 5 minutes).
-
+-   选择 **计划** 选项以在固定间隔运行规则（例如，每 5 分钟）。
+  
 ![rule details](https://cdn.hashnode.com/res/hashnode/image/upload/v1736759371221/ca28dcf2-061a-4c8f-8191-32bdf8380111.png)
 
--   Click on continue. This takes you to the specific details page where:
+-   单击继续。这将带您进入具体的细节页面：
 
 ![schedule page](https://cdn.hashnode.com/res/hashnode/image/upload/v1736759696183/44ba44e8-2a1b-4cd8-928b-6fe87cc35c4e.png)
 
--   Scroll down and click on the cron scheduler. The cron scheduler specifies what time the message will be sent.
+-   向下滚动并点击 cron 调度器。cron 调度器指定消息发送的时间。
     
--   Select **"Off"** for the flexible time window option.
+-   为灵活时间窗口选项选择 **"关闭"**。
     
--   Review the rule details to confirm everything is correct.
+-   检查规则细节以确认一切正确无误。
     
--   Click the **"Next"** button to proceed to the **Target** page.
+-   点击 **"下一步"** 按钮，进入 **目标** 页面。
     
     ![cron scheduler ](https://cdn.hashnode.com/res/hashnode/image/upload/v1736760213450/c4f6cccf-7f89-485d-802e-051284c89f9a.png)
     
-    The picture above shows when the time the messages will be sent.
+    上图展示了消息发送的时间。
     
-    -   On the Target page, select **AWS Lambda** to invoke your function.
+    - 在目标页面，选择 **AWS Lambda** 以调用您的函数。
 
 ![the target page](https://cdn.hashnode.com/res/hashnode/image/upload/v1736761288843/e35a7153-48d7-4b34-86ce-9cba68bd5161.png)
 
--   Scroll down to invoke and choose the function you created.
+-   向下滚动以调用并选择您创建的函数。
 
 ![invoke the function](https://cdn.hashnode.com/res/hashnode/image/upload/v1736761539389/4faa1dbc-5635-4de3-8087-15a444298b2e.png)
 
--   Click the "Next" button to proceed. This will take you to the settings page. Under the permissions section, select "Use existing rule."
+-   点击“下一步”按钮继续。这将带您进入设置页面。在权限部分，选择“使用现有规则”。
 
 ![setting page](https://cdn.hashnode.com/res/hashnode/image/upload/v1736782488383/ffbbcc4e-6379-4c9c-af16-f4c017e7426c.png)
 
--   Lastly, go to the review and create a schedule:
+-   最后，进入审核并创建计划：
 
 ![2d0e7ff9-bb7d-462d-a644-23517f47e53e](https://cdn.hashnode.com/res/hashnode/image/upload/v1736783029778/2d0e7ff9-bb7d-462d-a644-23517f47e53e.png)
 
--   The next page shows you all the details:
+-   下一页会显示所有的细节：
 
 ![4545d2da-5020-46c3-a265-5499e6b4e74f](https://cdn.hashnode.com/res/hashnode/image/upload/v1736783558777/4545d2da-5020-46c3-a265-5499e6b4e74f.png)
 
-Using the EventBrige creates a scheduler for the users.
+使用 EventBridge 为用户创建一个调度器。
 
-## **Step 7: Upload Your Code**
+## **步骤 7: 上传您的代码**
 
-Finally, upload your code to GitHub and include proper documentation to help explain how the code works.
+最后，将您的代码上传到 GitHub，并包含适当的文档以帮助解释代码的工作原理。
 
-Check this documentation out if you don’t know how: [Uploading a project to GitHub][16].
+如果您不知道如何操作，请查看此文档：[上传项目到 GitHub][16]。
 
-## Conclusion
+## 结论
 
-If you’ve followed all these steps, you will have created a Goal Manifestation Quote App using AWS Lambda, Amazon S3, Amazon SNS, and Amazon EventBridge. This app fetches motivational quotes and sends them to subscribers on a schedule.
+如果您按照所有这些步骤操作，您将创建一个使用 AWS Lambda、Amazon S3、Amazon SNS 和 Amazon EventBridge 的目标实现语录应用程序。这个应用程序会获取激励语录并按计划发送给订阅者。
 
-You can find the repository link [here][17].
+您可以在 [这里][17] 找到仓库链接。
 
-Feel free to share your progress or ask questions if you have any issues.
+如果您有任何问题，请随时分享您的进展或询问问题。
 
-If you found this article helpful, share it with others.
+如果您觉得这篇文章对您有帮助，请与他人分享。
 
-Stay updated with my projects by following me on [Twitter][18], [LinkedIn][19] and [GitHub][20]
+通过关注我的 [Twitter][18]、[LinkedIn][19] 和 [GitHub][20]，随时关注我的项目。
 
-Thank you for reading 💖.
+感谢您的阅读 💖。
 
-**Disclaimer:**  
-The resources shown in this article, including the S3 bucket and its ARN, have been deleted and no longer exist. The details visible in the screenshots are used solely for demonstration purposes.
+**免责声明：**  
+本文中展示的资源，包括 S3 存储桶及其 ARN，已被删除且不再存在。截图中的详情仅用于演示目的。
 
 [1]: https://aws.amazon.com/
 [2]: https://github.com/
@@ -558,3 +552,4 @@ The resources shown in this article, including the S3 bucket and its ARN, have b
 [18]: https://https//twitter.com/ijaydimples
 [19]: https://www.linkedin.com/in/ijeoma-igboagu/
 [20]: https://github.com/ijayhub
+
