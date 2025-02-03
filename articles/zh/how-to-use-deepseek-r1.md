@@ -1,4 +1,3 @@
-```markdown
 ---
 title: 如何使用 DeepSeek-R1
 date: 2025-02-03T13:03:54.696Z
@@ -13,7 +12,7 @@ proofreader: ""
 
 <!-- more -->
 
-我们刚刚在 freeCodeCamp.org 的 YouTube 频道上发布了一门课程，教您如何使用 DeepSeek-R1。这门速成课由 ExamPro 的 Andrew Brown 开发，旨在帮助初学者了解 DeepSeek-R1 的架构、训练方法和实际应用。到课程结束时，您将具备部署此模型并在自己的项目中利用其高级推理能力的知识。
+我们刚刚在 freeCodeCamp.org 的 YouTube 频道上发布了一门课程，教你如何使用 DeepSeek-R1。这门速成课由 ExamPro 的 Andrew Brown 开发，旨在帮助初学者了解 DeepSeek-R1 的架构、训练方法和实际应用。到课程结束时，您将具备部署此模型并在自己的项目中利用其高级推理能力的知识。
 
 ### 本课程您将学习到的内容
 
