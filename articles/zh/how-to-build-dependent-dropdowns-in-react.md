@@ -4,13 +4,11 @@ date: 2025-02-03T05:36:36.722Z
 author: Timothy Olanrewaju
 authorURL: https://www.freecodecamp.org/news/author/SmoothTech/
 originalURL: https://www.freecodecamp.org/news/how-to-build-dependent-dropdowns-in-react/
-posteditor: ""
+posteditor: "miyaliu66"
 proofreader: ""
 ---
 
 在许多 Web 应用程序中，我们经常遇到这样的表单：在一个下拉菜单中选择一个选项会解锁另一个下拉菜单中的新选项。这些相互关联的下拉菜单，通常被称为依赖下拉菜单或级联下拉菜单，在创建无缝且直观的表单填写体验中起着关键作用。
-
-<!-- more -->
 
 无论是选择一个国家以显示相应的州，还是选择一个产品类别以显示特定项目，这些下拉菜单都可以简化复杂的选择。对于开发者而言，实现依赖下拉菜单是一个将逻辑、可用性和动态数据处理相结合的实用挑战。
 
