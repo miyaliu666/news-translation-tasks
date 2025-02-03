@@ -4,7 +4,7 @@ date: 2025-02-03T04:43:33.173Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/from-gas-station-to-google-self-taught-cloud-engineer-rishab-kumar-podcast-158/
-posteditor: ""
+posteditor: "miyaliu66"
 proofreader: ""
 ---
 
@@ -16,7 +16,7 @@ Rishab 在印度长大，并搬到加拿大上学。但他无法负担完成学�
 
 我们讨论了：
 
-- 如何自学云工程
+- 如何自学云计算工程
 
 - 如何在多次被 FAANG 公司拒绝后坚持不懈
 
