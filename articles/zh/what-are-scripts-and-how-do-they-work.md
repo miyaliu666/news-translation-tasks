@@ -5,13 +5,11 @@ date: 2025-02-03T06:12:40.553Z
 author: Arunachalam B
 authorURL: https://www.freecodecamp.org/news/author/arunachalamb/
 originalURL: https://www.freecodecamp.org/news/what-are-scripts-and-how-do-they-work/
-posteditor: ""
+posteditor: "miyaliu66"
 proofreader: ""
 ---
 
 拥有丰富经验的开发人员通常通过编写脚本来自动化大部分工作。这些脚本从简单的 alias bash 命令到在服务器上运行的重复 cron 触发器。
-
-<!-- more -->
 
 在本教程中，您将了解脚本是什么，它的多种使用案例，以及使用脚本的一些优缺点。我们还会通过一些示例脚本来展示它们的实际应用。
 
@@ -23,7 +21,7 @@ proofreader: ""
 
 ## 为什么要编写脚本？
 
-我已经提到过您可以使用脚本做些什么。所以现在让我们看看它们的优点（以及挑战）以便您了解它们为什么如此强大——以及何时使用它们。
+我已经提到过你可以使用脚本做些什么。所以现在让我们看看它们的优点（以及挑战）以便您了解它们为什么如此强大——以及何时使用它们。
 
 ### 脚本的优点
 
