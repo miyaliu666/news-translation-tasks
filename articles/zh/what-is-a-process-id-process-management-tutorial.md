@@ -5,17 +5,15 @@ date: 2025-02-03T05:27:46.220Z
 author: Syeda Maham Fahim
 authorURL: https://www.freecodecamp.org/news/author/syedamahamfahim/
 originalURL: https://www.freecodecamp.org/news/what-is-a-process-id-process-management-tutorial/
-posteditor: ""
+posteditor: "miyaliu66"
 proofreader: ""
 ---
 
 你是否曾经想过，当多个程序同时运行时，计算机如何知道显示哪个程序的输出？这一切都归功于进程 ID (PID)。
 
-<!-- more -->
-
 PID 是一个唯一标识符，帮助操作系统跟踪和管理运行中的程序。
 
-在本文中，我们将探讨什么是进程 ID (PID)，它为何重要，以及如何使用它来管理进程，包括在必要时终止程序。
+在本文中，我们将探讨什么是进程 ID (PID)、它为何重要，以及如何使用它来管理进程，包括在必要时终止程序。
 
 ## 理解 PID：计算机如何识别正在运行的程序？
 
