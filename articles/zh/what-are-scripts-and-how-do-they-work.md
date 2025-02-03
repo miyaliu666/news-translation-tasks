@@ -1,5 +1,6 @@
+```markdown
 ---
-title: What Are Scripts and How Do They Work? Improve Your Productivity with Scripting
+title: 脚本是什么以及它们如何工作？通过脚本提高您的生产力
 date: 2025-02-03T06:12:40.553Z
 author: Arunachalam B
 authorURL: https://www.freecodecamp.org/news/author/arunachalamb/
@@ -8,111 +9,107 @@ posteditor: ""
 proofreader: ""
 ---
 
-Developers who have a lot of experience building rigid, quality software tend to automate most of their work by writing scripts. These scripts range from simple alias bash commands to repetitive cron triggers that run on a server.
+拥有丰富经验的开发人员通常通过编写脚本来自动化大部分工作。这些脚本从简单的 alias bash 命令到在服务器上运行的重复 cron 触发器。
 
 <!-- more -->
 
-In this tutorial, you’ll learn about what scripting is, its many use cases, and some advantages and disadvantages of using scripts. We’ll also go through a few example scripts so you can see them in action.
+在本教程中，您将了解脚本是什么，它的多种使用案例，以及使用脚本的一些优缺点。我们还会通过一些示例脚本来展示它们的实际应用。
 
-## What is a Script?
+## 什么是脚本？
 
-A script is a set of instructions written in any scripting language (like Bash, Python, JavaScript, and others) that helps you automate tasks or control processes. Unlike compiled programs, scripts are typically [interpreted][1], meaning they are executed directly by a runtime environment without prior compilation.
+脚本是一组用任何脚本语言（例如 Bash、Python、JavaScript 等）编写的指令，可以帮助您自动化任务或控制流程。与已编译的程序不同，脚本通常是[解释执行][1]的，这意味着它们直接由运行时环境执行，而无需提前编译。
 
-Scripts are powerful tools for automating repetitive tasks, managing workflows, and solving small (and sometimes large) problems efficiently. Whether you’re a beginner or an experienced developer, understanding how to write scripts can enhance your productivity and broaden your technical capabilities.
+脚本是自动化重复任务、管理工作流程以及高效解决小问题（有时是大问题）的强大工具。无论您是初学者还是经验丰富的开发人员，了解如何编写脚本都可以提高您的生产力并拓宽您的技术能力。
 
-## Why Write Scripts?
+## 为什么要编写脚本？
 
-I’ve already touched on what you can do with scripts. So let’s look at some of their advantages (and challenges, too) so you understand why they’re so powerful – and when to use them.
+我已经提到过您可以使用脚本做些什么。所以现在让我们看看它们的优点（以及挑战）以便您了解它们为什么如此强大——以及何时使用它们。
 
-### Advantages of scripts
+### 脚本的优点
 
-1.  Automation: Scripts can help you simplify repetitive tasks such as data processing or file management.
+1. 自动化：脚本可以帮助您简化数据处理或文件管理等重复性任务。
     
-2.  Efficiency: they can also save you time by automating tasks that you would otherwise have to do manually.
+2. 效率：它们还可以通过自动化您本来需要手动执行的任务来为您节省时间。
     
-3.  Error reduction: Scripts can help reduce human errors through consistent execution of instructions.
+3. 错误减少：通过一致执行指令，脚本可以帮助减少人为错误。
     
-4.  Flexibility: Scripts can adapt to a wide variety of tasks with minimal modification.
+4. 灵活性：脚本可以通过最小的修改适应各种任务。
     
-5.  Integration: They can also seamlessly integrate with other systems, tools, or workflows.
-    
-
-### Challenges with scripts
-
-1.  Performance: Scripts can be slower than compiled programs due to interpretation overhead.
-    
-2.  Scalability: They’re not always suitable for large-scale or highly complex tasks.
-    
-3.  Debugging: Debugging scripts can sometimes be challenging due to their dynamic nature.
-    
-4.  Security risks: Poorly written scripts can expose vulnerabilities, especially if they execute system-level commands.
+5. 集成：它们还可以与其他系统、工具或工作流程无缝集成。
     
 
-### When to Use vs Not Use Scripts
+### 脚本的挑战
 
-Scripts are ideal for:
-
-1.  Tasks are simple, well-defined, or one-off
+1. 性能：由于解释开销，脚本可能比编译程序要慢。
     
-2.  Prototyping or quickly automating a process
+2. 可扩展性：它们并不总是适合大型或高度复杂的任务。
     
-3.  The scope is small enough to avoid complexity
+3. 调试：由于脚本的动态性，调试有时可能具有挑战性。
     
-
-Scripts are not ideal for:
-
-1.  Performance-critical tasks requiring high efficiency. Instead of a script, try using a dedicated ETL (Extract, Transform, Load) tool or a message broker, or similar alternative tools that fit your use-case.
-    
-2.  Applications with extensive user interfaces. Instead, you can build a small application or a modular system with proper logging, testing, and documentation.
-    
-3.  Scenarios needing long-term maintenance, where compiled programs might be more stable. Instead, use task schedulers or workflow managers like CRON, Airflow, AWS Lambda/GCP Functions.
+4. 安全风险：编写不当的脚本可能会暴露漏洞，特别是如果它们执行系统级命令。
     
 
-## How to Write Effective Scripts
+### 何时使用脚本
 
-This is the process I use for writing helpful scripts. After we go through this, we’ll see some examples of scripts in different languages so you can get some hands-on practice.
+脚本非常适合：
 
-1.  Define the problem: Before writing a script, identify the problem it will solve. Be clear about the tasks to automate and the expected outcomes.
+1. 任务简单、明确或一次性
     
-2.  Choose the right language:
+2. 原型设计或快速自动化一个过程
     
-    -   **Bash:** Ideal for system-level tasks like file operations or server management.
+3. 范围足够小以避免复杂性
+    
+
+脚本不适合：
+
+1. 对性能要求高的任务。这种情况下，应尝试使用专用的 ETL（提取、转换、加载）工具或消息代理，或适合您用例的类似替代工具。
+    
+2. 具有广泛用户界面的应用程序。相反，您可以构建一个具有适当日志记录、测试和文档的小型应用程序或模块化系统。
+    
+3. 需要长期维护的场景，这时编译程序可能更稳定。相反，使用任务调度器或工作流程管理器，如 CRON、Airflow、AWS Lambda/GCP Functions。
+    
+
+## 如何编写有效的脚本
+
+这是我用来编写有效脚本的方法。在我们了解这个过程后，我们将看到不同语言的示例脚本，以便您可以进行一些实践。
+
+1. 定义问题：在编写脚本之前，明确它要解决的问题。明确要自动化的任务和预期的结果。
+    
+2. 选择合适的语言：
+    
+    - **Bash：** 适合系统级任务，如文件操作或服务器管理。
         
-    -   **Python:** Great for data processing, web scraping, and more complex automation.
+    - **Python：** 非常适合数据处理、网页抓取和更复杂的自动化。
         
-    -   **JavaScript:** Suited for web development and browser-based automation.
+    - **JavaScript：** 适合 Web 开发和基于浏览器的自动化。
         
-3.  Write the script: Use a text editor or an Integrated Development Environment (IDE), and make sure you follow best practices like using comments, meaningful variable names, and modular code. We’ll cover these below.
+3. 编写脚本：使用文本编辑器或集成开发环境 (IDE)，确保遵循最佳实践，如使用注释、有意义的变量名和模块化代码。我们将在下面讨论这些。
     
-4.  Test the script: Test the script in a controlled environment to ensure it performs as expected without causing errors.
+4. 测试脚本：在受控环境中测试脚本，以确保其按预期执行且不会导致错误。
     
-5.  Execute and deploy: Run the script in its intended environment. If necessary, schedule its execution using tools like Cron (for Bash) or task schedulers.
-    
-
-## Example Scripts
-
-Now that you know the basics, let's have some practice. Assume you have around 100 files with the names “book-part-1.pdf”, “book-part-2.pdf”, …, “book-part-100.pdf”. You want to replace all the hyphens (-) in the file names with underscores (\_), because the website where you're trying to upload these documents doesn’t allow you to upload files with names containing hyphens.
-
-Here are scripts written in three different languages that all perform the same operation. The process looks like this:
-
-1.  find all the files in a directory,
-    
-2.  check if they contain hyphens (-) in their name, and
-    
-3.  replace any hyphens with underscores (\_).
+5. 执行和部署：在目标环境中运行脚本。如有必要，使用 Cron（对于 Bash）或任务调度器来安排其执行。
     
 
-Here are the file names to start (containing hyphens):
+## 示例脚本
 
-![File names with hyphen](https://cdn.hashnode.com/res/hashnode/image/upload/v1737563509852/e9b1e671-465d-43ed-a831-3034852de624.png)
+现在您已经了解了基础知识，让我们来练习一下。假设您有大约 100 个文件，文件名为“book-part-1.pdf”、“book-part-2.pdf”、...、“book-part-100.pdf”。您想将所有文件名中的连字符（-）替换为下划线（\_），因为您尝试上传这些文档的网站不允许文件名中包含连字符。
 
-### Bash Script
+这里有三种不同语言编写的脚本，它们都执行相同的操作。流程如下：
+```
 
-We’ll start with a bash script. Here it is:
+以下是翻译内容，保留了源文件的 markdown 排版布局：
+
+这里是开始的文件名（包含连字符）：
+
+![带有连字符的文件名](https://cdn.hashnode.com/res/hashnode/image/upload/v1737563509852/e9b1e671-465d-43ed-a831-3034852de624.png)
+
+### Bash 脚本
+
+我们将从一个 bash 脚本开始。如下所示：
 
 ```
 #!/bin/bash
-# Replace "-" with "_" in file names
+# 将文件名中的“-”替换为“_”
 DIRECTORY="/path/to/your/folder"
 for FILE in "$DIRECTORY"/*; do
     if [[ "$FILE" == *-* ]]; then
@@ -123,15 +120,15 @@ for FILE in "$DIRECTORY"/*; do
 done
 ```
 
-We define the directory (folder) at the top where our files reside. For each file in the directory, we check if the name contains a `-`. In such case, we create a new file name and store it in the variable `NEW_NAME` by copying the old file name using the `echo` command and replace the `-` with `_` using the `sed` command. Finally we use the move command `mv` with the old and new file names as arguments.
+我们在顶部定义了文件所在的目录。对于目录中的每个文件，我们检查名称是否包含 `-`。在这种情况下，我们通过使用 `echo` 命令复制旧文件名，并使用 `sed` 命令将 `-` 替换为 `_`，创建一个新文件名并存储在变量 `NEW_NAME` 中。最后，我们使用移动命令 `mv` 以旧文件名和新文件名作为参数。
 
-### Python Script
+### Python 脚本
 
-Next, let’s see what it would look like in Python:
+接下来，让我们看看用 Python 实现会是什么样子：
 
 ```
 import os
-# Replace "-" with "_" in file names
+# 将文件名中的“-”替换为“_”
 directory = "/path/to/your/folder"
 for filename in os.listdir(directory):
     if "-" in filename:
@@ -142,15 +139,15 @@ for filename in os.listdir(directory):
         print(f"Renamed: {filename} -> {new_filename}")
 ```
 
-The steps are pretty similar in Python. First, we define the directory and then iterate through each file in the directory. To find all files in the directory, we have to use the `listdir` method from the `os` package.
+步骤在 Python 中非常相似。首先，我们定义目录，然后迭代遍历该目录中的每个文件。为了找到目录中的所有文件，我们必须使用 `os` 模块中的 `listdir` 方法。
 
-Then we check if the file name contains a `-` in the next line. In such a case, we find the current path (`old_path`) of the file by merging the directory and its file name. We can create the new file name by replacing the `-` with `_` using the `replace` method.
+然后，我们在下一行检查文件名是否包含 `-`。在这种情况下，我们通过合并目录及其文件名来找到文件的当前路径 (`old_path`) 。我们可以使用 `replace` 方法将 `-` 替换为 `_`，创建新的文件名。
 
-We then generate the new file path (`new_path`) in the similar way we generate the `old_path`. Finally, we call the `rename` method in `os` package with old and new file paths as arguments.
+然后我们以类似于生成 `old_path` 的方式来生成新的文件路径 (`new_path`) 。最后，我们在 `os` 模块中调用 `rename` 方法，以旧路径和新路径作为参数。
 
-### JavaScript Script
+### JavaScript 脚本
 
-And now let’s see how it would look in JavaScript:
+现在让我们看看用 JavaScript 实现会是什么样子：
 
 ```
 const fs = require('fs');
@@ -179,128 +176,126 @@ fs.readdir(directory, (err, files) => {
 });
 ```
 
-The JavaScript implementation is somewhat similar to the Python implementation – but you’ll need to write more code. Generally, devs don’t prefer JavaScript for these kind of scripts. Most of them rely on Bash/Python. JavaScript is better-suited for browser-based automation scripts.
+JavaScript 实现与 Python 实现有些类似——但需要编写更多代码。一般来说，开发者不倾向于使用 JavaScript 来编写这些类型的脚本。大多数人依赖 Bash/Python。JavaScript 更适合用于基于浏览器的自动化脚本。
 
-Still, let’s see what we have here. In this JavaScript code, you have to use two different packages, `fs` and `path`. We define the directory at the top, read the files in the directory using the `readdir` method from the `fs` package, and pass the directory as the argument. Along with directory, we also pass a callback function that will be executed once the files are read.
+不过，让我们看看我们这里有什么。在这段 JavaScript 代码中，您需要使用两个不同的模块：`fs` 和 `path`。我们在顶部定义目录，使用 `fs` 模块中的 `readdir` 方法读取目录中的文件，并将目录作为参数传递。除了目录之外，我们还传递一个回调函数，该函数将在读取文件后执行。
 
-Inside the callback function, we loop through each file and check if the file name includes a hyphen (`-`). If it does, we find the old path using the `path` package with the directory and file names as arguments. We then construct the new file name by replacing all hyphens with underscores using the `replace` method.
+在回调函数中，我们遍历每个文件，检查文件名是否包含连字符（`-`）。如果是，我们使用 `path` 模块通过目录和文件名作为参数找到旧路径。然后通过使用 `replace` 方法将所有连字符替换为下划线来构造新的文件名。
 
-Similar to the old path, we find the new path using the new file name as an argument. Then we use the `rename` method from the `fs` package to rename the file by passing both the old and new file names. If there are errors during renaming or reading the files in a directory, we log the error message. Otherwise, we log the success message.
+与旧路径类似，我们使用新文件名作为参数找到新路径。然后我们使用 `fs` 模块中的 `rename` 方法，通过传递旧文件名和新文件名来重命名文件。如果在重命名或读取目录中的文件时出现错误，我们会记录错误消息。否则，我们记录成功消息。
 
-#### How to run these scripts
+#### 如何运行这些脚本
 
-Ok, here’s how you can actually use these scripts:
+下面是如何实际使用这些脚本：
 
-1.  Replace `/path/to/your/folder` with the actual directory containing the files.
+1.  将 `/path/to/your/folder` 替换为包含文件的实际目录。
     
-2.  Run the script in the corresponding environment:
+2.  在相应的环境中运行脚本：
     
-    -   **Bash:** Save as a `.sh` file, then execute with `bash script.sh`
+    -   **Bash:** 保存为 `.sh` 文件，然后使用 `bash script.sh` 执行
         
-    -   **Python:** Save as a `.py` file, then execute with `python script.py`
+    -   **Python:** 保存为 `.py` 文件，然后使用 `python script.py` 执行
         
-    -   **JavaScript:** Save as a `.js` file, then execute with `node script.js`
+    -   **JavaScript:** 保存为 `.js` 文件，然后使用 `node script.js` 执行
         
 
-The screenshot below shows running the bash script to change the names of the files.
+下面的截图显示了如何运行 bash 脚本来更改文件的名称。
 
-![Change the name of files using bash script](https://cdn.hashnode.com/res/hashnode/image/upload/v1737563774216/f31158ab-da77-4b18-8625-ee0b2522e3e6.png)
+![使用 bash 脚本更改文件名](https://cdn.hashnode.com/res/hashnode/image/upload/v1737563774216/f31158ab-da77-4b18-8625-ee0b2522e3e6.png)
 
-![After running the script, the hyphens in file name are replaced with underscores](https://cdn.hashnode.com/res/hashnode/image/upload/v1737563640766/4aa508af-1f0e-4fad-8b2c-ac2369cbe337.png)
+![运行脚本后，文件名中的连字符被替换成下划线](https://cdn.hashnode.com/res/hashnode/image/upload/v1737563640766/4aa508af-1f0e-4fad-8b2c-ac2369cbe337.png)
 
-## Recurring Scripts
+定期脚本旨在定期执行，例如每周检查系统状态、清理日志或获取数据更新。这些脚本通常使用某种形式的任务调度程序。
 
-Recurring scripts are designed to execute at regular intervals, like checking a system’s status weekly, cleaning up logs, or fetching data updates. These scripts typically use some form of task scheduler.
+### 常见方法
 
-### Common Approaches
-
-1.  CRON jobs: Most operating systems support CRON, which can trigger scripts based on a defined schedule.
+1.  CRON 任务：大多数操作系统都支持 CRON，它可以根据定义的时间计划触发脚本。
     
-2.  Task queues: Tools like Celery (Python), Bull (Node.js), or Sidekiq (Ruby) can handle scheduled jobs with more flexibility.
+2.  任务队列：像 Celery（Python）、Bull（Node.js）或 Sidekiq（Ruby）这样的工具可以更灵活地处理定时任务。
     
-3.  Cloud schedulers: Services like AWS Lambda with EventBridge, Google Cloud Scheduler, or Azure Logic Apps allow you to set up recurring scripts in a serverless architecture.
+3.  云调度器：AWS Lambda 的 EventBridge、Google Cloud Scheduler 或 Azure Logic Apps 等服务允许您在无服务器架构中设置定期脚本。
     
 
-One good example use case for recurring scripts would be sending a daily/weekly report of your system’s usage/performance. You could write a script that finds the number of users who have joined and subscribed to your product and send that report as an email every day/week.
+定期脚本的一个很好示例用例是发送每日/每周的系统使用/性能报告。您可以编写一个脚本，找出加入和订阅您产品的用户数量，并将该报告每天/每周通过电子邮件发送。
 
-## Best Practices for Writing Scripts
+## 编写脚本的最佳实践
 
-Here are some things to keep in mind when you’re writing scripts:
+在编写脚本时需要记住以下几点：
 
-**1\. Use comments**: Explain complex parts of the script with comments.
+**1\. 使用注释**：用注释解释脚本的复杂部分。
 
-In the below example, without the comment, someone might have to spend extra time figuring out why the tax rate is a decimal and not a percentage.
+在下面的示例中，如果没有注释，可能需要额外时间来弄清楚为什么税率是小数而不是百分比。
 
 ```
-# Calculate the total price with tax
+# 计算含税总价
 def calculate_price_with_tax(price, tax_rate):
-    # Tax rate is expressed as a decimal (e.g., 0.07 for 7%)
+    # 税率以小数表示（例如，7% 为 0.07）
     return price + (price * tax_rate)
 ```
 
-2\. **Error handling**: Account for possible errors and handle them gracefully.
+2\. **错误处理**：考虑可能的错误并优雅地处理它们。
 
-In the below example, if the file is missing, the script won’t crash – instead, it will show a helpful error message.
+在下面的示例中，如果文件丢失，脚本不会崩溃——而是会显示一个有用的错误消息。
 
 ```
 try:
     with open('data.csv', 'r') as file:
         data = file.readlines()
 except FileNotFoundError:
-    print("Error: 'data.csv' file not found. Make sure the file exists before running the script.")
+    print("错误：未找到 'data.csv' 文件。请确保文件存在后再运行脚本。")
 except Exception as e:
-    print(f"An unexpected error occurred: {e}")
+    print(f"发生意外错误：{e}")
 ```
 
-3\. **Modular design**: Break down the script into reusable functions or modules.
+3\. **模块化设计**：将脚本分解为可重用的函数或模块。
 
-In the below example, by separating functionality into smaller, reusable functions, you can debug or reuse parts of the script independently.
+在下面的示例中，通过将功能划分为较小的可重用函数，您可以独立调试或重用脚本的部分。
 
 ```
 def fetch_data_from_api(api_url):
-    # Fetch data from the given API
+    # 从给定的 API 获取数据
     pass
 
 def process_data(data):
-    # Process the data into the desired format
+    # 将数据处理成所需格式
     pass
 
 def save_to_file(data, filename):
-    # Save processed data to a file
+    # 将处理后的数据保存到文件
     pass
 
-# Main script
+# 主脚本
 if __name__ == "__main__":
     data = fetch_data_from_api("https://example.com/api")
     processed_data = process_data(data)
     save_to_file(processed_data, "output.json")
 ```
 
-4\. **Input validation**: Validate user inputs to prevent unexpected errors or security risks.
+4\. **输入验证**：验证用户输入以防止意外错误或安全风险。
 
-Without validation, someone could input invalid or malicious data (for example, SQL injection strings in certain scenarios).
+如果没有验证，有人可能会输入无效或恶意数据（例如，某些情况下的 SQL 注入字符串）。
 
 ```
 import re
 
-# Validate that the input is a valid email address
+# 验证输入是有效的电子邮件地址
 def validate_email(email):
     pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
     if not re.match(pattern, email):
-        raise ValueError("Invalid email address format")
+        raise ValueError("无效的电子邮件地址格式")
     return email
 
-# Example usage
+# 示例用法
 try:
-    user_email = validate_email(input("Enter your email: "))
-    print(f"Valid email: {user_email}")
+    user_email = validate_email(input("请输入您的电子邮件："))
+    print(f"有效的电子邮件：{user_email}")
 except ValueError as e:
     print(e)
 ```
 
-5\. **Version control**: Use Git or other version control tools to track changes.
+5\. **版本控制**：使用 Git 或其他版本控制工具来跟踪更改。
 
-If a change breaks the script, you can easily revert to a previous commit using `git checkout`. Plus, you can collaborate seamlessly with team members.
+如果某个更改导致脚本出错，您可以轻松地使用 `git checkout` 恢复到之前的提交。此外，您可以与团队成员无缝协作。
 
 ```
 git init
@@ -308,19 +303,20 @@ git add script.py
 git commit -m "Initial commit"
 ```
 
-## Conclusion
+## 结论
 
-Writing scripts is a skill that can significantly boost your productivity and problem-solving abilities. By understanding the basics of scripting languages like Bash, Python, and JavaScript, you can automate tasks, streamline workflows, and save valuable time. Start small, build incrementally, and practice writing scripts for different use cases to master this invaluable skill.
+编写脚本是一项可以显著提高您的生产力和解决问题能力的技能。通过理解 Bash、Python 和 JavaScript 等脚本语言的基础知识，您可以自动化任务、简化工作流程，并节省宝贵的时间。从小处入手，逐步构建，练习为不同用例编写脚本以掌握这一无价技能。
 
-I have an exercise for you. To run and verify this example script, you may think you have to manually create 100 files. That consumes a lot of time.
+我给你一个练习。要运行和验证这个示例脚本，你可能认为需要手动创建 100 个文件。这会消耗大量时间。
 
-I wrote a script to generate those 100 files. I would also recommend that you try writing a script to generate 100 files with hyphens in their file names. Then try to run the example script to convert the hyphens to underscores.
+我写了一个脚本来生成这 100 个文件。我也建议你试着写一个脚本来生成 100 个文件，文件名中带有连字符。然后尝试运行示例脚本将连字符转换为下划线。
 
-This may sound difficult at the beginning, but believe me you just need to write 5 lines of bash code to generate 100 files. Not just 100 – you can even generate a million/billion/trillion files with just 5 lines of code.
+这在开始时可能听起来很困难，但相信我，你只需要写 5 行 bash 代码就能生成 100 个文件。不仅仅是 100 个——你甚至可以只用 5 行代码生成百万/十亿/万亿的文件。
 
-If you wish to learn more about Scripts, subscribe to my [email newsletter (https://5minslearn.gogosoon.com/)][2] and follow me on social media.
+如果您希望了解更多关于脚本的信息，请订阅我的 [电子邮件通讯 (https://5minslearn.gogosoon.com/)][2] 并关注我的社交媒体。
 
-Happy scripting!
+祝你编写脚本愉快！
 
 [1]: https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/
 [2]: https://5minslearn.gogosoon.com/?ref=fcc_what_are_scripts
+
