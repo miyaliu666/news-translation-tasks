@@ -4,8 +4,6 @@ on:
   pull_request:
     types:
       - opened
-    paths:
-      - '**/*.md'  # Trigger workflow only when .md files are modified in the PR
 
 jobs:
   whitespace:
@@ -27,7 +25,7 @@ jobs:
             echo "::warning::You should set the base branch as 'main'."
 
           # Use GitHub API to close the PR submitted to a branch other than main
-            curl -X PATCH -H "Authorization: token ${{ secrets.MY_GITHUB_TOKEN_2 }}" \
+            curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -d '{"state": "closed"}' \
             "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER"
           fi
