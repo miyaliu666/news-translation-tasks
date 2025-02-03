@@ -1,12 +1,11 @@
-name: Close PRs
+name: Only Pull Request to Main
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize, edited]
 
 jobs:
   close-pr-if-not-main:
-    name: Close PR if base branch is not main
     runs-on: ubuntu-latest
     
     steps:
@@ -15,8 +14,9 @@ jobs:
         with:
           script: |
             const baseBranch = context.payload.pull_request.base.ref;
-            const prNumber = context.payload.pull_request.number;
+            console.log(`Base branch: ${baseBranch}`);
 
+            const prNumber = context.payload.pull_request.number;
             if (baseBranch !== 'main') {
               await github.rest.issues.createComment({
                 issue_number: prNumber,
@@ -32,3 +32,4 @@ jobs:
                 state: 'closed'
               });
             }
+          github-token: ${{ secrets.GITHUB_TOKEN }}
