@@ -1,5 +1,5 @@
 ---
-title: How to Build Dependent Dropdowns in React
+title: 如何在 React 中构建依赖下拉菜单
 date: 2025-02-03T05:36:36.722Z
 author: Timothy Olanrewaju
 authorURL: https://www.freecodecamp.org/news/author/SmoothTech/
@@ -8,181 +8,179 @@ posteditor: ""
 proofreader: ""
 ---
 
-In many web applications, we often encounter forms where selecting an option in one dropdown unlocks a new set of options in another. These interconnected dropdowns, commonly known as dependent or cascading dropdowns, play a crucial role in creating a seamless and intuitive form-filling experience.
+在许多 Web 应用程序中，我们经常遇到这样的表单：在一个下拉菜单中选择一个选项会解锁另一个下拉菜单中的新选项。这些相互关联的下拉菜单，通常被称为依赖下拉菜单或级联下拉菜单，在创建无缝且直观的表单填写体验中起着关键作用。
 
 <!-- more -->
 
-Whether it's selecting a country to reveal corresponding states or choosing a product category to display specific items, these dropdowns simplify complex choices for everyone. For developers, implementing dependent dropdowns is a practical challenge that combines logic, usability, and dynamic data handling.
+无论是选择一个国家以显示相应的州，还是选择一个产品类别以显示特定项目，这些下拉菜单都可以简化复杂的选择。对于开发者而言，实现依赖下拉菜单是一个将逻辑、可用性和动态数据处理相结合的实用挑战。
 
-In this tutorial, you’ll learn how to implement this type of dropdown in your React application.
+在本教程中，你将学习如何在你的 React 应用中实现这种类型的下拉菜单。
 
-## Table of Contents
+## 目录
 
--   [What is a Dependent Dropdown?][1]
+-   [什么是依赖下拉菜单？][1]
     
--   [How Does a Dependent Dropdown Work?][2]
+-   [依赖下拉菜单是如何工作的？][2]
     
--   [Steps to Create Dependent Dropdowns in React][3]
+-   [在 React 中创建依赖下拉菜单的步骤][3]
     
-    -   [Step 1: Set up Your React Project][4]
+    -   [步骤 1：设置 React 项目][4]
         
-    -   [Step 2: Structure the Component][5]
+    -   [步骤 2：构建组件结构][5]
         
-    -   [Step 3: Use the Component][6]
+    -   [步骤 3：使用组件][6]
         
--   [Handling Dynamic Data (API Requests)][7]
+-   [处理动态数据（API 请求）][7]
     
--   [Conclusion][8]
-    
-
-## **What is a Dependent Dropdown?**
-
-A dependent dropdown is a UI element in which the available options in one dropdown are determined by the selection made in another dropdown. For example, consider a scenario where you have two dropdowns:
-
-1.  Country Dropdown: The user selects a country.
-    
-2.  City Dropdown: Based on the selected country, the list of available cities in the second dropdown will be filtered accordingly.
+-   [结论][8]
     
 
-This kind of interaction is crucial for forms that require complex, context-sensitive data inputs.
+## **什么是依赖下拉菜单？**
 
-## **How Does a Dependent Dropdown Work?**
+依赖下拉菜单是一种 UI 元素，其中一个下拉菜单中的可用选项由另一个下拉菜单中的选项决定。例如，考虑如下场景：
 
-Dependent dropdowns work by having the second dropdown’s options dynamically updated based on the value selected in the first dropdown. This dynamic change is typically achieved by:
-
-1.  **Listening to user input:** When the user selects an option in the first dropdown, an event (usually onChange) triggers a function to update the state.
+1.  国家下拉菜单：用户选择一个国家。
     
-2.  **Fetching new data:** This updated state can be used to either filter the existing data or make an API call to fetch the new list of options.
-    
-3.  **Rendering new data:** The second dropdown is then updated with the new options, providing the user with relevant choices.
+2.  城市下拉菜单：根据选择的国家，第二个下拉菜单中可用城市的列表会相应过滤。
     
 
-## **Steps to Create Dependent Dropdowns in React**
+这种交互对于需要复杂、上下文敏感的数据输入的表单来说至关重要。
 
-### **Step 1: Set up Your React Project**
+## **依赖下拉菜单是如何工作的？**
 
-If you’re new to React and wish to follow along, [check out the Vite docs][9] and follow the steps to create your React project. When you’re done, come back here and let’s continue building.
+依赖下拉菜单通过根据第一个下拉菜单中选择的值动态更新第二个下拉菜单的选项来工作。这种动态更改通常通过以下方式实现：
 
-If you already have a React project you want to use, that’s great too.
+1.  **监听用户输入：** 当用户在第一个下拉菜单中选择一个选项时，通常由 onChange 触发的事件会调用一个函数来更新状态。
+    
+2.  **获取新数据：** 这个更新的状态可以用来过滤现有数据或进行 API 调用以获取新的选项列表。
+    
+3.  **渲染新数据：** 然后使用新选项更新第二个下拉菜单，为用户提供相关的选择。
+    
 
-### **Step 2: Structure the Component**
+## **在 React 中创建依赖下拉菜单的步骤**
 
-For simplicity, let’s assume we are building a two-level dependent dropdown where the first dropdown lets you choose a country, and the second dropdown displays cities based on the selected country.
+### **步骤 1：设置 React 项目**
 
-Also, in the country dropdown, we’ll have another option for entering a country name that is not included in the countries options. The user can then proceed to enter their country in a text input.
+如果你是 React 新手并希望一起学习，[查看 Vite 文档][9]并按照步骤创建你的 React 项目。完成后，再回来继续构建。
 
-First, create a new file named `DependentDropdown.js` or `DependentDropdown.jsx`. Inside this file, define a functional component called `DependentDropdown`.
+如果你已经有一个想使用的 React 项目，那就太好了。
 
-Now we’ll be going through the following steps to build our dependent dropdown:
+### **步骤 2：构建组件结构**
 
-**Declare Variables for Storing Data**
+为了简单起见，我们假设正在构建一个两级依赖的下拉菜单，第一个下拉菜单让你选择国家，第二个下拉菜单根据选定的国家显示城市。
 
-We need to create static data for the values of our countries and cities:
+此外，在国家下拉菜单中，我们将有另一个选项用于输入不包括在国家选项中的国家名称。用户可以继续在文本输入中输入他们的国家。
 
-```
-  // Static country data
+首先，创建一个名为 `DependentDropdown.js` 或 `DependentDropdown.jsx` 的新文件。在这个文件中，定义一个名为 `DependentDropdown` 的函数组件。
+
+现在我们将通过以下步骤构建我们的依赖下拉菜单：
+
+**声明用于存储数据的变量**
+
+我们需要为国家和城市的值创建静态数据：
+
+```javascript
+  // 静态国家数据
   const countries = [
     { id: 1, name: 'USA' },
     { id: 2, name: 'Canada' },
     { id: 3, name: 'Other' },
   ];
 
-  // Static city data corresponding to countries
+  // 对应国家的静态城市数据
   const cities = {
     USA: ['New York', 'Los Angeles', 'Chicago'],
     Canada: ['Toronto', 'Vancouver', 'Montreal'],
   };
 ```
 
--   `countries` is an array of objects. Each object having properties of `id` and `name`.
+-   `countries` 是一个对象数组。每个对象都有 `id` 和 `name` 属性。
     
--   `cities` is an object with country names as keys and the values as array of cities.
+-   `cities` 是一个对象，以国家名称作为键，城市数组作为值。
     
 
-**Declare State Variables**
+**声明状态变量**
 
-For each selection of either country or cities, we want to be able to keep track of the values selected. We also want to be able to populate the cities option after a country selection has been made. To do that, we need to declare some states.
+对于每次选择国家或城市，我们都希望能够跟踪所选的值。我们还希望能够在选择国家后填充城市选项。为此，我们需要声明一些状态。
 
-If the concept of state is new to you, you can read my article on state [here][10].
+如果你对状态的概念不熟悉，可以阅读我关于状态的文章[这里][10]。
 
-```
+```javascript
   const [selectedCountry, setSelectedCountry] = useState('');
   const [availableCities, setAvailableCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState('');
   const [otherCountry, setOtherCountry] = useState('');
 ```
 
--   The `selectedCountry` state is declared and its initial value is set to an empty string.
+-   `selectedCountry` 状态被声明，初始值设为空字符串。
     
--   The `availableCities` state is declared and its initial value is set to an empty array.
+-   `availableCities` 状态被声明，初始值设为空数组。
     
--   The `selectedCity` state is declared and its initial value is set to an empty string.
+-   `selectedCity` 状态被声明，初始值设为空字符串。
     
--   The `otherCountry` state is declared and its initial value is set to an empty string.
+-   `otherCountry` 状态被声明，初始值设为空字符串。
     
 
-**Handling Events**
+在下拉菜单中进行选择的过程中，我们希望执行一些操作。事件处理程序使我们能够在事件发生时（在本例中是 `onChange` 事件）做到这一点。
 
-In the process of making a selection in the dropdown, we want some actions to be performed. Event handlers enable us to do that in the case of an event, which in this case is the `onChange` event.
-
-```
+```javascript
   const handleCountryChange = (e) => {
     const country = e.target.value;
     setSelectedCountry(country);
     setAvailableCities(cities[country] || []);
     setSelectedCity(''); 
-     if (country !== 'Other') {
+    if (country !== 'Other') {
       setOtherCountry('');
     }
   };
 ```
 
-Here’s what’s going on in the `handleCountryChange` function:
+以下是 `handleCountryChange` 函数中发生的事情：
 
--   Grabs the value of the selected option in the dropdown (the country that was selected).
+-   获取下拉菜单中选定选项的值（所选国家）。
     
--   The `setSelectedCountry` updates the state variable (selectedCountry) with the newly selected country.
+-   `setSelectedCountry` 用新选择的国家更新状态变量（selectedCountry）。
     
--   `cities[country]` looks up the list of cities for the selected country from the `cities` object.
+-   `cities[country]` 从 `cities` 对象中查找选定国家的城市列表。
     
-    -   If `cities[country]` is found, it sets that list of cities as the available cities.
+    -   如果找到 `cities[country]`，则将该城市列表设置为可用城市。
         
-    -   If no cities are found for the selected country (`cities[country]` is undefined), the `|| []` ensures that an empty array (`[]`) is used as a fallback, preventing errors when trying to display the cities.
+    -   如果未找到选定国家的城市（`cities[country]` 未定义），`|| []` 确保使用空数组 (`[]`) 作为回退，以防止在尝试显示城市时出现错误。
         
--   When the user changes the country selection, the `setSelectedCity` function resets the `selectedCity` to an empty string.
+-   当用户更改国家选择时，`setSelectedCity` 函数将 `selectedCity` 重置为空字符串。
     
--   If the country selected is not ‘Other’, the `otherCountry` state is reset to an empty string. This ensures that if the user had previously typed something into the "Other" input, that text is cleared once they select a different country (for example, "USA" or "Canada").
+-   如果选择的国家不是 “Other”，则 `otherCountry` 状态被重置为空字符串。这确保如果用户之前在 "Other" 输入中键入了内容，那么一旦他们选择其他国家（例如 “USA” 或 “Canada”），这些文本将被清除。
     
 
-For the ‘Other’ country selection, we just need to keep track of the value entered into the input. The `setOtherCountry` function updates the value entered. And this is how it is done:
+对于 “Other” 国家选择，我们只需要跟踪输入中输入的值。`setOtherCountry` 函数更新输入的值。以下是实现方法：
 
-```
+```javascript
   const handleOtherCountryChange = (e) => {
     setOtherCountry(e.target.value);
   };
 ```
 
-For the cities change, we don’t need to do much because the selected country determines which cities are displayed. All we need to do is to update the `selectedCity` to the value of the selected option in the dropdown, which is the city that is selected.
+对于城市的变化，我们不需要做太多工作，因为所选国家决定了显示哪些城市。我们只需要将 `selectedCity` 更新为下拉菜单中所选选项的值，即所选择的城市。
 
-In React, the updater function does the updating of state variables, so the `setSelectedCity` handles this in this case.
+在 React 中，更新函数负责更新状态变量，因此在这种情况下，`setSelectedCity` 处理这个问题。
 
-The `handleCityChange` function will be:
+`handleCityChange` 函数如下：
 
-```
+```javascript
   const handleCityChange = (e) => {
     setSelectedCity(e.target.value);
   };
 ```
 
-**Returning JSX**
+**返回 JSX**
 
-The `DependentDropdown` component renders three main elements: the Country dropdown, the City dropdown, and the Country text input.
+`DependentDropdown` 组件渲染三个主要元素：国家下拉菜单、城市下拉菜单和国家文本输入。
 
-A dropdown in HTML is a combination of the `<select>` and `<option>` elements. To keep track of the value of elements, we’ll attach state variables to them so we can control them. Doing this is called 'Controlling Elements', while the elements themselves are referred to as 'Controlled Elements' in React.
+HTML 中的下拉菜单是 `<select>` 和 `<option>` 元素的组合。为了跟踪元素的值，我们将状态变量附加到它们，以便我们可以控制它们。这样做叫做 '控制元素'，而这些元素在 React 中被称为 '受控元素'。
 
-To control the country `<select>` element, we’ll give it a `value` attribute of `selectedCountry` and also attach the `handleCountryChange` function to it.
+为了控制国家 `<select>` 元素，我们给它一个 `selectedCountry` 的 `value` 属性，并附加 `handleCountryChange` 函数。
 
-```
+```javascript
      <label htmlFor="country" className='font-bold'>Select Country: </label>
       <select id="country" value={selectedCountry} onChange={handleCountryChange}>
         <option value="">Select a country</option>
@@ -194,20 +192,20 @@ To control the country `<select>` element, we’ll give it a `value` attribute o
       </select>
 ```
 
-Also,
+还有，
 
--   Inside the `<option>`, we map over the `countries` array and dynamically create an `<option>` for each country object in the array.
+-   在 `<option>` 里面，我们遍历 `countries` 数组，并动态为数组中的每个国家对象创建一个 `<option>`。
     
--   Each country’s `name` is displayed as the option’s text.
+-   每个国家的 `name` 被显示为选项的文本。
     
--   Each option’s `key` is set to the country’s `id` and `value` is set to the country’s `name`.
+-   每个选项的 `key` 设置为国家的 `id`，`value` 设置为国家的 `name`。
     
--   The `key` helps React manage the list efficiently when re-rendering.
+-   `key` 帮助 React 在重新渲染时有效地管理列表。
     
 
-The Cities dropdown is conditionally rendered based on the selected country. If the 'Other' country option is chosen, a text input field is displayed for the user to specify the country. Otherwise, if a valid country is selected, a Cities dropdown with relevant options is shown.
+城市下拉菜单根据所选国家来有条件地渲染。如果选择了 "Other" 国家选项，则显示一个文本输入字段供用户指定国家。否则，如果选择了一个有效的国家，则显示一个具有相关选项的城市下拉菜单。
 
-```
+```javascript
 {selectedCountry === 'Other' ? (
         <>
           <label htmlFor="other-country" className='font-bold'>Please specify the country: </label>
@@ -237,77 +235,75 @@ The Cities dropdown is conditionally rendered based on the selected country. If 
 }
 ```
 
-Additionally:
+另外：
 
--   We check if `selectedCountry` is the ‘Other’ option and display a text input.
+-   我们检查 `selectedCountry` 是否为 “Other” 选项，并显示一个文本输入。
     
--   The text input has a `otherCountry` state and the `handleOtherCountryChange` handler function attached to it.
+-   文本输入具有 `otherCountry` 状态，并附加了 `handleOtherCountryChange` 处理程序函数。
     
--   We control the city `<select>` element using the `value` attribute, setting it to the state variable of `selectedCity`. The event handler, `handleCityChange`, is also attached to handle `onChange` events.
+-   我们使用 `value` 属性控制城市 `<select>` 元素，将其设置为 `selectedCity` 的状态变量。事件处理程序 `handleCityChange` 也被附加来处理 `onChange` 事件。
     
--   We map over the `availableCities` array and dynamically create an `<option>` for each city in the array.
+-   我们遍历 `availableCities` 数组，并动态为数组中的每个城市创建一个 `<option>`。
     
--   Each option’s `key` is set to an `index` and `value` is set to the `city`.
+-   每个选项的 `key` 被设置为一个 `index`，`value` 被设置为 `city`。
     
--   Each city is displayed as the option’s text.
+-   每个城市被显示为选项的文本。
     
 
-That’s all we have to do to have a functional dependent dropdown using our static data.
+这里是所有代码的组合：
 
-Here is all the code put together:
-
-```
+```javascript
 import React, { useState } from 'react';
 
 const DependentDropdown = () => {
-  // Static country data
+  // 静态国家数据
   const countries = [
-    { id: 1, name: 'USA' },
-    { id: 2, name: 'Canada' },
-    { id: 3, name: 'Other' },
+    { id: 1, name: '美国' },
+    { id: 2, name: '加拿大' },
+    { id: 3, name: '其他' },
   ];
 
-  // Static city data corresponding to countries
+  // 对应国家的静态城市数据
   const cities = {
-    USA: ['New York', 'Los Angeles', 'Chicago'],
-    Canada: ['Toronto', 'Vancouver', 'Montreal'],
+    美国: ['纽约', '洛杉矶', '芝加哥'],
+    加拿大: ['多伦多', '温哥华', '蒙特利尔'],
   };
 
-  // State to hold the selected country, city, and other country text
+  // 保存选定国家、城市和其他国家文本的状态
   const [selectedCountry, setSelectedCountry] = useState('');
   const [availableCities, setAvailableCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState('');
   const [otherCountry, setOtherCountry] = useState(''); 
 
-  // Handle country change
+  // 处理国家变化
   const handleCountryChange = (e) => {
     const country = e.target.value;
     setSelectedCountry(country);
     setAvailableCities(cities[country] || []);
     setSelectedCity(''); 
-    if (country !== 'Other') {
+    if (country !== '其他') {
       setOtherCountry('');
     }
   };
 
-  // Handle city change
+  // 处理城市变化
   const handleCityChange = (e) => {
     setSelectedCity(e.target.value);
   };
 
-  // Handle other country input change
+  // 处理其他国家输入变化
   const handleOtherCountryChange = (e) => {
     setOtherCountry(e.target.value);
   };
 
   return (
     <div className='text-center text-3xl'>
-      <h1 className='font-extrabold text-5xl p-10'>Dependent Dropdown Example</h1>
+      <h1 className='font-extrabold text-5xl p-10'>依赖下拉菜单示例</h1>
 
-      {/* Country Dropdown */}
-      <label htmlFor="country" className='font-bold'>Select Country: </label>
+      {/* 国家下拉菜单 */}
+      <label htmlFor="country" className='font-bold'>选择国家: </label>
       <select id="country" value={selectedCountry} onChange={handleCountryChange}>
-        <option value="">Select a country</option>
+        <option value="">选择一个国家</option>
         {countries.map((country) => (
           <option key={country.id} value={country.name}>
             {country.name}
@@ -315,24 +311,24 @@ const DependentDropdown = () => {
         ))}
       </select>
 
-      {/* City or Other Country Input */}
-      {selectedCountry === 'Other' ? (
+      {/* 城市或其他国家输入 */}
+      {selectedCountry === '其他' ? (
         <>
-          <label htmlFor="other-country" className='font-bold'>Please specify the country: </label>
+          <label htmlFor="other-country" className='font-bold'>请指定国家: </label>
           <input
             id="other-country"
             type="text"
             value={otherCountry}
             onChange={handleOtherCountryChange}
-            placeholder="Enter country name"
+            placeholder="输入国家名称"
           />
         </>
       ) : (
         selectedCountry && (
           <>
-            <label htmlFor="city" className='font-bold'>Select City: </label>
+            <label htmlFor="city" className='font-bold'>选择城市: </label>
             <select id="city" value={selectedCity} onChange={handleCityChange}>
-              <option value="">Select a city</option>
+              <option value="">选择一个城市</option>
               {availableCities.map((city, index) => (
                 <option key={index} value={city}>
                   {city}
@@ -349,11 +345,11 @@ const DependentDropdown = () => {
 export default DependentDropdown;
 ```
 
-### Step 3: Use the Component
+### 第三步：使用组件
 
-To get your final results, you need to import the `DependentDropdown` component into your `App.js` or `App.jsx` and place it inside the return section of the App component.
+要得到最终结果，你需要将 `DependentDropdown` 组件导入到你的 `App.js` 或 `App.jsx` 中并将它放在 App 组件的返回部分。
 
-```
+```javascript
 import DependentDropdown from './DependentDropdown'
 
 function App() {
@@ -366,35 +362,35 @@ function App() {
 export default App
 ```
 
-Don’t forget to run the application by entering either of these commands:
+不要忘记通过输入以下任一命令来运行应用程序：
 
-```
-npm start //for create react app
-npm run dev //for react vite app
+```bash
+npm start //用于 create react app
+npm run dev //用于 react vite app
 ```
 
-Finally, this is what should render on your browser:
+最后，你的浏览器上应该呈现如下所示的内容：
 
 ![38ff328c-09bd-4f74-b458-423ff1216e48](https://cdn.hashnode.com/res/hashnode/image/upload/v1737899898480/38ff328c-09bd-4f74-b458-423ff1216e48.gif)
 
-## Handling Dynamic Data (API Requests)
+## 处理动态数据（API 请求）
 
-In real-world applications, the lists for the dropdowns might not be static. Instead, they might be fetched from an API or a JSON file acting as an API.
+在现实世界的应用中，下拉列表的选项可能不是静态的，而是从一个 API 或作为 API 的 JSON 文件中获取的。
 
-In this example, we’ll be reading data from a JSON file to populate our dependent dropdown. This practice has some benefits which are:
+在这个例子中，我们将从一个 JSON 文件中读取数据来填充我们的依赖下拉菜单。这种做法有一些好处：
 
--   **Reduced database load:** By using a static JSON file (or a pre-loaded file), you're reducing the number of database queries that would otherwise be needed to populate dropdowns. This is especially useful if the dropdown options are fairly static and don’t change often.
-    
--   **Faster UI rendering:** Since the data is already on the client side, there’s no need for a round-trip request to the server every time the user interacts with the dropdown. This can make the interface feel more responsive.
-    
+- **减少数据库负载：** 使用静态 JSON 文件（或预加载文件）可以减少为填充下拉菜单而需要的数据库查询次数。特别是在下拉选项相对静态且不经常变更的情况下。
+  
+- **更快的 UI 渲染：** 由于数据已经在客户端，无需每次用户与下拉菜单交互时都请求服务器。这可以使界面更加快速响应。
+  
 
-Our JSON file contains states and LGAs (Local Government Areas), which are the equivalents of Countries and Cities.
+我们的 JSON 文件包含州和地方政府区域（Local Government Areas，LGA），这相当于国家和城市。
 
-The data in the JSON file is represented as an array of objects, with each object having keys for **state**, **alias**, and **lgas**. The 'lgas' key contains an array.
+JSON 文件中的数据表示为对象数组，每个对象有 **state**（状态）、**alias**（别名）和 **lgas**（地方政府区域）键。'lgas' 键包含一个数组。
 
-Here’s how it’s represented:
+如下所示：
 
-```
+```json
 [
   {
     "state": "Adamawa",
@@ -416,55 +412,54 @@ Here’s how it’s represented:
       "Urue-Offong/Oruko",
       "Uyo"
     ]
-  },
-//the rest of the objects
+  }
+  //其余对象
 ]
 ```
 
-This method of creating a dynamic dependent dropdown from an API isn’t too different from the previous example, except for some minor modifications.
-
-Here ‘s how we fetched and used data from a JSON file:
+从 API 创建动态依赖下拉菜单的方法与前面的例子没有太大区别，只需进行一些小的修改。
 
 ```
+// 导入 React 及其钩子
 import React, { useEffect, useState } from "react";
 
 function DependentDropdown() {
-//declaring global state variables
+// 声明全局状态变量
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-//fetching data using the useEffect hook
+// 使用 useEffect 钩子获取数据
   useEffect(() => {
-    fetch("nigeria-state-and-lgas.json") //JSON file set as URL
+    fetch("nigeria-state-and-lgas.json") // JSON文件作为URL
       .then((res) => res.json())
       .then((data) => {
         setData(data);
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error("获取数据出错:", error);
         setLoading(false);
       });
   }, []);
-  return loading ? <div>Loading...</div> : <Form data={data} />;
+  return loading ? <div>加载中...</div> : <Form data={data} />;
 
 }
-//form recieving data as props
+// 表单接收数据作为属性
 function Form({ data }) {
 
-//declaring local state variables
+// 声明本地状态变量
   const [selectedState, setSelectedState] = useState("");
   const [selectedLga, setSelectedLga] = useState("");
   const [showList, setShowList] = useState(false);
   let sortedData = data.slice().sort((a, b) => a.state.localeCompare(b.state));
   const selectedData = sortedData.find((item) => item.state === selectedState);
 
-//handler function for state
+// 状态的事件处理函数
   function handleClickState(e) {
     setSelectedState(e.target.value);
     setShowList(true);
   }
-//handler function for Lga
+// LGA的事件处理函数
   function handleClickLga(e) {
     setSelectedLga(e.target.value);
   }
@@ -473,32 +468,32 @@ function Form({ data }) {
     <div>
   <form onSubmit={handleFormSubmit}>
     <div>
-      {/* First Name */}
+      {/* 名字 */}
       <div>
-        <label htmlFor="firstName">First Name</label>
+        <label htmlFor="firstName">名字</label>
         <input type="text"
           id="firstName"
           name="firstName"
-          placeholder="Enter your first name"/>
+          placeholder="请输入你的名字"/>
       </div>
 
-      {/* Last Name */}
+      {/* 姓氏 */}
       <div>
         <label htmlFor="lastName">
-          Last Name
+          姓氏
         </label>
         <input
           type="text"
           id="lastName"
           name="lastName"
-          placeholder="Enter your last name"/>
+          placeholder="请输入你的姓氏"/>
       </div>
     </div>
 
     <div>
       <div>
         <select value={selectedState} onChange={handleClickState} name="state">
-          <option value="" disabled>Choose your state</option>
+          <option value="" disabled>请选择你的州</option>
           {sortedData.map((data) => (
             <option key={data.alias} value={data.state}>
               {data.state}
@@ -508,7 +503,7 @@ function Form({ data }) {
       </div>
       {selectedData && showList && (
         <select value={selectedLga} onChange={handleClickLga} name="lga">
-          <option value="" disabled>{`Choose your LGA in ${selectedState}`}</option>
+          <option value="" disabled>{`请选择你所在的 ${selectedState} 区`}</option>
           {selectedData.lgas.map((lgass) => (
             <option key={lgass} value={lgass}>
               {lgass}
@@ -520,7 +515,7 @@ function Form({ data }) {
     </div>
     <div>
         <button type="submit">
-          Submit
+          提交
         </button>
       </div>
   </form>
@@ -531,19 +526,19 @@ function Form({ data }) {
 export default DependentDropdown;
 ```
 
-The key modification here is data fetching using the `useEffect` hook, which fetches the states and LGA data only on the initial render
+这里的关键修改是使用 `useEffect` 钩子获取数据，它在初始渲染时只获取州和LGA数据。
 
-Here is how this renders on the browser:
+以下是它在浏览器上的渲染效果：
 
 ![ada964c4-a2a4-4012-869f-c0bbf53761a7](https://cdn.hashnode.com/res/hashnode/image/upload/v1737856956995/ada964c4-a2a4-4012-869f-c0bbf53761a7.gif)
 
-## Conclusion
+## 结论
 
-In this tutorial, you have learnt how to create dependent dropdowns in React using both static and dynamic data. You can now use this type of dropdown in your React applications.
+在这个教程中，你学会了如何在 React 中使用静态和动态数据创建依赖下拉菜单。现在你可以在你的 React 应用程序中使用这种类型的下拉菜单了。
 
-If you found this article helpful, you can connect with me on [LinkedIn][11] for more programming related articles and posts.
+如果你觉得这篇文章有帮助，可以在 [LinkedIn][11] 上与我联系，获取更多编程相关的文章和帖子。
 
-See you on the next one!
+下一篇再见！
 
 [1]: #heading-what-is-a-dependent-dropdown
 [2]: #heading-how-does-a-dependent-dropdown-work
@@ -556,3 +551,5 @@ See you on the next one!
 [9]: https://vite.dev/guide/
 [10]: https://www.freecodecamp.org/news/react-state-management/
 [11]: https://linkedin.com/in/timothy-olanrewaju750
+```
+
