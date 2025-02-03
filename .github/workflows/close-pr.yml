@@ -3,6 +3,8 @@ name: Close PRs
 on:
   pull_request:
     types: [opened, reopened, synchronize, edited]
+  branches:
+    - auto-translate
 
 jobs:
   close-pr-if-not-main:
@@ -32,4 +34,3 @@ jobs:
                 state: 'closed'
               });
             }
-          github-token: ${{ secrets.GITHUB_TOKEN }}
