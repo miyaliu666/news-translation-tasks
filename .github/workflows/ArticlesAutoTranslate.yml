@@ -88,7 +88,7 @@ jobs:
           with_task_translate_to_save_path: './articles/{lang}/'
 
       # Commit the crawled original text and the translated article to the remote repository
-      - name: Commit raw article and auto-translated-article
+      - name: Commit raw article and auto-translated article
         run: |
           if [ -d "./articles/_tmp/" ]; then
             rm -rf ./articles/_tmp/
@@ -96,7 +96,7 @@ jobs:
           git add ./articles/_tmp/*
           git add ./articles/_raw/*.md
           git add ./articles/${{ steps.extract-lang.outputs.lang }}/*.md
-          git commit -m 'Save auto-translated article markdown.'
+          git commit -m 'auto translate the article'
           git push origin auto-translate
 
       
