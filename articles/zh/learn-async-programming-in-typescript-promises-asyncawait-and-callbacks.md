@@ -1,5 +1,6 @@
+```markdown
 ---
-title: "Learn Async Programming in TypeScript: Promises, Async/Await, and Callbacks"
+title: "TypeScript 中的异步编程：Promises、Async/Await 与回调"
 date: 2025-02-03T13:40:14.449Z
 author: Isaiah Clifford Opoku
 authorURL: https://www.freecodecamp.org/news/author/Clifftech/
@@ -8,147 +9,134 @@ posteditor: ""
 proofreader: ""
 ---
 
-Async programming is a programming paradigm that allows you to write code that runs `asynchronously`. In contrast to synchronous programming, which executes code sequentially, async programming allows code to run in the background while the rest of the program continues to execute. This is particularly useful for tasks that may take a long time to complete, such as fetching data from a remote API.
+异步编程是一种允许您编写 `异步` 运行代码的编程范式。与按顺序执行代码的同步编程相对，异步编程允许代码在程序的其余部分继续执行的同时在后台运行。这对于完成可能需要较长时间的任务特别有用，例如从远程 API 获取数据。
 
 <!-- more -->
 
-`Async programming` is essential for creating responsive and efficient applications in JavaScript. TypeScript, a superset of JavaScript, makes it even easier to work with async programming.
+`异步编程` 对于创建响应迅速且高效的 JavaScript 应用程序至关重要。TypeScript 作为 JavaScript 的超集，使处理异步编程变得更加容易。
 
-There are several approaches to `async programming` in TypeScript, including using `promises`, `async/await`, and `callbacks`. We will cover each of these approaches in detail so that you can choose the best one(s) for your use case.
+在 TypeScript 中有几种方法可以进行 `异步编程`，包括使用 `promises`、`async/await` 和 `callbacks`。我们将详细介绍每种方法，以便您可以根据您的使用场景选择最佳的方法。
 
-## Table of Contents
+## 目录
 
-1.  [Why is Async Programming Important?][1]
+1.  [为什么异步编程很重要？][1]
     
-2.  [How TypeScript Makes Async Programming Easier][2]
+2.  [TypeScript 如何简化异步编程][2]
     
-3.  [How to Use Promises in TypeScript][3]
+3.  [如何在 TypeScript 中使用 Promises][3]
     
-    -   [How to Create a Promise][4]
+    -   [如何创建一个 Promise][4]
         
-    -   [How to Chain Promises][5]
+    -   [如何链接 Promise][5]
         
-4.  [How to Use Async / Await in TypeScript][6]
+4.  [如何在 TypeScript 中使用 Async / Await][6]
     
-5.  [How to Use Callbacks in TypeScript][7]
+5.  [如何在 TypeScript 中使用回调函数][7]
     
-6.  [Conclusion][8]
+6.  [总结][8]
     
 
-## Why is Async Programming Important?
+## 为什么异步编程很重要？
 
-Async programming is crucial for building responsive and efficient web applications. It allows tasks to run in the background while the rest of the program continues, keeping the user interface responsive to input. Also, async programming can boost overall performance by letting multiple tasks run at the same time.
+异步编程对于构建响应迅速和高效的 Web 应用程序至关重要。它允许任务在后台运行的同时程序的其余部分继续运行，从而保持用户界面对输入的响应。此外，异步编程可以通过让多个任务同时运行来提升整体性能。
 
-There are many real-world examples of async programming, such as accessing user cameras and microphones and handling user input events. Even if you don't frequently create asynchronous functions, it's important to know how to use them correctly to make sure your application is reliable and performs well.
+有许多异步编程的实际例子，例如访问用户相机和麦克风，以及处理用户输入事件。即使您不常创建异步函数，了解如何正确使用它们也很重要，以确保您的应用程序可靠且性能良好。
 
-### How TypeScript Makes Async Programming Easier
+### TypeScript 如何简化异步编程
 
-TypeScript offers several features that simplify async programming, including `type safety`, `type inference`, `type checking`, and `type annotations`.
+TypeScript 提供了几种简化异步编程的功能，包括 `类型安全`、`类型推断`、`类型检查` 和 `类型注释`。
 
-With type safety, you can ensure your code behaves as expected, even when dealing with asynchronous functions. For instance, TypeScript can catch errors related to null and undefined values at compile time, saving you time and effort in debugging.
+通过类型安全，您可以确保即使在处理异步函数时，您的代码也能按预期工作。例如，TypeScript 可以在编译时捕获与 null 和 undefined 值相关的错误，从而为您节省调试时间和精力。
 
-TypeScript's type inference and checking also reduce the amount of boilerplate code you need to write, making your code more concise and easier to read.
+TypeScript 的类型推断和检查还减少了您需要编写的样板代码，使代码更简洁且易于阅读。
 
-And TypeScript's type annotations provide clarity and documentation for your code, which is especially helpful when working with asynchronous functions that can be complex to understand.
+TypeScript 的类型注释为您的代码提供了清晰的文档，这在处理可能复杂的异步函数时尤其有用。
 
-Now let’s dive in and learn about these three key features of asynchronous programming: promises, async/await, and callbacks.
+现在让我们深入学习异步编程的三个关键特性：promises, async/await 和 回调。
 
-## How to Use Promises in TypeScript
+## 如何在 TypeScript 中使用 Promises
 
-**Promises** are a powerful tool for handling asynchronous operations in TypeScript. For instance, you might use a promise to fetch data from an external API or to perform a time-consuming task in the background while your main thread keeps running.
+**Promises** 是处理 TypeScript 异步操作的强大工具。例如，您可以使用 promise 从外部 API 获取数据或在后台执行耗时任务，而主线程继续运行。
 
-To use a Promise, you create a new instance of the `Promise` class and pass it a function that carries out the asynchronous operation. This function should call the resolve method with the result when the operation succeeds or the reject method with an error if it fails.
+要使用 Promise，您需要创建一个 `Promise` 类的新实例，并传递一个执行异步操作的函数。当操作成功时，该函数应调用 resolve 方法并传入结果；如果失败，则调用 reject 方法并传入错误。
 
-Once the Promise is created, you can attach callbacks to it using the `then` method. These callbacks will be triggered when the Promise is fulfilled, with the resolved value passed as a parameter. If the Promise is rejected, you can attach an error handler using the catch method, which will be called with the reason for the rejection.
+一旦创建了 Promise，您可以使用 `then` 方法为其附加回调。这些回调会在 Promise 被兑现时触发，并将 resolved 的值作为参数传递。如果 Promise 被拒绝，您可以使用 catch 方法附加错误处理，该方法会收到拒绝的原因。
 
-Using Promises offers several advantages over traditional callback-based methods. For example, Promises can help prevent "callback hell," a common issue in asynchronous code where nested callbacks become hard to read and maintain.
+使用 Promises 相对于传统的基于回调的方法有几个优点。例如，Promises 可以帮助防止“回调地狱”，即异步代码中常见的嵌套回调难以阅读和维护的问题。
 
-Promises also make error handling in asynchronous code easier, as you can use the catch method to manage errors that occur anywhere in the Promise chain.
+Promises 还使异步代码中的错误处理变得更加简单，因为您可以使用 catch 方法来处理 Promise 链中任何地方发生的错误。
 
-Finally, Promises can simplify your code by providing a consistent, composable way to handle asynchronous operations, regardless of their underlying implementation.
+最后，Promises 通过提供一致、可组合的方式处理异步操作，无论其底层实现如何，简化了您的代码。
 
-### How to Create a Promise
+### 如何创建一个 Promise
 
-Promise syntax:
+Promise 语法：
 
-```
+```typescript
 const myPromise = new Promise((resolve, reject) => {
-  // Do some asynchronous operation
-  // If the operation is successful, call resolve with the result
-  // If the operation fails, call reject with an error object
+  // 执行一些异步操作
+  // 如果操作成功，调用 resolve 方法传入结果
+  // 如果操作失败，调用 reject 方法传入错误对象
 });
 
 myPromise
   .then((result) => {
-    // Handle the successful result
+    // 处理成功的结果
   })
   .catch((error) => {
-    // Handle the error
+    // 处理错误
   });
 ```
 
-```
-// Example 1 on how to create a promise
+```typescript
+// 创建一个 promise 的示例 1
 
 function myAsyncFunction(): Promise<string> {
   return new Promise<string>((resolve, reject) => {
-    // Some asynchronous operation
+    // 一些异步操作
     setTimeout(() => {
-      // Successful operation resolves promiseCheck out my latest blog post on mastering async programming in TypeScript! Learn how to work with Promises, Async/Await, and Callbacks to write efficient and scalable code. Get ready to take your TypeScript skills to the next level!
+      // 成功操作，解决 promise
       const success = true;
+```
 
-      if (success) {
-        // Resolve the promise with the operation result if the operation was successful
-        resolve(
-          `The result is success and your operation result is ${operationResult}`
-        );
-      } else {
-        const rejectCode: number = 404;
-        const rejectMessage: string = `The result is failed and your operation result is ${rejectCode}`;
-        // Reject the promise with the operation result if the operation failed
-        reject(new Error(rejectMessage));
-      }
-    }, 2000);
-  });
-}
-
-// Use the promise
+```markdown
+// 使用 promise
 myAsyncFunction()
   .then((result) => {
-    console.log(result); // output : The result is success and your operation result is 4
+    console.log(result); // 输出 : 结果是成功的，你的操作结果是 4
   })
   .catch((error) => {
-    console.error(error); // output : The result is failed and your operation result is 404
+    console.error(error); // 输出 : 结果是失败的，你的操作结果是 404
   });
 ```
 
-In the example above, we have a function called `myAsyncFunction()` that returns a `promise`. We use the `Promise` constructor to create the promise, which takes a `callback function` with `resolve` and `reject` arguments. If the asynchronous operation is successful, we call the resolve function. If it fails, we call the reject function.
+在上面的例子中，我们有一个名为 `myAsyncFunction()` 的函数，它返回一个 `promise`。我们使用 `Promise` 构造器来创建 promise，它接受一个带有 `resolve` 和 `reject` 参数的 `回调函数`。如果异步操作成功，我们调用 resolve 函数。如果操作失败，我们调用 reject 函数。
 
-The promise object returned by the constructor has a `then()` method, which takes success and failure callback functions. If the promise resolves successfully, the success callback function is called with the result. If the promise is rejected, the failure callback function is called with an error message.
+由构造器返回的 promise 对象有一个 `then()` 方法，它接受成功和失败的回调函数。如果 promise 成功解决，成功的回调函数将使用结果调用。如果 promise 被拒绝，将以错误信息调用失败的回调函数。
 
-The promise object also has a `catch()` method used to handle errors that occur during the promise chain. The `catch()` method takes a callback function, which is called if any error occurs in the promise chain.
+promise 对象还有一个 `catch()` 方法，用于处理 promise 链中发生的错误。`catch()` 方法接受一个回调函数，如果在 promise 链中发生任何错误，将调用该函数。
 
-Now, let's move on to how to chain promises in TypeScript.
+现在，让我们继续了解如何在 TypeScript 中串联 promise。
 
-### How to Chain Promises
+### 如何链式调用 Promise
 
-Chaining promises allows you to perform `multiple asynchronous operations` in sequence or in parallel. This is helpful when you need to carry out several async tasks one after another or at the same time. For instance, you might need to fetch data asynchronously and then process it asynchronously.
+链式调用 promise 允许你按顺序或并行执行 `多个异步操作`。这在您需要一个接一个地执行多个异步任务或同时执行时非常有用。例如，您可能需要异步获取数据，然后异步处理它。
 
-Let's look at an example of how to chain promises:
+让我们来看看如何链式调用 promise 的例子：
 
-```
-// Example on how chaining promises works
-// First promise
+```markdown
+// 链式调用 promise 的示例
+// 第一个 promise
 const promise1 = new Promise((resolve, reject) => {
-  const functionOne: string = "This is the first promise function";
+  const functionOne: string = "这是第一个 promise 函数";
   setTimeout(() => {
     resolve(functionOne);
   }, 1000);
 });
 
-// Second promise
+// 第二个 promise
 const promise2 = (data: number) => {
-  const functionTwo: string = "This is the second second promise  function";
+  const functionTwo: string = "这是第二个 promise 函数";
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(` ${data}  '+'  ${functionTwo} `);
@@ -156,75 +144,75 @@ const promise2 = (data: number) => {
   });
 };
 
-// Chaining first and second promises together
+// 将第一个和第二个 promise 链式调用在一起
 promise1
   .then(promise2)
   .then((result) => {
-    console.log(result); // output: This is the first promise function + This is the second second promise function
+    console.log(result); // 输出: 这是第一个 promise 函数 + 这是第二个 promise 函数
   })
   .catch((error) => {
     console.error(error);
   });
 ```
 
-In the example above, we have two promises: `promise1` and `promise2`. `promise1` resolves after 1 second with the string "This is the first promise function." `promise2` takes a number as input and returns a promise that resolves after 1 second with a string that combines the input number and the string "This is the second promise function."
+在上面的例子中，我们有两个 promise：`promise1` 和 `promise2`。`promise1` 在 1 秒后解决，得到字符串 "这是第一个 promise 函数。"  `promise2` 接受一个数字作为输入，并返回一个 promise, 在 1 秒后解决，并组合输入数字和字符串 "这是第二个 promise 函数"
 
-We chain the two promises together using the `then` method. The output `promise1` is passed as input to `promise2`. Finally, we use the `then` method again to log the output of `promise2` to the console. If either `promise1` or `promise2` rejects, the error will be caught by the `catch` method.
+我们使用 `then` 方法链式调用两个 promise。`promise1` 的输出作为输入传递给 `promise2`。最后，我们再次使用 `then` 方法将 `promise2` 的输出记录到控制台。如果 `promise1` 或 `promise2` 中的任何一个被拒绝，则错误将由 `catch` 方法捕获。
 
-Congratulations! You have learned how to create and chain promises in TypeScript. You can now use promises to perform asynchronous operations in TypeScript. Now, let's explore how `Async/Await` works in TypeScript.
+恭喜！你已经学会了如何在 TypeScript 中创建和链式调用 promise。你现在可以使用 promise 在 TypeScript 中执行异步操作。现在，让我们探索 TypeScript 中的 `异步/等待` 是如何工作的。
 
-## How to Use Async / Await in TypeScript
+## 如何在 TypeScript 中使用 Async / Await
 
-**Async/await** is a syntax introduced in ES2017 to make working with Promises easier. It allows you to write asynchronous code that looks and feels like synchronous code.
+**异步/等待** 是在 ES2017 中引入的一种语法，可以使对 Promise 的使用更简单。它允许您编写看上去像同步代码的异步代码。
 
-In TypeScript, you can define an asynchronous function using the `async` keyword. This tells the compiler that the function is asynchronous and will return a Promise.
+在 TypeScript 中，您可以使用 `async` 关键字定义一个异步函数。它告诉编译器这个函数是异步的，并将返回一个 Promise。
 
-Now, let's see how to use async/await in TypeScript.
+现在，让我们看看如何在 TypeScript 中使用异步/等待。
 
-Async / Await Syntax:
+异步/等待语法：
 
-```
-// Async / Await Syntax in TypeScript
+```markdown
+// TypeScript 中的异步/等待语法
 async function functionName(): Promise<ReturnType> {
   try {
     const result = await promise;
-    // code to execute after promise resolves
+    // promise 解决后要执行的代码
     return result;
   } catch (error) {
-    // code to execute if promise rejects
+    // 如果 promise 被拒绝，执行的代码
     throw error;
   }
 }
 ```
 
-In the example above, `functionName` is an async function that returns a Promise of `ReturnType`. The `await` the keyword is used to wait for the promise to resolve before moving to the next line of code.
+在上面的例子中，`functionName` 是一个返回 `ReturnType` Promise 的异步函数。`await` 关键字用于等待 promise 解决后再移动到下一行代码。
 
-The `try/catch` block is used to handle any errors that occur while running the code inside the async function. If an error happens, it will be caught by the catch block, where you can handle it appropriately.
+`try/catch` 块用于处理在异步函数内部运行代码时发生的任何错误。如果发生错误，它将被 catch 块捕获，您可以在那里适当地处理它。
 
-### **Using Arrow Functions with Async / Await**
+### **使用箭头函数和 Async / Await**
 
-You can also use arrow functions with async/await syntax in TypeScript:
+您还可以在 TypeScript 中使用带有异步/等待语法的箭头函数：
 
-```
+```markdown
 const functionName = async (): Promise<ReturnType> => {
   try {
     const result = await promise;
-    // code to execute after promise resolves
+    // promise 解决后要执行的代码
     return result;
   } catch (error) {
-    // code to execute if promise rejects
+    // 如果 promise 被拒绝，执行的代码
     throw error;
   }
 };
 ```
 
-In the example above, `functionName` is defined as an arrow function that returns a Promise of `ReturnType`. The async keyword indicates that this is an asynchronous function, and the await keyword is used to wait for the promise to resolve before moving to the next line of code.
+在上面的例子中，`functionName` 被定义为返回 `ReturnType` Promise 的箭头函数。async 关键字表示这是一个异步函数，而 await 关键字用于等待 promise 解决后再移动到下一行代码。
 
-### **Async / Await with an API Call**
+### **使用异步/等待进行 API 调用**
 
-Now, let's go beyond the syntax and fetch some data from an API using async/await.
+现在，让我们超越语法，使用异步/等待从 API 获取一些数据。
 
-```
+```markdown
 interface User {
   id: number;
   name: string;
@@ -237,7 +225,7 @@ const fetchApi = async (): Promise<void> => {
 
     if (!response.ok) {
       throw new Error(
-        `Failed to fetch users (HTTP status code: ${response.status})`
+        `获取用户失败 (HTTP 状态码: ${response.status})`
       );
     }
 
@@ -248,20 +236,19 @@ const fetchApi = async (): Promise<void> => {
     throw error;
   }
 };
-
-fetchApi();
 ```
 
-Here, we’re fetching data from the JSONPlaceholder API, converting it to JSON, and then logging it to the console. This is a real-world example of how to use async/await in TypeScript.
+```
+在这里，我们从 JSONPlaceholder API 获取数据，将其转换为 JSON，然后将其记录到控制台。这是一个如何在 TypeScript 中使用 async/await 的真实示例。
 
-You should see user information in the console. This image shows the output:
+您应该在控制台中看到用户信息。此图像显示了输出结果：
 
 ![a1b865ea-0903-4749-a079-c8401be05787](https://cdn.hashnode.com/res/hashnode/image/upload/v1737554438217/a1b865ea-0903-4749-a079-c8401be05787.png)
 
-### **Async/Await with Axios API call**
+### **使用 Axios API 调用的 Async/Await**
 
 ```
-// Example 2 on how to use async / await in typescript
+// 示例 2，如何在 TypeScript 中使用 async / await
 
 const fetchApi = async (): Promise<void> => {
   try {
@@ -278,15 +265,15 @@ const fetchApi = async (): Promise<void> => {
 fetchApi();
 ```
 
-In the example above, we define the `fetchApi()` function using async/await and the `Axios.get()` method to make an HTTP GET request to the specified URL. We use await to wait for the response, then extract the data using the data property of the response object. Finally, we log the data to the console with `console.log()`. Any errors that occur are caught and logged to the console with `console.error()`.
+在上面的示例中，我们使用 async/await 和 `Axios.get()` 方法定义了 `fetchApi()` 函数，以向指定的 URL 发出 HTTP GET 请求。我们使用 await 等待响应，然后使用响应对象的 data 属性提取数据。最后，我们使用 `console.log()` 将数据记录到控制台。任何发生的错误都会被捕获并使用 `console.error()` 记录到控制台。
 
-We can achieve this using Axios, so you should see the same result in the console.
+我们可以使用 Axios 实现这一点，因此您应该在控制台中看到相同的结果。
 
-This image shows the output when using Axios in the console:
+此图像显示了在控制台中使用 Axios 时的输出结果：
 
 ![4f85a12d-6a9b-4eaa-9ab9-910a8a463dc6](https://cdn.hashnode.com/res/hashnode/image/upload/v1737554631796/4f85a12d-6a9b-4eaa-9ab9-910a8a463dc6.png)
 
-Note: Before you try the code above, you need to install Axios using npm or yarn.
+注意：在您尝试上述代码之前，您需要使用 npm 或 yarn 安装 Axios。
 
 ```
 
@@ -298,14 +285,14 @@ npm install axios
 yarn add axios
 ```
 
-If you're not familiar with Axios, you can [learn more about it here][9].
+如果您不熟悉 Axios，您可以[在这里了解更多][9]。
 
-You can see that we used a `try` and `catch` block to handle errors. The `try` and `catch` block is a method for managing errors in TypeScript. So, whenever you make API calls like we just did, make sure you use a `try` and `catch` block to handle any errors.
+您可以看到，我们使用了 `try` 和 `catch` 块来处理错误。`try` 和 `catch` 块是 TypeScript 中管理错误的方法。因此，无论何时进行像我们刚才这样的 API 调用，请确保使用 `try` 和 `catch` 块来处理任何错误。
 
-Now, let's explore a more advanced use of the `try` and `catch` block in TypeScript:
+现在，让我们探索在 TypeScript 中更高级的 `try` 和 `catch` 块用法：
 
 ```
-// Example 3 on how to use async / await in typescript
+// 示例 3，如何在 TypeScript 中使用 async / await
 
 interface Recipe {
   id: number;
@@ -336,17 +323,17 @@ const fetchRecipes = async (): Promise<Recipe[] | string> => {
     }
 
     const { recipes } = await response.json();
-    return recipes; // Return the recipes array
+    return recipes; // 返回 recipes 数组
   } catch (error) {
     console.error("Error fetching recipes:", error);
     if (error instanceof Error) {
       return error.message;
     }
-    return "An unknown error occurred.";
+    return "发生了未知错误。";
   }
 };
 
-// Fetch and log recipes
+// 获取并记录菜谱
 fetchRecipes().then((data) => {
   if (Array.isArray(data)) {
     console.log("Recipes fetched successfully:", data);
@@ -356,22 +343,22 @@ fetchRecipes().then((data) => {
 });
 ```
 
-In the example above, we define an `interface Recipe` that outlines the structure of the data we expect from the API. We then create the `fetchRecipes()` function using async/await and the fetch() method to make an HTTP GET request to the specified API endpoint.
+在上面的示例中，我们定义了 `interface Recipe`，该接口概述了我们从 API 预期的数据结构。然后，我们使用 async/await 和 fetch() 方法创建了 `fetchRecipes()` 函数，以向指定的 API 端点发出 HTTP GET 请求。
 
-We use a `try/catch` block to handle any errors that might occur during the API request. If the request is successful, we extract the data property from the response using await and return it. If an error occurs, we check for an error message and return it as a string if it exists.
+我们使用 `try/catch` 块来处理在 API 请求期间可能发生的任何错误。如果请求成功，我们使用 await 从响应中提取数据属性并返回它。如果发生错误，我们检查错误消息并在存在时将其作为字符串返回。
 
-Finally, we call the `fetchRecipes()` function and use `.then()` to log the returned data to the console. This example demonstrates how to use `async/await` with `try/catch` blocks to handle errors in a more advanced scenario, where we need to extract data from a response object and return a custom error message.
+最后，我们调用 `fetchRecipes()` 函数并使用 `.then()` 将返回的数据记录到控制台。此示例演示了如何在更高级的场景中使用 `async/await` 和 `try/catch` 块来处理错误，其中我们需要从响应对象中提取数据并返回自定义错误消息。
 
-This image shows the output result of the code:
+此图像显示了代码的输出结果：
 
 ![922592da-e9a6-4792-9d22-d5f8f8e84889](https://cdn.hashnode.com/res/hashnode/image/upload/v1737557515062/922592da-e9a6-4792-9d22-d5f8f8e84889.png)
 
-### **Async / Await with Promise.all**
+### **Async / Await 与 Promise.all**
 
-`Promise.all()` is a method that takes an array of promises as input (an iterable) and returns a single Promise as output. This Promise resolves when all the input promises have been resolved or if the input iterable contains no promises. It rejects immediately if any of the input promises are rejected or if non-promises throw an error, and it will reject with the first rejection message or error.
+`Promise.all()` 是一种方法，它将一组 Promise 作为输入（可迭代）并返回一个单个 Promise 作为输出。当所有输入 Promise 已解决或如果输入可迭代对象不包含任何 Promise 时，此 Promise 将解决。如果任何输入 Promise 被拒绝，立即拒绝，或如果非 Promise 抛出错误，则将以第一个拒绝消息或错误进行拒绝。
 
 ```
-// Example of using async / await with Promise.all
+// 使用 async / await 和 Promise.all 的示例
 interface User {
   id: number;
   name: string;
@@ -407,21 +394,9 @@ const fetchApi = async <T>(url: string): Promise<T> => {
     throw new Error(`Error fetching data from ${url}`);
   }
 };
+```
 
-const fetchAllApis = async (): Promise<[User[], Post[], Comment[]]> => {
-  try {
-    const [users, posts, comments] = await Promise.all([
-      fetchApi<User[]>("https://jsonplaceholder.typicode.com/users"),
-      fetchApi<Post[]>("https://jsonplaceholder.typicode.com/posts"),
-      fetchApi<Comment[]>("https://jsonplaceholder.typicode.com/comments"),
-    ]);
-    return [users, posts, comments];
-  } catch (error) {
-    console.error(error);
-    throw new Error("Error fetching data from one or more APIs");
-  }
-};
-
+```
 fetchAllApis()
   .then(([users, posts, comments]) => {
     console.log("Users: ", users);
@@ -431,16 +406,16 @@ fetchAllApis()
   .catch((error) => console.error(error));
 ```
 
-In the code above, we used `Promise.all` to fetch multiple APIs at the same time. If you have several APIs to fetch, you can use `Promise.all` to get them all at once. As you can see, we used `map` to loop through the array of APIs and then pass it to `Promise.all` to fetch them simultaneously.
+在上面的代码中，我们使用 `Promise.all` 同时获取多个 API。如果你有多个 API 要获取，你可以使用 `Promise.all` 一次性获取它们。正如你所见，我们使用 `map` 遍历了 API 的数组，然后将其传递给 `Promise.all` 以同时获取它们。
 
-The image below shows the output from the API calls:
+下面的图片展示了 API 调用的输出：
 
 ![14bbecbb-7dad-464e-b412-028f56e9d679](https://cdn.hashnode.com/res/hashnode/image/upload/v1737560380441/14bbecbb-7dad-464e-b412-028f56e9d679.png)
 
-Let's see how to use `Promise.all` with Axios:
+让我们看看如何使用 `Promise.all` 和 Axios：
 
 ```
-// Example of using async / await with axios and Promise.all
+// 使用 async / await 结合 axios 和 Promise.all 的示例
 
 const fetchApi = async () => {
   try {
@@ -459,14 +434,14 @@ const fetchApi = async () => {
 fetchApi();
 ```
 
-In the example above, we're using `Promise.all` to fetch data from two different URLs at the same time. First, we create an array of URLs, then use the map to create an array of Promises from the `axios.get` calls. We pass this array to `Promise.all`, which returns an array of responses. Finally, we use the map again to get the data from each response and log it to the console.
+在上面的示例中，我们使用 `Promise.all` 同时从两个不同的 URL 获取数据。首先，我们创建了一个 URL 的数组，然后使用 `map` 创建一个从 `axios.get` 调用生成的 Promise 的数组。我们将这个数组传递给 `Promise.all`，它返回一个响应的数组。最后，我们再次使用 `map` 从每个响应中获取数据并将其记录到控制台。
 
-## How to Use Callbacks in TypeScript
+## 如何在 TypeScript 中使用回调
 
-A **callback** is a function passed as an argument to another function. The callback function is executed inside the other function. Callbacks ensure that a function doesn't run before a task is completed – but that it then runs right after the task finishes. They help us write asynchronous JavaScript code and prevent problems and errors.
+**回调** 是作为参数传递给另一个函数的函数。回调函数在另一个函数内执行。回调确保函数在任务完成之前不会运行，而是在任务完成之后立即运行。它们帮助我们编写异步 JavaScript 代码并防止问题和错误。
 
 ```
-// Example of using callbacks in typescript
+// 在 typescript 中使用回调的示例
 
 const add = (a: number, b: number, callback: (result: number) => void) => {
   const result = a + b;
@@ -478,14 +453,14 @@ add(10, 20, (result) => {
 });
 ```
 
-The image below shows the callback function:
+下面的图片展示了回调函数：
 
 ![80203145-d053-49b8-a160-a1d72ed17a7a](https://cdn.hashnode.com/res/hashnode/image/upload/v1737560660649/80203145-d053-49b8-a160-a1d72ed17a7a.png)
 
-Let's see another example of using callbacks in TypeScript:
+让我们看看在 TypeScript 中使用回调的另一个示例：
 
 ```
-// Example of using a callback function in TypeScript
+// 在 TypeScript 中使用回调函数的示例
 
 type User = {
   name: string;
@@ -517,7 +492,7 @@ const fetchUserData = (
     });
 };
 
-// Usage of fetchUserData with a callback function
+// 使用回调函数调用 fetchUserData
 fetchUserData(1, (error, user) => {
   if (error) {
     console.error(error);
@@ -527,108 +502,101 @@ fetchUserData(1, (error, user) => {
 });
 ```
 
-In the example above, we have a function called `fetchUserData` that takes an `id` and a `callback` as parameters. This `callback` is a function with two parameters: an error and a user.
+在上面的示例中，我们有一个名为 `fetchUserData` 的函数，它接受 `id` 和一个 `callback` 作为参数。这个 `callback` 是一个包含两个参数的函数：一个错误和一个用户。
 
-The `fetchUserData` function retrieves user data from a JSONPlaceholder API endpoint using the `id`. If the fetch is successful, it creates an `User` object and passes it to the callback function with a null error. If there's an error during the fetch, it sends the error to the callback function with a null user.
+`fetchUserData` 函数从 JSONPlaceholder API 端点使用 `id` 检索用户数据。如果获取成功，它创建一个 `User` 对象并将其传递给回调函数，并且错误参数为 null。如果获取过程中出现错误，它将错误传递给回调函数，而用户参数为 null。
 
-To use the `fetchUserData` function with a callback, we provide an `id` and a callback function as arguments. The callback function checks for errors and logs the user data if there are no errors.
+要使用带有回调的 `fetchUserData` 函数，我们提供一个 `id` 和一个回调函数作为参数。回调函数检查错误，如果没有错误就记录用户数据。
 
-The image below shows the output of the API calls:
+下面的图片展示了 API 调用的输出：
 
 ![2b37fa46-1ee4-4dee-8d50-82c09a235aec](https://cdn.hashnode.com/res/hashnode/image/upload/v1737560996613/2b37fa46-1ee4-4dee-8d50-82c09a235aec.png)
 
-### How to Use Callbacks Responsibly
+### 如何负责任地使用回调
 
-While callbacks are fundamental to asynchronous programming in TypeScript, they require careful management to avoid **"callback hell"** – the pyramid-shaped, deeply nested code that becomes hard to read and maintain. Here's how to use callbacks effectively:
+虽然回调是 TypeScript 中异步编程的基础，但它们需要仔细管理以避免 **"回调地狱"**——即形成金字塔形状的、深度嵌套的代码，难以阅读和维护。以下是有效使用回调的方法：
 
-1.  **Avoid deep nesting**
+1.  **避免深度嵌套**  
     
-    -   Flatten your code structure by breaking complex operations into named functions
+    -   通过将复杂操作分解成命名函数来扁平化代码结构
         
-    -   Use promises or async/await for complex async workflows (more on this below)
+    -   对于复杂的异步工作流，使用 Promise 或 async/await（下文将详细介绍）
         
-2.  **Error handling first**
+2.  **优先进行错误处理**  
     
-    -   Always follow the Node.js convention of `(error, result)` parameters
+    -   始终遵循 Node.js 的 `(error, result)` 参数约定
         
-    -   Check for errors at every level of nested callbacks
+    -   在每一级嵌套回调中检查错误
         
-
 ```
     function processData(input: string, callback: (err: Error | null, result?: string) => void) {
-      // ... always call callback with error first
+      // ... 总是先用错误调用回调
     }
 ```
 
-3.  **Use type annotations**
-    
-    -   Leverage TypeScript's type system to enforce callback signatures
-        
-    -   Define clear interfaces for callback parameters
-        
 
 ```
     type ApiCallback = (error: Error | null, data?: ApiResponse) => void;
 ```
 
-4.  **Consider control flow libraries**  
-    For complex async operations, use utilities like `async.js` for:
-    
-    -   Parallel execution
+4.  **考虑使用控制流库**  
+    对于复杂的异步操作，使用像 `async.js` 这样的工具：
+
+    -   并行执行
         
-    -   Series execution
+    -   顺序执行
         
-    -   Error handling pipelines
+    -   错误处理管道
         
 
-### When to Use Callbacks vs. Alternatives
+### 何时使用回调与替代方案
 
-There are times when callbacks are a great choice, and other times when they’re not.
+有时候回调是一个很好的选择，而有时候则不是。
 
-Callbacks are helpful when you’re working with async operations (single completion), interfacing with older libraries or APIs that expect callbacks, handling event listeners (like click listeners or websocket events) or creating lightweight utilities with simple async needs.
+当你处理异步操作（单次完成）、与期望回调的旧库或API对接、处理事件监听（如点击监听或WebSocket事件）或创建具有简单异步需求的轻量级工具时，回调会很有帮助。
 
-In other scenarios where you need to focus on writing maintainable code with a clear async flow, callbacks cause trouble and you should prefer promises or async-await. For example, when you need to chain multiple operations, handle complex error propagation, work with modern APIs (like the Fetch API or FS Promises), or use `promise.all()` for parallel execution.
+在其他需要编写具有清晰异步流程的可维护代码的场景中，回调就成了麻烦，你应该更倾向于使用 Promise 或 async-await。例如，当你需要链式多个操作、处理复杂的错误传播、使用现代API（如 Fetch API 或 FS Promises），或使用 `promise.all()` 进行并行执行时。
 
-**Example migration from callbacks to promises:**
+**从回调迁移到 Promise 的示例：**
 
 ```
-// Callback version
+// 回调版本
 function fetchUser(id: number, callback: (err: Error | null, user?: User) => void) {
   // ... 
 }
 
-// Promise version
+// Promise 版本
 async function fetchUserAsync(id: number): Promise<User> {
   // ...
 }
 
-// Usage with async/await
+// 使用 async/await
 try {
   const user = await fetchUserAsync(1);
 } catch (error) {
-  // Handle error
+  // 处理错误
 }
 ```
 
-### The Evolution of Async Patterns
+### 异步模式的演变
 
-| Pattern | Pros | Cons |
+| 模式 | 优点 | 缺点 |
 | --- | --- | --- |
-| Callbacks | Simple, universal | Nested complexity |
-| Promises | Chainable, better error flow | Requires .then() chains |
-| Async/Await | Sync-like readability | Requires transpilation |
+| 回调 | 简单、通用 | 嵌套复杂性 |
+| Promise | 可链式调用，更好的错误流 | 需要 .then() 链 |
+| Async/Await | 类同步可读性 | 需要转译 |
 
-Modern TypeScript projects often use a mix: callbacks for event-driven patterns and promises/async-await for complex async logic. The key is choosing the right tool for your specific use case while maintaining code clarity.
+现代的 TypeScript 项目通常会混合使用：对于事件驱动的模式使用回调，而对复杂的异步逻辑则使用 Promise/async-await。关键是选择适合你具体使用场景的正确工具，同时保持代码清晰。
 
-## Conclusion
+## 结论
 
-In this article, we have learned about the different ways to handle asynchronous code in TypeScript. We have learned about callbacks, promises, async/await, and how to use them in TypeScript. We have also learned about this concept.
+在本文中，我们学习了如何在 TypeScript 中处理异步代码。我们了解了回调、Promise、async/await 以及如何在 TypeScript 中使用它们。我们还学习了这一概念。
 
-If you want to learn more about programming and how to become a better software engineer, you can subscribe to my YouTube channel [CliffTech][10].
+如果你想了解更多关于编程的信息并成为更好的软件工程师，可以订阅我的 YouTube 频道 [CliffTech][10]。
 
-Thank you for reading my article. I hope you enjoyed it. If you have any questions, feel free to reach out to me.
+感谢阅读我的文章。希望你喜欢它。如果你有任何问题，可以随时联系我。
 
-Connect with me on social media:
+与我在社交媒体上联系：
 
 -   [Twitter][11]
     
@@ -650,3 +618,5 @@ Connect with me on social media:
 [11]: https://twitter.com/Clifftech_Dev
 [12]: https://github.com/Clifftech123
 [13]: https://www.linkedin.com/in/isaiah-clifford-opoku-a506a51b2/
+```
+
