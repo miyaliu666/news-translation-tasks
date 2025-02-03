@@ -1,31 +1,34 @@
-name: Close Unexpected PRs
+name: Close PRs
 
 on:
   pull_request:
-    types:
-      - opened
+    types: [opened, reopened]
 
 jobs:
-  whitespace:
+  close-pr-if-not-main:
+    name: Close PR if base branch is not main
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Check if base branch is not main
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const baseBranch = context.payload.pull_request.base.ref;
+            const prNumber = context.payload.pull_request.number;
 
-      - name: Check PR base branch
-        run: |
-          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
-          echo "Base branch of the PR is: $BASE_BRANCH"
-          
-          # Only close the PR if base branch is not 'main'
-          if [ "$BASE_BRANCH" != "main" ]; then
-            echo "::warning::You should set the base branch as 'main'."
-            
-            # Use GitHub API to close the PR submitted to a branch other than 'main'
-            curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d '{"state": "closed"}' \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}"
-          fi
+            if (baseBranch !== 'main') {
+              await github.rest.issues.createComment({
+                issue_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: "This pull request cannot be merged because the base branch is not 'main'. Please change the base branch to 'main'."
+              });
+
+              await github.rest.pulls.update({
+                pull_number: prNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'closed'
+              });
+            }
