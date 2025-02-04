@@ -36,7 +36,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config pull.rebase true
 
-      # Only crawl new articles
+      # Crawl new articles
       - name: Process main branch
         run: |
           git checkout main
@@ -66,7 +66,8 @@ jobs:
           git add articles/${{ steps.extract-lang.outputs.lang }}/*.md
           git commit -m 'Save article markdown.'
           git push origin main
-
+      
+      # Checkout to a new branch
       - name: Git checkout auto-translate
         run: |
           git fetch
@@ -87,8 +88,8 @@ jobs:
           with_task_translate_openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           with_task_translate_to_save_path: './articles/{lang}/'
 
-      # Commit the crawled original text and the translated article to the remote repository
-      - name: Commit raw article and auto-translated article
+      # Commit crawled article and auto-translated article to remote
+      - name: Commit raw article and auto-translated-article
         run: |
           if [ -d "./articles/_tmp/" ]; then
             rm -rf ./articles/_tmp/
@@ -96,7 +97,7 @@ jobs:
           git add ./articles/_tmp/*
           git add ./articles/_raw/*.md
           git add ./articles/${{ steps.extract-lang.outputs.lang }}/*.md
-          git commit -m 'auto translate the article'
+          git commit -m 'Save auto-translated article markdown.'
           git push origin auto-translate
 
       
