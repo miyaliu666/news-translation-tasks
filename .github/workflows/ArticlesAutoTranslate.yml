@@ -75,7 +75,7 @@ jobs:
           git merge --strategy=recursive --strategy-option=theirs --allow-unrelated-histories main
 
       - name: Articles auto translate
-        uses: freeCodeCamp/articles-auto-translate-action@main
+        uses: miyaliu666/articles-auto-translate-action@main
         with:
           with_issue_title: '${{ github.event.issue.title }}'
           with_issue_body: '${{ github.event.issue.Body }}'
