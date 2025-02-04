@@ -1,6 +1,6 @@
 ---
 title: "The State of AI with Stanford Researcher Yifan Mai (Podcast #149)"
-date: 2025-02-04T03:10:32.629Z
+date: 2025-02-04T03:12:45.745Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/open-weights-vs-open-source-with-google-engineer-and-stanford-researcher-yifan-mai-podcast-149/
