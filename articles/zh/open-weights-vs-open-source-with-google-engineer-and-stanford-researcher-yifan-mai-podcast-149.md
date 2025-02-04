@@ -4,13 +4,11 @@ date: 2025-02-04T03:12:45.745Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/open-weights-vs-open-source-with-google-engineer-and-stanford-researcher-yifan-mai-podcast-149/
-posteditor: ""
+posteditor: "miyaliu66"
 proofreader: ""
 ---
 
 在本周的播客节目中，我采访了 Yifan Mai，他是谷歌 TensorFlow 团队的一名高级软件工程师，离开私营部门后去斯坦福进行 AI 研究。
-
-<!-- more -->
 
 他是开源 HELM 项目的主要维护者，该项目用于评估大型语言模型的性能。
 
