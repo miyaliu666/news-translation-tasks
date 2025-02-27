@@ -1,6 +1,5 @@
-```markdown
 ---
-title: 递归如何工作？通过代码示例解释
+title: How Does Recursion Work? Explained with Code Examples
 date: 2025-02-27T11:26:27.175Z
 author: Palistha Singh
 authorURL: https://www.freecodecamp.org/news/author/palistha/
@@ -9,85 +8,85 @@ posteditor: ""
 proofreader: ""
 ---
 
-在本文中，您将学习有关递归和其工作原理。
+In this article, you will learn about recursion and how it works.
 
 <!-- more -->
 
-在学习递归之前，您需要很好地理解函数的工作原理。我在本文中使用了 Python 代码作为示例，因为它的语法简单，但递归的概念对于每种编程语言都是一样的。
+You need a good understanding of how functions work before learning recursion. I have used Python code for examples in this article because of its simple syntax, but the concept of recursion is the same for every programming language.
 
-## 什么是递归？
+## What is Recursion?
 
-在大多数编程语言中，一个函数可以调用另一个函数。但一个函数也可以调用自身。递归是一种函数调用自身的技术。
+In most programming languages, a function can call another function. But a function can also call itself. Recursion is the technique where a function calls itself.
 
-这是一个例子：
+Here's an example:
 
 ```
 def call_me():
     call_me()
 ```
 
-在这里，函数调用自身，这就是所谓的递归。
+Here, the function calls itself, which is called recursion.
 
-但是“调用自身”只是递归的程序定义。递归涉及将一个问题分解为更小的部分，直到无法进一步分解为止。您解决小问题并将它们组合起来以解决整个问题。
+But "calling itself" is just a programmatic definition of recursion. Recursion involves breaking down a problem into smaller pieces to the point that it cannot be further broken down. You solve the small pieces and put them together to solve the overall problem.
 
-## 递归的真实生活类比
+## Real Life Analogy of Recursion
 
-让我们通过一个例子来理解递归如何真正工作。
+Lets understand how recursion really works with the help of an example.
 
-想象一下，您在迪士尼乐园排队等候，您不知道前面有多少人。
+Imagine you're in line for a Disney ride, and you don't know how many people are ahead of you.
 
-为了找出答案，您问您面前的人。
+To find out, you ask the person in front of you.
 
 ![Image](https://www.freecodecamp.org/news/content/images/2024/07/How-many--4-.png)
 
-_试图找出排在您前面的人数_
+_Trying to find out how many people are in front of you in line_
 
-那个人也不知道，所以他们询问他们前面的那个人。
+That person also doesn't know, so they ask the person in front of them.
 
-这个过程继续进行，直到问题到达队伍最前面的人，他们看到前面没有人，回答说前面有零人。
+This process continues until the question reaches the person at the very front of the line, who sees that there is no one in front of them and replies that there are zero people ahead.
 
-回复然后开始在队伍中传播回去。每个人在将信息传递回去之前，都会在他们被告知的数字上加一。
+The replies then start to propagate back through the line. Each person adds one to the number they were told before passing the information back.
 
-当排在最前面的人回答，**“前面有 0 人”**时，下一个人加一然后回答，**“前面有 1 人”**，依此类推。
+When the person at the front replies, **"There are 0 people ahead"** the next person adds one and replies, **"There is 1 person ahead"** and so on.
 
 ![Image](https://www.freecodecamp.org/news/content/images/2024/07/How-many--5-.png)
 
-_每个人都知道他们前面有多少人_
+_Everyone knows how many people are in front of them in line_
 
-当回应到达直接在您前面的人时，他们再加上一并告诉您。通过这种方式，您可以通过将 **1** 添加到前面的人给的数字中，来确定您在队伍中的位置。
+By the time the response reaches the person directly in front of you, they add one more and tell you. This way, you can determine your position in the line by just adding **1** to the number the person in front of you gave.
 
-这个例子说明了递归如何将问题分解为更小的子问题，然后结合它们的解决方案以解决原始问题。
+This example illustrates how recursion breaks a problem into smaller subproblems and then combines their solutions to solve the original problem.
 
-队伍中的每个人代表同一问题的一个较小实例：确定前面的人数。通过解决这些较小的实例并结合它们的结果，整个问题得到了解决。这正是递归的工作原理。
+Each person in the line represents a smaller instance of the same problem: determining the number of people ahead. By solving these smaller instances and combining their results, the overall problem is resolved. This is exactly how recursion works.
 
-## 递归的技术细节
+## Technical Details of Recursion
 
-在编码递归时最重要的是要找出：
+The most important things to consider while coding recursion is to find out:
 
--   **递归情况**：我们可以做的最小工作。在上面的例子中，询问您前面的人他们前面有多少人是我们可以做的最小工作。
+-   **Recursive Case:** Minimum work we can do. In the above example, asking the person in front of you how many people are ahead of them is the least amount of work we can do.
     
--   **基本情况**：无需工作的条件。在上面的例子中，队伍最前面的人没有必要问任何问题，因此这是无需工作的条件。
+-   **Base Case:** Condition where no work is required. In the above example, the person on the front of the line doesn’t have to ask anything so it is the condition where no work is required.
     
 
-## 递归的简单例子
+## Simple Example of Recursion
 
-计算阶乘是递归的最简单例子，它将真正帮助您理解其工作原理。
+Calculating a factorial is the simplest example of recursion that will really help you understand how it works.
 
-有很多方法可以计算一个数的阶乘。但在这里，我们将看到递归的方式来找到它。
+There are many ways to calculate the factorial of a number. But here we will see the recursive way to find it.
 
-在思考我们如何做到这一点之前，我们需要知道一个数的阶乘是什么。
+Before thinking about how we do it, we need to know what the factorial of a number is.
 
-一个数的阶乘是从 **1** 到该数的所有数字的乘积。
+The factorial of a number is the multiplication of all numbers from **1** up to that number.
 
-例如，**5** 的阶乘是 **120** —— 即 **5**×**4**×**3**×**2**×**1**。
+For example, the factorial of **5** is **120** – that is **5**×**4**×**3**×**2**×**1**.
 
-我们还可以用数学方式表示如下：
+We can also represent this mathematically like this:
 
 `5×(5−1)!`
 
-这意味着如果我们知道 `(5−1)!` 的值，我们就可以通过简单地将 **5** 乘以它来轻松得到阶乘。
+This means that if we know the value of `(5−1)!` we can easily get the factorial by just multiplying **5** by it.
 
-这就是我们如何找到 **4**、**3**、**2**、**1** 和 **0** 的阶乘：
+Here’s how we find the factorials of **4**, **3**, **2**, **1**, and **0**:
 
 ```
 Factorial of 4 = 4×(4−1)!
@@ -97,92 +96,94 @@ Factorial of 1 = 1
 Factorial of 0 = 1
 ```
 
-通过观察这些，很明显要找到 **5** 的阶乘，我们必须将 **5** 乘以 `4!`。
+By looking at this, it is clear that to find the factorial of **5**, we must multiply **5** by `4!`.
 
-### 更一般的例子
+### More general example
 
-要找到 `n` 的阶乘，我们需要将 `n` 乘以 `(n−1)!`。这就是您需要递归执行的过程。
+To find the factorial of `n`, we need to multiply `n` with `(n−1)!`. This is something you need to do recursively.
 
-现在，必须为递归设置一个停止条件。停止条件是我们不再执行其他操作的地方。当 `n` 是 **1** 或 **0** 时，我们可以简单地停止递归，因为这些值的阶乘是已知的。我们可以简单地说 **1** 的阶乘是 **1**，对于 **0** 也是如此。
+Now, there must be a stopping condition for recursion. The stopping condition is where we perform no further operation. When `n` is **1** or `n` is **0**, we can simply stop the recursion as these values have known factorials. We can simply say the factorial of **1** is **1** and the same is true for **0**.
 
-因此，分解下来，要找到 n 的阶乘，所需做的最小工作量是 `n×(n−1)!`。当我们找到 **1** 或 **0** 的阶乘时，我们可以停止对它进行操作。
+So, breaking it down, the minimum amount of work we need to do to find the factorial of n is `n×(n−1)!`. And we can stop performing operations on it when we find the factorial of **1** or **0**.
 
-让我们看看它在代码中的样子：
+Let's see how it looks in code:
 
 ```
-# 计算 n 的阶乘
+# calculate factorial of n
 def fact(n):
-```
 
-```markdown
-# 最少工作量
-return n * fact(n - 1)
+   # no work required
+    if n == 1 or n == 0:
+        return 1
+
+    # minimum amount of work
+    return n * fact(n - 1)
 
 n = 5
 
-# 计算阶乘
+# calculate factorial
 factorial = fact(n)
 print(factorial)
 ```
 
-**输出:**
+**Output:**
 
 ```
 120
 ```
 
-让我们看看它是如何工作的：
+Let's see how it works:
 
-在第一次函数调用中，计算了**5**的阶乘。接着在第二次调用中，计算了**4**的阶乘，以此类推，直到计算**2**的阶乘。
+In the first function call, the factorial of **5** is evaluated. Then in the second call, the factorial of **4** is evaluated, and so on until the factorial of **2** is evaluated.
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-1--5-.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-1--5-.png)
 
-_递归计算5的阶乘_
+_Recursively calculating Factorial of 5_
 
-在调用**2**的阶乘时，我们有`2×fact(2−1)`，即`2×fact(1)`。
+While calling the factorial of **2**, we have `2×fact(2−1)`, which is `2×fact(1)`.
 
-这达到了我们的基本条件。因此，递归停止，`2×fact(1)`返回`2×1`给前一个函数调用，并且结果从堆栈中弹出。
+This hits our base case. So, the recursion stops and `2×fact(1)` returns `2×1` to the preceding function call, and the result gets popped up the stack.
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-3.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-3.png)
 
-_第四次函数调用返回2给前一个函数调用并从堆栈中弹出_
+_Fourth function call returning 2 to preceding function call and getting popped up from the stack_
 
-类似地，这里是其他内容的计算方式：
+Similarly, here’s how everything else evaluates:
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-4.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-4.png)
 
-_第三次函数调用返回6给前一个函数调用并从堆栈中弹出_
+_3rd function call returning 6 to the preceding function call and getting popped up from the stack_
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-5.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-5.png)
 
-_第二次函数调用返回24给前一个函数调用并从堆栈中弹出_
+_2nd function call returning 24 to the preceding function call and getting popped up from the stack_
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-6.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-6.png)
 
-_第一次函数调用返回120给初始函数调用并从堆栈中弹出_
+_1st function call returning 120 to the initial function call and getting popped up from the stack_
 
-所以函数最终将值**120**返回给初始函数调用。
+So the function finally returns the value **120** to the initial function call.
 
-### 为什么我们需要一个基本条件？
+### Why Do We Need a Base Case?
 
-在上面的例子中，我们为代码使用了停止条件。但是如果我们不添加停止条件，或者我们编写的函数永远不满足停止条件呢？
+In the above example we have used the stopping condition for the code. But what if we don’t add a stopping condition or what if the function we write never meets the stopping condition?
 
-代码会永远运行吗？
+Will the code run forever?
 
-不会 – 即使你不终止，代码也不会永远运行。让我们通过一个例子来理解为什么会这样。
+No – even if you don’t terminate, your code won't run forever. Let’s understand why this is the case with the help of an example.
 
 ```
 def print_five():
     print(5)
 
-    # 调用自身
+    # call itself
     print_five()
 
-# 函数调用
+# function call
 print_five()
 ```
 
-**输出:**
+**Output:**
 
 ```
 5
@@ -193,117 +194,115 @@ print_five()
 RecursionError: maximum recursion depth exceeded
 ```
 
-如果运行上面的代码，你会看到函数不会永远运行，并以消息`RecursionError: maximum recursion depth exceeded`结束。
+If you run the above code, you will see that the function doesn’t run forever and ends with a message `RecursionError: maximum recursion depth exceeded`.
 
-当一个函数被调用时，它会被存储在一个调用堆栈中。下面是函数`print_five()`第一次被调用时在调用堆栈中的存储方式。
+When a function is invoked, it is stored in a call stack. Here's how the function `print_five()` is stored in the call stack when it is invoked for the first time.
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/How-many--6-.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/How-many--6-.png)
 
-_第一次函数调用时的调用堆栈_
+_Call stack on the first function call_
 
-函数一次又一次地调用自身，并且每次调用时，函数被存储在调用堆栈中。
+The function calls itself again and again, and the function is stored in the call stack with each call.
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/How-many--8-.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/How-many--8-.png)
 
-_n 次函数调用后的调用堆栈_
+_Call stack after n function calls_
 
-但是调用堆栈的大小是有限的，不能存储无限数量的函数。
+But the call stack has a limited size and cannot store an unlimited number of functions.
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/How-many--7-.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/How-many--7-.png)
 
-_调用堆栈空间不足导致栈溢出_
+_No space on call stack resulting in stack overflow_
 
-当堆栈已满时，它无法再容纳更多调用，导致栈溢出错误。
+When the stack is full, it cannot accommodate any more calls, causing a stack overflow error.
 
-因此，基本条件对于防止此类错误并确保递归正确终止是必不可少的。
+Therefore, the base case is essential to prevent such errors and ensure the recursion terminates properly.
 
-现在让我们看看另一个例子，以便更深入地理解递归。
+Now let's see another example to understand recursion even more.
 
-## 如何检查一个单词是否是回文
+## How to Check if a Word is a Palindrome
 
-在深入代码之前，你应当知道什么是回文。回文是指正向和反向读取都相同的单词。
+Before we dive into the code, you should know what a palindrome is. A palindrome is a word that reads the same forwards and backwards.
 
-例如，`racecar`正向和反向读取都是相同的。
+For example, `racecar` reads the same forwards and backwards.
 
-要检查一个单词是否是回文，我们需要检查第一个和最后一个字母是否相同。如果相同，我们接着检查第二个和倒数第二个字母是否相同。
+To check if a word is a palindrome, we have to check if the first and last letters are the same. If they are, we then check if the second and second-to-last letters are the same.
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-7.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-7.png)
 
-_检查 racecar 的第一个和最后一个字符是否相同_
+_Check if first and last characters of racecar are the same_
 
-在`racecar`这一例子中，第一个和最后一个字母是相同的，所以我们检查第二个和倒数第二个字母是否相同。它们相同，所以现在我们检查第三个和倒数第三个字母是否相同。现在只剩下一个字母需要检查。一个单一字母始终是回文，因为它正反读都是相同的。
+In the context of `racecar`, the first and last letters are the same, so we check if the second and second-to-last letters are the same. They are, so now we check if the third and third-to-last letters are the same. Now there is only one letter left to check. A single letter is always a palindrome because it reads the same both ways.
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-8.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-8.png)
 
-_如何检查 racecar 是否是回文_
+_How to check if racecar is a palindrome_
 
-所以，现在让我们尝试以递归的方式思考，包括最少的工作量以及确定何时不需要工作。
+So, now let's try thinking about it recursively, which involves the minimum amount of work and determining when no work is required.
 
-### 最少工作量
+### Minimum amount of work
 
-检查第一个和最后一个字母是否相同，如果相同，则移除单词中的第一个和最后一个字母。
+Check if the first and last letters are the same, and if they are, remove the first and last letters from the word.
 
-### 不需要工作
+### No work required
 
-当只剩下一个或没有字母时，我们可以简单地说它是一个回文。
+When there is one letter or no letters left at all, we can simply say it is a palindrome.
 
-现在，让我们看看代码是什么样子的：
+Now, let's see how the code looks:
 
 ```
-# 检查回文
+# check palindrome
 def check_palindrome(text):
 
-    # 停止条件
-    # 如果文本长度是1或0，返回真
+    # stopping condition
+    # if the size of text is 1 or 0 return true
     if len(text) == 0 or len(text) == 1:
         return True
 
-    # 最少工作量
-    # 检查第一个和最后一个字符是否相同
-    # 如果相同，移除字符串中的第一个和最后一个字符
+    # least amount of work
+    # check if first and last char are the same
+    # if same remove first and last char from string
     if(text[0]==text[-1]):
         return(check_palindrome(text[1:-1]))
-```
 
-```markdown
-# 检查字符串是否为回文
+    return False
+
+# check if string is palindrome
 text = "racecar"
 is_palindrome = check_palindrome(text)
 print(is_palindrome)
 ```
 
-以下是上述代码的工作原理：
+Here's how the above code works:
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/Frame-9.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/Frame-9.png)
 
-_检查 racecar 是否为回文_
+_Check if racecar is a palindrome_
 
-![图像](https://www.freecodecamp.org/news/content/images/2024/07/checkpalindrome.png)
+![Image](https://www.freecodecamp.org/news/content/images/2024/07/checkpalindrome.png)
 
-_检查 racecar 是否为回文_
+_Check if racecar is a palindrome_
 
-## 何时使用递归
+## When to Use Recursion
 
-递归可显得既优雅又简单，但由于反复向堆栈添加方法带来的 CPU 开销，即便是简单问题常也需经过多个步骤方能解决。因此，在使用之前，请确保仔细考虑它是否为解决问题的正确方案。
+Recursion can appear elegant and simple. But it often requires many steps to solve even simple problems due to the CPU overhead from repeatedly adding methods to the stack. So before using it, make sure you carefully consider whether it's the right solution for your problem.
 
-当代码需要多重循环且看起来复杂混乱时，递归可以提供更清晰的解决方案。不过，其使用依赖于特定的代码以及所涉及的数据或数据结构类型。对于像树和图这样的数据结构，递归尤其有用。
+When code requires multiple loops and looks confusing and messy, recursion can offer a cleaner solution. Its use, however, depends on the specific code and the type of data or data structure involved. For data structures like trees and graphs, recursion can be particularly useful.
 
-尽管递归在表面上显得简单，但理解起来可能很困难，甚至对于简单问题也可能需要多个步骤。因此，再次提醒，一定要根据具体情况考虑使用。
+Despite its simplicity in appearance, recursion can be hard to understand and may take multiple steps even for simple problems. So again, make sure you think about your particular use case.
 
-## 总结
+## Wrapping Up
 
-这只是递归的入门介绍。递归的应用场景很多，你可能对其工作原理感到困惑。我将在下一篇文章中讨论更多递归的高级示例。
+This is just an introduction to recursion. There are many cases where recursion is used, and you might be confused about how everything works. I will cover more advanced examples on recursion in the next article.
 
-顺便说一下，以下是我在学习递归过程中找到的简单且有用的资源：
+By the way, here are the resources that I found simple and useful while learning recursion:
 
--   [freeCodeCamp 的递归视频][1]：我必须感谢 freeCodeCamp，他们的优秀递归视频极大地启发了这篇文章的内容。
+-   [freeCodeCamp video on recursion][1]: I have to give a shout-out to freeCodeCamp for their excellent video on recursion, which inspired much of this article.
     
--   [Programiz Pro 的递归课程][2]：另一个好资源是 Programiz 的递归课程。这是一个高级课程，需付费，但它经过精心设计。而且，你可以直接在他们的平台上进行练习，真的是很值得。
+-   [Recursion by Programiz Pro][2]: Another good resource is the Recursion course by Programiz. It's a premium course, so it's not free, but it's thoughtfully designed. Plus, you can actually practice directly on their platform, which makes it well worth it.
     
 
-无论你从哪里学习，都不要花太多时间寻找完美的资源。掌握概念并开始练习——这是你唯一能真正学会的方法。
+No matter where you learn from, don't spend too much time searching for the perfect resource. Just grasp the concepts and start practicing—that's the only way you'll truly learn.
 
 [1]: https://www.youtube.com/watch?v=IJDJ0kBx2LM&t=657s
 [2]: https://programiz.pro/course/learn-recursion-with-python
-```
-
