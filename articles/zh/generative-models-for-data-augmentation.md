@@ -1,6 +1,5 @@
 ---
-title: How Do Generative Models Work in Deep Learning? Generative Models For
-  Data Augmentation Explained
+title: 生成模型在深度学习中如何工作？数据增强生成模型详解
 date: 2025-02-27T11:14:51.339Z
 author: Oyedele Tioluwani
 authorURL: https://www.freecodecamp.org/news/author/Tioluwani/
@@ -9,118 +8,114 @@ posteditor: ""
 proofreader: ""
 ---
 
-Data is at the heart of model training in the world of deep learning. The quantity and quality of training data determine the effectiveness of machine learning algorithms.
+在深度学习的世界中，数据是模型训练的核心。训练数据的数量和质量决定了机器学习算法的有效性。
 
 <!-- more -->
 
-On the other hand, obtaining massive amounts of precisely categorized data is a difficult and resource-intensive operation. This is where data augmentation comes into play as an appealing solution, with the innovative potential of generative models at its forefront.
+另一方面，获取大量精确分类的数据是一项困难且资源密集的工作。这就是数据增强作为一个吸引人的解决方案出现的地方，而生成模型的创新潜力位于其前沿。
 
-In this article, we'll look into the fundamental relevance of generative models in data augmentation for deep learning, such as Variational Autoencoders (VAEs) and Generative Adversarial Networks (GANs).
+在本文中，我们将探讨生成模型在深度学习数据增强中的基本重要性，比如变分自编码器（VAEs）和生成对抗网络（GANs）。
 
-## What are Generative Models?
+## 什么是生成模型？
 
-Generative models are a type of machine learning model that create new data samples that are similar to those in a given dataset. They discover hidden trends and structures in the data, allowing them to generate synthetic data points that are similar to the actual data.
+生成模型是一类机器学习模型，用于创建与给定数据集中的数据相似的新数据样本。它们发现数据中的隐藏趋势和结构，从而能够生成与实际数据相似的合成数据点。
 
-These models are used in a variety of applications, such as image generation, text generation, data augmentation, and others. For example, in an image generation project, a generative model could be trained on images of cats and dogs to learn how to generate new images of cats and dogs.
+这些模型用于各种应用，如图像生成、文本生成、数据增强等。例如，在图像生成项目中，生成模型可以在猫和狗的图像上进行训练，以学习如何生成新的猫和狗图像。
 
-They learn patterns and styles from existing data and apply that information to create similar things. It’s like your computer having a creative engine that generates fresh ideas after studying the tactics utilized in prior ones.
+它们从现有数据中学习模式和风格，并应用这些信息来创造相似的事物。就像你的计算机有一个创意引擎，在研究以前使用的策略后生成新的想法。
 
-## What is Data Augmentation?
+## 什么是数据增强？
 
-Data augmentation is a machine learning and deep learning technique that uses various transformations and adjustments to existing data to improve the quality and quantity of a training dataset. This entails generating new data samples from existing ones to expand the size and diversity of a dataset.
+数据增强是一种机器学习和深度学习技术，通过对现有数据进行各种转换和调整来提高训练数据集的质量和数量。这需要从现有数据中生成新样本，以扩大数据集的大小和多样性。
 
-The basic purpose of data augmentation is to increase a machine learning models’ performance, generalization, and robustness, notably in computer vision tasks and other data-driven areas.
+数据增强的基本目的是提高机器学习模型的性能、泛化和鲁棒性，特别是在计算机视觉任务和其他数据驱动领域。
 
-Data augmentation can be used to improve datasets for a wide range of machine-learning applications, such as image classification, object detection, and natural language processing. Data augmentation, for example, can be used to create synthetic photos of faces, which can then be used to train a deep-learning model to detect faces in real-world images.
+数据增强可以用来改善各种机器学习应用的数据集，如图像分类、目标检测和自然语言处理。例如，可以使用数据增强来创建人脸的合成照片，然后用这些照片训练深度学习模型，以在实际图像中检测人脸。
 
-Data augmentation is an important method in the data world because it addresses the underlying concerns of data quantity and quality. Access to large amounts of diverse, well-labeled data is required for building strong and accurate models in many machine learning and deep learning applications.
+数据增强是数据世界中的一种重要方法，因为它解决了数据数量和质量的基本问题。在许多机器学习和深度学习应用中，构建强大而准确的模型需要大规模多样化、标注良好的数据。
 
-Data augmentation is a beneficial method for expanding limited datasets by creating new samples, which improves model generalization and performance. Furthermore, it improves the ability of machine learning algorithms to manage real-world fluctuations, resulting in more trustworthy and flexible AI systems.
+数据增强是一种有效的方法，可以通过创建新样本来扩展有限的数据集，从而提高模型的泛化能力和性能。此外，它提高了机器学习算法处理现实波动的能力，产生更可信赖和灵活的人工智能系统。
 
-## Why Use Generative Models for Data Augmentation?
+## 为什么使用生成模型进行数据增强？
 
-There are several reasons why generative models are employed for data augmentation in machine learning:
+在机器学习中，使用生成模型进行数据增强有多个原因：
 
-1.  **Increased Data Diversity:** Generative models can help boost dataset variety, making machine learning models more resilient to real-world fluctuations. A generative model could be used to generate synthetic images of faces with various expressions, ages, and ethnicities. This could help a machine learning model learn to detect faces more reliably in a wide range of real-world scenarios.
+1. **增加数据多样性:** 生成模型可以帮助提升数据集的多样性，使机器学习模型更能适应现实世界的波动。一个生成模型可以用来生成具有不同表情、年龄和种族的合成面部图像。这可以帮助机器学习模型更可靠地检测各种现实场景中的面部。
     
-2.  **Improved Model Generalization:** Using generative models to augment data exposes machine learning models to a broader collection of data variables during training. This procedure improves the model’s ability to generalize to new, previously unknown data and its overall performance. This is particularly relevant for deep learning models, which require vast volumes of data to adequately train.
+2. **改善模型泛化:** 使用生成模型来增强数据，可以在训练期间使机器学习模型接触到更广泛的数据变量集合。这个过程提高了模型对新出现但未知数据的泛化能力及其整体性能。这对需要大量数据进行充分训练的深度学习模型尤为重要。
     
-3.  **Overcoming Data Scarcity:** Obtaining a large and diverse labeled dataset can be a substantial issue in many machine learning applications. By developing synthetic data, generative models can assist in managing data scarcity by lowering reliance on limited real data.
+3. **解决数据稀缺性:** 在许多机器学习应用中，获得一个大而多样化的标注数据集可能是一个很大的挑战。通过生成合成数据，生成模型可以帮助处理数据稀缺问题，减少对有限真实数据的依赖。
     
-4.  **Reduction of Bias:** By generating new data samples that address underrepresented or biased categories, generative models can be used to eliminate bias in training data, improving balance in AI applications.
-    
-
-## Generative Models for Data Augmentation
-
-Two main types of generative models can be used for data augmentation:
-
--   Generative Adversarial Networks (GANs)
-    
--   Variational AutoEncoders (VAEs)
+4. **减少偏差:** 通过生成能平衡代表或减少偏见的新数据样本，生成模型可以用于消除训练数据中的偏差，提高人工智能应用的平衡性。
     
 
-### Generative Adversarial Networks (GANs)
+## 用于数据增强的生成模型
 
-GANs are neural network designs that are used to create fresh data samples that are comparable to the training data. They are learning models that can construct new items that appear to be drawn from a certain dataset. GANs, for example, can be trained on a group of photos and then used to produce new images that look like they came from the original set.
+有两种主要类型的生成模型可以用于数据增强：
 
-Here’s a short explanation of how GANs work:
+- 生成对抗网络（GANs）
 
--   A new data sample is generated by the generator. The discriminator is provided with both new and real data samples.
+- 变分自编码器（VAEs）
+
+### 生成对抗网络（GANs）
+
+GANs 是一种神经网络设计，用于创建与训练数据相似的新数据样本。它们是可以构建看似从某个特定数据集中抽取出的新项的学习模型。例如，GANs 可以在一组照片上进行训练，然后用于生成看起来像来自原始集合的新图像。
+
+-   生成器生成一个新的数据样本。判别器同时接收新的和真实的数据样本。
     
--   The discriminator attempts to determine which samples are real and which are fabricated.
+-   判别器尝试确定哪些样本是真实的，哪些是伪造的。
     
--   The output of the discriminator is used to update both the generator and the discriminator.
-    
-
-The generator creates a synthetic image by taking noisy data as input. The discriminator tries to correctly categorize both the generator’s fake image and an actual image from the training set.
-
-The generator tries to improve its variables to produce a more convincing false image that can mislead the discriminator. The discriminator seeks to improve by adjusting its variables to distinguish between actual and fraudulent images. The two networks continue to compete and improve until the generator produces data that is similar to real data.
-
-It is suitable for data augmentation due to its capacity to generate synthetic data indistinguishable from genuine data samples. This is significant because machine learning algorithms learn from data, and the more data used to train a model, the better it will perform. On the other hand, collecting enough real-world data to train a machine-learning model may be costly and time-consuming.
-
-GANs can help to reduce the cost and time required to collect data by producing synthetic data that is similar to real-world data. This is especially beneficial for applications when collecting real-world data is difficult or expensive, such as medical imaging or video surveillance data.
-
-GANs can also be used because of their variety. This is because GANs can be used to produce data samples that did not exist in the original dataset. This can help improve the robustness of machine learning models for real-world variations.
-
-### Variational AutoEncoders (VAEs)
-
-VAEs are a type of generative model and a variation of autoencoders used in machine learning and deep learning. They are a form of generative model that may generate fresh data samples that are comparable to the data on which they were trained.
-
-VAEs are a sort of Bayesian model, which implies that they employ probability distributions to represent the uncertainty in the data. This allows VAEs to create data samples that are more realistic than other types of generative models.
-
-VAEs work by learning about data representation in latent space. The latent space is a compressed representation of data that captures the data’s most relevant qualities. By sampling from the latent space and decoding the samples back into the original data space, VAEs can then be utilized to produce new data samples.
-
-Here’s a simple illustration of how a VAE works:
-
--   As input, the encoder receives a data sample, such as an image of an animal.
-    
--   The encoder generates a latent space representation of the data, which is a compressed version of the image that captures the cat’s most relevant characteristics, such as shape, size, and fur color.
-    
--   The latent space representation is fed into the decoder.
-    
--   The decoder generates a reconstructed data sample, which is a new image of an animal that resembles the original image.
+-   使用判别器的输出来更新生成器和判别器。
     
 
-The encoder and decoder are taught to reduce the difference between the reconstructed and original images. This is accomplished by employing a loss function that compares the similarity of the two photos.
+生成器通过将噪声数据作为输入来创建合成图像。判别器尝试正确分类生成器的虚假图像和训练集中实际存在的图像。
 
-VAEs are a strong generative modeling tool that can be used for image production, text generation, data compression, and data denoising. They provide a probabilistic framework for modeling and producing complex data distributions while preserving a structured latent space for data production and interpolation.
+生成器尝试改进其变量以生成更具说服力的假图像，从而能够误导判别器。判别器则通过调整其变量来在真实和虚假图像之间进行区分，从而寻求改进。两个网络不断竞争并改进，直到生成器产生与真实数据相似的数据为止。
 
-The ability to generate data that is similar to real-world data also qualifies it for data augmentation. This means that the augmented data produced by VAEs is highly realistic and aligned with the underlying data distribution, which is required for effective data augmentation.
+由于其生成无法与真实数据样本区分的合成数据的能力，它非常适合用于数据扩充。这一点很重要，因为机器学习算法从数据中学习，使用的数据越多，训练模型的性能就越好。另一方面，收集足够的现实世界的数据来训练机器学习模型可能是昂贵且费时的。
 
-Each point in the structured latent space of VAEs represents a meaningful data variation. This enables controlled data creation. Users can build new data instances with specific attributes or variants by sampling different places in the latent space, making it suited for targeted data augmentation.
+GANs 可以通过生成类似于真实世界数据的合成数据来帮助降低收集数据所需的成本和时间。这对于在收集真实数据困难或昂贵的应用场景，诸如医学成像或视频监控数据特别有用。
 
-VAEs can address data scarcity issues by generating synthetic data when real data is limited. This is particularly valuable in scenarios where collecting more real data is impractical or expensive.
+由于其多样性，GANs 也可以被使用。这是因为 GANs 可以用于生成在原始数据集中不存在的数据样本。这可以帮助提高机器学习模型对现实世界变异的鲁棒性。
 
-As VAEs continue to improve, they will likely play an increasingly important role in training machine learning models.
+### 变分自编码器 (VAEs)
 
-## Conclusion
+VAEs 是一种生成模型，也是机器学习和深度学习中使用的自编码器的变体。它们是一种生成模型，可以生成与训练数据相似的新数据样本。
 
-Generative models have played a significant part in the practice of data augmentation in the machine-learning field.
+VAEs 是一种贝叶斯模型，这意味着它们使用概率分布来表示数据中的不确定性。这使得 VAEs 能够比其他类型的生成模型创建更现实的数据样本。
 
-For instance, GANs have been used to generate synthetic images of faces, which have been used to train machine learning models to detect faces in real-world images.
+VAEs 通过学习关于潜在空间中的数据表示来工作。潜在空间是数据的压缩表示，捕获了数据最相关的特性。通过从潜在空间采样并将样本解码回原始数据空间，VAEs 可以用于生成新的数据样本。
 
-VAEs were also utilized to create synthetic images of automobiles that were then used to train machine-learning models to recognize autos in real-world photographs.
+以下是 VAE 工作原理的简单示例：
 
-These are all real-life applications of generative models in data Augmentation.
+-   编码器接收一个数据样本作为输入，例如一张动物的图像。
+    
+-   编码器生成数据的潜在空间表示，这是图像的压缩版本，捕捉了这只猫的最相关特征，如形状、大小和毛色。
+    
+-   潜在空间表示被输入解码器。
+    
+-   解码器生成重构的数据样本，这是一张类似于原始图像的新动物图像。
+    
 
-I hope this article was helpful.
+编码器和解码器被训练以减少重构图像和原始图像之间的差异。这是通过使用损失函数来比较两个图像的相似性来实现的。
+
+VAEs 是一种强大的生成建模工具，可用于图像生成、文本生成、数据压缩和数据去噪。它们为建模和生成复杂数据分布提供概率框架，同时维护用于数据生成和插值的结构化潜在空间。
+
+生成与现实世界数据相似的数据的能力也使其适合于数据扩充。这意味着由 VAEs 生成的扩充数据是高度现实的，并与基础数据分布一致，这是有效数据扩充所必需的。
+
+VAEs 的结构化潜在空间中的每个点都表示一种有意义的数据变异。这使得受控数据创建成为可能。用户可以通过采样潜在空间中不同的位置来构建具备特定属性或变体的新数据实例，使其适用于目标数据扩充。
+
+VAEs 可以通过在真实数据有限时生成合成数据来解决数据稀缺问题。这在收集更多真实数据不切实际或昂贵的情况下尤其有价值。
+
+随着 VAEs 的不断改进，它们可能会在训练机器学习模型方面扮演越来越重要的角色。
+
+## 结论
+
+生成模型在机器学习领域的数据扩充实践中起到了重要作用。
+
+例如，GANs 已用于生成面部的合成图像，这些图像已用于训练机器学习模型以检测现实世界图像中的面部。
+
+VAEs 也曾用于创建汽车的合成图像，然后用于训练机器学习模型以识别现实世界照片中的汽车。
+
+这些都是生成模型在数据扩充中的实际应用。
+
