@@ -1,5 +1,5 @@
 ---
-title: How SSH Authentication with GitHub Works Under the Hood
+title: SSH 身份验证在 GitHub 中的运作原理
 date: 2025-02-27T14:14:46.231Z
 author: Vivek Agrawal
 authorURL: https://www.freecodecamp.org/news/author/vkweb/
@@ -8,64 +8,64 @@ posteditor: ""
 proofreader: ""
 ---
 
-SSH (Secure Shell) is a client-server protocol for connecting and authenticating to a remote server.
+SSH（安全外壳）是一种用于连接和验证远程服务器的客户端-服务器协议。
 
 <!-- more -->
 
-Authentication means that the remote server can verify that it’s actually you and not somebody else talking on your behalf.
+身份验证意味着远程服务器可以验证与其通信的确实是您，而不是其他人冒名顶替。
 
-You may already be using GitHub’s SSH authentication, but do you know how it actually works? In this article, you’ll learn what happens under the hood and how SSH authentication actually works.
+您可能已经在使用 GitHub 的 SSH 身份验证，但您知道它的具体工作原理吗？在本文中，您将了解其内部工作机制及 SSH 身份验证的真正原理。
 
-Along the way, you’ll understand the fundamental concepts of cryptography that every developer should know about: symmetric key encryption, asymmetric key encryption, cryptographic hash functions, and digital signatures.
+在此过程中，您将理解每个开发人员都应该了解的密码学基本概念：对称密钥加密、非对称密钥加密、密码散列函数以及数字签名。
 
-Some developers usually don’t get the chance to learn and understand these cryptography fundamentals, but these concepts will help you in the long run. Also, they’ll help you be in a much better position to take informed security decisions for your production web applications.
+一些开发者通常没有机会学习并理解这些密码学基础，但这些概念将对您有长期帮助。此外，它们将使您在为生产环境下的网络应用程序做出安全决策时处于更有利的位置。
 
-So come on, fasten your seat belts, and let’s start!
+所以，请系好安全带，让我们开始吧！
 
-### Here’s what we’ll cover:
+### 本文包括：
 
-1.  [First, Why is Authentication So Important?][1]
+1.  [首先，为什么身份验证如此重要？][1]
     
-2.  [Symmetric Key Encryption][2]
+2.  [对称密钥加密][2]
     
-3.  [Asymmetric Key Encryption][3]
+3.  [非对称密钥加密][3]
     
-4.  [Cryptographic Hash Functions][4]
+4.  [密码散列函数][4]
     
-5.  [Digital Signatures][5]
+5.  [数字签名][5]
     
-6.  [How SSH Authentication Works][6]
+6.  [SSH 身份验证的工作原理][6]
     
-7.  [Wrapping it All Up][7]
+7.  [总结一切][7]
     
 
-## First, Why is Authentication So Important?
+## 首先，为什么身份验证如此重要？
 
-When we run `git push`, GitHub needs to verify that the right person is interacting with GitHub. Imagine if an attacker could manage to do `git push` on your behalf.
+当我们运行 `git push` 时，GitHub 需要验证与其交互的是正确的人。想象一下如果攻击者能够代表您执行 `git push`。
 
-Then all your repositories would be under that attacker's control. They could delete all your code along with all the commit history.
+那么您所有的仓库都会在攻击者的控制之下。他们可以删除您的所有代码以及所有提交历史。
 
-This sounds quite dangerous, doesn’t it? So to verify that it’s actually you who’s talking to GitHub, and not an attacker, GitHub has several ways to authenticate you.
+这听起来非常危险，不是吗？因此，为了验证与 GitHub 通信的确实是您，而不是攻击者，GitHub 有多种方式对您进行身份验证。
 
-The most widely used method to authenticate with GitHub is SSH authentication.
+最广泛使用的 GitHub 身份验证方法是 SSH 身份验证。
 
-Before we understand how SSH authentication works under the hood, we will need to understand the fundamental cryptography concepts, namely — symmetric key encryption, asymmetric key encryption, cryptographic hash functions, and digital signatures.
+在我们了解 SSH 身份验证的内部工作原理之前，我们需要理解几个基本的密码学概念，即 — 对称密钥加密、非对称密钥加密、密码散列函数和数字签名。
 
-Let’s begin!
+让我们开始吧！
 
-## Symmetric Key Encryption
+## 对称密钥加密
 
-In the ancient days, rulers devised various methods of communicating secret military messages to their army commanders.
+在古代，统治者发明了各种方法来向其军队指挥官传达秘密军事信息。
 
-One of the earliest methods, likely used by ancient Greek rulers and possibly later the Romans, involved using a cylindrical wooden rod called a [**Scytale**][8].
+其中一种最早的方法，可能被古希腊统治者使用过，后来可能被罗马人采用过，涉及使用一个称为 [**斯泰尔密码棒**][8] 的圆柱形木棒。
 
-Before a military invasion, the ruler would have two exact same cylindrical wooden rods made called scytales. Then he would give one scytale to the army commander and keep one for himself.
+在军事入侵前，统治者会制作两个完全相同的圆柱形木棒，称为斯泰尔密码棒。然后他会将一个密码棒交给军队指挥官，自己保留一个。
 
-![A scytale with leather strip wounded and a message written on it.](https://cdn.hashnode.com/res/hashnode/image/upload/v1734514827027/b4945c3a-64d4-458b-a410-f23b1a08d9ef.png)
+![一根缠绕着皮革条并写有信息的斯泰尔密码棒。](https://cdn.hashnode.com/res/hashnode/image/upload/v1734514827027/b4945c3a-64d4-458b-a410-f23b1a08d9ef.png)
 
-The device worked by winding a strip of leather around the scytale. After doing this, the ruler would write the message on top of the wound-up leather strip so that it could only be read when properly wound again.
+该装置通过将皮革条缠绕在斯泰尔密码棒上来工作。在这样做之后，统治者会在缠绕好的皮革条上写下信息，这样只有在正确缠绕后才能读取。
 
-Suppose the scytale allowed him to write three letters around in a circle and five letters straight across/along its length. The wound leather strip with the message `attackfromright` written on it would look like this:
+假设斯泰尔密码棒允许他绕着其圆周写三个字母，并沿其长度写五个字母。带有信息 `attackfromright` 的缠绕皮革条会这样显示：
 
 ```
        |   |   |   |   |   |
@@ -75,7 +75,7 @@ Suppose the scytale allowed him to write three letters around in a circle and fi
     |  |   |   |   |   |   |
 ```
 
-After writing the message on the scytale, the ruler would unwind the leather strip and send it to the army commander. When it was unwound, the leather strip would have the following jumbled message:
+在斯泰尔密码棒上写完信息后，统治者会展开皮革条并将其发送给军队指挥官。展开后，皮革条上的信息会被扰乱成：
 
 ```
 ----------------
@@ -83,230 +83,226 @@ akrtfitrgaohcmt
 ----------------
 ```
 
-So now you see, even if the leather strip got intercepted by an enemy spy, the message would not make sense. Isn't this fascinating? The smart use of a wooden rod and a leather strip might have helped some ancient rulers win battles!
+所以现在您看，即使敌方间谍截获了皮革条，信息也不会有意义。这很有趣，不是吗？巧妙地使用木棒和皮革条可能帮助一些古代统治者赢得了战斗！
 
-When the leather strip reached the army commander, he would wind it around his own scytale (which would be exactly the same as ruler’s), and then the commander would be able to understand the message properly.
+当皮革条到达军队指挥官时，他会将其缠绕在自己的斯泰尔密码棒上（与统治者的完全相同），然后指挥官就能够正确理解信息。
 
-This scytale technique is actually an example of symmetric key encryption in practice.
+这种斯泰尔密码棒技术实际上就是对称密钥加密的一个例子。
 
-Encryption is a process in which the original message is modified (or encoded) in such a way that only the intended recipient can decode and see the actual message.
+加密是一个过程，其中原始信息被修改（或编码），以便只有预期的接收者可以解码和查看实际信息。
 
-The original message is called plaintext, while the encoded message is called ciphertext. Encryption converts `plaintext to ciphertext` with the help of a key.
+原始信息称为明文，而编码后的信息称为密文。加密通过密钥将 `明文转换为密文`。
 
-To decrypt the message, that is to convert `ciphertext to plaintext`, a person must have access to that same key.
+要解密信息，也就是将 `密文转换为明文`，人必须能够访问同样的密钥。
 
-If we compare it to the scytale technique, the scytale is the key. The ruler only shares the key (scytale) with the army commander who needs to know what the message says.
+如果我们将其与斯泰尔密码棒技术进行比较，斯泰尔密码棒就是密钥。统治者只与需要知道信息内容的军队指挥官分享密钥（斯泰尔密码棒）。
 
-Here's what the encryption process looks like:
+```markdown
+![加密时以牍木作为密钥。](https://cdn.hashnode.com/res/hashnode/image/upload/v1734519516607/75c926a3-faec-402a-8bcd-122039f47a01.png)
 
-![Encryption with scytale as key.](https://cdn.hashnode.com/res/hashnode/image/upload/v1734519516607/75c926a3-faec-402a-8bcd-122039f47a01.png)
+解密过程如下所示：
 
-The decryption process will look like this:
+![解密时以牍木作为密钥。](https://cdn.hashnode.com/res/hashnode/image/upload/v1734519525487/de096889-332c-4482-b2df-b28ce609a8a6.png)
 
-![Decryption with scytale as key.](https://cdn.hashnode.com/res/hashnode/image/upload/v1734519525487/de096889-332c-4482-b2df-b28ce609a8a6.png)
+我们称之为对称密钥加密，因为加密和解密消息使用的是相同的密钥。
 
-We call this symmetric key encryption because the same key is used to both encrypt and decrypt the message.
+这个密钥（牍木）必须保护，不被敌人获取。如果敌人获取了这个密钥，他们就能解密消息。
 
-This key (the scytale) must be kept protected from enemy access. If the enemy get’s access to this key, then they’ll be able to decrypt the messages.
+但还有另外一种加密方式称为非对称密钥加密。既然你已经了解对称密钥加密，让我们继续学习非对称密钥加密。
 
-But there’s another type of encryption called asymmetric key encryption. Now that you understand symmetric key encryption, let’s move on to asymmetric key encryption.
+## 非对称密钥加密
 
-## Asymmetric Key Encryption
+在对称密钥加密中，正如我们上面所看到的，统治者和军队指挥官使用相同的密钥来加密和解密信息。
 
-In symmetric key encryption, like we saw above, the same key was used by both the ruler and the army commander to encrypt and decrypt the message.
+但在非对称密钥加密中，存在两把密钥（称为密钥对）。这两把密钥中，一把是私钥，另一把是公钥。
 
-But in an asymmetric key encryption, there are two keys (called a key pair). Out of the two keys, one is a private key and the other is a public key.
+公钥可以与任何人共享（因此称为公钥）。但私钥必须保密！绝不能透露给任何人。
 
-The public key can be shared with everyone (which is why it’s called public). But the private key is meant to be kept secret! It must never ever be revealed to anybody.
+![公钥可以与任何人共享。但私钥必须保密。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735200860039/7aca8ffa-c33a-44e5-ab1a-181492ebefd8.png)
 
-![Public key can be shared with everyone. But the private key must be kept secret.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735200860039/7aca8ffa-c33a-44e5-ab1a-181492ebefd8.png)
+非对称密钥加密的有趣之处在于，如果用公钥加密消息，则只能用相应的私钥解密。没有其他密钥可以解密它。
 
-The interesting thing about asymmetric key encryption is that, if a message is encrypted with the public key, then it can only be decrypted with the corresponding private key. No other key can decrypt it.
+反之亦然。如果消息是用私钥加密的，则只能用相应的公钥解密。
 
-And it works the other way too. If a message is encrypted with the private key then it can only be decrypted using the corresponding public key.
+![公钥和私钥的数学联系图示。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735120077350/b90901c8-b55c-428a-8eb4-1b8ffa65fa06.png)
 
-![Illustration of public and private key mathematically linked with each other.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735120077350/b90901c8-b55c-428a-8eb4-1b8ffa65fa06.png)
+这两把密钥——公钥和私钥——在数学上是相互关联的。当一把加密时，另一把解密。
 
-The two keys – public and private – are mathematically linked with each other. While one encrypts, the other decrypts.
+稍微注意一下，非对称密钥加密也被称为公钥加密。这两个术语可以互换使用，但它们的意思是相同的。
 
-Just a small note that asymmetric key encryption is also called public key encryption. These two terms are used interchangeably but they mean the same thing.
+## 加密散列函数
 
-## Cryptographic Hash Functions
+加密散列函数旨在接受任意长度的输入并生成固定长度的输出。这个固定长度的输出称为散列值。
 
-A cryptographic hash function is designed to take in an input of any length and produce a fixed-length output. The fixed-length output is called as hash value.
+一个常见的加密散列函数示例是 SHA-256。
 
-A popular example of a cryptographic hash function is SHA-256.
+![“freeCodeCamp.org”的 SHA-256 计算](https://cdn.hashnode.com/res/hashnode/image/upload/v1735030835833/201640c6-13b4-4b2b-9be3-88e245269bd1.png)
 
-![SHA-256 calculation of "freeCodeCamp.org"](https://cdn.hashnode.com/res/hashnode/image/upload/v1735030835833/201640c6-13b4-4b2b-9be3-88e245269bd1.png)
+上图显示的是输入“freeCodeCamp.org”的 SHA-256 散列值。加密散列函数有三个非常有用的特性（我们将在接下来的部分中看到如何使用它们）。
 
-The above image shows the SHA-256 hash value of the input “freeCodeCamp.org“. Cryptographic hash function has three properties that make it very useful (we’ll see how in the coming sections).
+首先**，** 从理论上讲，从散列值推导输入是不可行的。
 
-First**,** it’s practically impossible to take the hash value and figure out the input from the hash value.
+例如，如果我们得到散列值 `c9c31315ef2257e4b7698`，我们无法推断出散列函数的输入是“freeCodeCamp.org”。
 
-For example, if we are given the hash value `c9c31315ef2257e4b7698`, there’s no way for us to figure out that the input to the hash function was “freeCodeCamp.org“.
+第二**，** 如果我们将相同的输入传递给散列函数，我们将得到相同的散列值作为输出。
 
-Second**,** if we pass the same input to the hash function, we get the same hash value as output.
+如果我们再次将“freeCodeCamp.org”传递给 SHA-256 散列函数，我们将得到与先前调用相同的散列输出。
 
-If we pass “freeCodeCamp.org“ again to the SHA-256 hash function, we will get the same hash output as our previous call.
+第三**，** 不同的输入不会共享相同的散列值。即使输入的微小变化也会生成完全不同的输出。
 
-Third**,** two different inputs never share the same hash value. Even the slightest change in input produces an entirely different output.
+假设我们提供“freeCodeCamp”作为输入，而不是“freeCodeCamp.org”——我们将得到完全不同的输出。
 
-Suppose if we provide “freeCodeCamp“ as input instead of “freeCodeCamp.org“ – we would get a totally different output.
+## 数字签名
 
-## Digital Signatures
+在日常生活中，你可能需要签署各种文件。这些可能是法律文件，或是孩子的成绩单，或者其他东西。
 
-In your daily lives, you might have to sign various documents. These might be legal documents, or your kids’ school report card, or maybe something else.
+当你的签名出现在文件上时，它向另一方传达了你同意文件上所写内容的信息。
 
-When your signature is present on the document, it conveys to the other party that it is you who agrees with whatever is written on that document.
+之后，你不能违背文件中所写内容。对吧？
 
-Later on, you cannot walk back from doing what’s written on the document. Correct?
+类似地，在数字世界中，我们有数字签名——我们可以简单地称之为签名。
 
-Similarly, in the digital world, we have digital signatures – or we can simply call them signatures.
+让我们用一个例子来理解签名的工作原理。我们有两个用户，分别叫做“Alice”和“Bob”。
 
-Let’s understand how signatures works using an example. We have two users named “Alice“ and “Bob“.
+Bob 想要将一些钱转到 Alice 的银行账户。因此，Bob 向 Alice 请求她的银行账户信息。
 
-Bob wants to transfer some money to Alice’s bank account. So Bob asks Alice about her bank account information.
+![展示爱丽丝和鲍勃的计算机相距甚远以及爱丽丝银行账号的插图。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735042150046/034d26c5-b33d-4b82-aeb8-173e47cd8e8e.png)
 
-![An illustration showing alice and bob's computers far away from each other and alice's bank account number.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735042150046/034d26c5-b33d-4b82-aeb8-173e47cd8e8e.png)
+Alice 知道数字签名并决定使用一个。最终，你将理解 Alice 为什么选择数字签名。
 
-Alice knows about digital signatures and decided to use one. At the end, you will understand why Alice opted for a digital signature.
+在 Alice 能够创建数字签名前，Alice 将她的公钥提供给 Bob（并保留私钥给自己）。
 
-Before Alice can create a digital signature. Alice provides Bob with her public key (and keeps the private key to herself).
+然后，Alice 创建一个数字签名并将其附在文件末尾。
 
-Then Alice creates a digital signature and places it at the end of the document.
+![数字签名生成过程。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735041977880/35313148-8820-42d7-b122-3ddf0cbaa723.png)
 
-![Process of digital signature generation.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735041977880/35313148-8820-42d7-b122-3ddf0cbaa723.png)
-
-A digital signature is created by first passing the document contents to a cryptographic hash function like SHA-256. In Alice’s case, the document’s content is her bank account number.
-
-Once we get the hash value, it gets encrypted with Alice’s **private key**. The output of this encryption is the signature which gets placed at the end of the document.
-
-This is then sent to Bob over the Internet.
-
-When Bob receives this document, he verifies whether the **signature is valid or not**.
-
-![Process of signature verification.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735043216695/256f7707-3f40-433f-9b00-c11b27ef01e8.png)
-
-To verify the signature, Bob first decrypts the signature with Alice’s public key. If you remember, Alice generated the signature by encrypting the hash value.
-
-```
- plaintext                         ciphertext  
-     |                                 |
-     |                                 |
-     |                                 |
-hash value --------encrypt--------> signature
+数字签名是通过首先将文件内容传递给类似 SHA-256 的加密散列函数创建的。在 Alice 的案例中，文件的内容是她的银行账号。
 ```
 
-So, when Bob decrypts the signature, he will get the hash value that Alice calculated. Let’s call this Alice’s hash value.
+然后，Bob通过互联网接收到这份文件。
+
+当Bob收到这个文件时，他会验证**签名是否有效**。
+
+![签名验证过程。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735043216695/256f7707-3f40-433f-9b00-c11b27ef01e8.png)
+
+为了验证签名，Bob首先使用Alice的公钥解密签名。如果你还记得，Alice是通过加密哈希值生成签名的。
 
 ```
- ciphertext                         plaintext  
+ 明文                             密文  
      |                                 |
      |                                 |
      |                                 |
-signature --------decrypt--------> hash value
+哈希值 --------加密--------> 签名
 ```
 
-Then Bob takes the bank account number that’s present on the document and passes it to the hash function.
+因此，当Bob解密签名时，他会得到Alice计算出的哈希值。我们称之为Alice的哈希值。
 
-Finally, Bob matches the Alice’s hash value (the decrypted signature) and the hash value that he just calculated. If both the hash values match then that means the signature is valid.
+```
+ 密文                             明文  
+     |                                 |
+     |                                 |
+     |                                 |
+签名 --------解密--------> 哈希值
+```
 
-OK — but why did we need to do all this? What does it mean if the signature is valid?
+然后Bob取出文件中存在的银行账号，并传递给哈希函数。
 
-When the signature verification is successful, it proves two things.
+最后，Bob将Alice的哈希值（解密后的签名）与他刚刚计算出的哈希值匹配。如果两个哈希值匹配，这意味着签名是有效的。
 
-First**,** it proves that the document has been sent by Alice only. Nobody else could have sent this document.
+好的——但我们为什么要做这一切呢？如果签名有效，这是什么意思？
 
-The assurance that only Alice has sent this document comes from the fact that we were able to decrypt the signature using Alice’s public key.
+当签名验证成功时，它证明了两件事情。
 
-We have learned that if something is encrypted using a private key then it can only be decrypted using its linked public key.
+首先**，**它证明了这份文件只有Alice发送。没有其他人能发送这份文件。
 
-So, if Bob was successfully able to decrypt the signature using Alice’s public key, it means that it was encrypted using Alice’s private key, correct?
+我们能够使用Alice的公钥解密签名说明了只有Alice发送了这份文件。
 
-And only Alice has access to her private key. This means that Alice is the only person who could have sent this document!
+我们知道，如果某物是用私钥加密的，那么它只能用其关联的公钥解密。
 
-Second**,** it proves that the content of the message has not been modified by an attacker during network transmission.
+所以，如果Bob能够成功地使用Alice的公钥解密签名，意味着它是用Alice的私钥加密的，对吧？
 
-We did two things to verify the signature. We decrypted the signature, and it gave us the hash value that Alice calculated. And we also hashed the received bank account number.
+而且只有Alice可以访问她的私钥。这意味着Alice是唯一可能发送这份文件的人！
 
-If the hash value that Alice calculated and the hash value that Bob calculated are the same, this means that Alice and Bob gave exactly the same input to the hash function.
+第二**，**它证明在网络传输期间，消息的内容没有被攻击者修改。
 
-And this means that the bank account number that Alice sent and that Bob received are exactly same.
+我们做了两件事来验证签名。我们解密了签名，它给了我们Alice计算出的哈希值。同时我们也对接收到的银行账号进行了哈希处理。
 
-If an attacker would have changed the bank account number before the document reached Bob, then Bob would’ve received a modified bank account number.
+如果Alice计算的哈希值和Bob计算的哈希值是相同的，这意味着Alice和Bob对哈希函数的输入完全相同。
 
-When Bob went to calculate the hash value of this modified bank account number, the hash value would’ve come out to be different than what Alice had calculated.
+这意味着Alice发送和Bob接收到的银行账号是完全相同的。
 
-So while matching Alice’s hash value (decrypted signature) and the hash value that Bob calculated, the matching would fail. And it would prevent Bob from transferring money to the wrong bank account number.
+如果攻击者在文件到达Bob之前更改了银行账号，那么Bob会收到一个被修改的银行账号。
 
-To conclude, when the signature is successfully verified, it means that:
+当Bob去计算这个被修改的银行账号的哈希值时，这个哈希值与Alice计算的会不同。
 
-1.  The document is only from Alice.
-    
-2.  The document’s contents were not modified by any third party.
+因此，在匹配Alice的哈希值（解密后的签名）和Bob计算的哈希值时，匹配会失败。这将防止Bob将钱转账到错误的银行账号。
+
+总结，当签名成功验证时，这意味着：
+
+1. 文件是Alice发送的。
+   
+2. 文件的内容未被任何第三方修改。
     
 
-Now you’ve learned about symmetric key encryption, asymmetric key encryption, cryptographic hash functions, and digital signatures. That’s awesome!
+现在你已经了解了对称密钥加密、非对称密钥加密、加密哈希函数和数字签名。太棒了！
 
-We have built a really solid foundation. Now understanding SSH authentication is going to be much easier for you.
+我们已经建立了一个非常坚实的基础。现在理解SSH认证会变得更加容易。
 
-## How SSH Authentication Works
+## SSH认证是如何工作的
 
-If you have not setup SSH authentication with GitHub, then after completing this article you can follow [GitHub’s detailed documentation on how to do it][9]. For now, please stay here till the end.
+如果你还没有设置GitHub的SSH认证，完成本文后，你可以参考[GitHub关于如何操作的详细文档][9]。现在，请继续阅读到最后。
 
-The crux of the setup process is that you create a public and private key pair on your local computer. Then you upload your public key to your GitHub profile – and that’s it!
+设置过程的关键是，在本地计算机上创建一对公钥和私钥。然后将你的公钥上传到你的GitHub个人资料——就是这样！
 
-After we have created our public-private key pair, in Ubuntu, public-private key pair are stored inside the `~/.ssh` directory.
+创建公私钥对后，在Ubuntu中，公私钥对存储在`~/.ssh`目录中。
 
-![Showing my public key from my terminal.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735035539565/1f837d9b-9717-44fa-a5e0-5801276113df.png)
+![从终端显示我的公钥。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735035539565/1f837d9b-9717-44fa-a5e0-5801276113df.png)
 
-The above image shows my public key. I have this public key uploaded to my GitHub profile:
+上图显示了我的公钥。我已将此公钥上传到我的GitHub个人资料中：
 
-![Showing my GitHub profile settings where my public key is uploaded for SSH authentication with GitHub.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735035898284/1ef9133a-895b-4847-a7ac-6157fdcc3143.png)
+![显示我的GitHub个人资料设置，我的公钥已上传用于与GitHub的SSH认证。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735035898284/1ef9133a-895b-4847-a7ac-6157fdcc3143.png)
 
-Now, when I run `git push` or any other command that wants to communicate with GitHub, I will be authenticated using SSH authentication.
+现在，当我运行`git push`或任何其他希望与GitHub通信的命令时，我将通过SSH认证进行身份验证。
 
-![The illustration of SSH authentication process between client and GitHub server.](https://cdn.hashnode.com/res/hashnode/image/upload/v1735053545173/6fb293f1-f90a-4b64-b026-082d8676afae.png)
+![客户端与GitHub服务器之间SSH认证过程的插图。](https://cdn.hashnode.com/res/hashnode/image/upload/v1735053545173/6fb293f1-f90a-4b64-b026-082d8676afae.png)
 
-SSH is a client-server protocol. Our computer that runs `git push` is the SSH client. GitHub is the SSH server.
+SSH是一个客户端-服务器协议。运行`git push`的计算机是SSH客户端。GitHub是SSH服务器。
 
-The client starts off the authentication process by first fetching our public key that we have inside `~/.ssh`.
+客户端首先通过获取保存在`~/.ssh`中的公钥来启动认证过程。
 
-The client then prepares a message which has our public key. And then the client generates the signature using the corresponding private key.
+公钥和签名被发送到 GitHub。在收到这条消息后，GitHub 会做以下两件事情：
 
-The public key and signature are sent to GitHub. Upon receiving this message, GitHub does two things:
+首先，它会验证消息中提到的公钥是否连接到某个 GitHub 个人资料。因为我们将公钥上传到了 GitHub，这一步能成功通过。
 
-First, it verifies whether the public key mentioned in the message is connected to a GitHub profile or not. Since we upload our public key to GitHub, this step checks out successfully.
+其次，GitHub 使用我们上传的公钥来验证签名。
 
-Second, GitHub verifies the signature using the public key that we have uploaded.
+我们了解到，如果签名验证成功，这意味着只有掌握相应私钥的人才能发送这条消息。
 
-We have learned that if the signature verification turns out to be successful this means that only the person who is in the possession of the corresponding private key could have sent the message.
+由于只有我们拥有与已上传公钥链接的私钥，这向 GitHub 证明了确实是我们在尝试与 GitHub 通信，而不是攻击者。
 
-Since only we have the private key linked to the uploaded public key, this proves to GitHub that it is indeed us attempting to communicate with GitHub and not an attacker.
+现在，GitHub 完全确信我们是正确的人，成功进行了身份验证，并且我们的 `git push` 能继续进行。
 
-Now, GitHub is 100% sure that we are the correct person, we are successfully authenticated, and our `git push` is allowed to proceed further.
+看吧，当你已经学习了基础知识后，理解 SSH 身份验证变得如此简单。
 
-See, it became so easy to understand SSH authentication as you already learned the fundamentals.
+![一幅描述 Cueball 打算分享其私钥的 xkcd 漫画。这是一个危险的举动！](https://cdn.hashnode.com/res/hashnode/image/upload/v1735120630613/e9a8bbba-3cc4-43e7-8369-865ab377fb87.png)
 
-![A xkcd comic depicting Cueball thinking to share his private key. A dangerous move!](https://cdn.hashnode.com/res/hashnode/image/upload/v1735120630613/e9a8bbba-3cc4-43e7-8369-865ab377fb87.png)
+上述图片来自热门的 [xkcd 漫画][10]。其中的人物（名为 Cueball）正在考虑透露自己的私钥。希望现在你知道为什么暴露私钥是不好的。
 
-The above image is from the popular [xkcd comic][10]. The character there (named Cueball) is thinking about revealing his private key. I hope now you know why it’s bad to reveal your private key.
+如果你泄露了私钥，那么其他人就可以代表你进行 GitHub 身份验证。你不想让这种事情发生，对吧？ ;)
 
-If you reveal your private key then someone else can authenticate to GitHub on your behalf. You don’t want that to happen, right? ;)
+所以，一定要确保私钥只属于你自己。
 
-So, always make sure to keep your private key just to yourself.
+## 总结
 
-## Wrapping it All Up
+如果你读到了这里，那么恭喜你 🥳。
 
-If you have read this far, then Congratulations 🥳.
+你已经了解了 SSH 身份验证是如何实际工作的 —— 当 GitHub 成功验证了签名后，它向 GitHub 确认是我们而不是攻击者在与它通信。
 
-You’ve learned how SSH authentication actually works — when the signature was successfully verified by GitHub, it confirms to GitHub that it is we who are talking to it not an attacker.
+在此过程中，你建立了对对称密钥加密、非对称密钥加密、加密哈希函数和数字签名的基础理解。
 
-Along the way you built a foundational understanding of symmetric key encryption, asymmetric key encryption, cryptographic hash functions and digital signatures.
+感谢你与我一起学习这部分内容，希望你收获了一些新的和有价值的知识。
 
-Thanks for being with me on this one, I hope you are going away with some new and valuable learnings.
-
-I put useful ideas and resources on my Twitter. [**You should follow me there.**][11] I will respect your time.
+我会在我的 Twitter 上分享有用的想法和资源。[**你应该在那里关注我。**][11] 我会尊重你的时间。
 
 [1]: #heading-first-why-is-authentication-so-important
 [2]: #heading-symmetric-key-encryption
@@ -319,3 +315,4 @@ I put useful ideas and resources on my Twitter. [**You should follow me there.**
 [9]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 [10]: https://xkcd.com/1553/
 [11]: https://twitter.com/vkwebdev
+
