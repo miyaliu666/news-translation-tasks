@@ -1,6 +1,6 @@
 ---
 title: Learn HTTP Methods like GET, POST, and DELETE – a Handbook with Code Examples
-date: 2024-11-04T08:45:07.055Z
+date: 2025-02-07T13:51:40.664Z
 author: Joan Ayebola
 authorURL: https://www.freecodecamp.org/news/author/joanayebola/
 originalURL: https://www.freecodecamp.org/news/learn-http-methods-like-get-post-and-delete-a-handbook-with-code-examples/
