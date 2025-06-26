@@ -71,17 +71,25 @@ jobs:
           FILENAME=$(basename "$MARKDOWN_FILE")
           LANG=${{ steps.extract-lang.outputs.lang }}
 
-          # Copy the file to raw and language-specific directories
-          cp -f "$MARKDOWN_FILE" "./articles/$LANG/$FILENAME"
+          # Save to ./articles/_raw/
           cp -f "$MARKDOWN_FILE" "./articles/_raw/$FILENAME"
 
-          # Add only the current files explicitly (no wildcards)
+          # Only save to ./articles/{lang}/ if it doesn't exist (preserve existing translations)
+          if [ ! -f "./articles/$LANG/$FILENAME" ]; then
+            cp "$MARKDOWN_FILE" "./articles/$LANG/$FILENAME"
+          fi
+
+          # Add only explicitly specified files
           git add "./articles/_tmp/$FILENAME"
           git add "./articles/_raw/$FILENAME"
-          git add "./articles/$LANG/$FILENAME"
+          # Only add language file if it was just copied (file exists AND was not already in the repo)
+          if git status --short | grep "$LANG/$FILENAME"; then
+            git add "./articles/$LANG/$FILENAME"
+          fi
 
           git commit -m "Save article markdown."
           git push origin main
+
 
       # Step 7: Switch to auto-translate branch and merge latest from main to inherit directory structure
       - name: Checkout auto-translate branch
