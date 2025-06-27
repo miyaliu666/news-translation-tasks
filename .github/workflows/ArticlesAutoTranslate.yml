@@ -117,7 +117,7 @@ jobs:
       - name: Commit translated article to auto-translate branch
         run: |
           if [ -d "./articles/_tmp/" ]; then
-            rm -rf ./articles/_tmp/"
+            rm -rf ./articles/_tmp/
           fi
 
           MARKDOWN_FILE="${{ steps.fetch-webpage-to-markdown.outputs.markdown_file_path }}"
