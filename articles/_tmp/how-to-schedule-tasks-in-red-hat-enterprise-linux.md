@@ -1,6 +1,6 @@
 ---
 title: How to Schedule Tasks in Red Hat Enterprise Linux
-date: 2025-06-26T14:21:15.150Z
+date: 2025-06-27T05:18:15.076Z
 author: Hang Hu
 authorURL: https://www.freecodecamp.org/news/author/huhuhang/
 originalURL: https://www.freecodecamp.org/news/how-to-schedule-tasks-in-red-hat-enterprise-linux/
