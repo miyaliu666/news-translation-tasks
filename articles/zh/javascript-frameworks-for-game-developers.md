@@ -1,6 +1,7 @@
+```markdown
 ---
-title: Powerful JavaScript Frameworks for Game Developers
-date: 2025-07-01T14:18:48.195Z
+title: 强大JavaScript框架为游戏开发者所用
+date: 2025-07-01T14:43:18.880Z
 author: Manish Shivanandhan
 authorURL: https://www.freecodecamp.org/news/author/manishshivanandhan/
 originalURL: https://www.freecodecamp.org/news/javascript-frameworks-for-game-developers/
@@ -8,113 +9,112 @@ posteditor: ""
 proofreader: ""
 ---
 
-Getting into game development with JavaScript can be a blast. JS is fast, flexible, and works right in the browser.
+用 JavaScript 进入游戏开发领域可能会非常激动人心。JS 快速、灵活，并且可以直接在浏览器中运行。
 
 <!-- more -->
 
-Whether you’re making a small puzzle game or a full 3D experience, JavaScript has the tools to help you bring your ideas to life.
+无论你是在制作小游戏还是完整的 3D 体验，JavaScript 都拥有助你实现创意的工具。
 
-But with so many libraries and frameworks out there, it’s easy to feel overwhelmed. So let’s break it down.
+但市场上有这么多库和框架，容易让人感到不知所措。所以让我们来分析一下。
 
-Here are five of the best JavaScript frameworks for game development, each with its own strengths and ideal use cases. All the frameworks are fully free and open source, so you can use them without worrying about the costs.
+以下是五个最适合游戏开发的 JavaScript 框架，每个都有其自身的优势和理想的使用场景。所有框架都是完全免费和开源的，所以你可以放心使用而不必担心费用。
 
 ## **Phaser**
 
 ![Phaser.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1751029417614/a7e492ee-a210-4a0a-ab26-bc80caed56f9.png)
 
-[Phaser][1] is often the first name that comes up when people talk about JavaScript game engines, and for good reason.
+[Phaser][1] 常常是人们谈到 JavaScript 游戏引擎时的首选，这也是有原因的。
 
-It’s designed to build 2D games that run in the browser or on mobile devices.
+它旨在构建可以在浏览器或移动设备上运行的 2D 游戏。
 
-Phaser is lightweight but powerful. It has all the features you need to make a complete game, including physics, animations, input handling, sound, and asset management.
+Phaser 轻量但功能强大。它拥有制作完整游戏所需的所有功能，包括物理、动画、输入处理、声音和资产管理。
 
-Phaser provides a gentle introduction to game development if you're just starting out. You don’t need to worry about rendering pipelines or low-level graphics APIs. It handles the complex stuff behind the scenes so you can focus on making your game fun.
+如果你是刚入门，Phaser 提供了对游戏开发的轻松入门。你不需要担心渲染管道或低级图形 API。它在后台处理复杂的部分，这样你就可以专注于让游戏更有趣。
 
-Phaser uses [Pixi.js][2] under the hood for rendering, which means it’s optimized for performance and compatible with older browsers too. You can also export your game to mobile platforms using wrappers like Cordova or Capacitor.
+Phaser 在渲染时使用 [Pixi.js][2]，这意味着它为性能进行了优化，并且也兼容较旧的浏览器。你还可以使用像 Cordova 或 Capacitor 这样的封装工具将游戏输出到移动平台上。
 
-This makes Phaser a fantastic choice for indie developers and hobbyists who want to make and share games quickly.
+这使得 Phaser 成为独立开发者和爱好者的绝佳选择，帮助他们快速制作和分享游戏。
 
 ## **Pixi.js**
 
 ![Pixi.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1751029429477/7267a68f-365e-48fc-8783-7b892464dbcc.jpeg)
 
-[Pixi.js][3] isn’t a full game engine like Phaser. Instead, it’s a high-speed 2D and [2.5D animation][4] rendering engine that gives you fine-grained control over how things appear on screen.
+[Pixi.js][3] 并不像 Phaser 那样是一个完整的游戏引擎。相反，它是一个高速 2D 和 [2.5D 动画][4] 渲染引擎，让你可以精细控制屏幕上的显示效果。
 
-If you’re working on a game that involves a lot of components, animations, or visual effects, Pixi.js gives you the tools to make it look amazing.
+如果你正在制作一个涉及大量组件、动画或视觉效果的游戏，Pixi.js 为你提供了让其看起来惊艳的工具。
 
-Because it focuses purely on rendering, Pixi.js is extremely fast. It uses [WebGL][5] when available and falls back to Canvas if needed. This makes it a great option for UI-heavy games or experiences where you need to squeeze out every bit of performance.
+因为它专注于渲染，Pixi.js 十分快速。它在可用时使用 [WebGL][5]，需要时则回退到 Canvas。这使它成为 UI 密集型游戏或需要压榨每一分性能的体验的绝佳选择。
 
-Since Pixi.js doesn’t include game logic, physics, or input systems like a full game engine, if you need those, you’ll have to add them yourself.
+由于 Pixi.js 不包括完整游戏引擎所需的游戏逻辑、物理或输入系统，如果需要这些功能，你需要自己添加。
 
-For example, you can use [Matter.js][6] for physics, which handles collision detection and rigid body physics in 2D. Or you can use [Colyseus][7] for multiplayer logic.
+例如，你可以使用 [Matter.js][6] 进行物理处理，它可以在 2D 环境中处理碰撞检测和刚体物理。或者，你可以使用 [Colyseus][7] 进行多人游戏逻辑。
 
-If you want more control or already have your own game logic written, Pixi.js might be the perfect fit.
+如果你想要更多控制，或者已经写好了自己的游戏逻辑，Pixi.js 可能是理想之选。
 
 ## **Three.js**
 
 ![Three.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1751029442764/c05fabb3-a8ce-4ae9-a573-a36a9683a297.webp)
 
-Now let’s talk about 3D. [Three.js][8] is the most popular JavaScript library for rendering 3D graphics in the browser using WebGL.
+现在让我们谈谈 3D。[Three.js][8] 是用于在浏览器中使用 WebGL 渲染 3D 图形的最流行的 JavaScript 库。
 
-It gives you a powerful set of tools for working with scenes, lights, cameras, meshes, and materials. If you’ve ever seen a 3D demo or game in a browser, chances are it used Three.js.
+它为处理场景、光线、摄像机、网格和材质提供了一组强大的工具。如果你曾在浏览器中看到一个 3D 演示或游戏，很可能它使用了 Three.js。
 
-Three.js is incredibly flexible. You can use it to build full games, data visualizations, interactive art, or virtual reality scenes.
+Three.js 的灵活性极强。你可以用它来构建完整的游戏、数据可视化、互动艺术或虚拟现实场景。
 
-But with that flexibility comes a steeper learning curve. You need to understand some basic 3D concepts like coordinate systems, shading, and rendering loops. The good news is that there are plenty of examples, and the community is active and helpful.
+但灵活性也带来了更高的学习曲线。你需要理解一些基本的 3D 概念，如坐标系、着色和渲染循环。好消息是有很多示例，而且社区活跃且乐于助人。
 
-One of the coolest things about Three.js is how well it integrates with other tools. You can load models from [Blender][9], add post-processing effects, and even connect it to VR headsets.
+Three.js 最酷的特点之一是它与其他工具的良好集成。你可以从 [Blender][9] 加载模型，添加后期处理效果，甚至将其连接到 VR 头戴设备。
 
-If your dream is to build an interactive 3D world you can explore in the browser, Three.js gives you everything you need to make that happen.
+如果你的梦想是在浏览器中构建一个可以探索的交互式 3D 世界，Three.js 让你能实现这一目标。
 
 ## **Babylon.js**
 
 ![Babylon.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1751029467162/3b8ba124-ff32-49fa-b570-f2baf120b874.jpeg)
 
-While Three.js is all about flexibility, [Babylon.js][10] aims to be more of an all-in-one 3D game engine.
+虽然 Three.js 强调灵活性，[Babylon.js][10] 更致力于成为一个全方位的 3D 游戏引擎。
 
-It includes a physics engine, collision detection, animation tools, and support for advanced features like real-time shadows, reflections, and virtual reality.
+它包括物理引擎、碰撞检测、动画工具，并支持实时阴影、反射和虚拟现实等高级功能。
 
-What makes Babylon.js stand out is its performance and developer experience. It’s optimized for modern browsers and devices, and the documentation is excellent.
+让 Babylon.js 脱颖而出的是其性能和开发者体验。它针对现代浏览器和设备进行了优化，文档也非常出色。
 
-There’s even a web-based playground where you can test and share code snippets live. That’s great for learning and debugging.
+还有一个基于网络的 Playground 可以进行实时代码片段测试和共享。对于学习和调试来说，这真是太棒了。
 
-Let’s say you want to build a first-person shooter or a multiplayer 3D arena game. Babylon.js gives you all the structure you need including scene management, game loop handling, input systems, and more. You don’t have to piece together different libraries to make things work  –  it’s all built in.
-
-Another plus is its strong [WebXR][11] support to create virtual reality or augmented reality experiences right in the browser. If that’s part of your plan, Babylon is definitely worth a look.
+假设你想构建一个第一人称射击游戏或多人 3D 竞技场游戏。Babylon.js 提供你需要的所有结构，包括场景管理、游戏循环处理、输入系统等等。你不需要拼凑不同的库来实现功能——一切都是内置的。
+```
 
 ## **PlayCanvas**
 
 ![PlayCanvas](https://cdn.hashnode.com/res/hashnode/image/upload/v1751029474985/023baf2e-cd41-407a-a0d8-e4f48a669150.webp)
 
-If you want to create 3D games but don’t want to dive deep into code right away, [PlayCanvas][12] offers a different approach. It’s a cloud-based 3D engine with a visual editor you can use directly in your browser.
+如果你想创建 3D 游戏，但不想马上深入研究代码，[PlayCanvas][12] 提供了一种不同的方法。它是一个基于云的 3D 引擎，具有可直接在浏览器中使用的可视化编辑器。
 
-You can drag and drop assets, write scripts, and preview changes in real time, all from a web interface.
+你可以拖放资源、编写脚本，并在网页界面中实时预览更改。
 
-This makes PlayCanvas great for teams or classroom settings where collaboration is key. You don’t need to set up a local development environment or deal with complex build tools. Just log in, open your project, and start building.
+这使得 PlayCanvas 非常适合团队或课堂环境，在这些环境中协作是关键。你不需要设置本地开发环境或处理复杂的构建工具。只需登录，打开你的项目并开始创建。
 
-Under the hood, PlayCanvas is still a powerful engine, and you can get under the hood when you need to. It supports WebGL, physics, and even VR. It’s used by companies like Snapchat and Disney for lightweight 3D experiences.
+在引擎的底层，PlayCanvas 仍然是一个功能强大的引擎，当你需要时可以深入了解。它支持 WebGL、物理引擎，甚至 VR。Snapchat 和迪士尼等公司使用它来创建轻量级的 3D 体验。
 
-Playcanvas also comes with a cloud solution with a generous free tier, so if you want to host your games in the cloud, check out their [pricing page][13].
+PlayCanvas 还提供了一个具有免费层的云解决方案，因此如果你想在云中托管你的游戏，请查看他们的[定价页面][13]。
 
-## **So, which game framework should you pick?**
+## **那么，你应该选择哪个游戏框架呢？**
 
-It depends on what kind of game you want to make.
+这取决于你想制作什么样的游戏。
 
-If you’re just starting out and want to build a fun 2D game quickly, go with Phaser. It’s simple, forgiving, and has everything you need in one place.
+如果你刚刚开始并希望快速构建一个有趣的 2D 游戏，可以选择 Phaser。它简单、宽容，并且拥有你所需的一切。
 
-If your game is more about visuals and speed, especially for 2D, Pixi.js might be a better fit. It gives you great rendering power without a lot of overhead.
+如果你的游戏更加注重视觉效果和速度，尤其是 2D 游戏，Pixi.js 可能更适合你。它提供了强大的渲染能力，同时又不增加太多负担。
 
-For 3D projects, the choice comes down to complexity and flexibility. If you want full control and are comfortable managing your own systems, Three.js is perfect. If you want more built-in features and a smoother on-ramp, Babylon.js is a great choice.
+对于 3D 项目，选择取决于复杂性和灵活性。如果你想获得完全的控制并且能自行管理系统，Three.js 是完美的选择。如果你想要更多内建功能和更顺畅的入门体验，Babylon.js 是个不错的选择。
 
-And if you’re working with a team or prefer visual tools, PlayCanvas offers a modern, web-based way to build 3D games.
+如果你在团队中工作或偏好使用可视化工具，PlayCanvas 提供了一种现代的、基于网络的方式来构建 3D 游戏。
 
-## **Summary**
+## **总结**
 
-No matter which one you choose, the best way to learn is by building something small. Pick a simple idea like a top-down shooter, a 3D maze, or a basic puzzle, and try to finish it. You’ll learn a lot, and you’ll gain the confidence to tackle bigger projects later on.
+无论你选择哪一个，学习的最佳方式就是通过构建一些小项目。选择一个简单的想法，比如自上而下的射击游戏、3D 迷宫或基本的拼图，并尝试完成它。你会学到很多，这将给你信心去应对更大的项目。
 
-JavaScript might not be the first language people think of for game development, but it’s more than capable. With the right framework, you can create beautiful, responsive games that run anywhere. So pick your tool, fire up your editor, and start building.
+JavaScript 可能不是人们想到开发游戏时的第一个语言，但它绝对有能力。使用合适的框架，你可以创建运行在任何地方的美观且响应迅速的游戏。所以选择你的工具，启动编辑器，开始构建吧。
 
-Hope you enjoyed this article. If you're into game development, check out the [Eldorado marketplace][14] – a platform for buying and selling in-game goods. You can also create dedicated e-commerce pages for your games, like [Grow A Garden Shop][15], where players can purchase tools to enhance their gameplay experience.
+希望你喜欢这篇文章。如果你对游戏开发感兴趣，请查看 [Eldorado 市场][14] — 一个用于买卖游戏内物品的平台。你还可以为你的游戏创建专用的电子商务页面，比如 [Grow A Garden Shop][15]，玩家可以在那里购买工具来增强他们的游戏体验。
 
 [1]: https://phaser.io/
 [2]: https://github.com/pixijs/pixijs
@@ -131,3 +131,4 @@ Hope you enjoyed this article. If you're into game development, check out the [E
 [13]: https://playcanvas.com/plans
 [14]: https://www.eldorado.gg/
 [15]: https://www.eldorado.gg/roblox-grow-a-garden-items/i/243
+
