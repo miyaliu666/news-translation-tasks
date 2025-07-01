@@ -65,7 +65,7 @@ jobs:
           githubToken: '${{ github.token }}'
 
       # Step 6: Copy and add the fetched raw article to main branch (original and language-specific dirs)
-      - name: Push new article to main branch
+      - name: Push new article to main branch (safe push)
         run: |
           MARKDOWN_FILE="${{ steps.fetch-webpage-to-markdown.outputs.markdown_file_path }}"
           FILENAME=$(basename "$MARKDOWN_FILE")
@@ -74,21 +74,26 @@ jobs:
           # Save to ./articles/_raw/
           cp -f "$MARKDOWN_FILE" "./articles/_raw/$FILENAME"
 
-          # Only save to ./articles/{lang}/ if it doesn't exist (preserve existing translations)
+          # Copy to {lang} directory only if not exists
           if [ ! -f "./articles/$LANG/$FILENAME" ]; then
             cp "$MARKDOWN_FILE" "./articles/$LANG/$FILENAME"
           fi
 
-          # Add only explicitly specified files
           git add "./articles/_tmp/$FILENAME"
           git add "./articles/_raw/$FILENAME"
-          # Only add language file if it was just copied (file exists AND was not already in the repo)
           if git status --short | grep "$LANG/$FILENAME"; then
             git add "./articles/$LANG/$FILENAME"
           fi
 
           git commit -m "Save article markdown."
-          git push origin main
+
+          # Safe push with retry logic
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && break
+            echo "Push failed, retrying in 5 seconds..."
+            sleep 5
+          done
+
 
 
       # Step 7: Switch to auto-translate branch and merge latest from main to inherit directory structure
