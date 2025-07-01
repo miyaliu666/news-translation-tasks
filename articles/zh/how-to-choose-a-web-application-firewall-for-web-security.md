@@ -1,5 +1,6 @@
+```markdown
 ---
-title: How to Choose a Web Application Firewall for Web Security
+title: 如何选择 Web 应用防火墙以确保网站安全
 date: 2025-07-01T14:29:16.550Z
 author: Manish Shivanandhan
 authorURL: https://www.freecodecamp.org/news/author/manishshivanandhan/
@@ -8,108 +9,107 @@ posteditor: ""
 proofreader: ""
 ---
 
-If you run a website or web app, you’ve probably heard about firewalls. But there’s a special kind just for websites called a Web Application Firewall, or WAF.
+如果您运营一个网站或网络应用程序，您可能听说过防火墙。但有一种专门用于网站的防火墙，称为 Web 应用防火墙，简称 WAF。
 
 <!-- more -->
 
-Think of it like a bouncer at the door of your site, checking every visitor to make sure they’re not trying anything shady before letting them through.
+可以把它想象成你网站门口的保镖，检查每个访问者，以确保他们没有搞什么阴谋诡计，然后才让他们通过。
 
-While regular firewalls protect your network, a WAF specifically filters traffic that targets your app. It looks for dangerous requests – like someone trying to inject bad code (SQL injection), trick your browser (XSS), or flood your server with fake users (bots). A good WAF stops these threats in real-time, long before they can cause damage.
+普通防火墙保护的是您的网络，而 WAF 专门过滤针对您应用程序的流量。它寻找危险请求——比如试图注入恶意代码（SQL 注入）、欺骗浏览器（XSS）或用虚假用户（机器人）淹没您的服务器。一个好的WAF能实时阻止这些威胁，在它们造成损害之前就拦截下来。
 
-Now, there are plenty of WAFs out there. Some are cloud-based and easy to plug in. Others give you more control and run on your own servers.
+现在市场上有很多 WAF。有些是基于云的，易于插入使用；而另一些则提供您更多的控制权限，可以在您自己的服务器上运行。
 
-Let’s look at five great options, each offering different strengths depending on what you need.
+让我们来看看五个很棒的选项，每个都提供不同的优势，取决于您的需求。
 
 ## [Cloudflare WAF][1]
 
 ![Cloudflare WAF](https://cdn.hashnode.com/res/hashnode/image/upload/v1750308481873/cccd4962-dfd7-45cc-8096-c4bb8ab9d7dc.png)
 
-Cloudflare has become almost a default for many small to mid-sized websites – and for good reason. Their WAF is fast to deploy and offers solid protection right out of the gate. It’s built into their global content delivery network (CDN), so not only do you get security, but your site loads faster too.
+对于许多中小型网站而言，Cloudflare 几乎已成为默认选择——这是有充分理由的。他们的 WAF 部署快速，能够马上提供稳固的保护。它内置于他们的全球内容分发网络（CDN）中，所以您不仅获得了安全保障，还能加快网站加载速度。
 
-One big plus is that even the free plan gives you some basic protection. You can upgrade for more advanced features, like custom firewall rules, bot mitigation, and protection against zero-day threats (those new exploits that don’t have patches yet).
+一个很大的优点是，即使是免费计划也能提供一些基本保护。您可以升级获取更多高级功能，比如自定义防火墙规则、机器人缓解和对零日威胁的保护（那些还没有补丁的新漏洞）。
 
-From e-commerce stores to popular hosting services, Cloudflare makes it really simple. You just point your domain to them, flip a few switches, and you’re protected. There’s not much to configure unless you want to get deep into the rules.
+从电子商务商店到热门托管服务，Cloudflare 简化了操作。您只需将域指向他们，翻动几个开关，您就被保护了。如果您不想深入规则配置，那基本就没什么可设置的。
 
-The only downside? If you need very specific filtering or want total control over how things are blocked, you might find it limiting without moving to their higher-tier plans.
+唯一的缺点？如果您需要非常具体的过滤或想要对拦截方式有完全控制，您可能会觉得未升级至高阶计划会有些限制。
 
 ## [Imperva WAF][2]
 
 ![Imperva WAF](https://cdn.hashnode.com/res/hashnode/image/upload/v1750310485562/7d52256b-75ee-4a47-8ecf-52b2f44e1b07.png)
 
-If Cloudflare is your plug-and-play option, Imperva is the full-blown enterprise solution.
+如果说 Cloudflare 是即插即用的选择，那么 Imperva 就是全面的企业解决方案。
 
-This WAF is made for organizations that need more than just basic protection. It’s not just looking at requests and saying yes or no – it’s analyzing traffic patterns, understanding what’s normal, and alerting you when something looks off.
+此 WAF 专为需要的不只是基本保护的组织设计。它不仅检查请求然后决定通过与否——它分析流量模式，了解什么是正常行为，并在发现异常时提醒您。
 
-Imperva also helps with compliance. So if you’re in a regulated industry like finance, healthcare, or government, it can help you meet data protection rules and audit requirements.
+Imperva 还帮助实现合规性。因此，如果您属于金融、医疗或政府等受监管行业，它可以帮助您满足数据保护法规和审计要求。
 
-You can use it in the cloud or install it on your own hardware, which is great if your company needs to keep things on-site.
+您可以在云中使用，也可以在自己的硬件上安装，这对于需要在现场保留数据的公司来说是个不错的选择。
 
-Just know that it’s not as beginner-friendly as Cloudflare. There’s a learning curve, and pricing can get high depending on the features you use.
+不过需要注意的是，它不像 Cloudflare 那样友好初学者。学习成本较高，且根据您使用的功能，定价可能较高。
 
-But if you’re running mission-critical web apps and need deep visibility into traffic and threats, Imperva is a strong contender.
+但是，如果您运行至关重要的网络应用程序，并且需要深入了解流量和威胁，Imperva 是一个强大的竞争者。
 
 ## [SafeLine WAF][3]
 
 ![Safeline WAF](https://cdn.hashnode.com/res/hashnode/image/upload/v1750310503191/2de54ca9-0524-441e-9d62-afe6e9f5582e.png)
 
-Now let’s talk about something different – SafeLine. Unlike the big-name cloud platforms, SafeLine is a self-hosted WAF. That means you run it yourself, right alongside your web server.
+现在来谈谈不同的东西——SafeLine。不同于那些大名鼎鼎的云平台，SafeLine 是一个自托管的 WAF。这意味着您自己运行它，与您的网络服务器并肩作战。
 
-Built on NGINX, one of the fastest and most popular web servers out there, SafeLine is designed to be lightweight but powerful. It has over 300,000 installations and more than 16,000 stars on [GitHub][4]. That’s a pretty big community for a security tool.
+它基于 NGINX，这是目前最快且最受欢迎的网络服务器之一，SafeLine 设计为轻量级却功能强大。它有超过 300,000 次安装，并在 [GitHub][4] 上获得超过 16,000 颗星。这对于一个安全工具来说是一个相当大的社区。
 
-What makes it special is how it analyzes web traffic. SafeLine uses something called semantic detection. Instead of just looking for known attack signatures, it tries to understand what each request is trying to do.
+它的特别之处在于如何分析网络流量。SafeLine 使用一种称为语义检测的方法。它不仅仅寻找已知的攻击特征，而是尝试理解每个请求想要做什么。
 
-That helps it block more threats and reduce false alarms. It can detect things like SQL injection, cross-site scripting, directory traversal, and even bad bots.
+这帮助它拦截更多威胁并减少误报。它能检测到例如 SQL 注入、跨站脚本、目录遍历，甚至是恶意机器人的攻击。
 
-It also adds cool tricks like rate limiting, identify authentication, challenge pages for suspicious users, and even dynamic encryption of your site’s HTML and JavaScript to confuse attackers.
+它还增加了限速、身份验证、为可疑用户提供挑战页面，甚至对站点的 HTML 和 JavaScript 进行动态加密以迷惑攻击者等酷炫技巧。
 
-Of course, because it’s self-hosted, it’s not for everyone. You need to install it, configure it, and keep it updated yourself. But if you’re comfortable working with Linux or you want full control over your WAF, SafeLine is a fantastic choice – especially since it provides a free edition for personal use.
+当然，因为是自托管的，这并不适合所有人。您需要自己安装、配置并保持更新。但如果您对 Linux 操作得心应手，或想对您的 WAF 进行全面控制，那么 SafeLine 是一个极好的选择——特别是因为它提供了个人免费版。
 
 ## [Fortinet FortiWeb][5]
 
 ![Fortinet WAF](https://cdn.hashnode.com/res/hashnode/image/upload/v1750310537875/424385b3-7f3c-4ff0-bc43-a386c679bd77.png)
 
-Fortinet is a name that’s been around in network security for a long time. Their WAF, FortiWeb, brings that enterprise-level muscle to web apps.
+Fortinet 是一个在网络安全领域名声已久的品牌。他们的 WAF，FortiWeb，将这种企业级的强大力量带到了网络应用中。
+```
 
-It combines traditional filtering with machine learning to spot weird behavior. So if someone starts sending strange requests your site’s never seen before, FortiWeb can recognize it and shut it down.
 
-What sets FortiWeb apart is its deep integration with the rest of the Fortinet ecosystem. If you’re already using FortiGate firewalls or FortiAnalyzer tools, adding FortiWeb is a natural next step. Everything works together, giving you a full picture of your network and web security.
+FortiWeb 的独特之处在于它与 Fortinet 生态系统的深度集成。如果你已经在使用 FortiGate 防火墙或 FortiAnalyzer 工具，添加 FortiWeb 是一个自然的下一步。所有东西都能协同工作，为你提供网络和 Web 安全的全貌。
 
-It’s powerful, but it’s also complex. Setting it up and maintaining it takes time and expertise. And like Imperva, this is a tool that shines in large organizations with experienced security teams.
+它功能强大，但同时也很复杂。设置和维护它需要时间和专业知识。就像 Imperva 一样，这款工具在拥有经验丰富的安全团队的大型组织中大放异彩。
 
-If that’s your environment – and you want high-end features like API discovery, anomaly detection, and DDoS protection – it’s worth a close look.
+如果你的环境符合这种情况，并且你需要高级功能，如 API 发现、异常检测和 DDoS 保护，那它值得你认真考虑。
 
 ## [F5 Advanced WAF][6]
 
 ![F5 Advanced WAF](https://cdn.hashnode.com/res/hashnode/image/upload/v1750310555919/7f9979fc-d6d1-4d35-8e61-6e4ee7f3fedf.jpeg)
 
-Last on our list is F5’s Advanced WAF. This one’s also built for big players.
+我们列表中的最后一项是 F5 的高级 WAF。这个也是为大型企业而设计的。
 
-It’s part of the larger F5 BIG-IP platform, which handles traffic management, load balancing, and more. If you already use BIG-IP, adding the WAF module gives you strong security without needing extra infrastructure.
+它是更大的 F5 BIG-IP 平台的一部分，该平台处理流量管理、负载平衡等。如果你已经在使用 BIG-IP，添加 WAF 模块可以在无需额外基础设施的情况下为你提供强大的安全性。
 
-F5’s WAF offers advanced protection against bots, APIs, and credential stuffing (where attackers try to log in with stolen passwords). One unique feature is its partnership with Shape Security, which gives it extra tools to identify fake users and bot traffic.
+F5 的 WAF 提供了对机器人、API 和凭证填充（攻击者试图使用被盗密码登录）的高级保护。一个独特的功能是与 Shape Security 的合作，使其拥有额外的工具来识别虚假用户和机器人流量。
 
-You can deploy F5’s WAF in your data center, in the cloud, or at the edge. That flexibility makes it attractive for companies running complex, multi-cloud applications.
+你可以在你的数据中心、云中或边缘部署 F5 的 WAF。这种灵活性使其对运行复杂、多云应用程序的公司具有吸引力。
 
-But like the other enterprise options here, F5 comes with complexity and cost. If you’re running a big operation and need fine-grained control and integration, it’s a solid choice.
+但就像这里的其他企业解决方案一样，F5 也伴随着复杂性和成本。如果你正在运营一个大型操作并需要精细控制和集成，这是一个不错的选择。
 
-## Which One Should You Choose?
+## 你应该选择哪一个？
 
-There’s no single best WAF for everyone. What works for a solo developer running a WordPress blog might not cut it for a multinational bank. So the best choice comes down to what matters most to you.
+没有哪个 WAF 适合所有人。对一个运行 WordPress 博客的独立开发者来说合适的解决方案可能不适用于跨国银行。因此，最佳选择取决于对你来说最重要的是什么。
 
--   If you want something fast and simple, with a free tier and global speed boosts, Cloudflare is hard to beat.
-    
--   If your team needs compliance support, traffic analytics, and strong API protection, Imperva fits the bill.
-    
--   For developers who like to build and tinker, SafeLine offers impressive protection and full control – without breaking the bank.
-    
--   And for enterprises with existing Fortinet or F5 setups, it makes sense to stay in those ecosystems for seamless integration and the highest level of customization.
-    
+- 如果你想要快速简单的解决方案，拥有免费层和全球速度提升，Cloudflare 难以匹敌。
 
-## Summary
+- 如果你的团队需要合规支持、流量分析和强大的 API 保护，Imperva 是合适的选择。
 
-No matter what you choose, the important part is having a WAF in place. It’s one of the best defenses against the constant stream of attacks targeting websites today. Whether it’s blocking a SQL injection, filtering out bad bots, or just keeping your error logs clean, a good WAF keeps your site running smoothly and safely.
+- 对于喜欢构建和修补的开发者而言，SafeLine 提供了令人印象深刻的保护和完全控制——同时不会花费太多。
 
-Hope you enjoyed this article. You can [learn more about me][7] or [connect with me on LinkedIn][8].
+- 对于已有 Fortinet 或 F5 配置的企业来说，在这些生态系统中保持以实现无缝集成和最高级别的定制是有意义的。
+
+## 总结
+
+无论你选择什么，重要的是要有一个 WAF。在当今针对网站的持续攻击中，它是最好的防线之一。无论是阻止 SQL 注入、过滤掉坏的机器人，还是只是保持错误日志的清洁，一个好的 WAF 都能让你的网站运行得更顺畅和安全。
+
+希望你喜欢这篇文章。你可以[了解更多关于我][7]或[在 LinkedIn 上与我联系][8]。
 
 [1]: https://www.cloudflare.com/en-in/application-services/products/waf/
 [2]: https://www.imperva.com/products/web-application-firewall-waf/
@@ -119,3 +119,4 @@ Hope you enjoyed this article. You can [learn more about me][7] or [connect with
 [6]: https://www.f5.com/products/big-ip-services/advanced-waf
 [7]: https://manishshivanandhan.com/
 [8]: https://www.linkedin.com/in/manishmshiva/
+
