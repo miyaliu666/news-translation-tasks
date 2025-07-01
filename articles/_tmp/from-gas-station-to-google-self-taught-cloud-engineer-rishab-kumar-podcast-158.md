@@ -1,7 +1,7 @@
 ---
 title: "From Gas Station to Google with Self-Taught Cloud Engineer Rishab Kumar
   [Podcast #158]"
-date: 2025-06-26T13:54:30.976Z
+date: 2025-07-01T12:42:35.334Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/from-gas-station-to-google-self-taught-cloud-engineer-rishab-kumar-podcast-158/
