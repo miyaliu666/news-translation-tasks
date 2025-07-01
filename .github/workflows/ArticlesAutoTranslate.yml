@@ -134,8 +134,19 @@ jobs:
       - name: Final cleanup of _tmp on main
         run: |
           git checkout main
-          if [ -d "./articles/_tmp/" ]; then
-            rm -rf ./articles/_tmp/
-            git add ./articles/_tmp/ || true
-            git commit -m "rm _tmp." || echo "Nothing to commit."
-            git push origin main
+
+          TMP_DIR="./articles/_tmp/"
+
+          if [ -d "$TMP_DIR" ]; then
+            rm -rf "$TMP_DIR"
+            # Only try to add if anything was staged
+            if git ls-files --deleted -- "$TMP_DIR" | grep -q .; then
+              git add "$TMP_DIR" || true
+              git commit -m "Remove _tmp directory."
+              git push origin main
+            else
+              echo "No changes to commit after removing _tmp."
+            fi
+          else
+            echo "_tmp folder does not exist. Skipping cleanup."
+          fi
