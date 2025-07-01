@@ -1,6 +1,6 @@
 ---
 title: Learn to Speak German
-date: 2025-07-01T14:35:52.883Z
+date: 2025-07-01T14:45:02.069Z
 author: Beau Carnes
 authorURL: https://www.freecodecamp.org/news/author/beaucarnes/
 originalURL: https://www.freecodecamp.org/news/learn-to-speak-german/
