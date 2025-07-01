@@ -1,6 +1,6 @@
 ---
 title: "Getting a developer job in 2025 with Lane Wagner [Podcast #157]"
-date: 2025-06-26T13:26:26.488Z
+date: 2025-07-01T12:43:47.708Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/getting-a-developer-job-lane-wagner-podcast-157/
