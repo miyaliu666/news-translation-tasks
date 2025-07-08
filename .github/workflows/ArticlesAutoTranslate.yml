@@ -116,7 +116,7 @@ jobs:
           with_task_fetch_to_include_selector: '.author-card-name,.post-content'
           with_task_fetch_to_ignore_selector: '.ad-wrapper'
           with_task_translate_openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          with_task_translate_to_save_path: './articles/{lang}/'
+          with_task_translate_to_save_path: './articles/${{ steps.extract-lang.outputs.lang }}/'
 
       # Step 9: Commit only the translated article to auto-translate branch (do not commit raw/)
       - name: Commit translated article to auto-translate branch
