@@ -31,7 +31,7 @@ jobs:
         run: |
           ISSUE_TITLE="${{ github.event.issue.title }}"
           LANG_CODE=$(echo "$ISSUE_TITLE" | sed -E 's/^\[([a-zA-Z]+)\].*/\1/')
-          echo "::set-output name=lang::$LANG_CODE"
+          echo "lang=$LANG_CODE" >> $GITHUB_OUTPUT
 
       # Step 3: Checkout the repository and configure Git
       - uses: actions/checkout@v3
