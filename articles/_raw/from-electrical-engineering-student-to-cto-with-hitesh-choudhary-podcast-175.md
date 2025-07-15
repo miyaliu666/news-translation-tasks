@@ -1,7 +1,7 @@
 ---
 title: "From electrical engineering student to CTO with Hitesh Choudhary
   [Podcast #175]"
-date: 2025-07-08T15:25:17.641Z
+date: 2025-07-15T15:27:54.622Z
 author: Beau Carnes
 authorURL: https://www.freecodecamp.org/news/author/beaucarnes/
 originalURL: https://www.freecodecamp.org/news/from-electrical-engineering-student-to-cto-with-hitesh-choudhary-podcast-175/
