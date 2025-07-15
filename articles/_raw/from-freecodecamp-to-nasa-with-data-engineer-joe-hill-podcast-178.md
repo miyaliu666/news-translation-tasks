@@ -1,6 +1,6 @@
 ---
 title: "From freeCodeCamp to NASA with Data Engineer Joe Hill [Podcast #178]"
-date: 2025-07-08T14:26:15.525Z
+date: 2025-07-15T15:26:23.187Z
 author: Beau Carnes
 authorURL: https://www.freecodecamp.org/news/author/beaucarnes/
 originalURL: https://www.freecodecamp.org/news/from-freecodecamp-to-nasa-with-data-engineer-joe-hill-podcast-178/
@@ -33,14 +33,15 @@ We talk about:
 
 Or you can listen to the podcast in Apple Podcasts, Spotify, or your favorite podcast app. Be sure to follow the freeCodeCamp Podcast there so you'll get new episodes each Friday.
 
-Thanks to the 11,384 kind folks who support freeCodeCamp through a monthly donation. You can join these chill human beings and help our charity's mission by going to \[https://www.donate.freecodecamp.org
+Thanks to the 11,384 kind folks who support freeCodeCamp through a monthly donation. You can join these chill human beings and help our charity's mission by going to [https://www.donate.freecodecamp.org][1].
 
-\](https://www.donate.freecodecamp.org￼￼Links)Links we talk about during our conversation:
+Links we talk about during our conversation:
 
--   The trailer of the 1992 classic hacking heist movie Sneakers: [https://www.youtube.com/watch?v=NEhgUxQ322A][1]
+-   The trailer of the 1992 classic hacking heist movie Sneakers: [https://www.youtube.com/watch?v=NEhgUxQ322A][2]
     
--   Joe on LinkedIn: [https://www.linkedin.com/in/joe-hill-4a138123/][2]
+-   Joe on LinkedIn: [https://www.linkedin.com/in/joe-hill-4a138123/][3]
     
 
-[1]: https://www.youtube.com/watch?v=NEhgUxQ322A￼-
-[2]: https://www.linkedin.com/in/joe-hill-4a138123/
+[1]: https://www.donate.freecodecamp.org
+[2]: https://www.youtube.com/watch?v=NEhgUxQ322A%EF%BF%BC-
+[3]: https://www.linkedin.com/in/joe-hill-4a138123/
