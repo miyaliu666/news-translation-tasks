@@ -13,21 +13,21 @@ jobs:
       contents: write
 
     steps:
-      ### 🟢 队列锁：防止并发冲突
+      ### Queue lock: prevent concurrent conflicts
       - uses: softprops/turnstyle@v1
         with:
           poll-interval-seconds: 10
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      ### ✅ 检查 issue body
+      ### Check issue body
       - name: Validate issue body
         if: ${{ !github.event.issue.body }}
         run: |
-          echo "❌ Issue body is empty. Exiting."
+          echo "Issue body is empty. Exiting."
           exit 1
 
-      ### ✅ 提取语言代码
+      ### Extract language code
       - name: Extract language code
         id: lang
         run: |
@@ -36,17 +36,17 @@ jobs:
           echo "lang=$LANG_CODE" >> $GITHUB_OUTPUT
           echo "LANG_CODE=$LANG_CODE" >> $GITHUB_ENV
 
-      ### ✅ Checkout repository
+      ### Checkout repository
       - uses: actions/checkout@v4
 
-      ### ✅ 配置 Git
+      ### Configure Git
       - name: Setup Git
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git config pull.rebase true
 
-      ### 📝 爬取文章并生成 Markdown
+      ### Fetch article and generate Markdown
       - name: Fetch article and convert to Markdown
         id: fetch
         uses: freecodecamp/article-webpage-to-markdown-action@dev
@@ -59,7 +59,7 @@ jobs:
           markDownFilePath: './articles/_tmp/'
           githubToken: "${{ github.token }}"
 
-      ### 🛡 备份爬取的 Markdown 到外部安全路径（保持原始文件名）
+      ### Backup fetched Markdown to external secure path (keep original filename)
       - name: Backup fetched Markdown to /tmp
         id: backup-md
         run: |
@@ -69,9 +69,9 @@ jobs:
           cp "$original_file" "$BACKUP_PATH"
           echo "path=$BACKUP_PATH" >> $GITHUB_OUTPUT
           echo "BACKUP_PATH=$BACKUP_PATH" >> $GITHUB_ENV
-          echo "✅ Markdown backed up to $BACKUP_PATH"
+          echo "Markdown backed up to $BACKUP_PATH"
 
-      ### ✅ 保存英文原文并提交到 main 分支
+      ### Save English raw text and commit to main branch
       - name: Commit raw article to main
         run: |
           file="${{ steps.fetch.outputs.markdown_file_path }}"
@@ -83,7 +83,7 @@ jobs:
           [ -f "./articles/$lang/$base" ] || cp "$file" "./articles/$lang/$base"
 
           git add -f "./articles/_raw/$base" "./articles/$lang/$base" || true
-          git commit -m "Add raw article: $base" || echo "ℹ️ Nothing to commit."
+          git commit -m "Add raw article: $base" || echo "Nothing to commit."
 
           git fetch origin main
           git stash push -u -m "Auto-stash before rebase" || true
@@ -92,21 +92,21 @@ jobs:
 
           for i in {1..3}; do
             git push origin main && break
-            echo "⚠️ Push failed. Retrying in 5s..."
+            echo "Push failed. Retrying in 5s..."
             sleep 5
             git pull --rebase origin main || true
           done
 
-      ### ✅ 切换到 auto-translate 分支（解决冲突 & 清理临时文件）
+      ### Switch to auto-translate branch (resolve conflicts & clean up temp files)
       - name: Checkout auto-translate branch
         run: |
-          # 🛡 检查 merge pending 状态
+          # Check merge pending status
           if [ -f ".git/MERGE_HEAD" ]; then
-            echo "⚠️ Unfinished merge detected. Aborting..."
+            echo "Unfinished merge detected. Aborting..."
             git merge --abort || git reset --merge
           fi
 
-          # 🧹 清理临时文件防止污染分支
+          # Clean up temp files to avoid branch contamination
           rm -rf ./articles/_tmp/
 
           git fetch origin
@@ -114,9 +114,9 @@ jobs:
 
           git merge --strategy=recursive --strategy-option=theirs main || true
 
-      ### 🌏 自动翻译文章（使用安全路径）
+      ### Auto-translate article (use secure path)
       - name: Translate article
-        uses: miyaliu666/articles-auto-translate-action@main
+        uses: freeCodeCamp/articles-auto-translate-action@main
         with:
           with_issue_title: "${{ github.event.issue.title }}"
           with_issue_body: "${{ github.event.issue.body }}"
@@ -127,24 +127,24 @@ jobs:
           with_task_translate_openai_api_key: "${{ secrets.OPENAI_API_KEY }}"
           with_task_translate_to_save_path: "./articles/{lang}/"
 
-      ### ✅ 提交翻译后的文件
+      ### Commit translated file
       - name: Commit translated article
         run: |
           base=$(basename "$BACKUP_PATH")
           lang="${{ env.LANG_CODE }}"
           translated="./articles/$lang/$base"
 
-          [ -f "$translated" ] || { echo "❌ Translated file missing."; exit 1; }
+          [ -f "$translated" ] || { echo "Translated file missing."; exit 1; }
 
           git add "$translated"
-          git commit -m "Add translated article: $base" || echo "ℹ️ Nothing to commit."
+          git commit -m "Add translated article: $base" || echo "Nothing to commit."
 
           git fetch origin auto-translate
 
-          # 🛡 安全 rebase，解决冲突
+          # Safe rebase, resolve conflicts
           git stash push -u -m "Auto-stash before rebase" || true
           if [ -f ".git/MERGE_HEAD" ]; then
-            echo "⚠️ Unfinished merge detected. Aborting..."
+            echo "Unfinished merge detected. Aborting..."
             git merge --abort || git reset --merge
           fi
           git pull --rebase origin auto-translate || true
@@ -152,17 +152,17 @@ jobs:
 
           for i in {1..3}; do
             git push origin auto-translate && break
-            echo "⚠️ Push failed. Retrying in 5s..."
+            echo "Push failed. Retrying in 5s..."
             sleep 5
             git pull --rebase origin auto-translate || true
           done
 
-      ### 🧹 清理临时文件
+      ### Clean up temp directory
       - name: Cleanup temp directory
         run: |
           rm -rf ./articles/_tmp/
           git add -u ./articles/_tmp/ || true
-          git commit -m "Cleanup _tmp directory" || echo "ℹ️ Nothing to commit."
+          git commit -m "Cleanup _tmp directory" || echo "Nothing to commit."
 
           git fetch origin main
           git stash push -u -m "Auto-stash before rebase" || true
@@ -171,7 +171,7 @@ jobs:
 
           for i in {1..3}; do
             git push origin main && break
-            echo "⚠️ Push failed. Retrying in 5s..."
+            echo "Push failed. Retrying in 5s..."
             sleep 5
             git pull --rebase origin main || true
           done
