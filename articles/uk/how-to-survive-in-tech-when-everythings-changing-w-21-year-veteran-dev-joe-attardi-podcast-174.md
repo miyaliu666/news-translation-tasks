@@ -1,39 +1,39 @@
----
-title: "Як вижити в технічній сфері, коли все змінюється, з 21-річним досвідом розробника Джо Аттарді [Подкаст #174]"
-date: 2025-07-15T15:28:42.565Z
-author: Бо Карнс
+```markdown
+title: "Як вижити у сфері технологій, коли все змінюється, з 21-річним ветераном розробки Джо Атарді [Подкаст #174]"
+date: 2025-07-16T04:03:04.909Z
+author: Бо Карнес
 authorURL: https://www.freecodecamp.org/news/author/beaucarnes/
 originalURL: https://www.freecodecamp.org/news/how-to-survive-in-tech-when-everythings-changing-w-21-year-veteran-dev-joe-attardi-podcast-174/
 posteditor: ""
 proofreader: ""
 ---
 
-У цьому тижневому випуску подкасту засновник freeCodeCamp Квінсі Ларсон бере інтерв'ю у Джо Аттарді. Він програміст і плідний автор книг з програмування.
+У цьому тижневому епізоді подкасту засновник freeCodeCamp Квінсі Ларсон бере інтерв'ю у Джо Атарді. Він є інженером-програмістом та плідним автором книжок з програмування.
 
 <!-- more -->
 
-Ми обговорюємо:
+Ми говоримо про:
 
--   Як змінилася розробка програмного забезпечення за останні 21 рік
+-   Як програмування змінилося за останні 21 рік
     
--   Поради для виживання на фоні кардинальних змін у сфері ШІ
+-   Поради щодо виживання в умовах захопливих змін, які приносить AI у цій сфері
     
--   Розвиваючу роль ступенів комп'ютерних наук
+-   Еволюцію ролі дипломів з інформатики
     
--   Чому люди все ще повинні читати книги з програмування в стилі O'Reilly на папері
+-   Чому людям все ще варто читати книг про програмування у стилі O'Reilly на папері
     
 
-Посилання, про які ми згадуємо під час розмови:
+Посилання, про які ми говоримо під час нашої розмови:
 
--   Книги та посібники Джо на freeCodeCamp: [https://www.freecodecamp.org/news/author/joeattardi/][1]
+-   Книги та навчальні посібники Джо на freeCodeCamp: [https://www.freecodecamp.org/news/author/joeattardi/][1]
     
 -   Вебсайт Джо: [https://joeattardi.com/][2]
     
--   Кулінарна книга Web API Джо: [https://www.webapis.info/][3]
+-   Кулінарна книга веб-API Джо: [https://www.webapis.info/][3]
     
--   Проекти Джо з відкритим кодом на GitHub: [https://github.com/joeattardi][4]
+-   Відкриті проекти Джо на GitHub: [https://github.com/joeattardi][4]
     
--   Як виглядає робочий стіл Джо: [https://x.com/JoeAttardi/status/1849819837360480658][5]
+-   Як виглядає стіл Джо: [https://x.com/JoeAttardi/status/1849819837360480658][5]
     
 -   Деякі ігри, в які Джо нещодавно грав: [https://backloggd.com/u/jattardi/games?page=1][6]
     
@@ -42,7 +42,7 @@ proofreader: ""
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/07NdHM6pE6M" style="aspect-ratio: 16 / 9; width: 100%; height: auto;" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" loading="lazy"></iframe>
 
-Або ви можете слухати подкаст в Apple Podcasts, Spotify чи улюбленому додатку для подкастів. Обов'язково підписуйтесь на подкаст freeCodeCamp, щоб отримувати нові епізоди кожної п’ятниці.
+Або ви можете прослухати подкаст в Apple Podcasts, Spotify чи вашому улюбленому додатку для подкастів. Обов'язково стежте за подкастом freeCodeCamp там, щоб отримувати нові епізоди кожної п’ятниці.
 
 [1]: https://www.freecodecamp.org/news/author/joeattardi/
 [2]: https://joeattardi.com/
@@ -50,6 +50,5 @@ proofreader: ""
 [4]: https://github.com/joeattardi
 [5]: https://x.com/JoeAttardi/status/1849819837360480658
 [6]: https://backloggd.com/u/jattardi/games?page=1
-
-
+```
 
