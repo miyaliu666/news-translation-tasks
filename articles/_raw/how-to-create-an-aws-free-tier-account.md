@@ -1,6 +1,6 @@
 ---
 title: How to Create an AWS Free Tier Account – A Step-by-Step Guide
-date: 2025-09-07T02:46:59.315Z
+date: 2025-09-07T02:55:24.386Z
 author: Victoria Nduka
 authorURL: https://www.freecodecamp.org/news/author/nwanduka/
 originalURL: https://www.freecodecamp.org/news/how-to-create-an-aws-free-tier-account/
