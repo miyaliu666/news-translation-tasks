@@ -1,0 +1,31 @@
+name: Format PR Files
+
+on:
+  pull_request:
+    types:
+      - opened
+    paths:
+      - '**/*.md'  # Trigger workflow only when .md files are modified in the PR
+
+jobs:
+  whitespace:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check PR base branch
+        if: github.event.pull_request
+        run: |
+          BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+          echo "Base branch of the PR is: $BASE_BRANCH"
+          
+          if [ "$BASE_BRANCH" != "main" ]; then
+            echo "::warning::You should set the base branch as 'main'."
+
+          # Use GitHub API to close the PR submitted to a branch other than main
+            curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -d '{"state": "closed"}' \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER"
+          fi
