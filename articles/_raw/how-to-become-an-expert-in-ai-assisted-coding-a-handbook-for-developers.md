@@ -1,6 +1,6 @@
 ---
 title: How to Become an Expert in AI-Assisted Coding – A Handbook for Developers
-date: 2025-09-06T02:24:21.422Z
+date: 2025-10-02T10:40:08.430Z
 author: Mrugesh Mohapatra
 authorURL: https://www.freecodecamp.org/news/author/mrugesh/
 originalURL: https://www.freecodecamp.org/news/how-to-become-an-expert-in-ai-assisted-coding-a-handbook-for-developers/
@@ -561,7 +561,7 @@ So you might be wondering - when should you use tab completion vs when should yo
 "Migrate this codebase from Vue 2 to Vue 3"
 ```
 
--   Press `Shift+Cmd+I` (Mac) or `Ctrl+Shift+I` (Windows/Linux)
+-   Press `Cmd+Shift+I` (Mac) or `Ctrl+Shift+Alt+I` (Linux) or `Ctrl+Shift+I` (Windows)
     
 -   Works independently for hours
     
@@ -806,7 +806,7 @@ So when should you use VS Code/Copilot and when should you use Claude Code?
 
 #### Pricing
 
-Claude Code requires Claude Pro (100/month),orClaudeMax+(100/_month_),_orClaudeMax_+(200/month) subscription, or pay-per-use with API credits.
+Claude Code requires Claude Pro (20/month), or ClaudeMax (100/month) subscription, or pay-per-use with API credits.
 
 #### Claude Code Limitations
 
