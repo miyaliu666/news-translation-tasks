@@ -9,101 +9,99 @@ concurrency:
   group: auto-translate-${{ github.event.issue.number }}
   cancel-in-progress: false
 
-env:
-  PUSH_RETRY_SCRIPT: |
-    push_with_retry() {
-      local branch=${1:-main}
-      local max_retries=4
-
-      for i in $(seq 1 $max_retries); do
-        if git push -u origin "$branch"; then
-          echo "Push to $branch successful"
-          return 0
-        else
-          wait_time=$((2 ** i))
-          echo "Push failed, attempt $i/$max_retries. Waiting ${wait_time}s..."
-          if [ $i -lt $max_retries ]; then
-            sleep $wait_time
-            git pull --rebase origin "$branch" || true
-          fi
-        fi
-      done
-      echo "Push failed after $max_retries attempts"
-      return 1
-    }
-
 permissions:
   issues: write
   contents: write
 
 jobs:
   validate:
-    name: Validate Input
+    name: Validate trigger and inputs
     runs-on: ubuntu-latest
-    permissions:
-      issues: read
     outputs:
       is_valid: ${{ steps.validate.outputs.is_valid }}
-      article_url: ${{ steps.validate.outputs.article_url }}
-      lang_code: ${{ steps.validate.outputs.lang_code }}
-      label_name: ${{ steps.validate.outputs.label_name }}
       skip_reason: ${{ steps.validate.outputs.skip_reason }}
-
+      article_url: ${{ steps.validate.outputs.article_url }}
+      article_title: ${{ steps.validate.outputs.article_title }}
+      lang_code: ${{ steps.validate.outputs.lang_code }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Validate and sanitize inputs
+      - name: Validate that the labeled tag is 'auto' and parse inputs
         id: validate
         uses: actions/github-script@v7
         with:
           script: |
-            const validator = require('./scripts/validateAutoTranslateInput.js');
-            await validator({ github, context, core });
+            const label = context.payload.label?.name?.toLowerCase() || '';
+            // Must be triggered by adding the 'auto' label
+            if (label !== 'auto') {
+              core.setOutput('is_valid', 'false');
+              core.setOutput('skip_reason', `Trigger label '${label}' is not 'auto'`);
+              return;
+            }
+
+            const issueBody = context.payload.issue?.body || '';
+            if (!issueBody.trim()) {
+              core.setOutput('is_valid', 'false');
+              core.setOutput('skip_reason', 'Issue body is empty');
+              return;
+            }
+
+            // extract markdown link [Title](URL)
+            const m = issueBody.match(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/);
+            if (!m) {
+              core.setOutput('is_valid', 'false');
+              core.setOutput('skip_reason', 'Issue body must contain a markdown link: [Title](URL)');
+              return;
+            }
+            const articleTitle = m[1];
+            const articleUrl = m[2];
+
+            // extract language code from issue title like [zh]
+            const issueTitle = context.payload.issue?.title || '';
+            const t = issueTitle.match(/^\[([a-zA-Z]{2,3})\]/);
+            if (!t) {
+              core.setOutput('is_valid', 'false');
+              core.setOutput('skip_reason', 'Issue title must start with [lang]');
+              return;
+            }
+            const langCode = t[1].toLowerCase();
+
+            core.setOutput('is_valid', 'true');
+            core.setOutput('article_url', articleUrl);
+            core.setOutput('article_title', articleTitle);
+            core.setOutput('lang_code', langCode);
 
   auto-translate:
-    name: Auto Translate Article
+    name: Auto translate (runs when label == 'auto')
     needs: validate
     runs-on: ubuntu-latest
     if: needs.validate.outputs.is_valid == 'true'
-    permissions:
-      issues: write
-      contents: write
-
     steps:
-      - uses: softprops/turnstyle@v1
-        with:
-          poll-interval-seconds: 10
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Add processing comment
+      - name: Notify: started
         uses: actions/github-script@v7
         with:
           script: |
             await github.rest.issues.createComment({
-              issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Auto-translation workflow started. This may take a few minutes...'
+              issue_number: context.issue.number,
+              body: 'Auto-translation job started. Preparing files...'
             });
 
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Git
+      - name: Setup git
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git config pull.rebase true
 
-      - name: Set environment variables
+      - name: Set env from validate
         run: |
           echo "ARTICLE_URL=${{ needs.validate.outputs.article_url }}" >> $GITHUB_ENV
+          echo "ARTICLE_TITLE=${{ needs.validate.outputs.article_title }}" >> $GITHUB_ENV
           echo "LANG_CODE=${{ needs.validate.outputs.lang_code }}" >> $GITHUB_ENV
-          echo "LABEL_NAME=${{ needs.validate.outputs.label_name }}" >> $GITHUB_ENV
 
       - name: Fetch article and convert to Markdown
         id: fetch
@@ -117,12 +115,12 @@ jobs:
           markDownFilePath: './articles/_tmp/'
           githubToken: "${{ github.token }}"
 
-      - name: Validate and sanitize filename
+      - name: Sanitize filename
         id: sanitize
         run: |
           FETCHED_FILE="${{ steps.fetch.outputs.markdown_file_path }}"
 
-          if [ ! -f "$FETCHED_FILE" ]; then
+          if [ -z "$FETCHED_FILE" ] || [ ! -f "$FETCHED_FILE" ]; then
             echo "Fetched file does not exist: $FETCHED_FILE"
             exit 1
           fi
@@ -149,177 +147,206 @@ jobs:
         run: |
           FETCHED_FILE="${{ steps.fetch.outputs.markdown_file_path }}"
           SAFE_FILENAME="${{ steps.sanitize.outputs.filename }}"
-          BACKUP_PATH="/tmp/$SAFE_FILENAME"
+          BACKUP="/tmp/$SAFE_FILENAME"
+          mkdir -p /tmp
+          cp "$FETCHED_FILE" "$BACKUP"
+          echo "path=$BACKUP" >> $GITHUB_OUTPUT
 
-          cp "$FETCHED_FILE" "$BACKUP_PATH"
+      - name: Upload raw markdown to main branch (create or update)
+        id: upload_raw
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const branch = 'main';
+            const filename = `${{ steps.sanitize.outputs.filename }}`;
+            const rawPath = `articles/_raw/${filename}`;
+            const localPath = path.join(process.cwd(), 'articles', '_tmp', filename);
 
-          echo "path=$BACKUP_PATH" >> $GITHUB_OUTPUT
-          echo "Markdown backed up to: $BACKUP_PATH"
+            // If the fetch action put file in different path, fall back to /tmp backup
+            let readPath = localPath;
+            if (!fs.existsSync(readPath)) {
+              const tmpPath = `/tmp/${filename}`;
+              if (fs.existsSync(tmpPath)) {
+                readPath = tmpPath;
+              } else {
+                core.setFailed(`Raw markdown not found at ${localPath} or /tmp/${filename}`);
+                return;
+              }
+            }
 
-      - name: Commit raw article to main
-        run: |
-          SAFE_FILENAME="${{ steps.sanitize.outputs.filename }}"
-          LANG_CODE="${{ env.LANG_CODE }}"
-          SOURCE_FILE="${{ steps.fetch.outputs.markdown_file_path }}"
+            const content = fs.readFileSync(readPath, { encoding: 'base64' });
 
-          if [[ ! "$LANG_CODE" =~ ^[a-z]{2,3}$ ]]; then
-            echo "Invalid language code: $LANG_CODE"
-            exit 1
-          fi
+            // get existing file sha if present
+            let sha;
+            try {
+              const { data: existing } = await github.rest.repos.getContent({
+                owner, repo, path: rawPath, ref: branch
+              });
+              sha = existing.sha;
+            } catch (err) {
+              if (err.status !== 404) throw err;
+            }
 
-          mkdir -p "./articles/_raw/"
-          mkdir -p "./articles/$LANG_CODE/"
+            await github.rest.repos.createOrUpdateFileContents({
+              owner,
+              repo,
+              path: rawPath,
+              message: `Add/Update raw article: ${rawPath}`,
+              content,
+              branch,
+              sha
+            });
 
-          cp "$SOURCE_FILE" "./articles/_raw/$SAFE_FILENAME"
+      - name: Ensure auto-translate branch exists (create from main if missing)
+        id: ensure_branch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const branch = 'auto-translate';
+            try {
+              await github.rest.git.getRef({ owner, repo, ref: `heads/${branch}` });
+              core.info(`${branch} exists`);
+            } catch (err) {
+              if (err.status === 404) {
+                const mainRef = await github.rest.git.getRef({ owner, repo, ref: 'heads/main' });
+                const mainSha = mainRef.data.object.sha;
+                await github.rest.git.createRef({
+                  owner, repo,
+                  ref: `refs/heads/${branch}`,
+                  sha: mainSha
+                });
+                core.info(`${branch} created from main`);
+              } else {
+                throw err;
+              }
+            }
 
-          if [ ! -f "./articles/$LANG_CODE/$SAFE_FILENAME" ]; then
-            cp "$SOURCE_FILE" "./articles/$LANG_CODE/$SAFE_FILENAME"
-          fi
-
-          git add -f "./articles/_raw/$SAFE_FILENAME" "./articles/$LANG_CODE/$SAFE_FILENAME"
-          git commit -m "Add raw article: $SAFE_FILENAME" || echo "Nothing to commit"
-
-          git fetch origin main
-          git stash push -u -m "Auto-stash before rebase" || true
-          git pull --rebase origin main || true
-          git stash pop || true
-
-          eval "$PUSH_RETRY_SCRIPT"
-          push_with_retry main
-
-      - name: Checkout auto-translate branch
-        run: |
-          if [ -f ".git/MERGE_HEAD" ]; then
-            echo "Unfinished merge detected. Aborting..."
-            git merge --abort || git reset --merge
-          fi
-
-          rm -rf ./articles/_tmp/
-
-          git fetch origin
-          if git show-ref --verify --quiet refs/remotes/origin/auto-translate; then
-            git checkout -B auto-translate origin/auto-translate
-          else
-            git checkout -b auto-translate
-          fi
-
-          git merge --strategy=recursive --strategy-option=theirs main || true
-
-      - name: Translate article
+      - name: Run articles-auto-translate action
+        id: translate
         uses: freeCodeCamp/articles-auto-translate-action@main
         with:
           with_issue_title: "${{ github.event.issue.title }}"
           with_issue_body: "${{ github.event.issue.body }}"
-          with_label_name: "${{ env.LABEL_NAME }}"
+          with_label_name: "auto"
           with_github_token: "${{ github.token }}"
           with_original_markdown_file_path: "${{ steps.backup.outputs.path }}"
           with_task_fetch_to_save_path: "./articles/_raw/"
           with_task_translate_openai_api_key: "${{ secrets.OPENAI_API_KEY }}"
           with_task_translate_to_save_path: "./articles/{lang}/"
 
-      - name: Commit translated article
-        run: |
-          SAFE_FILENAME="${{ steps.sanitize.outputs.filename }}"
-          LANG_CODE="${{ env.LANG_CODE }}"
-          TRANSLATED_FILE="./articles/$LANG_CODE/$SAFE_FILENAME"
-
-          if [ ! -f "$TRANSLATED_FILE" ]; then
-            echo "Translated file not found: $TRANSLATED_FILE"
-            exit 1
-          fi
-
-          git add "$TRANSLATED_FILE"
-          git commit -m "Add translated article ($LANG_CODE): $SAFE_FILENAME" || echo "Nothing to commit"
-
-          git fetch origin auto-translate || true
-
-          if [ -f ".git/MERGE_HEAD" ]; then
-            echo "Unfinished merge detected. Aborting..."
-            git merge --abort || git reset --merge
-          fi
-
-          git stash push -u -m "Auto-stash before rebase" || true
-          git pull --rebase origin auto-translate || true
-          git stash pop || true
-
-          eval "$PUSH_RETRY_SCRIPT"
-          push_with_retry auto-translate
-
-      - name: Cleanup temp directory
-        run: |
-          rm -rf ./articles/_tmp/
-          git add -u ./articles/_tmp/ || true
-          git commit -m "Cleanup _tmp directory" || echo "Nothing to commit"
-
-          git checkout main
-          git pull --rebase origin main || true
-
-          git add -u ./articles/_tmp/ || true
-          git commit -m "Cleanup _tmp directory" || echo "Nothing to commit"
-
-          eval "$PUSH_RETRY_SCRIPT"
-          push_with_retry main
-
-      - name: Add success comment
-        if: success()
+      - name: Upload translated file to auto-translate branch (atomic)
+        id: upload_translated
         uses: actions/github-script@v7
         with:
           script: |
-            const langCode = '${{ env.LANG_CODE }}';
-            const filename = '${{ steps.sanitize.outputs.filename }}';
+            const fs = require('fs');
+            const path = require('path');
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const branch = 'auto-translate';
+            const filename = `${{ steps.sanitize.outputs.filename }}`;
+            const lang = `${{ env.LANG_CODE }}`;
+            const filePath = `articles/${lang}/${filename}`;
+            const localPath = path.join(process.cwd(), 'articles', lang, filename);
 
-            const message = `Auto-translation completed successfully!
-
-            Files created:
-            - Raw article: \`articles/_raw/${filename}\`
-            - Translated article (auto-translate branch): \`articles/${langCode}/${filename}\`
-
-            Next steps:
-            1. Contributors can now proofread the translation on the \`auto-translate\` branch
-            2. When ready, create a PR from \`auto-translate\` to \`main\` to compare with the English original
-
-            [View translated file on auto-translate branch](https://github.com/${{ github.repository }}/blob/auto-translate/articles/${langCode}/${filename})
-            [Open github.dev to edit](https://github.dev/${{ github.repository }}/blob/auto-translate/articles/${langCode}/${filename})`;
-
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: message
-            });
-
-      - name: Add failure comment
-        if: failure()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Auto-translation workflow failed. Please check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.'
-            });
-
-  notify-skip:
-    name: Notify Skip
-    needs: validate
-    runs-on: ubuntu-latest
-    if: needs.validate.outputs.is_valid != 'true'
-    permissions:
-      issues: write
-
-    steps:
-      - name: Add skip comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const skipReason = '${{ needs.validate.outputs.skip_reason }}';
-
-            if (!skipReason.includes('not an auto-translate language label')) {
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: `Auto-translation workflow skipped: ${skipReason}\n\nPlease ensure:\n- Issue body contains a valid freeCodeCamp news article URL in markdown format: \`[Title](URL)\`\n- Issue title starts with language code in brackets, e.g., \`[zh]\` or \`[es]\`\n- Label is one of the supported language labels: chinese, spanish, portuguese, italian, japanese, korean, ukrainian`
-              });
+            if (!fs.existsSync(localPath)) {
+              core.setFailed(`Translated file not found at ${localPath}`);
+              return;
             }
+
+            const content = fs.readFileSync(localPath, { encoding: 'base64' });
+
+            // check if file exists on branch to get sha
+            let sha;
+            try {
+              const { data: existing } = await github.rest.repos.getContent({
+                owner, repo, path: filePath, ref: branch
+              });
+              sha = existing.sha;
+            } catch (err) {
+              if (err.status !== 404) throw err;
+            }
+
+            const message = `Update translated article: ${filePath} (by workflow run ${process.env.GITHUB_RUN_ID})`;
+            await github.rest.repos.createOrUpdateFileContents({
+              owner,
+              repo,
+              path: filePath,
+              message,
+              content,
+              branch,
+              sha
+            });
+            core.info(`Uploaded ${filePath} to branch ${branch}`);
+
+      - name: Extract author link and name from original article HTML
+        id: extract_author
+        run: |
+          URL="${{ needs.validate.outputs.article_url }}"
+          TMPHTML="/tmp/article.html"
+          curl -sL "$URL" -o "$TMPHTML"
+          AUTHOR_URL=""
+          AUTHOR_NAME=""
+          # try to find absolute author link first
+          AUTHOR_URL=$(grep -oP 'href="https?://[^"]*/news/author/[^"]+' "$TMPHTML" | head -n1 | sed 's/href="//' || true)
+          if [ -z "$AUTHOR_URL" ]; then
+            # try relative author link
+            REL=$(grep -oP 'href="\/news\/author\/[^"]+' "$TMPHTML" | head -n1 | sed 's/href="//' || true)
+            if [ -n "$REL" ]; then
+              AUTHOR_URL="https://www.freecodecamp.org${REL}"
+            fi
+          fi
+          # extract author name from author link text or meta author
+          AUTHOR_NAME=$(grep -oP '<a[^>]*\/news\/author\/[^"]*\"[^>]*>([^<]+)' "$TMPHTML" | sed -E 's/.*>([^<]+)<.*/\1/' | head -n1 || true)
+          if [ -z "$AUTHOR_NAME" ]; then
+            AUTHOR_NAME=$(grep -oP '<meta name="author" content="[^"]+' "$TMPHTML" | sed -E 's/.*content="//' | head -n1 || true)
+          fi
+          if [ -z "$AUTHOR_NAME" ]; then
+            AUTHOR_NAME="Unknown"
+          fi
+          echo "author_name=$AUTHOR_NAME" >> $GITHUB_OUTPUT
+          echo "author_url=$AUTHOR_URL" >> $GITHUB_OUTPUT
+          echo "AUTHOR_NAME=$AUTHOR_NAME" >> $GITHUB_ENV
+          echo "AUTHOR_URL=$AUTHOR_URL" >> $GITHUB_ENV
+
+      - name: Post final standardized comment (exact required format)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const repo = context.repo.owner + '/' + context.repo.repo;
+            const filename = `${{ steps.sanitize.outputs.filename }}`;
+            const lang = `${{ env.LANG_CODE }}`;
+            const articleUrl = `${{ needs.validate.outputs.article_url }}`;
+            const articleTitle = `${{ needs.validate.outputs.article_title }}`;
+            const authorName = `${{ steps.extract_author.outputs.author_name }}` || `${{ env.AUTHOR_NAME }}` || 'Unknown';
+            const authorUrl = `${{ steps.extract_author.outputs.author_url }}` || '';
+            const rawUrl = `https://github.com/${repo}/blob/main/articles/_raw/${filename}`;
+            const translatedEditUrl = `https://github.com/${repo}/edit/auto-translate/articles/${lang}/${filename}`;
+            const githubDevUrl = `https://github.dev/${repo}/blob/auto-translate/articles/${lang}/${filename}`;
+
+            // Build lines exactly as requested
+            const lines = [];
+            // Note: replicate exact bracket/quote style from your example
+            lines.push(`- Original URL: [\"${articleTitle}](${articleUrl})`);
+            if (authorUrl && authorUrl !== 'undefined') {
+              lines.push(`- Original author: [${authorName}](${authorUrl})`);
+            } else {
+              lines.push(`- Original author: ${authorName}`);
+            }
+            lines.push(`- Markdown file: [click to view](${rawUrl})`);
+            lines.push(`- Translated file: [click to edit](${translatedEditUrl})`);
+            lines.push(`- Open in github.dev editor: [click to open github.dev](${githubDevUrl})`);
+
+            const body = lines.join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
