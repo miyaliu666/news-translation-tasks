@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.validate.outputs.is_valid == 'true'
     steps:
-      - name: Notify: started
+      - name: "Notify: started"
         uses: actions/github-script@v7
         with:
           script: |
