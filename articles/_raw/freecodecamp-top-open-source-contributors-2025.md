@@ -1,6 +1,6 @@
 ---
 title: freeCodeCamp's Top Open Source Contributors of 2025
-date: 2025-11-28T02:46:56.103Z
+date: 2025-11-28T05:36:15.811Z
 author: Quincy Larson
 authorURL: https://www.freecodecamp.org/news/author/quincy/
 originalURL: https://www.freecodecamp.org/news/freecodecamp-top-open-source-contributors-2025/
