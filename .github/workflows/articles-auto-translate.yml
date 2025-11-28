@@ -21,53 +21,19 @@ jobs:
       is_valid: ${{ steps.validate.outputs.is_valid }}
       skip_reason: ${{ steps.validate.outputs.skip_reason }}
       article_url: ${{ steps.validate.outputs.article_url }}
-      article_title: ${{ steps.validate.outputs.article_title }}
       lang_code: ${{ steps.validate.outputs.lang_code }}
+      label_name: ${{ steps.validate.outputs.label_name }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Validate that the labeled tag is 'auto' and parse inputs
         id: validate
         uses: actions/github-script@v7
         with:
           script: |
-            const label = context.payload.label?.name?.toLowerCase() || '';
-            // Must be triggered by adding the 'auto' label
-            if (label !== 'auto') {
-              core.setOutput('is_valid', 'false');
-              core.setOutput('skip_reason', `Trigger label '${label}' is not 'auto'`);
-              return;
-            }
-
-            const issueBody = context.payload.issue?.body || '';
-            if (!issueBody.trim()) {
-              core.setOutput('is_valid', 'false');
-              core.setOutput('skip_reason', 'Issue body is empty');
-              return;
-            }
-
-            // extract markdown link [Title](URL)
-            const m = issueBody.match(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/);
-            if (!m) {
-              core.setOutput('is_valid', 'false');
-              core.setOutput('skip_reason', 'Issue body must contain a markdown link: [Title](URL)');
-              return;
-            }
-            const articleTitle = m[1];
-            const articleUrl = m[2];
-
-            // extract language code from issue title like [zh]
-            const issueTitle = context.payload.issue?.title || '';
-            const t = issueTitle.match(/^\[([a-zA-Z]{2,3})\]/);
-            if (!t) {
-              core.setOutput('is_valid', 'false');
-              core.setOutput('skip_reason', 'Issue title must start with [lang]');
-              return;
-            }
-            const langCode = t[1].toLowerCase();
-
-            core.setOutput('is_valid', 'true');
-            core.setOutput('article_url', articleUrl);
-            core.setOutput('article_title', articleTitle);
-            core.setOutput('lang_code', langCode);
+            const validator = require('./scripts/validateAutoTranslateInput.js');
+            await validator({ github, context, core });
 
   auto-translate:
     name: Auto translate (runs when label == 'auto')
@@ -100,8 +66,8 @@ jobs:
       - name: Set env from validate
         run: |
           echo "ARTICLE_URL=${{ needs.validate.outputs.article_url }}" >> $GITHUB_ENV
-          echo "ARTICLE_TITLE=${{ needs.validate.outputs.article_title }}" >> $GITHUB_ENV
           echo "LANG_CODE=${{ needs.validate.outputs.lang_code }}" >> $GITHUB_ENV
+          echo "LABEL_NAME=${{ needs.validate.outputs.label_name }}" >> $GITHUB_ENV
 
       - name: Fetch article and convert to Markdown
         id: fetch
@@ -323,7 +289,6 @@ jobs:
             const filename = `${{ steps.sanitize.outputs.filename }}`;
             const lang = `${{ env.LANG_CODE }}`;
             const articleUrl = `${{ needs.validate.outputs.article_url }}`;
-            const articleTitle = `${{ needs.validate.outputs.article_title }}`;
             const authorName = `${{ steps.extract_author.outputs.author_name }}` || `${{ env.AUTHOR_NAME }}` || 'Unknown';
             const authorUrl = `${{ steps.extract_author.outputs.author_url }}` || '';
             const rawUrl = `https://github.com/${repo}/blob/main/articles/_raw/${filename}`;
@@ -332,8 +297,7 @@ jobs:
 
             // Build lines exactly as requested
             const lines = [];
-            // Note: replicate exact bracket/quote style from your example
-            lines.push(`- Original URL: [\"${articleTitle}](${articleUrl})`);
+            lines.push(`- Original URL: [${articleUrl}](${articleUrl})`);
             if (authorUrl && authorUrl !== 'undefined') {
               lines.push(`- Original author: [${authorName}](${authorUrl})`);
             } else {
