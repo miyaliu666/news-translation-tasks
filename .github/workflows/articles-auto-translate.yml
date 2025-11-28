@@ -17,6 +17,7 @@ jobs:
   validate:
     name: Validate trigger and inputs
     runs-on: ubuntu-latest
+    if: github.event.label.name == 'auto'
     outputs:
       is_valid: ${{ steps.validate.outputs.is_valid }}
       skip_reason: ${{ steps.validate.outputs.skip_reason }}
@@ -27,7 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate that the labeled tag is 'auto' and parse inputs
+      - name: Validate inputs and get language from issue labels
         id: validate
         uses: actions/github-script@v7
         with:
