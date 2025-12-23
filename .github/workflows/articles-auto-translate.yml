@@ -12,12 +12,6 @@ env:
       local branch=${1:-main}
       local max_retries=${2:-3}
       
-      # Validate branch name to prevent injection
-      if [[ ! "$branch" =~ ^[a-zA-Z0-9_-]+$ ]]; then
-        echo "Invalid branch name: $branch"
-        return 1
-      fi
-      
       for i in $(seq 1 $max_retries); do
         if git push origin "$branch"; then
           echo "Push to $branch successful"
@@ -33,14 +27,12 @@ env:
       echo "Push failed after $max_retries attempts"
       return 1
     }
-
 jobs:
   auto-translate:
     runs-on: ubuntu-latest
     permissions:
       issues: write
       contents: write
-      pull-requests: write
 
     steps:
       ### Queue lock: prevent concurrent conflicts
@@ -56,47 +48,16 @@ jobs:
         run: |
           echo "::error::Issue body is empty. Please provide article URL."
           exit 1
-
-      ### Validate issue body content
-      - name: Validate issue body content
-        run: |
-          body="${{ github.event.issue.body }}"
-          # Check if body contains only valid URL characters
-          if [[ ! "$body" =~ ^https?://[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(/.*)?$ ]]; then
-            echo "::error::Invalid URL format in issue body"
-            exit 1
-          fi
-          # Check for potential injection attempts
-          if [[ "$body" =~ [\;\|\&\`\$\(\)] ]]; then
-            echo "::error::Suspicious characters detected in issue body"
-            exit 1
-          fi
-
-      ### Extract language code with validation
+      ### Extract language code
       - name: Extract language code
         id: lang
         run: |
           title="${{ github.event.issue.title }}"
-          # Validate title format and extract language code safely
-          if [[ ! "$title" =~ ^\[([a-zA-Z]{2,3})\].* ]]; then
-            echo "::error::Invalid title format. Expected: [LANG] Title"
-            exit 1
-          fi
-          
-          LANG_CODE=$(echo "$title" | sed -E 's/^\[([a-zA-Z]{2,3})\].*/\1/')
-          
-          # Validate language code against allowed list
-          ALLOWED_LANGS="es it ja pt uk zh"
-          if [[ ! " $ALLOWED_LANGS " =~ " $LANG_CODE " ]]; then
-            echo "::error::Unsupported language code: $LANG_CODE"
-            exit 1
-          fi
-          
+          LANG_CODE=$(echo "$title" | sed -E 's/^\[([a-zA-Z]+)\].*/\1/')
           echo "lang=$LANG_CODE" >> $GITHUB_OUTPUT
           echo "LANG_CODE=$LANG_CODE" >> $GITHUB_ENV
-
       ### Checkout repository
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       ### Configure Git
       - name: Setup Git
@@ -104,7 +65,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git config pull.rebase true
-
       ### Fetch article and generate Markdown
       - name: Fetch article and convert to Markdown
         id: fetch
@@ -118,84 +78,35 @@ jobs:
           markDownFilePath: './articles/_tmp/'
           githubToken: "${{ github.token }}"
 
-      ### Debug: List files in _tmp directory
-      - name: Debug - List _tmp directory
-        run: |
-          echo "Current working directory: $(pwd)"
-          echo "Contents of articles/_tmp/:"
-          ls -la ./articles/_tmp/ || echo "Directory does not exist"
-          echo "Fetch output: ${{ steps.fetch.outputs.markdown_file_path }}"
-
       ### Backup fetched Markdown to external secure path (keep original filename)
       - name: Backup fetched Markdown to /tmp
         id: backup-md
         run: |
           original_file="${{ steps.fetch.outputs.markdown_file_path }}"
-          
-          # Check if file exists first
-          if [[ ! -f "$original_file" ]]; then
-            echo "::error::File does not exist: $original_file"
-            echo "Available files in articles/_tmp/:"
-            ls -la ./articles/_tmp/ || echo "Directory does not exist"
-            exit 1
-          fi
-          
-          # Validate file path to prevent path traversal (more flexible regex)
-          echo "Debug: Checking file path: '$original_file'"
-          echo "Debug: Path length: ${#original_file}"
-          echo "Debug: Path bytes: $(echo -n "$original_file" | od -c)"
-          
-          if [[ ! "$original_file" =~ ^\.?/?articles/_tmp/.*\.md$ ]] || [[ "$original_file" =~ \.\. ]]; then
-            echo "::error::Invalid file path detected: $original_file"
-            echo "Debug: Pattern: ^\.?/?articles/_tmp/.*\.md$ (excluding ..)"
-            echo "Debug: Character analysis:"
-            for ((i=0; i<${#original_file}; i++)); do
-              char="${original_file:$i:1}"
-              if [[ ! "$char" =~ [a-zA-Z0-9_\-/\.] ]]; then
-                echo "Debug: Invalid char at position $i: '$char' (ASCII: $(printf "%d" "'$char"))"
-              fi
-            done
-            exit 1
-          fi
-          
-          # Safely extract filename and validate
           filename=$(basename "$original_file")
-          if [[ ! "$filename" =~ ^[a-zA-Z0-9_-]+\.md$ ]]; then
-            echo "::error::Invalid filename detected: $filename"
-            exit 1
-          fi
-          
-          # Create secure backup path with timestamp
-          timestamp=$(date +%Y%m%d_%H%M%S)
-          BACKUP_PATH="/tmp/${timestamp}_${filename}"
+          BACKUP_PATH="/tmp/$filename"
           cp "$original_file" "$BACKUP_PATH"
           echo "path=$BACKUP_PATH" >> $GITHUB_OUTPUT
           echo "BACKUP_PATH=$BACKUP_PATH" >> $GITHUB_ENV
           echo "Markdown backed up to $BACKUP_PATH"
-
       ### Save English raw text and commit to main branch
       - name: Commit raw article to main
         run: |
           file="${{ steps.fetch.outputs.markdown_file_path }}"
           base=$(basename "$file")
           lang="${{ steps.lang.outputs.lang }}"
-
           mkdir -p "./articles/_raw/"
           cp "$file" "./articles/_raw/$base"
           [ -f "./articles/$lang/$base" ] || cp "$file" "./articles/$lang/$base"
-
           git add -f "./articles/_raw/$base" "./articles/$lang/$base" || true
           git commit -m "Add raw article: $base" || echo "Nothing to commit."
-
           git fetch origin main
           git stash push -u -m "Auto-stash before rebase" || true
           git pull --rebase origin main || true
           git stash pop || true
-
           # Use push retry function
           eval "$PUSH_RETRY_SCRIPT"
           push_with_retry main
-
       ### Switch to auto-translate branch (resolve conflicts & clean up temp files)
       - name: Checkout auto-translate branch
         run: |
@@ -204,16 +115,12 @@ jobs:
             echo "Unfinished merge detected. Aborting..."
             git merge --abort || git reset --merge
           fi
-
           # Clean up temp files to avoid branch contamination
           rm -rf ./articles/_tmp/
-
           git fetch origin
           git checkout -B auto-translate origin/auto-translate
-
           git merge --strategy=recursive --strategy-option=theirs main || true
-
-      ### Auto-translate article (use original file path for consistency)
+      ### Auto-translate article (use secure path)
       - name: Translate article
         uses: freeCodeCamp/articles-auto-translate-action@main
         with:
@@ -221,7 +128,7 @@ jobs:
           with_issue_body: "${{ github.event.issue.body }}"
           with_label_name: "${{ github.event.label.name }}"
           with_github_token: "${{ github.token }}"
-          with_original_markdown_file_path: "${{ steps.fetch.outputs.markdown_file_path }}"
+          with_original_markdown_file_path: "${{ steps.backup-md.outputs.path }}"
           with_task_fetch_to_save_path: "./articles/_raw/"
           with_task_translate_openai_api_key: "${{ secrets.OPENAI_API_KEY }}"
           with_task_translate_to_save_path: "./articles/{lang}/"
@@ -229,32 +136,13 @@ jobs:
       ### Commit translated file
       - name: Commit translated article
         run: |
-          original_file="${{ steps.fetch.outputs.markdown_file_path }}"
-          filename=$(basename "$original_file")
+          base=$(basename "$BACKUP_PATH")
           lang="${{ env.LANG_CODE }}"
-          
-          # Validate language code again
-          if [[ ! "$lang" =~ ^[a-zA-Z]{2,3}$ ]]; then
-            echo "::error::Invalid language code: $lang"
-            exit 1
-          fi
-          
-          # Use original filename for consistency
-          translated="./articles/$lang/$filename"
-          
-          # Validate translated file path (more flexible regex)
-          if [[ ! "$translated" =~ ^\.?/?articles/[a-zA-Z]{2,3}/[a-zA-Z0-9_-]+\.md$ ]]; then
-            echo "::error::Invalid translated file path: $translated"
-            exit 1
-          fi
-
+          translated="./articles/$lang/$base"
           [ -f "$translated" ] || { echo "Translated file missing."; exit 1; }
-
           git add "$translated"
-          git commit -m "Add translated article: $filename" || echo "Nothing to commit."
-
+          git commit -m "Add translated article: $base" || echo "Nothing to commit."
           git fetch origin auto-translate
-
           # Safe rebase, resolve conflicts
           git stash push -u -m "Auto-stash before rebase" || true
           if [ -f ".git/MERGE_HEAD" ]; then
@@ -263,33 +151,20 @@ jobs:
           fi
           git pull --rebase origin auto-translate || true
           git stash pop || true
-
           # Use push retry function
           eval "$PUSH_RETRY_SCRIPT"
           push_with_retry auto-translate
-
-      ### Clean up temp directory and secure cleanup
+      ### Clean up temp directory
       - name: Cleanup temp directory
         run: |
-          # Secure cleanup of temp directory
-          if [ -d "./articles/_tmp/" ]; then
-            find ./articles/_tmp/ -type f -name "*.md" -delete
-            rmdir ./articles/_tmp/ 2>/dev/null || true
-          fi
-          
-          # Clean up backup files
-          if [ -n "$BACKUP_PATH" ] && [ -f "$BACKUP_PATH" ]; then
-            rm -f "$BACKUP_PATH"
-          fi
-          
+          rm -rf ./articles/_tmp/
           git add -u ./articles/_tmp/ || true
           git commit -m "Cleanup _tmp directory" || echo "Nothing to commit."
-
           git fetch origin main
           git stash push -u -m "Auto-stash before rebase" || true
           git pull --rebase origin main || true
           git stash pop || true
-
           # Use push retry function for final cleanup
           eval "$PUSH_RETRY_SCRIPT"
           push_with_retry main
+	
